@@ -6,11 +6,13 @@
     define('SPLINT_CONFIG', json_decode(file_get_contents(__DIR__ . "/../config.json")));
     define('DOMAIN', $_SERVER["REQUEST_SCHEME"] . '://' . $_SERVER['HTTP_HOST']);
 
+    require_once 'Tools/StringTools.php';
     require_once 'Debugger/Debugger.php';
     require_once 'Tools/Path.php';
     require_once 'Tools/FileTools.php';
-    require_once 'Debugger/Debugger.php';
     require_once 'Debugger/ErrorHandler.php';
+    require_once 'DataBase/DataBase.php';
+    require_once 'Array/fixedArray.php';
 
 
     trait SplintInformation_T {

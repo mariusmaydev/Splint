@@ -1,14 +1,20 @@
-<?php
+<?php 
     require_once dirname(__FILE__) . "/../Tools/Path.php";
     
     class Debugg {
-        public static function log($arg = ""){
+        public static function warn($arg = ""){
+            trigger_error(print_r($arg, true), E_USER_WARNING);
+        }
+        public static function error($arg = ""){
             trigger_error(print_r($arg, true), E_USER_ERROR);
+        }
+        public static function log($arg = ""){
+            trigger_error(print_r($arg, true), E_USER_NOTICE);
         }
         public static function time(string $arg = ""){
             self::log($arg . "   TIME: " . date('h:i:s'));
         }
-        public static function printBacktrace(bool $return = false){
+        public static function trace(bool $return = false){
             if(!$return){
                 self::log(debug_backtrace());
             } else {

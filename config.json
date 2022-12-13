@@ -1,6 +1,9 @@
 {
     "paths": {
-        "error_log" : "/fd/Splint",
-        "project_root" : "/fd/Splint"
+        "error_log"     : "/fd/resources/php",
+        "project_root"  : "/fd/resources/",
+        "DataBase"      : {
+            "config" : "/fd/resources/php"
+        }
     }
 }

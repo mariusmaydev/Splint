@@ -1,6 +1,7 @@
 <?php
     require_once dirname(__FILE__) . '/php/Tools/Path.php';
     require_once 'php/CORE.php';
+    require_once 'php/APILinks.php';
 
     trait FileBinder_T {
         protected static function genCSS(string ...$files) : void {
@@ -53,6 +54,13 @@
             } else if($ext == "css"){
                 self::genCSS($Path);
             }
+        }
+        public static function bindModule(string ...$path) : void {
+            $Path = PATH_1::getURL(DOMAIN . SPLINT_CONFIG -> paths -> project_root, ...$path);
+            echo "<script type='module' src='" . Path_1::getURL($Path) . "?v=" . rand() . "' defer sync></script>";
+        }
+        public static function bindLink(string $link, string $args = "") : void {
+            echo "<script src='" . $link. "?v=" . rand() . "' " . $args. "></script>";
         }
     }
 

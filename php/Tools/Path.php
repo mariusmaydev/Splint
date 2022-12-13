@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 trait PathHelper_T {
     protected static function buildPath(string ...$files) : string {
@@ -15,6 +15,7 @@ trait PathHelper_T {
         return preg_replace('/([^:])(\/{2,})/', '$1/', $path);
     }
 }
+
 class PATH_1 {
     use PathHelper_T;
     

@@ -1,9 +1,9 @@
 
 class InputDiv_S {
-  constructor(parent, name = ""){
+  constructor(parent, id = "", name = "") {
     this.parent = parent;
     this.name = name;
-    this.id     = "InputDiv_" + name + "_"; 
+    this.id     = "InputDiv_" + id + "_"; 
     this.draw();
     this.initEvents();
   }
@@ -18,7 +18,7 @@ class InputDiv_S {
         this.responseDiv = new spanDiv(this.div, this.id + "response", "");
         this.responseDiv.div.Class("response");
   }
-  invalid(value){
+  invalid(value = ""){
     this.responseDiv.setValue(value);
     this.input.state().unsetActive();
   }
