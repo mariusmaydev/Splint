@@ -1,0 +1,46 @@
+
+$--IMPORTANT            : "!important";
+
+$LIGHTER-ratio          : 0.6609; // 38/57.5;
+$LIGHTER-ration2        : 1.5131;
+
+$color-primary          : #FFAD5B;
+$color-primary-Dark     : #ffa228;
+$color-primary-light    : #fff1de;
+$color-background-orange: #fefefe;
+$color-primary-text     : #000000;
+$color-secondary-text   : #BCBCBC;
+$color-background       : #fdfdfd;
+$color-devider          : #BDBDBD;
+$color-accent           : #019FAB;
+$color-gold             : rgb(255, 215, 0);
+$color-chrome           : rgb(239, 248, 255);
+$color-tooltip          : rgb(192, 192, 192);
+$color-shadow           : rgb(192, 192, 192);
+$color-lighter          : rgb(24, 24, 24);
+
+@mixin standardDiv() {
+    @include box-shadow();
+    border-radius: 5px 5px;
+    background-color: white;
+    padding: 0.5em;
+}
+@mixin box-shadow($type: 0, $color: black, $alpha: 1){
+    @if($type == 0){
+        box-shadow: transparentize($color, calc($alpha -  0.15)) 0px 0px 3px, transparentize($color, calc($alpha - 0.11)) 0px 0px 3px;
+    } @else if($type == 1){
+        box-shadow: transparentize($color, calc($alpha - 0.01)) 0px 0px 5px 0px, transparentize($color, calc($alpha - 0.01)) 0px 0px 1px 0px;
+    }
+}
+
+@mixin drop-shadow($a, $b, $c, $d){
+    filter: drop-shadow($a $b $c $d);
+}
+
+@mixin border ($px: null){
+    @if($px == null){
+        border: 1px solid black;
+    } @else {
+        border: $px solid black;
+    }
+}

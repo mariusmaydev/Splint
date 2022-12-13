@@ -1,0 +1,33 @@
+[13-12 02:56] (Splint\Splint.php 49), Array
+(
+    [0] => C:/xampp/htdocs/fd/SplintExample\css\test.min.css
+    [1] => C:/xampp/htdocs/fd/SplintExample\css\test.scss
+    [2] => C:/xampp/htdocs/fd/SplintExample\index.php
+    [3] => C:/xampp/htdocs/fd/SplintExample\js\test.js
+    [4] => C:/xampp/htdocs/fd/SplintExample\php\test.php
+    [5] => C:/xampp/htdocs/fd/SplintExample\PHP_error_log.log
+)
+
+[13-Dec-2022 02:57:17 Europe/Berlin] PHP Fatal error:  Uncaught UnexpectedValueException: RecursiveDirectoryIterator::__construct(C:/xampp/htdocs/fd/SplintExample/js/js): Das System kann die angegebene Datei nicht find (code: 2) in C:\xampp\htdocs\fd\Splint\php\Tools\Path.php:45
+Stack trace:
+#0 C:\xampp\htdocs\fd\Splint\php\Tools\Path.php(45): RecursiveDirectoryIterator->__construct('C:/xampp/htdocs...')
+#1 C:\xampp\htdocs\fd\Splint\Splint.php(48): PATH_1::getFolderPaths('C:/xampp/htdocs...')
+#2 C:\xampp\htdocs\fd\SplintExample\index.php(17): FileBinder::bind('js', 'js')
+#3 {main}
+  thrown in C:\xampp\htdocs\fd\Splint\php\Tools\Path.php on line 45
+[13-12 02:57] (Splint\Splint.php 49), Array
+(
+    [0] => C:/xampp/htdocs/fd/SplintExample/js\test.js
+)
+
+[13-12 02:59] (Splint\Splint.php 38), Array
+(
+    [0] => C:/xampp/htdocs/fd/SplintExample/js\test.js
+)
+
+[13-12 02:59] (Splint\Splint.php 38), C:/xampp/htdocs
+[13-12 02:59] (Splint\Splint.php 38), C:/xampp/htdocs
+[13-12 03:00] (Splint\Splint.php 38), C:/xampp/htdocs
+[13-12 03:01] (Splint\Splint.php 17), ok
+[13-12 03:02] (Splint\Splint.php 17), ok
+[13-12 03:02] (Splint\Splint.php 17), ok
