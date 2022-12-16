@@ -58,12 +58,19 @@
                 } else {
                     $this -> backtrace = debug_backtrace()[0];
                 }
-            } else {
+            } else if(isset(debug_backtrace()[2])){
                 $this -> backtrace = debug_backtrace()[2];
+            } else {
+                $this -> backtrace = debug_backtrace()[0];
             }
         }
         private function getPath(){
-            $this -> path = Path::cut($this -> backtrace['file'], 4);
+            if($this -> backtrace['file'] != null){
+                $this -> path = Path::cut($this -> backtrace['file'], 4);
+            } else {
+                Debugg::error("ERRORHANDLER_PATH_ERROR");
+                $this -> path = "";
+            }
         }
         public static function call(int $errorType, string $errorMessage, string $errorFile, int $errorLine){
             new self($errorType, $errorMessage, $errorFile, $errorLine);

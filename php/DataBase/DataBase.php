@@ -43,7 +43,7 @@
 
     }
 
-    class Table {
+    abstract class Table {
         public $name;
         public $columns = [];
         public $primaryKey = null;

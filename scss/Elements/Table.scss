@@ -1,0 +1,55 @@
+@import '../main.scss';
+
+.TableMain {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    >.ListMain {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        >.ListElement {
+            margin: 0.5em;
+            position: relative;
+            &:hover {
+                > .ListElementHover {
+                    opacity: 1;
+                }
+            }
+            &:hover {
+                > .ListElementHover {
+                    opacity: 1;
+                }
+            }
+            >.ListElementHover {
+                position: absolute;
+                box-sizing: border-box;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                margin: 0;
+                padding: 0;
+                border: inherit;
+                box-shadow: inherit;
+                border-radius: inherit;
+                background-color: rgba(64, 64, 64, 0.63);
+                display: flex;
+                flex-direction: column;
+                transition: opacity 0.2s;
+            }
+            &.First {
+
+            }
+        }
+    }
+}
