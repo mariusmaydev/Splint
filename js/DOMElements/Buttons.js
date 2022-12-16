@@ -1,4 +1,8 @@
   class Button {
+    static STYLE_DEFAULT  = "button_Default";
+    static STYLE_STANDARD = "button_General";
+    static STYLE_NONE     = "NONE";
+
     constructor(parent, name, value = ""){
       if(typeof parent == 'object'){
         this.parent = parent;
@@ -12,16 +16,28 @@
       this.onclick = function(){};
       this.draw();
     }
+    setStyleTemplate(type){
+      if(type == this.STYLE_NONE){
+        this.button.classList.remove(this.STYLE_STANDARD);
+        this.button.classList.remove(this.STYLE_DEFAULT);
+        return;
+      }
+      switch(type){
+        case Button.STYLE_DEFAULT : this.button.classList.remove(Button.STYLE_STANDARD); break;
+        case Button.STYLE_STANDARD : this.button.classList.remove(Button.STYLE_DEFAULT); break;
+      }
+      this.button.classList.add(type);
+    }
     disableStandard(disable = true){
       if(disable){
-        this.button.classList.remove("buttonGeneral");
+        this.button.classList.remove("button_General");
       } else {
-        this.button.classList.add("buttonGeneral");
+        this.button.classList.add("button_General");
       }
     }
     draw(){
       this.button = new DOMElement(this.parent.id + "_button_" + this.name, "button", this.parent);
-      this.button.Class("buttonGeneral");
+      this.button.Class("button_General");
       this.button.onclick = function(e){ 
         this.onclick(e); 
       }.bind(this);

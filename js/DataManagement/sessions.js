@@ -43,7 +43,7 @@ class PHP_sessions_S {
       } else {
         data.name   = name;
       }
-      CalCallPHP_S.calllPHP(PHP_sessions_S.PATH, data);
+      CallPHP_S.call(PHP_sessions_S.PATH, data);
     }
     static getAllJS(){
       let data = CallPHP_S.getCallObject(PHP_sessions_S.GET_ALL_JS);
