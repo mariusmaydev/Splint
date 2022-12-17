@@ -49,7 +49,7 @@
                 case E_USER_NOTICE  : $type = "[DEBUG][NOTICE]"; break;
                 default : $type = "[ERROR]"; break;
             }
-            return sprintf( '[%s]%s at %s %s', date('d-m H:i'), $type, $this -> path, $this -> backtrace['line']) . "\n";
+            return sprintf( '[%s]%s at %s %s', date('d-m H:i'), $type, $this -> path, "-1"/*$this -> backtrace['line']*/) . "\n";
         }
         private function getBacktrace() : void {
             if($this -> errorType == E_USER_ERROR || $this -> errorType == E_USER_WARNING || $this -> errorType == E_USER_NOTICE){
@@ -65,10 +65,10 @@
             }
         }
         private function getPath(){
-            if($this -> backtrace['file'] != null){
+            if(false && isset($this -> backtrace) && $this -> backtrace['file'] != null){
                 $this -> path = Path::cut($this -> backtrace['file'], 4);
             } else {
-                Debugg::error("ERRORHANDLER_PATH_ERROR");
+                // Debugg::error("ERRORHANDLER_PATH_ERROR");
                 $this -> path = "";
             }
         }
