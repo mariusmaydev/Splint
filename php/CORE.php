@@ -13,6 +13,7 @@
     require_once 'Debugger/ErrorHandler.php';
     require_once 'DataBase/DataBase.php';
     require_once 'Array/fixedArray.php';
+    require_once 'HTML/HTML.php';
 
 
     trait SplintInformation_T {

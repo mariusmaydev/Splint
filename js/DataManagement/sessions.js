@@ -13,7 +13,7 @@ class PHP_sessions_S {
       static MODE_EDIT_PROJECT  = "EDIT_PROJECT";
       static MODE_EDIT_CART     = "EDIT_CART";
   
-    static PATH = PATH.php.session;
+    static PATH = location.protocol + "//" + location.host + "/Splint/php/DataManagement/sessions/sessionsAccess.php";
     constructor(){
   
     }

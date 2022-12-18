@@ -119,3 +119,23 @@
   HTMLElement.prototype.before = function(elementAfter){
     elementAfter.parentNode.insertBefore(this, elementAfter);
   }
+  HTMLElement.prototype.bindIcon = function(IconName, ...ClassName){
+    if(this.tagName == "SPAN"){
+      this.innerHTML = IconName;
+      if(ClassName[0] != undefined){
+        this.classList.add(ClassName);
+      }
+      this.classList.add("material-symbols-outlined");
+    }
+  }
+
+  HTMLElement.prototype.removeIcon = function(IconName){
+    if(this.tagName == "SPAN"){
+      this.innerHTML = IconName;
+      this.classList.forEach(Class => {
+        if(Class.includes("material-symbols-outlined")){
+          this.classList.remove(Class);
+        }
+      });
+    }
+  }
