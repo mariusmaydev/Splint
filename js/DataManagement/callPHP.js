@@ -1,4 +1,5 @@
 
+var asyncProgress = false;
   class CallPHP_S {
     constructor(path, method = null){
       this.path   = path;
@@ -61,5 +62,53 @@
           this.text   = response;
       }  
       return new obj(response);
+    }
+  }
+
+  class FileUpload_S {
+    static UPLOAD = "UPLOAD";
+
+    constructor(path){
+      this.path = path;
+      this.data         = new FormData();
+    }
+    #call(){
+      let data = new CallPHP_S.getCallObject(this.UPLOAD);
+      return CallPHP_S.call(this.path, data);
+    }
+    static getFileData(srcElement){
+      let element = $('#' + srcElement.id);
+      if (typeof element.prop('files')[0] != 'undefined') {
+        return element.prop('files')[0];
+      } else {
+        return false;
+      }
+    }
+    direct(srcElement, type, onsuccess, args = null){
+      let file_data = FileUpload_S.getFileData(srcElement);
+      
+      if(file_data != false){
+            this.data.append("METHOD", type);
+            this.data.append("file", file_data);
+            this.data.append("Storage", args);
+            this.onsuccess = onsuccess;
+            this.upload();
+        return true;
+      }
+      return false;
+    }
+    upload(){
+      let ajaxData = new Object();
+          ajaxData.url          = this.path;
+          ajaxData.type         = "POST";
+          ajaxData.contentType  = false;
+          ajaxData.processData  = false;
+          ajaxData.data         = this.data;
+          ajaxData.async        = true;
+          ajaxData.success      = function(data){
+            console.log(this);
+            this.onsuccess(data);
+          }.bind(this);
+      $.ajax(ajaxData);
     }
   }

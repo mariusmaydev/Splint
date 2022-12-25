@@ -55,6 +55,19 @@ class PATH_1 {
     }
 }
 
+class Data {
+    public static function edit($path, $file, $content = null){
+        if (!file_exists($path)) {
+            mkdir($path, 0777, true);
+        }
+        if ($content != null) {
+            $fp = fopen($path . "/" . $file, "w");
+            fwrite($fp, $content);
+            fclose($fp);
+        }
+    }
+}
+
 function DataGetFolder($path, $flag = false){
     $array = scandir($path);
     array_splice($array, 0, 2);

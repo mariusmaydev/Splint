@@ -10,11 +10,11 @@
     require_once 'Debugger/Debugger.php';
     require_once 'Tools/Path.php';
     require_once 'Tools/FileTools.php';
+    require_once 'Tools/CommunicationTools.php';
     require_once 'Debugger/ErrorHandler.php';
-    require_once 'DataBase/DataBase.php';
+    require_once 'DataBase2/DataBaseCore.php';
     require_once 'Array/fixedArray.php';
     require_once 'HTML/HTML.php';
-
 
     trait SplintInformation_T {
         public static function SERVER() : array {
@@ -39,3 +39,4 @@
     }
     define('SPLINT_ROOT_ABS', SplintInformation::SplintROOT());
     define('SPLINT_ROOT', DOMAIN . SplintInformation::SplintROOT());
+

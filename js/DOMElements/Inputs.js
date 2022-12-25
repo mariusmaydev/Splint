@@ -60,3 +60,56 @@ class InputDiv_S {
     this.input.type = type;
   }
 }
+
+class TextInputDiv {
+  constructor(parent, name, value){
+    this.parent = parent;
+    this.name   = name;
+    this.value  = value; 
+    this.id     = parent.id + "_" + name + "_TextInput";
+    this.div = new DOMElement(this.id + "_div", "div", this.parent);
+    this.div.Class("TextInputDiv");
+    this.draw();
+  }
+  get Value(){
+    return this.textarea.value;
+  }
+  draw(){
+    this.textarea  = new DOMElement(this.id + "_textarea", "textarea", this.div);
+    this.textarea.placeholder = this.value;
+    this.textarea.onclick = this.OnClick;
+    this.label = new Label(this.div, this.textarea, this.value);
+    this.label.before();
+    this.divider = new HorizontalLine(this.div);
+    this.divider.style.visibility = "hidden";
+    this.textarea.oninput = this.#SwitchPlaceholder.bind(this);
+  }
+  setLabel(text){
+    this.label = new Label(this.div, this.input, text);
+    this.label.before();
+    return this.label;
+  }
+  OnClick = function(e){};
+  get isChecked(){
+    return this.input.checked;
+  }
+  setValue(value){
+    if(value != undefined){
+      this.textarea.value = value;
+      SwitchPlaceholder();
+    }
+  }
+  #SwitchPlaceholder() {
+    if(this.textarea.value != ""){
+        this.label.element.style.visibility = "visible";
+        this.divider.style.visibility = "visible";
+        this.textarea.classList.add("inputFilled");
+        this.div.classList.add("inputFilled");
+    } else {
+        this.label.element.style.visibility = "hidden";
+        this.divider.style.visibility = "hidden";
+        this.textarea.classList.remove("inputFilled");
+        this.div.classList.remove("inputFilled");
+    }
+  }
+}
