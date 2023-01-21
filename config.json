@@ -1,9 +1,9 @@
 {
     "paths": {
-        "error_log"     : "/dropShop/resources/php",
-        "project_root"  : "/dropShop/resources/",
+        "error_log"     : "/fd/resources/php",
+        "project_root"  : "/fd/resources/",
         "DataBase"      : {
-            "config" : "/dropShop/resources/php"
+            "config" : "/fd/resources/php"
         }
     }
 }

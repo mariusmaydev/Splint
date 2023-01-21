@@ -168,13 +168,23 @@ class Path {
         }
     }
     public static function copyFile(string $from, string $to) : bool {
+        if (!file_exists(self::cut($to, 1, false, '/'))) {
+            mkdir(self::cut($to, 1, false, '/'), 0777, true);
+        }
         return copy($from, $to);
     }
-    public static function cut(string $path, int $amount = 6) : string {
-        $path = explode('\\', $path);
-        for($i = 0; $i < $amount; $i++) {
-            unset($path[$i]);
+    public static function cut(string $path, int $amount = 6, bool $left = true, string $separator = '\\') : string {
+        $path = explode($separator, $path);
+        //Debugg::log($path);
+        if($left){
+            for($i = 0; $i < $amount; $i++) {
+                unset($path[$i]);
+            }
+        } else {
+            for($i = 0; $i < $amount; $i++) {
+                unset($path[count($path) -1]);
+            }
         }
-        return implode('\\', $path);
+        return implode($separator, $path);
     }
 }

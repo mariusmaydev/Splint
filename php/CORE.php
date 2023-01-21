@@ -13,8 +13,11 @@
     require_once 'Tools/CommunicationTools.php';
     require_once 'Debugger/ErrorHandler.php';
     require_once 'DataBase2/DataBaseCore.php';
+    require_once 'DataManagement/sessions/sessions.php';
     require_once 'Array/fixedArray.php';
     require_once 'HTML/HTML.php';
+    require_once 'Tools/createDHLcsv.php';
+
 
     trait SplintInformation_T {
         public static function SERVER() : array {

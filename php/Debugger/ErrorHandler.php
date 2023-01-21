@@ -31,8 +31,12 @@
     class ErrorHandler {
         private $backtrace;
         private $path;
+        private $line;
+        private $file;
 
         private function __construct(public int $errorType, public string $errorMessage, string $errorFile, int $errorLine){
+            $this -> line = $errorLine;
+            $this -> file = $errorFile;
             $this -> getBacktrace();
             $this -> getPath();
             $this -> throw();
@@ -43,13 +47,29 @@
         }
         private function getBase() : string {
             $type = "";
+            $threshold = 0;
             switch($this -> errorType){
-                case E_USER_ERROR   : $type = "[DEBUG][ERROR]"; break;
-                case E_USER_WARNING : $type = "[DEBUG][WARN]"; break;
-                case E_USER_NOTICE  : $type = "[DEBUG][NOTICE]"; break;
-                default : $type = "[ERROR]"; break;
+            case E_USER_ERROR:
+                $type = "[DEBUG][ERROR]"; 
+                $threshold = 3; break;
+                case E_USER_WARNING : $type = "[DEBUG][WARN]"; 
+                $threshold = 3; break;
+                case E_USER_NOTICE  : $type = "[DEBUG][NOTICE]"; 
+                $threshold = 3; break;
+                default : $type = "[ERROR]";
+                $threshold = 3; break;
             }
-            return sprintf( '[%s]%s at %s %s', date('d-m H:i'), $type, $this -> path, $this -> backtrace['line']) . "\n";
+        //Debugg::log(debug_backtrace());
+        $res = "";
+        $bt = debug_backtrace();
+        foreach($bt as $key => $trace){
+            //Debugg::log($key);
+            if(!isset($trace['file']) || $key <= $threshold){
+                continue;
+            }
+            $res .= sprintf( '[%s]%s at %s(%s)', date('d-m H:i'), $type, $trace['file'], $trace['line']) . "\n";
+        }
+        return $res;//sprintf( '[%s]%s at %s %s', date('d-m H:i'), $type, debug_backtrace()[0]['file'], $this -> line) . "\n";
         }
         private function getBacktrace() : void {
             if($this -> errorType == E_USER_ERROR || $this -> errorType == E_USER_WARNING || $this -> errorType == E_USER_NOTICE){
@@ -58,6 +78,8 @@
                 } else {
                     $this -> backtrace = debug_backtrace()[0];
                 }
+                $this -> file = $this -> backtrace['file'];
+                $this -> line = $this -> backtrace['line'];
             } else if(isset(debug_backtrace()[2])){
                 $this -> backtrace = debug_backtrace()[2];
             } else {
@@ -69,8 +91,8 @@
                 $this -> path = Path::cut($this -> backtrace['file'], 4);
             } else {
                 // Debugg::error("ERRORHANDLER_PATH_ERROR");
-                $this -> path = "";
             }
+            $this -> path = Path::cut($this -> file, 4);
         }
         public static function call(int $errorType, string $errorMessage, string $errorFile, int $errorLine){
             new self($errorType, $errorMessage, $errorFile, $errorLine);

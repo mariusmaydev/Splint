@@ -1,6 +1,6 @@
 function spanDiv(parent, name, value){
-    let div = new DOMElement(parent.id + "_" + name + "_div", "div", parent.id);
-    let span = new DOMElement(parent.id + "_" + name + "_span", "span", div.id);
+    let div = new DOMElement(parent.id + "_" + name + "_div", "div", parent);
+    let span = new DOMElement(parent.id + "_" + name + "_span", "span", div);
         span.innerHTML = value;
     this.div  = div;
     this.span = span;

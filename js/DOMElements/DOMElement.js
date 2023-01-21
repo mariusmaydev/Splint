@@ -69,3 +69,15 @@
       }
     }
   }
+
+  function drawSimpleElement(parent, value = " ", name = null){
+    value = value.replace(" ", "\xa0");
+    if(name == null){
+      name = 0;
+      while(document.getElementById(parent.id + "_" + name + "_simple" + "_div") != null){
+        name++;
+      }
+    }
+    let main = new spanDiv(parent, name + "_simple", value);
+    return main;
+  }

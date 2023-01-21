@@ -1,5 +1,5 @@
 <?php
-    $servername             = "localhost";
+    $servername             = "127.0.0.1";
     $user                   = "root";
     $pw                     = "";
 
@@ -22,9 +22,9 @@
         global $servername;
         global $user;
         global $pw;
-
         $con = new mysqli($servername, $user, $pw);
         if($con -> connect_error){
+          Debugg::log("err");
             return false;
         } else {
             return $con;

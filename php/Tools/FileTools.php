@@ -41,4 +41,26 @@
             }
             return rmdir($dir);
         }
+        public static function copyDirectory(string $srcPath, string $dstPath) {
+            if(is_dir($srcPath)) {
+                if(!file_exists($dstPath)){
+                    @mkdir($dstPath, 0777, true);
+                }
+                $directory = dir($srcPath);
+                while(FALSE !== ($readdirectory = $directory -> read())) {
+                    if($readdirectory == '.' || $readdirectory == '..') {
+                        continue;
+                    }
+                    $PathDir = $srcPath . '/' . $readdirectory; 
+                    if(is_dir($PathDir)) {
+                        self::copyDirectory($PathDir, $dstPath . '/' . $readdirectory );
+                        continue;
+                    }
+                    copy( $PathDir, $dstPath . '/' . $readdirectory );
+                }
+                $directory -> close();
+            } else {
+                copy($srcPath, $dstPath);
+            }
+        }
     }

@@ -9,7 +9,7 @@ function Label(parent, element, value){
   }
 
   function createLabel(grandfather, parentID, content){
-    let label = new DOMElement(parentID + "_label", "label", grandfather.id);
+    let label = new DOMElement(parentID + "_label_/UID()/", "label", grandfather.id);
         label.setAttribute("for", grandfather.id);
         label.innerHTML = content;
     return label;
