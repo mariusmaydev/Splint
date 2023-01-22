@@ -100,3 +100,23 @@
         // }
     }
 }
+
+@mixin switchButton($colorActive: 0, $colorPassive: 0){
+    >.switchButton{
+        @if($colorActive != 0){
+            &[state*='active']{
+                > span {
+                    color: $colorActive;
+                }
+            }
+        }
+        
+        @if($colorPassive != 0){
+            &[state*='passive']{
+                > span {
+                    color: $colorPassive;
+                }
+            }
+        }
+    }
+}

@@ -63,13 +63,15 @@ class InputDiv_S {
 }
 
 class TextInputDiv {
-  constructor(parent, name, value){
+  constructor(parent, name, value, autoHeight = true){
     this.parent = parent;
     this.name   = name;
     this.value  = value; 
+    this.autoHeight = autoHeight;
     this.id     = parent.id + "_" + name + "_TextInput";
     this.div = new DOMElement(this.id + "_div", "div", this.parent);
     this.div.Class("TextInputDiv");
+    this.oninput = function(){};
     this.draw();
   }
   get Value(){
@@ -83,7 +85,13 @@ class TextInputDiv {
     this.label.before();
     this.divider = new HorizontalLine(this.div);
     this.divider.style.visibility = "hidden";
-    this.textarea.oninput = this.#SwitchPlaceholder.bind(this);
+    this.textarea.oninput = function(e){
+      this.#SwitchPlaceholder();
+      this.oninput(e);
+      if(this.autoHeight){
+        this.adjustHeight();
+      }
+    }.bind(this);
   }
   setLabel(text){
     this.label = new Label(this.div, this.input, text);
@@ -98,6 +106,9 @@ class TextInputDiv {
     if(value != undefined){
       this.textarea.value = value;
       this.#SwitchPlaceholder();
+      if(this.autoHeight){
+        this.adjustHeight();
+      }
     }
   }
   #SwitchPlaceholder() {
@@ -112,6 +123,11 @@ class TextInputDiv {
         this.textarea.classList.remove("inputFilled");
         this.div.classList.remove("inputFilled");
     }
+  }
+  adjustHeight() {
+    console.dir(this.textarea);
+    this.textarea.style.height = 'auto';
+    this.textarea.style.height = this.textarea.scrollHeight + 'px';
   }
 }
 

@@ -51,13 +51,13 @@
             switch($this -> errorType){
             case E_USER_ERROR:
                 $type = "[DEBUG][ERROR]"; 
-                $threshold = 3; break;
+                $threshold = 2; break;
                 case E_USER_WARNING : $type = "[DEBUG][WARN]"; 
                 $threshold = 3; break;
                 case E_USER_NOTICE  : $type = "[DEBUG][NOTICE]"; 
                 $threshold = 3; break;
                 default : $type = "[ERROR]";
-                $threshold = 3; break;
+                $threshold = 2; break;
             }
         //Debugg::log(debug_backtrace());
         $res = "";

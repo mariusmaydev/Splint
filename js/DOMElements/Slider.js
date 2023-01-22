@@ -1,3 +1,55 @@
+class Slider_S {
+  constructor(parent, name, signFlag = true){
+    this.parent = parent;
+    this.signFlag = signFlag;
+    this.name = name;
+    this.val  = 10;
+    this.min  = 0;
+    this.max  = 0;
+    this.step = 1;
+    this.id = "Slider_" + name + "_";
+    this.mainElement = new DOMElement(this.id + "main", "div", this.parent);
+    this.mainElement.Class("Slider_main");
+  }
+  events(){
+    this.oninput = function(){};
+    this.inputElement.oninput = function(e){
+      this.oninput(e);
+      this.signElement.setValue(this.inputElement.value);
+    }.bind(this);
+  }
+  draw(){
+      this.inputBody = new DOMElement(this.id + "inputBody", "div", this.mainElement);
+      this.inputBody.Class("Slider_inputBody");
+        this.inputElement = new DOMElement(this.id + "input", "input", this.inputBody);
+        this.inputElement.Class("Slider_input");
+        this.inputElement.type  = "range";
+        this.inputElement.min   = this.min;
+        this.inputElement.max   = this.max;
+        this.inputElement.step  = this.step;
+        this.inputElement.setAttribute("value", this.val);
+        if(this.signFlag){
+          this.signElement = new spanDiv(this.inputBody, "sign", this.inputElement.value);
+        }
+        this.events();
+  }
+  get value(){
+    return this.inputElement.value;
+  }
+  set value(val){
+    this.val = val;
+    if(this.inputElement != undefined){
+      this.inputElement.value = val;
+    }
+  }
+
+  setLabel(text){
+    this.label = new Label(this.mainElement, this.inputBody, text);
+    this.label.before();
+  }
+}
+
+
 class Slider {
     constructor(id, parent, name, min, max, val){
       this.id = id;

@@ -92,7 +92,11 @@
       this.onMouseEnter = function(){};
       this.onMouseLeave = function(){};
       this.drawSwitch();
+      this.button.Class("switchButton");
     }  
+    disableStandardSwitch(){
+      this.button.classList.remove("switchButton");
+    }
     setActive(){
       this.button.state().setActive();
       this.onactive();
