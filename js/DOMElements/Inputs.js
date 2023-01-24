@@ -125,7 +125,6 @@ class TextInputDiv {
     }
   }
   adjustHeight() {
-    console.dir(this.textarea);
     this.textarea.style.height = 'auto';
     this.textarea.style.height = this.textarea.scrollHeight + 'px';
   }

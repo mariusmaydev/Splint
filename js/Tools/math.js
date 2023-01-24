@@ -50,4 +50,27 @@ class MATH {
     static toRadians(angle) {
       return this.multiply(angle, (Math.PI / 180));
     }
+
+  }
+
+  class MATH_convert {
+    static pt2px(pt){
+      return MATH.multiply(pt, 1.333333);
+    }
+    static px2pt(px){
+      return MATH.divide(px, 1.333333);
+    }
+    static pt2mm(pt){
+      return MATH.multiply(pt, 0.352777);
+    }
+    static px2mm(px){
+      return MATH.multiply(px, 0.264583);
+    }
+    static mm2px(mm){
+      return MATH.multiply(mm, 3.779527);
+    }
+    static mm2pt(mm){
+      return MATH.multiply(mm, 2.834645);
+    }
+
   }
