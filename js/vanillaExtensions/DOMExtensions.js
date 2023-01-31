@@ -1,7 +1,25 @@
   //----------------------------------------------------------------
   //Erweiterungen für alle DOMElemente
   //----------------------------------------------------------------
-  
+
+  HTMLElement.prototype.hasParentWithClass = function(CSS_class){
+    let ele = this;
+    do {
+      if(ele.classList.contains(CSS_class)){
+        console.dir(ele.classList);
+        return true;
+      }
+      ele = ele.parentNode;
+    } while(ele.parentNode != null){
+    }
+    // if(!this.classList.contains("expander") && !this.parentNode.classList.contains("expander")){
+    //     if(!this.id.includes("copy")){
+    //       return true;
+    //     }
+    // }
+    return false;
+  }
+
   HTMLElement.prototype.setTooltip = function(value, direction){
     this.tooltip = new Tooltip(this, value, direction);
   }
