@@ -1,0 +1,61 @@
+@use '../_main.scss' as *;
+
+.addressMenuNewMain {
+    // @include AddressMenuNew();
+    >[id*='menuElement'] {
+        > div {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            row-gap: 0.5em;
+            grid-template-areas: 
+                "salutation salutation fN fN fN fN lN lN lN lN"
+                "plz plz plz ct ct ct ct cy cy cy"
+                "st st st st st hn hn hn hn hn"
+                "ema ema ema ema ema ph ph ph ph ph";
+            > div {
+                background-color: transparent;
+                box-sizing: border-box;
+                &.S_InputDiv {
+                    padding-bottom: -0.5em;
+                    > label {
+    
+                    }
+                    // > 
+                }
+                &[id*='title']{
+                    display: none;
+                }
+                &[id*='salutation']{
+                    grid-area: salutation;
+                }
+                &[id*='firstName']{
+                    grid-area: fN;
+                }
+                &[id*='lastName']{
+                    grid-area: lN;
+                }
+                &[id*='postcode']{
+                    grid-area: plz;
+                }
+                &[id*='city']{
+                    grid-area: ct;
+                }
+                &[id*='country']{
+                    grid-area: cy;
+                }
+                &[id*='street']{
+                    grid-area: st;
+                }
+                &[id*='housenumber']{
+                    grid-area: hn;
+                }
+                &[id*='email']{
+                    grid-area: ema;
+                }
+                &[id*='phone']{
+                    grid-area: ph;
+                }
+            }
+        }
+    }
+}

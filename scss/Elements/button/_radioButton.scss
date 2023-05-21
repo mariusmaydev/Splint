@@ -1,0 +1,91 @@
+@use '../../_main.scss' as *;
+
+.n_RadioButton {
+    position: relative;
+
+    > .radio_headline {
+        position: relative;
+
+    }
+    > .inner {
+        position: relative;
+        > hr {
+
+        }
+        > div {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            align-items: center;
+            > .inputBody {
+                position: relative;
+                // display: inline-block;
+                box-sizing: border-box;
+                width: 1em;
+                margin: 0.5em;
+                height: 1em;
+                min-width: 1em;
+                > input {
+                    position: absolute;
+                    opacity: 0;
+                    cursor: pointer;
+                    height: 0;
+                    width: 0;
+                    &:checked {
+                        ~ span {
+                            box-sizing: border-box;
+                            background-color: #2196F3;
+                            &:after {
+                                box-sizing: border-box;
+                                display: block;
+                                
+                            }
+                        }
+                    }
+                }
+                > span {
+                    box-sizing: content-box;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                    background-color: #eee;
+                    border-radius: 50%;
+                    &:after {
+                        box-sizing: border-box;
+                        content: "";
+                        left: 0;
+                        top: 0;
+                        position: absolute;
+                        display: none;
+                        margin: 25%;
+                        // left: 20%;
+                        width: 50%;
+                        height: 50%;
+                        border-radius: 50%;
+                        background: white;
+                    }
+                }
+                &:hover input ~ span {
+                    background-color: #ccc;
+                }
+            }
+            > .labelDiv {
+                > .name {
+                    > span {
+
+                    }
+                }
+                > .displayDiv {
+                    > div {
+                        // display: none;
+                    }
+                }
+            }
+        }
+    }
+}

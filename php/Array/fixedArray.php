@@ -1,6 +1,6 @@
 <?php 
     //----------------------------------------------------------------
-    // Ultraschnelles 2-Dimensionales Datenfeld  (array[x][y])
+    // performantes 2-Dimensionales Datenfeld  (array[x][y])
     //
     // - kann nur integer fassen
     //----------------------------------------------------------------

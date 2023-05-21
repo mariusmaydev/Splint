@@ -1,26 +1,58 @@
-<?php namespace DataBase;
+<?php
 
-    use stdClass;
-
-    class DataSet {
-        private $SET        = [];
-        private $WHERE      = [];
-        private $primaryKey = false;
-
-        public function __construct(){}
-        public function getPrimaryKey() : string|bool {
-            return $this -> primaryKey;
-        }
-        public function SET(string $key, string $value) : void {
-            array_push($this -> SET, $this -> Key_value($key, $value));
-        }
-        public function WHERE(string $key, string $value){
-            array_push($this -> WHERE, $this -> Key_value($key, $value));
-        }
-        private function Key_value(string $key, string $value) : stdClass {
-            $obj = new stdClass();
-            $obj -> key = $key;
-            $obj -> value = $value;
-            return $obj;
+class DataSet {
+    public $dataSet     = [];
+    public $keySet      = [];
+    public $PrimaryKey  = "";
+    public $TBName      = "";
+    public $DBName      = "";
+    
+    const BETWEEN  = 0;
+    
+    public function newEntry($EntryName, $value = null){
+        $array = [$EntryName, $value];
+        array_push($this -> dataSet, $array);
+    }
+    public function removeEntry($EntryName){
+        $i = 0;
+        foreach ($this -> dataSet as $data) {
+            if($data[0] == $EntryName){
+                array_splice($this -> dataSet, $i);
+            }
+            $i++;
         }
     }
+    public function primaryKey($PrimaryKey = null){
+        if ($PrimaryKey != null) {
+            $this -> PrimaryKey = $PrimaryKey;
+        }
+        return $this -> PrimaryKey;
+    }
+    public function newKey($KeyName, $Key = null, int $Flag = -1){
+        if($Key == null){
+            $array = [$KeyName, $Key, $Flag];
+            array_push($this -> keySet, $array);
+        } else {
+            $array = [$KeyName, $Key, $Flag];
+            array_push($this -> keySet, $array);
+        }
+    }
+    public function getKeyNames_Keys(){
+        return $this -> keySet;
+    }
+    public function TBName($TBName = null){
+        if ($TBName != null) {
+            $this -> TBName = $TBName;
+        }
+        return $this -> TBName;
+    }
+    public function DBName($DBName = null){
+        if ($DBName != null) {
+            $this -> DBName = $DBName;
+        }
+        return $this -> DBName;
+    }
+    public function getEntrys_Names(){
+        return $this -> dataSet;
+    }
+}

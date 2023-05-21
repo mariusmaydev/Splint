@@ -1,3 +1,9 @@
+class timeTools {
+  static sleep (time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+  }
+}
+
 class formatUnix_S {
     constructor(UnixTime){
       this.UnixTime = UnixTime;
@@ -32,7 +38,7 @@ class formatUnix_S {
     }
   }
 
-  class Time_S {
+  class S_Time {
     static getTimeFromURL(URL){
       return URL.split("?v=")[1];
     }

@@ -1,0 +1,19 @@
+// @import url('src/typography.css');
+// @import url('src/components/components.css');
+
+
+:root {
+    --main-font: "Montserrat";
+
+
+    --primary: "";
+
+
+    --primary-text: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--main-font);
+}

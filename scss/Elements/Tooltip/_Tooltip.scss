@@ -1,0 +1,67 @@
+@use '../../_main.scss' as *;
+@use 'bottom' as bottom;
+@use 'left' as left;
+@use 'right' as right;
+@use 'top' as top;
+
+.tooltip_S {
+  &[state*='active']{
+    &:after, &:before {
+      display: none;
+    }
+  }
+  &[data-tooltip-direction='right']{
+    @include right.draw();
+  }
+  &[data-tooltip-direction='top']{
+    @include top.draw();
+  }
+  &[data-tooltip-direction='left']{
+    @include left.draw();
+  }
+  &[data-tooltip-direction='bottom']{
+    @include bottom.draw();
+  }  
+}
+
+@mixin TooltipStyle($color: null, $speed: null, $border-radius: null){
+  &:after {
+    @if($border-radius != null){
+      border-radius: $border-radius;
+    }
+    @if($speed != null){
+      transition-duration: $speed;
+    }
+    @if($color != null){
+      background: $color;
+    }
+  }
+  &:before {
+    @if($speed != null){
+      transition-duration: $speed;
+    }
+
+  }
+  @if($color != null){
+    &[data-tooltip-direction='right']{
+      &:before {
+        border-right-color: $color;
+      }
+    }
+    &[data-tooltip-direction='top']{
+      &:before {
+        border-top-color: $color;
+      }
+    }
+    &[data-tooltip-direction='left']{
+      &:before {
+        border-left-color: $color;
+      }
+    }
+    &[data-tooltip-direction='bottom']{
+      &:before {
+        border-bottom-color: $color;
+      }
+    } 
+  } 
+}

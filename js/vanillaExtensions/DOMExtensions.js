@@ -1,12 +1,246 @@
+  
+    class SPLINT_DOMextensions {
+        constructor(instance){
+            this.instance = instance;
+        } 
+        get state(){
+            let c = class {
+                constructor(instance){
+                    this.instance = instance;
+                }
+                remove(){
+                    if(this.instance.getAttribute("s-state") != null){
+                        this.instance.removeAttribute("s-state");
+                    }
+                }
+                toggle(){
+                    if(this.instance.getAttribute("s-state") == "active"){
+                        this.setPassive();
+                    } else {
+                        this.setActive();
+                    }
+                }
+                setActive(){
+                    this.instance.setAttribute("s-state", "active");
+                    this.instance.state = "active";
+                }
+                setPassive(){
+                    this.instance.setAttribute("s-state", "passive");
+                    this.instance.state = "passive";
+                }
+            }
+            return new c(this.instance);
+        }   
+    }
+    
+    Object.defineProperty(HTMLElement.prototype, "SPLINT", {
+        get: function(){
+            return new SPLINT_DOMextensions(this);
+        },
+        enumerable: false,
+        configurable: false
+    })
+    Object.defineProperty(HTMLElement.prototype, "S", {
+        get: function(){
+            return new SPLINT_DOMextensions(this);
+        },
+        enumerable: false,
+        configurable: false
+    })
   //----------------------------------------------------------------
   //Erweiterungen für alle DOMElemente
   //----------------------------------------------------------------
+
+  HTMLElement.prototype.getAbsoluteWidth = function () {
+      let styles = window.getComputedStyle(this);
+      let margin = parseFloat(styles['marginLeft']) +
+                  parseFloat(styles['marginRight']);
+
+      return Math.ceil(this.offsetWidth + margin);
+    }
+    
+  HTMLElement.prototype.getAbsoluteHeight = function () {
+      let styles = window.getComputedStyle(this);
+      let margin = parseFloat(styles['marginTop']) +
+                   parseFloat(styles['marginBottom']);
+  
+      return Math.ceil(this.offsetHeight + margin);
+    }
+
+  HTMLElement.prototype.queryChildren = function(queryObject, FLAG_all = true){
+    function func(element, queryArray, FLAG_all, callback = function(){}){
+      if(element.children == undefined){
+          return false;
+      }
+      
+      for(const child of element.children){
+        if(FLAG_all){
+          for(const param of queryArray){
+            if(child[param[0]] != param[1]){
+              func(child, queryArray, FLAG_all, callback);
+              return false;
+            }
+          }
+          callback(child);
+          return true;
+        } else {
+          for(const param of queryArray){
+            if(child[param[0]] == param[1]){
+              callback(child);
+              return true;
+            }
+          }
+        }
+        func(child, queryArray, FLAG_all, callback);
+        return false;
+      }
+      return false;
+    }
+    let element = null;
+    let queryArray = Object.entries(queryObject);
+    func(this, queryArray, FLAG_all, function(child){
+      element = child;
+    });
+    return element;
+  }
+  // HTMLElement.prototype.getChildByClassName = function(className){
+  //   function func(element, className, callback = function(){}){
+  //     if(element.children == undefined){
+  //         return false;
+  //     }
+  //     for(const child of element.children){
+  //         if(child.className == className){
+  //             callback(child);
+  //             return true;
+  //         } else {
+  //             func(child, className, callback);
+  //         }
+  //     }
+  //     return false;
+  //   }
+  //   let element = null;
+  //   func(this, className, function(child){
+  //     element = child;
+  //   });
+  //   return element;
+  // }
+
+  HTMLElement.prototype.getElementBefore = function(){
+    return this.previousElementSibling;
+  }
+  HTMLElement.prototype.getElementAfter = function(){
+    return this.nextElementSibling;
+  }
+
+    HTMLElement.prototype.startAnimation = function(name = "testA", duration = 1, timingFunction = "ease", delay = 0, iterationCount = 1, direction = "normal"){
+        this.style.animation = name + " " + duration + "s " + timingFunction + " " + delay + "s " + iterationCount + " " +  direction;
+        return new Promise(async function(resolve){
+            if(typeof iterationCount == 'number'){
+                setTimeout(function(){
+                    this.style.animation = "";
+                    resolve(this.style.animation);
+                }.bind(this), (iterationCount * duration * 1000));
+            } else {
+                resolve(this.style.animation);
+            }
+        }.bind(this));
+    } 
+    HTMLElement.prototype.startAnimation_str = function(str, duration, delay = 0){
+        this.style.animation = str;
+        return new Promise(async function(resolve){
+            setTimeout(function(){
+                this.style.animation = "";
+                resolve(this.style.animation);
+            }.bind(this), (delay + duration) * 1000);
+        }.bind(this));
+    } 
+  HTMLElement.prototype.setTooltip = function(value, direction){
+    return new Tooltip_S(value, direction, this);
+  }
+  HTMLElement.prototype.clear = function(element){
+    for(let i = 0; i < this.childNodes.length; i++){
+      if(this.childNodes[i] != element){
+        this.childNodes[i].remove();
+      }
+    }
+  }
+  HTMLElement.prototype.disable = function(type){
+    this.setAttribute(type, "");
+  }
+  HTMLElement.prototype.SPLINT = {
+    get() {
+      return new SPLINT_DOMextensions(this);
+    }, 
+    set(v){
+      val = v;
+    },
+    enumerable: true,
+    configurable: true,
+  }
+// Object.defineProperty(HTMLElement.prototype, "SPLINT",  {
+//   /** @this {ObjThis}*/
+//   get() {
+//     return new SPLINT_DOMextensions(this);
+//   }, 
+//   /** @this {ObjThis}*/
+//   set(v){
+//     val = v;
+//   },
+//   enumerable: true,
+//   configurable: true,
+// });
+
+HTMLElement.prototype.newChild = function(name, tag, oncreate = function(){}){
+  return new SPLINT.DOMElement(this.id + name, tag, this, oncreate)
+}
+  /**
+   * 
+   * @param {string} id_or_name 
+   * @param {string} Class 
+   * @returns 
+   * 
+   * @example 
+   * id_or_name = "/ID/<name>"
+   * element.id -> "<parent.id>_<name>"
+   * id_or_name = "<name>"
+   * element.id -> "<name>"
+   * id_or_name = null
+   * element.id -> "<parent.id>_<uniqueID>"
+   */
+    HTMLElement.prototype.newDiv = function(id_or_name = null, Class = null){
+        let f_id = "";
+        if(id_or_name != null){
+          if(id_or_name.includes("/ID/")){
+            f_id = this.id + "_" + id_or_name.replace("/ID/", "");
+          } else {
+            f_id = id_or_name;
+          }
+        } else {
+            f_id = this.id + "_/UID()/";
+        }
+        let ele = new SPLINT.DOMElement(f_id, "div", this);
+            if(Class != null){
+                ele.Class(Class);
+            }
+        return ele;
+    }
+
+  HTMLElement.prototype.hasParentWithID = function(ID){
+    let ele = this;
+    do {
+      if(ele.id.includes(ID)){
+        return true;
+      }
+      ele = ele.parentNode;
+    } while(ele.parentNode != null){
+    }
+    return false;
+  }
 
   HTMLElement.prototype.hasParentWithClass = function(CSS_class){
     let ele = this;
     do {
       if(ele.classList.contains(CSS_class)){
-        console.dir(ele.classList);
         return true;
       }
       ele = ele.parentNode;
@@ -20,9 +254,6 @@
     return false;
   }
 
-  HTMLElement.prototype.setTooltip = function(value, direction){
-    this.tooltip = new Tooltip(this, value, direction);
-  }
   HTMLElement.prototype.Class = function(...names){
     function obj(instance, ...names){
       if(names.length > 0 && names[0] != undefined){
@@ -51,7 +282,7 @@
         }
       }
     }
-  }
+  } 
   HTMLElement.prototype.state = function(){
       this.get = function(){
         if(this.hasAttribute("state")){
@@ -90,29 +321,29 @@
   HTMLElement.prototype.disable = function(type){
     this.setAttribute(type, "");
   }
-  HTMLElement.prototype.onEnter = function(keyEvent = "keyup"){
-    function obj(element){
-      element.getTrigger   = function(triggerElement, keyEvent){
-        triggerElement.addEventListener(keyEvent, function(event){
-          if(event.key === 'Enter'){
-            event.preventDefault();
-            triggerElement.click();
-            RemoveEnterListener(triggerElement);
-          }
-        });
-      };
-      this.getValue     = function(valueElement){
-        valueElement.addEventListener(keyEvent, function(event){
-          if(event.key === 'Enter'){
-            event.preventDefault();
-            element.click();
-            RemoveEnterListener(element);
-          }
-        });
-      }
-    }
-    return new obj(this, keyEvent);
-  }
+  // HTMLElement.prototype.onEnter = function(keyEvent = "keyup"){
+  //   function obj(element){
+  //     element.getTrigger   = function(triggerElement, keyEvent){
+  //       triggerElement.addEventListener(keyEvent, function(event){
+  //         if(event.key === 'Enter'){
+  //           event.preventDefault();
+  //           triggerElement.click();
+  //           RemoveEnterListener(triggerElement);
+  //         }
+  //       });
+  //     };
+  //     this.getValue     = function(valueElement){
+  //       valueElement.addEventListener(keyEvent, function(event){
+  //         if(event.key === 'Enter'){
+  //           event.preventDefault();
+  //           element.click();
+  //           RemoveEnterListener(element);
+  //         }
+  //       });
+  //     }
+  //   }
+  //   return new obj(this, keyEvent);
+  // }
   HTMLElement.prototype.path = function(){
     if(this.Path == undefined){
       element = this;

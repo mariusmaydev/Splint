@@ -1,0 +1,13 @@
+@use '../_main.scss' as *;
+
+.horizontalLine{
+    position: relative;
+    margin: 0.1rem;
+    left: 1%;
+    width: 98%;
+    opacity: 1;
+    color: $color-devider;
+    border: none;
+    border-top: 0.5px solid $color-devider;
+    background-color: $color-devider;
+}

@@ -5,13 +5,13 @@ class checkbox_S {
         this.parent = parent;
         this.name = name;
         this.id = "checkbox_" + name + "_" + parent.id + "_";
-        this.mainElement = new DOMElement(this.id + "main", "div", this.parent);
+        this.mainElement = new SPLINT.DOMElement(this.id + "main", "div", this.parent);
         this.mainElement.Class("checkbox");
         this.draw();
         this.events();
     }
     draw(){
-        this.input = new DOMElement(this.id + "input", "input", this.mainElement);
+        this.input = new SPLINT.DOMElement(this.id + "input", "input", this.mainElement);
         this.input.type = "checkbox";
 
         this.label = new Label(this.mainElement, this.input, this.name);

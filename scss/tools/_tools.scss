@@ -1,0 +1,33 @@
+@mixin border ($px: null){
+    @if($px == null){
+        border: 1px solid black;
+    } @else {
+        border: $px solid black;
+    }
+}
+
+@mixin SPLINT-border-inset ($color: red, $px: 1px, $top: true, $left: true, $bottom: true, $right: true){
+    $vLeft: 0px 0px 0px 0px white;
+    $vRight: 0px 0px 0px 0px white;
+    $vTop: 0px 0px 0px 0px white;
+    $vBottom: 0px 0px 0px 0px white;
+    @if($left == true){
+        $vLeft: inset $px 0px 0px 0px $color;
+    }    
+    @if($right == true){
+        $vRight: inset calc($px * -1) 0px 0px 0px $color;
+    } 
+    @if($top == true){
+        $vTop: inset 0px $px 0px 0px $color;
+    }
+    @if($bottom == true){
+        $vBottom: inset 0px calc($px * -1) 0px 0px $color;
+    }
+    box-shadow: $vLeft, $vRight, $vTop, $vBottom;
+    // box-shadow: inset 0px 1px 0px 0px #FF0000, inset 0px -1px 0px 0px #FF0000;
+    // @if($px == null){
+    //     border: 1px solid black;
+    // } @else {
+    //     border: $px solid black;
+    // }
+}

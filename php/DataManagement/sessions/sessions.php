@@ -1,4 +1,5 @@
 <?php
+    require_once dirname(__FILE__) . "/../../CORE.php";
     ini_set('display_errors','On');
 
     class Sessions {
@@ -19,6 +20,11 @@
                 // ini_set('session.save_path',getcwd(). '/');
                 session_start();
             }
+        }
+        public static function getSessionID(bool $print = true){
+            self::start();
+            Communication::sendBack(session_id(), false, $print);
+            return session_id();
         }
         static function getAllJS(){
             $sessions = self::getAll();

@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "chart.js": "^4.3.0",
+    "jquery": "^3.7.0"
+  },
+  "contributes": {
+    "semanticTokenTypes": [{
+      "id":          "SPLINT",
+      "superType":   "class",
+      "description": "custom bar type"
+    }],
+    "semanticTokenModifiers": [{
+      "id":          "native",
+      "description": "annotate symbol as native"
+    }],
+    "semanticTokenScopes": [{
+      "language": "javascript",
+      "scopes":   { "property.readonly": [ "class" ] }
+    }]
+  }
+}

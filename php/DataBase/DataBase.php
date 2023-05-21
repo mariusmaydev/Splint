@@ -1,92 +1,136 @@
-<?php namespace DataBase;
-
-    require_once 'DataBaseFunctions.php';
-
-    define('SPLINT_DATABASE_CONFIG', (function(){
-        $config = json_decode(file_get_contents(SERVER_ROOT . SPLINT_CONFIG -> paths -> DataBase -> config . "/DataBase.config.json"));
-        if($config -> hostname == null){
-            $config -> hostname = $_SERVER['HTTP_HOST'];
-        }
-        return $config;
-    })());
-
-    use DataBase\Functions\Tools as DBFunctions;
-    use Debugg;
-    use stdClass;
+<?php
     
-    final class DataBase extends DBFunctions {
-        public static function executeDirect(string $command, string $DBName){
-            $conn = self::getConnection(DBName: $DBName);
-            $result = self::querySQL($conn, $command);
-        }
-        public static function get(Table $table, DataSet $dataSet, string $DBName){
-            $conn = self::getConnection(DBName: $DBName);
-            $set = implode(',', array_map(function($c){return $c -> name;}, $dataSet -> SET));
-            $where = implode(', ', array_map(function($c){return $c -> name;}, $dataSet -> WHERE));	
-            $sql = "SELECT $set FROM $table -> name WHERE" . $where;
-            Debugg::log(self::querySQL($conn, $sql));
-        }
-        public static function insert(Table $table, DataSet $dataSet, string $DBName){
-        }
-        public static function createTable(Table $table, string $DBName){
-            $sql = "CREATE TABLE IF NOT EXISTS " . $table -> name . " (";
-            foreach($table -> columns as $column){
-              $sql .= $column -> name . " " . $column -> params . ", ";
+    require_once dirname(__FILE__) . "/../DataBase/DataSet.php";
+    require_once dirname(__FILE__) . "/../DataBase/DataBaseHelper.php";
+    require_once dirname(__FILE__) . "/../DataBase/SQL.php";
+
+
+    abstract class DataBase extends DataBaseHelper {
+        use tDBFunctions;
+        const SQL_NEW = "NEW";
+        const SQL_EDIT = "EDIT";
+      const FORCE_ORDERED       = "FORCE_ORDERED";
+      const DENY_ORDERED        = "DENY_ORDERED";
+
+
+
+      protected static function accessDB($DBName, $sql){
+          $con = self::connectToServer();
+          self::createDBifNotExist($DBName, $con);
+          $con -> query($sql);
+          return $con;
+      }
+      protected static function getData(DataSet $DataSet, $con, $param = null){
+        $TBName = $DataSet -> TBName();
+        $Keys   = self::generateKeySQL($DataSet);
+        $Entry  = self::generateEntrySQL($DataSet);
+
+        $sql = "SELECT $Entry FROM $TBName" . $Keys;
+        $res = $con -> query($sql);
+        $con -> close();
+        if ($res) {
+          $response = [];
+          $EntryCount = 1;
+          $flag = true;
+          if($param == DataBase::FORCE_ORDERED){
+            $EntryCount = 0;
+          } else if($param == DataBase::DENY_ORDERED){
+            $flag = false;
+          }
+          if($res -> num_rows > $EntryCount && $flag){
+            $i = 0;
+            while($row = $res -> fetch_assoc()){
+              $response[$i] = $row;
+              $i++;
             }
-            $sql .= "PRIMARY KEY (" . $table -> primaryKey -> name . "))";
-            self::executeDirect($sql, DBName: $DBName);
+            return $response;
+          } else {
+            return $res -> fetch_assoc();
+          }
+        } else {
+            return false;
         }
-        public static function removeTable(Table $table, string $DBName) : void {
-            $sql = "DROP TABLE IF EXISTS " . $table -> name;
-            self::executeDirect($sql, DBName: $DBName);
+      }
+      protected static function AddData(DataSet $dataset, $con){
+        $sql = self::generateSQL($dataset, self::SQL_NEW);
+        $con -> query($sql);
+        $con -> close();
+      }
+      protected static function dropTable(DataSet $dataset, $con) : void {
+        $TBName = $dataset -> TBName();
+        $sql = "DROP TABLE IF EXISTS $TBName";
+        $con -> query($sql);
+        $con -> close();
+      }
+      protected static function removeData(DataSet $dataset, $con){
+        $TBName     = $dataset -> TBName();
+        $dataset    = $dataset -> getEntrys_Names();
+        $EntryName  = $dataset[0][0];
+        $Entry      = $dataset[0][1];
+        $sql = "DELETE FROM $TBName WHERE $EntryName = '$Entry'";
+        $con -> query($sql);
+        $con -> close();
+        return true;
+      }
+      protected static function editData($con, DataSet $DataSet){
+        $TBName         = $DataSet -> TBName();
+        $sql = "UPDATE $TBName SET ";
+
+        $Entrys_Values  = $DataSet -> getEntrys_Names();
+        $flag = false;
+        foreach($Entrys_Values as $data){
+          $EntryName  = $data[0];
+          $value      = $data[1];
+          if($flag){
+            $sql .= ", ";
+          }
+          $flag = true;
+          $sql .= "$EntryName = '$value'";
         }
 
-    }
-
-    abstract class Table {
-        public $name;
-        public $columns = [];
-        public $primaryKey = null;
-
-        public function __construct(string $Name){
-            $this -> name = $Name;
+        $sql .= " WHERE";
+        $KeyNames_Keys  = $DataSet -> getKeyNames_Keys(); 
+        $flag = false;
+        foreach($KeyNames_Keys as $data){
+          $KeyName    = $data[0];
+          $key        = $data[1];
+          if($flag){
+            $sql .= "AND ";
+          }
+          $flag = true;
+          $sql .= " $KeyName = '$key' ";
         }
-        public function addColumn(string $Name, string $params, bool $isPrimary = false){
-            $column = new stdClass();
-            $column -> name     = $Name;
-            $column -> params   = $params;
-            if($isPrimary){
-                if($this -> primaryKey != null){
-                    Debugg::warn("Primärschlüssel überschrieben. Alt: " . $this -> primaryKey -> name . "  Neu: " . $Name);
+        $con -> query($sql);
+        $con -> close();
+      }
+        protected static function execute($con, string $command, $param = null) : mixed {
+            if($con == false){
+                return false;
+            }
+            $res = $con -> query($command);
+            $con -> close();
+            if ($res) {
+                $response = [];
+                $EntryCount = 1;
+                $flag = true;
+                if($param == DataBase::FORCE_ORDERED){
+                    $EntryCount = 0;
+                } else if($param == DataBase::DENY_ORDERED){
+                    $flag = false;
                 }
-                $this -> primaryKey = $column;
-            }
-            array_push($this -> columns, $column);
-        }
-
-        public function export(){
-            $base = "INSERT IGNORE INTO " . $this -> name . " ";
-            $names  = "";
-            $params = "";
-            foreach($this -> columns as $key => $column){
-                $names .= $column -> name;
-                $params .= $column -> params;
-                if($key < count($this -> columns) -1){
-                    $names  .= ",";
-                    $params .= ",";
+                if($res -> num_rows > $EntryCount && $flag){
+                    $i = 0;
+                    while($row = $res -> fetch_assoc()){
+                        $response[$i] = $row;
+                        $i++;
+                    }
+                    return $response;
+                } else {
+                    return $res -> fetch_assoc();
                 }
+            } else {
+                return false;
             }
-            return $base . "(" . $names . ") VALUES (" . $params . ")";
+            return $res;
         }
     }
-
-    // $a = new Table("test");
-    // $a->addColumn("id", "int(11)", true);
-    // $a->addColumn("name", "varchar(50)");
-    // $a->addColumn("email", "varchar(50)");
-    // DataBase::createTable($a, "test");
-
-    // $dataSet = new DataSet();
-    // $dataSet -> SET("name", "12");
-    // $dataSet -> WHERE("id", "1");
-    // DataBase::get($a, $dataset, "test");

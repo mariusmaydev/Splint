@@ -1,0 +1,52 @@
+@use '../../_main.scss' as *;
+
+//right
+
+@mixin draw {
+      position: relative;
+      &:after {
+        pointer-events: none;
+        content: attr(data-tooltip-value);
+        position: absolute;
+        z-index: 10;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 130%;
+        background: #ffcb66;
+        padding: 5px 15px;
+        color: black;
+        border-radius : 10px;
+        white-space: nowrap;
+        opacity: 0;
+        transition : all 0.4s ease;
+      }
+      &:before {
+        pointer-events: none;
+        content: "";
+        position: absolute;
+        z-index: 10;
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-right: 10px solid #ffcb66;
+        border-bottom: 10px solid transparent;
+        transition : all 0.4s ease;
+        opacity: 0;
+        left: 130%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &:hover:after {
+        top: 50%;
+        transform: translateY(-50%);
+        left: 110%;
+      }
+      &:hover:before {
+        top: 50%;
+        transform: translateY(-50%);
+        left: 103%;
+      }
+      &:hover:after, &:hover:before {
+        opacity: 1;
+      }
+}

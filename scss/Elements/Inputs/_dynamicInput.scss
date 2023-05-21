@@ -1,0 +1,14 @@
+@use '../../_main.scss' as *;
+
+.s-DynamicInput {
+    > .content {
+        > .listElement {
+            > .content {
+
+            }
+            > .buttons {
+                
+            }
+        }
+    }
+}

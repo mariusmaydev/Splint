@@ -1,5 +1,5 @@
-
-class PHP_sessions_S {
+SPLINT.require_now('@SPLINT_ROOT/DataManagement/callPHP/CallPHP.js');
+class S_SessionsPHP {
     static GET            = "GET_DATA";
     static GET_ALL        = "GET_ALL";
     static GET_ALL_JS     = "GET_ALL_JS";
@@ -12,51 +12,66 @@ class PHP_sessions_S {
     static CONVERTER_MODE = "CONVERTER_MODE";
       static MODE_EDIT_PROJECT  = "EDIT_PROJECT";
       static MODE_EDIT_CART     = "EDIT_CART";
+    
   
     static PATH = location.protocol + "//" + location.host + "/Splint/php/DataManagement/sessions/sessionsAccess.php";
+    // static MANAGER;
+    static {
+        this.MANAGER = new SPLINT.CallPHP.Manager(S_SessionsPHP.PATH);
+    }
     constructor(){
-  
     }
-    static set(name, value, js = true){
-      let data = CallPHP_S.getCallObject(PHP_sessions_S.SET);
-          data.value  = value;
+
+    static async set(name, value, js = true){
+      let call = this.MANAGER.call(this.SET);
+          call.data.value    = value;
           if(js){
-            data.name   = "jsGen_" + name;
+            call.data.name   = "jsGen_" + name;
           } else {
-            data.name   = name;
+            call.data.name   = name;
           }
-          CallPHP_S.call(PHP_sessions_S.PATH, data);
+          return call.send();//CallPHP_S.call(SPLINT.SessionsPHP.PATH, data);
     }
-    static get(name, js = true){
-      let data = CallPHP_S.getCallObject(PHP_sessions_S.GET);
+    static async getSessionID(){
+      let call = this.MANAGER.call("GET_SESSION_ID");
+      return call.send();
+    }
+    static async get(name, js = true){
+      let call = this.MANAGER.call(this.GET)//.getCallObject(SPLINT.SessionsPHP.GET);
           if(js){
-            data.name = "jsGen_" + name;
+            call.data.name = "jsGen_" + name;
           } else {
-            data.name = name;
+            call.data.name = name;
           }
-      return CallPHP_S.call(PHP_sessions_S.PATH, data).toObject(true);
+      return call.send();//CallPHP_S.call(SPLINT.SessionsPHP.PATH, data).toObject(true);
     }
-    static remove(name, js = true){
-      let data = CallPHP_S.getCallObject(PHP_sessions_S.REMOVE);
+    static async remove(name, js = true){
+      let call = this.MANAGER.call(this.REMOVE);
       if(js){
-        data.name   = "jsGen_" + name;
+        call.data.name   = "jsGen_" + name;
       } else {
-        data.name   = name;
+        call.data.name   = name;
       }
-      CallPHP_S.call(PHP_sessions_S.PATH, data);
+      return call.send();//CallPHP_S.call(SPLINT.SessionsPHP.PATH, data);
     }
-    static getAllJS(){
-      let data = CallPHP_S.getCallObject(PHP_sessions_S.GET_ALL_JS);
-      return CallPHP_S.call(PHP_sessions_S.PATH, data).toObject(true);
+    static async getAllJS(){
+        let call = this.MANAGER.call(this.GET_ALL_JS);
+        return call.send();
+      let data = CallPHP_S.getCallObject(SPLINT.SessionsPHP.GET_ALL_JS);
+      return CallPHP_S.call(SPLINT.SessionsPHP.PATH, data).toObject(true);
     }
-    static getAll(){
-      let data = CallPHP_S.getCallObject(PHP_sessions_S.GET_ALL);
-      return CallPHP_S.call(PHP_sessions_S.PATH, data).toObject(true);
+    static async getAll(){
+        let call = this.MANAGER.call(this.GET_ALL);
+        return call.send();
+      let data = CallPHP_S.getCallObject(SPLINT.SessionsPHP.GET_ALL);
+      return CallPHP_S.call(SPLINT.SessionsPHP.PATH, data).toObject(true);
     }
-    static showAll(){
-      console.log(PHP_sessions_S.getAll());
-    }
-    static isset(name){
-  
+    static async showAll(){
+        return new Promise(async function(resolve){
+            let s = await SPLINT.SessionsPHP.getAll()
+            console.log(s);
+            resolve(s);
+            return s;
+        });
     }
   }

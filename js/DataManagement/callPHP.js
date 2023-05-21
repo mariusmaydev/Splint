@@ -22,10 +22,12 @@ var asyncProgress = false;
       return callObj;
     }
     static call(path, callObj, type = "POST", sync = true, callBack = function(){}){
+      path += "?" + SPLINT.PROJECT_NAME;
       if(!sync){
-        if(asyncProgress){
-          return new obj(null);
-        }
+        // if(asyncProgress){
+        //   callBack(null);
+        //   return new obj(null);
+        // }
         asyncProgress = true;
       }
       let response = $.ajax({
@@ -34,6 +36,7 @@ var asyncProgress = false;
           data    : callObj,
           async   : !sync,
           success: function(response){
+            asyncProgress = false;
             callBack(response);
           },
           complete: function(){

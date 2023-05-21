@@ -9,6 +9,7 @@
             $this -> address = $address;
         }
         public function get() : string {
+            $PacketType = 'err';
             if ($this -> address['Country'] == 'DE') {
                 $this -> address['Country']         = "DEU";
                 $PacketType         = "PAECKS.DEU";

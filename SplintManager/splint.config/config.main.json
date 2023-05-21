@@ -1,0 +1,19 @@
+{
+    "paths": {
+        "error_log"     : "/Splint/SplintManager/php/",
+        "project_root"  : "/Splint/SplintManager/",
+        "DataBase"      : {
+            "config"    : "/Splint/SplintManager/php"
+        }
+    },
+    "projectName"   : "Splint/SplintManager",
+
+    "SSL"           : "http",
+    "host"          : "localhost",
+    "host1"         : "192.168.178.67",
+    "port"          : "80",
+    "settings"      : {
+        "debugging" : false
+    }
+
+}

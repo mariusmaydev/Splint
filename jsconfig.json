@@ -1,0 +1,47 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "module": "commonjs",
+    "target": "ESNext",
+    "allowJs": true,
+    "checkJs": false,
+    "baseUrl": "./",
+    "paths": {
+      "SPLINT": [
+        "js/modules/build/ThreeJS_loader.js"
+      ],
+      "splint": [
+        "js/modules/build/ThreeJS_loader.js"
+      ],
+      "three": [
+        "lib/threeJS/build/three.module.js"
+      ],
+      "threeJS": [
+        "lib/threeJS/build/three.module.js"
+      ],
+      "@THREE_ROOT_DIR/*": [
+        "lib/threeJS/*"
+      ],
+      "@THREE_MODULES_DIR/*": [
+        "lib/threeJS/examples/jsm/*"
+      ],
+      "@SPLINT_MODULES_DIR/*": [
+        "js/modules/*"
+      ],
+      "@SPLINT_THREE_DIR/*": [
+        "js/modules/ThreeJS/*"
+      ],
+      "@NODE_MODULES_DIR/*": [
+        "./node_modules/*"
+      ]
+    }
+  },
+  "include": ["js/**/*", "C:/xampp/htdocs/Splint/node_modules/chart.js/dist/chart.cjs", "../node_modules/@paypal/paypal-js/dist/**/*"],
+    "typeAcquisition": {
+        "enable": true,
+        "include": [
+            "jquery"
+        ]
+    }
+
+}

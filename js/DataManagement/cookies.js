@@ -26,7 +26,7 @@ class Cookie {
       let response = new Object();
           for(const cookie of cookies){
             let array = cookie.split('=');
-                response[array[0]] = JSON_S.parseIf(array[1]);
+                response[array[0]] = S_JSON.parseIf(array[1]);
           }
           if(name != null){
             return response[name];

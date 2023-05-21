@@ -1,0 +1,12 @@
+@use '../_main.scss' as *;
+
+.PriceDiv {
+    width: max-content;
+    height: max-content !important;
+    display: inline-block;
+    overflow-wrap: anywhere;
+    white-space: nowrap;
+    > span {
+
+    }
+}

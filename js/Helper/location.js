@@ -1,4 +1,4 @@
-class Location_S {
+class S_Location {
     constructor(location){
       this.hashes     = "";
       this.location   = location;
@@ -45,8 +45,8 @@ class Location_S {
             return array;
           }
     }
-    static goto(location = Location_S.Location){
-      return new Location_S(location);
+    static goto(location = S_Location.Location){
+      return new S_Location(location);
     }
     setLocation(location){
       this.location = location;

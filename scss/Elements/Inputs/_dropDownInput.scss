@@ -1,0 +1,68 @@
+@use '../../_main.scss' as *;
+
+.DropDownInputMain_S {
+    position: relative;
+    overflow: visible !important;
+    // overflow-x: clip;
+
+    // overflow-y: visible !useant;
+    > .S_InputDiv {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 0;
+        @include box-shadow();
+        border-radius: 5px;
+        > label {
+    
+        }
+        > input {
+            border: none;
+        }
+        > button {
+            border: none;
+            > span {
+
+            }
+        }
+        > .response {
+            display: none;
+        }
+    }
+    > .DropDown_expander {
+        z-index: 120;
+        background-color: transparent;
+        position: absolute;
+        padding: 0;
+        box-sizing: content-box;
+        // margin-left: 0.5em;
+        width: calc(100%);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        &[state*='active']{
+            height: 10em;
+            // display: flex;
+            // background-color: orange;
+        }
+        &[state*='passive']{
+            height: 0em;
+            // display: none;
+        }
+        > div {
+            z-index: 122;
+            @include standardDiv();
+            margin-top: 0.2em;
+            text-align: center;
+            > span {
+                text-align: center;
+
+            }
+            &[state*='active']{
+                background-color: orange;
+            }
+            &[state*='passive']{
+                // display: none;
+            }
+        }
+    }
+}

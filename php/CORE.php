@@ -1,23 +1,26 @@
 <?php 
-
+    if(!defined('PROJECT_NAME')){
+        define('PROJECT_NAME', 'fd');//$_SERVER['QUERY_STRING']);
+    }
     define('SPLINT_MAIN_DIR', dirname(__FILE__));
     define('SERVER_SSL', "http");
     define('SERVER_ROOT', $_SERVER["DOCUMENT_ROOT"]);
-    define('SPLINT_CONFIG', json_decode(file_get_contents(__DIR__ . "/../config.json")));
-    define('DOMAIN', $_SERVER["REQUEST_SCHEME"] . '://' . $_SERVER['HTTP_HOST']);
-
-    require_once 'Tools/StringTools.php';
+    define('SPLINT_CONFIG', getSplintConfig());
+    define('DOMAIN', SPLINT_CONFIG -> SSL . '://' . SPLINT_CONFIG -> host);
+    include 'autoloader.php';
+    require_once 'INIT/init.php';
+    require_once 'Tools/Math.php';
     require_once 'Debugger/Debugger.php';
     require_once 'Tools/Path.php';
-    require_once 'Tools/FileTools.php';
-    require_once 'Tools/CommunicationTools.php';
     require_once 'Debugger/ErrorHandler.php';
-    require_once 'DataBase2/DataBaseCore.php';
+    require_once 'DataBase/DataBase.php';
+    require_once 'DataBase/DataBaseAccess.php';
     require_once 'DataManagement/sessions/sessions.php';
-    require_once 'Array/fixedArray.php';
-    require_once 'HTML/HTML.php';
     require_once 'Tools/createDHLcsv.php';
+    require_once 'JSBuilder/JSBuilder.php';
 
+
+    mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_STRICT ^ MYSQLI_REPORT_INDEX);
 
     trait SplintInformation_T {
         public static function SERVER() : array {
@@ -42,4 +45,8 @@
     }
     define('SPLINT_ROOT_ABS', SplintInformation::SplintROOT());
     define('SPLINT_ROOT', DOMAIN . SplintInformation::SplintROOT());
+
+    function getSplintConfig() : stdClass {
+        return json_decode(file_get_contents($_SERVER["DOCUMENT_ROOT"] ."/" . PROJECT_NAME. "/splint.config/config.main.json"));
+    }
 

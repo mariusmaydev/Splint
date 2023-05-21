@@ -1,0 +1,26 @@
+@use '../../_main.scss' as *;
+
+.toggleButton {
+    @include standardDiv();
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    width: max-content;
+    overflow: hidden;
+    > button {
+        width: 100%;
+        padding: 0.5rem;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        &:hover {
+            background-color: $color-primary;
+        }
+        &[state*='active']{
+            background-color: $color-primary-Dark;
+        }
+        > span {
+
+        }
+    }
+}

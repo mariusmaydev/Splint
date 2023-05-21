@@ -1,0 +1,55 @@
+@use '../_main.scss' as *;
+
+.header {
+    position: fixed;
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    flex-direction: row;
+    alignItems: center;
+    justifyContent: space-between !important;
+    background-color: var(--bg-color);
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, .2);
+    > .logoLinkBox {
+        position: relative;
+        margin-left: 3rem;
+        min-width: 3rem;
+        width: auto;
+        max-width: 15rem;
+        height: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        text-decoration: none;
+        cursor: pointer;
+        user-select: none;
+        >.logoIcon {
+            position: relative;
+            width: 2.5rem;
+        }
+        >.logoText {
+            position: relative;
+            margin-left: .5rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333 !important;
+        }
+    }
+    > .headerNavigation {
+        position: absolute;
+        right: 3rem;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        > button {
+            font-size: 1.1rem;
+            margin-left: 1.5rem;
+            > span {
+                position: relative;
+                text-decoration: none;
+                color: #a8a8a8;
+            }
+        }
+    }
+}

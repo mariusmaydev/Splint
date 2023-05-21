@@ -1,0 +1,21 @@
+@use '../_main.scss' as *;
+
+
+
+.progressBar_Splint {
+    position: absolute;
+    width: 10em;
+    background-color: blue;
+    display: flex;
+    > .S_progressBar_Body {
+        width: 100%;
+        border: 1px solid black;
+        > .S_progressBar_Inner {
+            width: 100%;
+            height: 100%;
+            background-color: red;
+        }
+    }
+    > label {
+    }
+}

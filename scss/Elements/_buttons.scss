@@ -1,0 +1,123 @@
+@use '../_main.scss' as *;
+
+.button_Default {
+    @include standardDiv();
+    border: none;
+    cursor: pointer;
+    margin: 0.5em;
+    > span {
+        display: block;
+    }
+    &:hover {
+        background-color: red;
+    }
+}
+
+// .button_General {
+//     $color-blue         : rgb(51, 122, 207);
+//     $color-blue-hover   : rgb(36, 87, 150);
+//     background-color: transparent;
+//     border: none;
+//     color: black;
+
+//     display: inline-block;
+//     font-size: 1em;
+//     cursor: pointer;
+//     border-radius: 10px;
+//     > span {
+//         display: inline-block;
+//         position: relative;
+//         text-align: center;
+//         &:not(.material-symbols-outlined){
+//             text-decoration: underline;
+//         }
+//     }
+//     > .dropdown {
+//       position: absolute;
+//       // @include border();
+//       // background-color: red;
+//       left: 100%;
+//       margin-left: 10%;
+//       top: 0;
+//       width: fit-content;
+//       height: max-content;
+//       overflow: hidden;
+//     }
+//     &:hover {
+//         > span {
+//             &:not(.material-symbols-outlined){
+//                 text-decoration-color: $color-primary;
+//                 animation-duration: 100ms;
+//                 animation-timing-function: ease-in;
+//                 animation-fill-mode: forwards;
+//                 animation-name: buttonAnimation;
+//             }
+//             &.material-symbols-outlined {
+//                 color: $color-primary-Dark !important;
+//                 animation-duration: 100ms;
+//                 animation-timing-function: ease-in;
+//                 animation-fill-mode: forwards;
+//                 animation-name: buttonIconAnimation;
+//                 &.rotate90{
+//                     animation-name: buttonIconAnimation90;
+//                 }
+//             }
+//         }
+//         &:after {
+//           > span {
+//             &:not(.material-symbols-outlined){
+//                 text-decoration-color: $color-primary;
+//                 animation-duration: 100ms;
+//                 animation-timing-function: ease-out;
+//                 animation-fill-mode: backwards;
+//                 animation-name: buttonAnimation;
+//             }
+//             &.material-symbols-outlined {
+//                 color: $color-primary-Dark !important;
+//                 // animation-duration: 100ms;
+//                 // animation-timing-function: ease-in;
+//                 // animation-fill-mode: forwards;
+//                 // animation-name: buttonIconAnimation;
+//                 // &.rotate90{
+//                 //     animation-name: buttonIconAnimation90;
+//                 // }
+//             }
+//         }
+//     }
+
+//     }
+//     &.simple {
+//         background-color: transparent;
+//         border: none;
+//         color: $color-blue;
+//         text-decoration: underline;
+//         &:hover {
+//             color: $color-blue-hover;
+//         }
+//         // &.middle {
+//         //     position: absolute;
+//         //     right: 3%;
+//         //     top: 1.1em;
+//         // }
+//     }
+// }
+
+@mixin switchButton($colorActive: 0, $colorPassive: 0){
+    >.switchButton{
+        @if($colorActive != 0){
+            &[state*='active']{
+                > span {
+                    color: $colorActive;
+                }
+            }
+        }
+        
+        @if($colorPassive != 0){
+            &[state*='passive']{
+                > span {
+                    color: $colorPassive;
+                }
+            }
+        }
+    }
+}

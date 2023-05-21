@@ -42,14 +42,17 @@ class PATH_1 {
         }
         return implode('\\', $path);
     }
-    public static function getFolderPaths(string $path) : array {
+    public static function getFolderPaths(string $path, string $excludeFirstDir = "") : array {
         $rii = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path));
+
         $files = array(); 
         foreach($rii as $file) {
             if($file -> isDir()){ 
                 continue;
             }
-            $files[] = $file -> getPathname(); 
+            if($file -> getPathInfo() -> getFileName() != $excludeFirstDir){
+                $files[] = $file -> getPathname(); 
+            }
         }
         return $files;
     }
@@ -68,6 +71,13 @@ class Data {
     }
 }
 
+/**
+ * @deprecated
+ *
+ * @param [type] $path
+ * @param boolean $flag
+ * @return void
+ */
 function DataGetFolder($path, $flag = false){
     $array = scandir($path);
     array_splice($array, 0, 2);
@@ -90,8 +100,6 @@ class Path {
 
     public $pathElements = [];
     public $pathBase = "/fd/data";
-    public $SSL = "http";
-    public $domain = "localhost";
     function __construct(...$pathElements) {
         $this -> pathElements = $pathElements;
         array_unshift($this -> pathElements, $this -> pathBase);
@@ -127,7 +135,7 @@ class Path {
     }
     public function getURL(){
         $path = $this -> getPathAsString();
-        return $this -> SSL . "://" . $this -> domain . $path;
+        return SPLINT_CONFIG -> paths -> SSL . "://" . SPLINT_CONFIG -> host . $path;
     }
     private function createPath(){
         $path = $this -> getPathAsString(true);
@@ -155,7 +163,7 @@ class Path {
             if ($item == '.' || $item == '..') {
                 continue;
             }
-            if (!deleteDirectory($dir . DIRECTORY_SEPARATOR . $item)) {
+            if (!self::deleteDirectory($dir . DIRECTORY_SEPARATOR . $item)) {
                 return false;
             }
         }
@@ -167,15 +175,38 @@ class Path {
             unlink($path);
         }
     }
-    public static function copyFile(string $from, string $to) : bool {
-        if (!file_exists(self::cut($to, 1, false, '/'))) {
-            mkdir(self::cut($to, 1, false, '/'), 0777, true);
+    public static function copyFile(string $srcPath, string $dstPath) {
+        if(is_dir($srcPath)) {
+            if(!file_exists($dstPath)){
+                @mkdir($dstPath, 0777, true);
+            }
+            $directory = dir($srcPath);
+            while(FALSE !== ($readdirectory = $directory -> read())) {
+                if($readdirectory == '.' || $readdirectory == '..') {
+                    continue;
+                }
+                $PathDir = $srcPath . '/' . $readdirectory; 
+                if(is_dir($PathDir)) {
+                    self::copyFile($PathDir, $dstPath . '/' . $readdirectory );
+                    continue;
+                }
+                copy( $PathDir, $dstPath . '/' . $readdirectory );
+            }
+            $directory -> close();
+        } else {
+            copy($srcPath, $dstPath);
         }
-        return copy($from, $to);
     }
+    /**
+     * C:/dir1/dir2/dir3 -> /dir2/dir3
+     * @param string $path
+     * @param integer $amount
+     * @param boolean $left
+     * @param string $separator
+     * @return string
+     */
     public static function cut(string $path, int $amount = 6, bool $left = true, string $separator = '\\') : string {
         $path = explode($separator, $path);
-        //Debugg::log($path);
         if($left){
             for($i = 0; $i < $amount; $i++) {
                 unset($path[$i]);

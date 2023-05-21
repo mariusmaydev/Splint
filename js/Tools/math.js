@@ -1,4 +1,4 @@
-class MATH {
+class S_Math {
     static multiply(v1, v2){
       return Math.round(v1 * v2 * 100) / 100;
     }
@@ -55,22 +55,22 @@ class MATH {
 
   class MATH_convert {
     static pt2px(pt){
-      return MATH.multiply(pt, 1.333333);
+      return S_Math.multiply(pt, 1.333333);
     }
     static px2pt(px){
-      return MATH.divide(px, 1.333333);
+      return S_Math.divide(px, 1.333333);
     }
     static pt2mm(pt){
-      return MATH.multiply(pt, 0.352777);
+      return S_Math.multiply(pt, 0.352777);
     }
     static px2mm(px){
-      return MATH.multiply(px, 0.264583);
+      return S_Math.multiply(px, 0.264583);
     }
     static mm2px(mm){
-      return MATH.multiply(mm, 3.779527);
+      return S_Math.multiply(mm, 3.779527);
     }
     static mm2pt(mm){
-      return MATH.multiply(mm, 2.834645);
+      return S_Math.multiply(mm, 2.834645);
     }
 
   }

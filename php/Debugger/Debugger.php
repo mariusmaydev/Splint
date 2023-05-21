@@ -1,5 +1,8 @@
 <?php 
-    require_once dirname(__FILE__) . "/../Tools/Path.php";
+    $rootpath = realpath($_SERVER["DOCUMENT_ROOT"]);
+    // require_once dirname(__FILE__) . "/../Tools/Path.php";
+    require_once $rootpath . "/Splint/php/Tools/Path.php";
+    
     
     class Debugg {
         public static function warn($arg = ""){

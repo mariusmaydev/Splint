@@ -1,0 +1,109 @@
+@use '../main.scss' as *;
+
+.SliderMain {
+    position: relative;
+    padding: 1%;
+    padding-right: 2%;
+    background-color: transparent;
+    &.static {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        > span {
+            position: relative;
+            flex: 1 1 auto;
+            width: 100%;
+        }
+    }
+    > label {
+        font-size: 1em !important;
+    }
+
+    > .ScaleDiv {
+        flex: 10 0 auto;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2%;
+        display: flex;
+        width: min-content;
+        align-items: center;
+        input[type="range"]{
+            z-index: 2;
+            position: relative;
+            height: 100%;
+            width: 100%;
+            display: inline-block;
+            background-color: transparent;
+            // align-self: center;
+            -webkit-appearance: none;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            margin-left: 0%;
+            margin-right: 0%;
+            &::-webkit-slider-runnable-track {
+                width: 100%;
+                // margin-inline: -5%;
+                height: 0.5em;
+                // margin-top: 45%;
+                // margin-bottom: 45%;
+                // background: $color-primary-Dark;
+                border: none;
+                border-radius: 0%;
+            }
+            &::-webkit-slider-thumb {
+                z-index: 2;
+                -webkit-appearance: none;
+                border: none;
+                height: 1em;
+                width: 1em;
+                border-radius: 10%;
+                background: white;
+                margin-top: -0.25em;
+                @include border();
+            }
+            &:focus {
+                outline: none;
+            }
+            
+            &:focus::-webkit-slider-runnable-track {
+                background: $color-primary-Dark;
+            }
+        }
+        > div {
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            pointer-events: none;
+            > .HR {
+                position: relative;
+                border-style: outset;
+                border: none;
+                border-left: 0.01em solid black;
+                // margin: 0;
+                height: 40%;
+                margin: 0;
+                width: 0px;
+                pointer-events: none;
+                &.long{
+                    border-left: 0.03em solid black;
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    > .Sign {
+        flex: 1 0 1.5em;
+        // @include border();
+        position: relative;
+        align-self: center;
+        height: 1em;
+        margin: 0;
+        text-align: center;
+    }
+}
