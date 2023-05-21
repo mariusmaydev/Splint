@@ -4,6 +4,7 @@
 spl_autoload_register(function($className) {
 	$file = dirname(__DIR__) . '\\php\\' ;
 	$file = str_replace('\\', DIRECTORY_SEPARATOR, $file);
+    
     $f = S_shmop::read("SplintAutoloaderMap");
     if($f == null){
         $f = deepScan($file);

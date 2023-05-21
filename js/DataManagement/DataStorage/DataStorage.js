@@ -12,4 +12,9 @@ class S_DataStorage extends SPLINT.CallPHP.Manager {
             call.data.path = path;
         return call.send();
     }
+    static AccessSplint(method, obj){
+        let call = this.callPHP(method);
+            call.data = obj;
+        return call.send();
+    }
 }

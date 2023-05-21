@@ -15,8 +15,11 @@ class P_Index extends templateMenuPage {
         this.addData("SplintLoader", "/DOMElements/DOMElements.html");
         this.draw();
     }
-    draw(){
+    async draw(){
         super.draw();
-        console.log(CallPHP_log.read_error_log());
+        let res = await SP_inspectProjects.inspect();
+        console.dir(res);
+        // let call = new SPLINT.CallPHP(SP)
+        console.log(await CallPHP_log.read_error_log());
     }
 }

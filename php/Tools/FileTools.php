@@ -1,6 +1,33 @@
 <?php
 
     class FileTools {
+        public static function deepScan(string $dir = __DIR__){
+            // return;
+            static $results = [];
+            static $allFiles = [];
+            $allFiles[$dir] = [];
+            
+            if(substr_count($dir, '\\') > 6){
+                return;
+            }
+             $directories = array_values(array_diff(scandir($dir), ['.', '..']));
+             foreach($directories as $directory){
+               if(is_dir("$dir\\$directory")){
+                if($directory == "splint.config"){
+                    array_push($results, "$dir\\$directory");
+                    return $results;
+                }
+                 foreach(FileTools::deepScan("$dir\\$directory") as $key => $value) {
+                    $allFiles[$key] = $value;
+                }
+               }
+               else{
+                
+                $allFiles[$dir][] = "$directory";
+               }
+             }
+             return $results;
+          }
         public static function getExtension(string $file_or_path) : string {
             return substr($file_or_path, -3);
         }
