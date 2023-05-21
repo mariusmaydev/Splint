@@ -142,7 +142,7 @@
         {
             "format": "expanded",//"expanded",
             "extensionName": ".css",
-            "savePath": "/SplintManager/css/Output"
+            "savePath": "/SplintManager/resources/css/Output"
             // "savePath": "~/../Output"
             // "savePath": "/Splint/SplintExample/css"
         }

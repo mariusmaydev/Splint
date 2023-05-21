@@ -42,7 +42,7 @@ export default class SPLINT extends window.SPLINT {
     static get config(){
         if(CONFIG == null){
             let projectName = location.pathname.split('/')[1];
-            let path = location.origin + "/" + projectName + "/" + "splint.config/config.main.json";
+            let path = location.origin + "/" + projectName + "/Splint/" + "splint.config/config.main.json";
             let configOBJ = JSON.parse(FILE.read(path));
                 configOBJ.URIs = new Object();
                 configOBJ.URIs.project  = location.origin + "/" + projectName;
@@ -55,7 +55,7 @@ export default class SPLINT extends window.SPLINT {
     }
     static async preloadResources(){
         SPLINT.R_promise = new Promise(async function(resolve){
-            let res = SPLINT.file.loadFromProject("/splint.config/resource.list.json").toObject();
+            let res = SPLINT.file.loadFromProject("/Splint/splint.config/resource.list.json").toObject();
             RESOURCES = new Object();
             RESOURCES.textures = new Object();
             RESOURCES.SVGs = new Object();

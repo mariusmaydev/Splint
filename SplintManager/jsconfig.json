@@ -36,7 +36,7 @@
         ]
       }
     },
-    "include": ["../js/**/*", "C:/xampp/htdocs/Splint/node_modules/chart.js/dist/chart.cjs", "../../node_modules/@paypal/paypal-js/dist/**/*"],
+    "include": ["../js/**/*", "resources/js/**/*", "C:/xampp/htdocs/Splint/node_modules/chart.js/dist/chart.cjs", "../../node_modules/@paypal/paypal-js/dist/**/*"],
       "typeAcquisition": {
           "enable": true,
           "include": [

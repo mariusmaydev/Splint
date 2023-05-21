@@ -7,4 +7,7 @@ class S_Utils {
     static get ANSI(){
         return S_ANSI;
     }
+    static get Files(){
+        return S_FileUtils;
+    }
 }

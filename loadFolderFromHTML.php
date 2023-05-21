@@ -1,7 +1,7 @@
 <?php
     header('Content-Type: application/json');
     if(!defined('PROJECT_NAME')){
-        define('PROJECT_NAME', "fd");
+        define('PROJECT_NAME', $_GET['projectName']);
     }
     define('SERVER_ROOT', $_SERVER["DOCUMENT_ROOT"]);
     define('SPLINT_CONFIG', getSplintConfig());
@@ -68,7 +68,7 @@
 
     }
     function getSplintConfig() : stdClass {
-        return json_decode(file_get_contents($_SERVER["DOCUMENT_ROOT"] ."/" . PROJECT_NAME. "/splint.config/config.main.json"));
+        return json_decode(file_get_contents($_SERVER["DOCUMENT_ROOT"] ."/" . PROJECT_NAME. "/Splint/splint.config/config.main.json"));
     }
 
     BindFolderByHTML::start($_SERVER["QUERY_STRING"]);

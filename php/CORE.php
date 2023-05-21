@@ -1,6 +1,10 @@
 <?php 
     if(!defined('PROJECT_NAME')){
-        define('PROJECT_NAME', 'fd');//$_SERVER['QUERY_STRING']);
+        if(isset($_GET['projectName']) && $_GET['projectName'] != null){
+            define('PROJECT_NAME', $_GET['projectName']);//$_SERVER['QUERY_STRING']);
+        } else {
+            define('PROJECT_NAME', 'fd');
+        }
     }
     define('SPLINT_MAIN_DIR', dirname(__FILE__));
     define('SERVER_SSL', "http");
@@ -18,6 +22,7 @@
     require_once 'DataManagement/sessions/sessions.php';
     require_once 'Tools/createDHLcsv.php';
     require_once 'JSBuilder/JSBuilder.php';
+    Debugg::log(PROJECT_NAME);
 
 
     mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_STRICT ^ MYSQLI_REPORT_INDEX);
@@ -47,6 +52,6 @@
     define('SPLINT_ROOT', DOMAIN . SplintInformation::SplintROOT());
 
     function getSplintConfig() : stdClass {
-        return json_decode(file_get_contents($_SERVER["DOCUMENT_ROOT"] ."/" . PROJECT_NAME. "/splint.config/config.main.json"));
+        return json_decode(file_get_contents($_SERVER["DOCUMENT_ROOT"] ."/" . PROJECT_NAME. "/Splint/splint.config/config.main.json"));
     }
 

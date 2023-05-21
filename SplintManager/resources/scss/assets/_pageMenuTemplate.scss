@@ -1,0 +1,25 @@
+
+@import 'main';
+@import 'header';
+body {
+    @include SP_Header();
+    > .ManagerMenuPage {
+        padding-left: 2em;
+        >.TableMain {
+            > .ListMain {
+                > .ListElement {
+                    > button {
+                        > span {
+                            font-size: 2em;
+                        }
+                        // background-color: transparent;
+                        // outline: none;
+                        // border: none;
+
+
+                    }
+                }
+            }
+        }
+    }
+}

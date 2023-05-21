@@ -290,7 +290,7 @@ class SPLINT_loaderHelper {
         return obj.promise;
     }
     static getConfig(projectPath){
-        let uri = location.origin + "/" + projectPath + "/" + "splint.config/config.main.json";
+        let uri = location.origin + "/" + projectPath + "/Splint/" + "splint.config/config.main.json";
         
         let rawFile = new XMLHttpRequest();
         rawFile.open("GET", uri, false);
@@ -488,7 +488,7 @@ class Splint_bindJS {
         return Promise.all([
             $.ajax({
                 type: 'GET',
-                url: SPLINT.rootPath + "/loadFolderFromHTML.php?forceReload=" + forceReload,
+                url: SPLINT.rootPath + "/loadFolderFromHTML.php?forceReload=" + forceReload + "&projectName=" + SPLINT.config.main.projectName,
                 async: true,
                 cache: false,
                 dataType: 'JSON',
@@ -501,7 +501,7 @@ class Splint_bindJS {
             }),
             $.ajax({
                 type: 'GET',
-                url: SPLINT.rootPath + "/loadFromHTML.php?forceReload=" + forceReload,
+                url: SPLINT.rootPath + "/loadFromHTML.php?forceReload=" + forceReload + "&projectName=" + SPLINT.config.main.projectName,
                 async: true,
                 cache: false,
                 dataType: 'JSON',

@@ -7,7 +7,7 @@ function login_Google_callback(response){
 class LoginGoogle_S {
     static loadConfig(){
         SPLINT.config.google =  JSON.parse($.ajax({
-          url: '../' + SPLINT.PROJECT_NAME + '/splint.config/config.loginGoogle.json',
+          url: '../' + SPLINT.PROJECT_NAME + '/Splint/splint.config/config.loginGoogle.json',
             async: false
         }).responseText);
         return SPLINT.config.google;

@@ -1,0 +1,28 @@
+{
+    "paths": {
+        "error_log"     : "/Splint/SplintManager/resources/php/",
+        "project_root"  : "/Splint/SplintManager/resources/",
+        "css_root"      : "/Splint/SplintManager/resources/css/Output/",
+        "DataBase"      : {
+            "config"    : "/Splint/SplintManager/resources/php"
+        }
+    },
+    "loader": {
+        "cachePath" : "/Splint/SplintManager/Splint/splintCache/"
+    },
+    "projectName"   : "Splint/SplintManager",
+
+    "SSL"           : "http",
+    "host"          : "localhost",
+    "host1"         : "192.168.178.67",
+    "port"          : "80",
+    "settings"      : {
+        "debugging" : {
+            "error" : true,
+            "warn"  : false,
+            "log"   : false
+        },
+        "cacheResources" : false
+    }
+
+}
