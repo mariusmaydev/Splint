@@ -878,6 +878,54 @@
   white-space: nowrap;
 }
 
+.s-ObjectEditor {
+  width: 25rem;
+  box-shadow: inset 1px 0px 0px 0px black, 0px 0px 0px 0px white, 0px 0px 0px 0px white, 0px 0px 0px 0px white;
+}
+
+.s-ObjectEditor > .Table2D {
+  box-sizing: border-box;
+}
+
+.s-ObjectEditor > .Table2D > table {
+  box-sizing: border-box;
+}
+
+.s-ObjectEditor > .Table2D > table > tr {
+  width: 0rem;
+  box-sizing: border-box;
+  border-bottom: 1px solid black;
+  overflow: visible;
+}
+
+.s-ObjectEditor > .Table2D > table > tr[container*=true] {
+  display: flex;
+  flex-direction: column;
+}
+
+.s-ObjectEditor > .Table2D > table > tr[container*=true] > td[col*="1"] {
+  margin-left: 1rem;
+}
+
+.s-ObjectEditor > .Table2D > table > tr > td {
+  box-sizing: border-box;
+  width: 100%;
+  overflow: visible;
+  padding-left: 0.25rem;
+}
+
+.s-ObjectEditor > .Table2D > table > tr > td[col*="0"] {
+  width: 33%;
+}
+
+.s-ObjectEditor > .Table2D > table > tr > td[col*="2"] {
+  width: min-content;
+}
+
+.s-ObjectEditor > .Table2D > table > tr > td > div {
+  position: relative;
+}
+
 .Spinner1 {
   display: inline-block;
   position: relative;
@@ -1262,6 +1310,40 @@ s-input > .response > span {
   background-color: #ffa228;
 }
 
+.s-ToggleButton_2 {
+  width: max-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.s-ToggleButton_2 > button {
+  border: none;
+  border-radius: 0;
+  outline: none;
+  padding: 0em;
+  min-height: 1rem;
+  height: 100%;
+  width: 100%;
+  margin: 0.25em;
+}
+
+.s-ToggleButton_2 > button.btFALSE {
+  background-color: red;
+}
+
+.s-ToggleButton_2 > button.btFALSE[state*=passive] {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+.s-ToggleButton_2 > button.btTRUE {
+  background-color: green;
+}
+
+.s-ToggleButton_2 > button.btTRUE[state*=passive] {
+  background-color: rgba(0, 128, 0, 0.3);
+}
+
 .S_SVGElement_BODY {
   position: relative;
   background-color: transparent;
@@ -1332,7 +1414,7 @@ s-input > .response > span {
 }
 
 * {
-  font-family: "Arial" !important;
+  font-family: "Arial";
   margin: 0;
   padding: 0;
 }
@@ -2301,6 +2383,54 @@ s-input > .response > span {
   white-space: nowrap;
 }
 
+.s-ObjectEditor {
+  width: 25rem;
+  box-shadow: inset 1px 0px 0px 0px black, 0px 0px 0px 0px white, 0px 0px 0px 0px white, 0px 0px 0px 0px white;
+}
+
+.s-ObjectEditor > .Table2D {
+  box-sizing: border-box;
+}
+
+.s-ObjectEditor > .Table2D > table {
+  box-sizing: border-box;
+}
+
+.s-ObjectEditor > .Table2D > table > tr {
+  width: 0rem;
+  box-sizing: border-box;
+  border-bottom: 1px solid black;
+  overflow: visible;
+}
+
+.s-ObjectEditor > .Table2D > table > tr[container*=true] {
+  display: flex;
+  flex-direction: column;
+}
+
+.s-ObjectEditor > .Table2D > table > tr[container*=true] > td[col*="1"] {
+  margin-left: 1rem;
+}
+
+.s-ObjectEditor > .Table2D > table > tr > td {
+  box-sizing: border-box;
+  width: 100%;
+  overflow: visible;
+  padding-left: 0.25rem;
+}
+
+.s-ObjectEditor > .Table2D > table > tr > td[col*="0"] {
+  width: 33%;
+}
+
+.s-ObjectEditor > .Table2D > table > tr > td[col*="2"] {
+  width: min-content;
+}
+
+.s-ObjectEditor > .Table2D > table > tr > td > div {
+  position: relative;
+}
+
 .Spinner1 {
   display: inline-block;
   position: relative;
@@ -2685,6 +2815,40 @@ s-input > .response > span {
   background-color: #ffa228;
 }
 
+.s-ToggleButton_2 {
+  width: max-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.s-ToggleButton_2 > button {
+  border: none;
+  border-radius: 0;
+  outline: none;
+  padding: 0em;
+  min-height: 1rem;
+  height: 100%;
+  width: 100%;
+  margin: 0.25em;
+}
+
+.s-ToggleButton_2 > button.btFALSE {
+  background-color: red;
+}
+
+.s-ToggleButton_2 > button.btFALSE[state*=passive] {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+.s-ToggleButton_2 > button.btTRUE {
+  background-color: green;
+}
+
+.s-ToggleButton_2 > button.btTRUE[state*=passive] {
+  background-color: rgba(0, 128, 0, 0.3);
+}
+
 .S_SVGElement_BODY {
   position: relative;
   background-color: transparent;
@@ -2755,7 +2919,7 @@ s-input > .response > span {
 }
 
 * {
-  font-family: "Arial" !important;
+  font-family: "Arial";
   margin: 0;
   padding: 0;
 }
@@ -2844,11 +3008,16 @@ s-input > .response > span {
     text-underline-offset: 0.2em;
   }
 }
+body {
+  height: 100vh;
+  box-sizing: border-box;
+}
 body .P_HeaderContainer {
   position: sticky;
   width: 100%;
   height: 6vh;
   padding: 0.5rem;
+  box-sizing: border-box;
 }
 body .P_HeaderContainer > .content {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 3px, rgba(0, 0, 0, 0.11) 0px 0px 3px;
@@ -2872,6 +3041,13 @@ body .P_HeaderContainer > .content > .logo > img {
 }
 body > .ManagerMenuPage {
   padding-left: 2em;
+  padding-right: 2em;
+  height: calc(100% - 6vh);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+body > .ManagerMenuPage > .TableMain {
+  height: max-content;
 }
 body > .ManagerMenuPage > .TableMain > .ListMain > .ListElement > button > span {
   font-size: 2em;

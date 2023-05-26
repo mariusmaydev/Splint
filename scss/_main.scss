@@ -36,13 +36,13 @@ $color-lighter          : rgb(24, 24, 24);
         @include box-shadow(0, black, $alpha);
     }
 }
-@mixin box-shadow($type: 0, $color: black, $alpha: 1){
-    @if($type == 0){
-        box-shadow: transparentize($color, calc($alpha -  0.15)) 0px 0px 3px, transparentize($color, calc($alpha - 0.11)) 0px 0px 3px;
-    } @else if($type == 1){
-        box-shadow: transparentize($color, calc($alpha - 0.01)) 0px 0px 5px 0px, transparentize($color, calc($alpha - 0.01)) 0px 0px 1px 0px;
-    }
-}
+// @mixin box-shadow($type: 0, $color: black, $alpha: 1){
+//     @if($type == 0){
+//         box-shadow: transparentize($color, calc($alpha -  0.15)) 0px 0px 3px, transparentize($color, calc($alpha - 0.11)) 0px 0px 3px;
+//     } @else if($type == 1){
+//         box-shadow: transparentize($color, calc($alpha - 0.01)) 0px 0px 5px 0px, transparentize($color, calc($alpha - 0.01)) 0px 0px 1px 0px;
+//     }
+// }
 
 @mixin drop-shadow($a, $b, $c, $d){
     filter: drop-shadow($a $b $c $d);

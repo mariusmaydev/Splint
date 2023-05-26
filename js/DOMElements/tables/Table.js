@@ -11,6 +11,9 @@ class Table {
         this.func_drawHoverDiv;
         this.func_drawFirstListElement;
     }
+    Class(className){
+        this.mainElement.Class(className);
+    }
     draw(){
         this.listElementMain = new SPLINT.DOMElement(this.id + "listMain", "div", this.mainElement);
         this.listElementMain.Class("ListMain");

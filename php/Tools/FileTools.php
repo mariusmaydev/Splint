@@ -17,7 +17,11 @@
                     array_push($results, "$dir\\$directory");
                     return $results;
                 }
-                 foreach(FileTools::deepScan("$dir\\$directory") as $key => $value) {
+                $fe = FileTools::deepScan("$dir\\$directory");
+                if($fe == null){
+                    continue;
+                }
+                 foreach($fe as $key => $value) {
                     $allFiles[$key] = $value;
                 }
                }

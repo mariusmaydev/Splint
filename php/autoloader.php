@@ -1,5 +1,5 @@
 <?php
-    include realpath($_SERVER["DOCUMENT_ROOT"]) . '/Splint/php/DataManagement/shmop/S_shmop.php';
+    include_once realpath($_SERVER["DOCUMENT_ROOT"]) . '/Splint/php/DataManagement/shmop/S_shmop.php';
 
 spl_autoload_register(function($className) {
 	$file = dirname(__DIR__) . '\\php\\' ;
@@ -22,7 +22,7 @@ function search(array $fileMap, string $className){
         foreach ($value as $fileName) {
             if($fileName == $className . '.php'){
                 $path = $key . '\\'. $fileName;
-                include str_replace('\\\\', '\\', $path);
+                include_once str_replace('\\\\', '\\', $path);
                 return true;
             }
         }

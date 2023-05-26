@@ -1,0 +1,33 @@
+@use '../../_main.scss' as *;
+@use "sass:color";
+.s-ToggleButton_2 {
+    width: max-content;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    > button {
+        border: none;
+        border-radius: 0;
+        outline: none;
+        padding: 0em;
+        min-height: 1rem;
+        height: 100%;
+        width: 100%;
+        margin: 0.25em;
+        &.btFALSE {
+            background-color: red;
+            &[state*='passive']{
+                background-color: rgba(255, 0, 0, 0.3);
+            }
+        }
+        &.btTRUE {
+            background-color: green;
+            &[state*='passive']{
+                background-color: rgba(0, 128, 0, 0.3);
+            }
+        }
+        > span {
+
+        }
+    }
+}

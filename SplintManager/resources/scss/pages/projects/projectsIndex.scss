@@ -1,0 +1,73 @@
+@import "../../assets/_pageExtendedTemplate"; 
+@import "error_log";
+
+body {
+    > .ManagerMenuPage {
+        > .TableMain {
+            &.projectsTable {
+                > .ListMain {
+                    > .ListElement {
+                        height: 5em;
+                        box-sizing: border-box;
+                        display: grid;
+                        grid-template-rows: max-content auto max-content;
+                        grid-template-columns: 33% auto;
+                        &:hover {
+                            @include box-shadow(1, $color-button-hover, 0.6);
+                            // background-color: $color-background-Light;
+                        }
+                        > .headline {
+                            grid-row: 1;
+                            height: max-content;
+                            box-sizing: border-box;
+                            > span {
+                                font-size: 1.5em;
+                            }
+                        }
+                        > .buttons {
+                            grid-row: 3;
+                            vertical-align: bottom;
+                            > button {
+                                background-color: $color-primary-Light;
+                                border: none;
+                                border-radius: 0;
+                                outline: none;
+                                box-sizing: border-box;
+                                padding: 0.25em;
+                                margin: 0.25em;
+                                margin-top: auto;
+                                bottom: 0;
+                                &:hover {
+                                    background-color: $color-button-hover;
+                                }
+                                span {
+                                    font-size: 1.1em;
+                                }
+                            }
+                        }
+                        > .Table2D {
+                            grid-row: 2;
+                            grid-column: 2;
+                            > .Table2DMain {
+                                > tr {
+                                    > td {
+                                        &[col*='0']{
+                                            > div {
+                                                margin-right: 1rem;
+                                                > span {
+                                                    font-weight: bold;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        border: 1px solid black;
+                    }
+    
+                }
+            }
+        }
+    }
+}

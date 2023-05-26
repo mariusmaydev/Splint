@@ -1,0 +1,40 @@
+
+.errorLog_Overview {
+    height: 100%;
+    overflow: auto;
+}
+
+.PHP_debuggLog {
+    > .content {
+        > .TableMain {
+            > .ListMain {
+                > .ListElement {
+                    @include SPLINT-border-inset(darkgray, 1px, true, false, false, false);
+                    > .s-TextView {
+                        > p {
+
+                        }
+                    }
+                    > .traceDiv {
+                        height: 1em;
+                        overflow: hidden;
+                        background-color: rgba(255, 0, 0, 0.185);
+                        &[state*='active']{
+                            height: max-content;
+                        }
+                        > .traceHead {
+                            position: relative;
+                            height: 1em;
+                            width: 100%;
+                        }
+                        > .s-TextView {
+                            > p {
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

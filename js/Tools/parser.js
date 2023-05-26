@@ -1,5 +1,11 @@
 
 class S_Tparser {
+    static stringToBool(str){
+        if(str == true || str == "true"){
+            return true;
+        } 
+        return false;
+    }
     /**
      * @description converts JSON safely
      * @param {string} string 

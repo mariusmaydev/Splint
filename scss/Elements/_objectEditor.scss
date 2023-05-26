@@ -1,0 +1,61 @@
+@use '../_main.scss' as *;
+
+.s-ObjectEditor {
+    width: 25rem;
+    // > *{
+    //     box-sizing: border-box;
+    // }
+    // width: 50rem !important;
+    @include SPLINT-border-inset(black, 1px, false, true, false, false);
+    // border-bottom: 1px solid red;
+    // border-left: 1px solid red;
+    > .Table2D {
+        // width: 100%;
+                    box-sizing: border-box;
+        > table {
+            // width: 100%;
+                    box-sizing: border-box;
+                    // background-color: red;
+            > tr {
+                &:nth-child(odd){
+                }
+                width: 0rem;
+                box-sizing: border-box;
+
+                    // background-color: blue;
+                    border-bottom: 1px solid black;
+                    // @include SPLINT-border-inset(black, 1px, false, false, true, false);
+                    overflow: visible;
+                &[container*='true']{
+                    display: flex;
+                    flex-direction: column;
+                    > td {
+                        &[col*='1']{
+                            margin-left: 1rem;
+                        }
+                    }
+                }
+                > td {
+                    box-sizing: border-box;
+                    width: 100%;
+                    // width: 15rem !important;
+                    overflow: visible;
+                    padding-left: 0.25rem;
+                    &[col*='0']{
+                        width: 33%;
+                    }
+                    &[col*='2']{
+                        width: min-content;
+                    }
+                    > div {
+                        // margin-right: 5rem;
+                        position: relative;
+                        > span {
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

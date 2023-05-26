@@ -76,7 +76,11 @@ class S_ANSI {
                     if(pos1 >= pos2){
                         last = pos1;
                     }
-                    let res = str.substring(last, position).match(/\\.*?.(\>)/g).join("");
+                    let res = str.substring(last, position).match(/\\.*?.(\>)/g)//.join("");
+                    if(res != null){
+                        res = res.join("");
+                    }
+                    // console.log(res)
                     str = str.substring(0, position) + str.substring(position).replace(e[0], f+e[0]+res);
                     position = str.indexOf(e[0], position+ ((f+e[0]+res).length) );   
                     // console.log("a")             

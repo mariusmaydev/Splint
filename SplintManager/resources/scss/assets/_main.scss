@@ -1,15 +1,17 @@
 @import "../../../Splint/splint.config/config.style";
 
-$border-radius      : 0px;
-$SP-color-header    : rgb(0, 147, 0);
-$color-primary-Dark : rgb(0, 110, 0);
-$color-primary-text : black;
-$color-button-hover : rgb(0, 147, 0);
+$border-radius          : 0px;
+$SP-color-header        : rgb(0, 147, 0);
+$color-primary-Dark     : rgb(0, 110, 0);
+$color-primary-Light    : rgb(30, 201, 30);
+$color-background-Light : rgb(225, 255, 225);
+$color-primary-text     : black;
+$color-button-hover     : rgb(0, 147, 0);
 
 $font-family-main       : "Arial";
 // > body {
     * {
-        font-family: $font-family-main !important;
+        font-family: $font-family-main;
         margin: 0;
         padding: 0;
     }

@@ -138,6 +138,9 @@ class DOMElement_manager {
     static get popupWindow(){
       return S_popupWindow;
     }
+    static get TextView(){
+        return S_TextView;
+    }
     static get Table(){
       return Table;
     }
@@ -146,6 +149,9 @@ class DOMElement_manager {
     }
     static get ChartContainer(){
         return S_ChartContainer;
+    }
+    static get ObjectEditor(){
+        return S_ObjectEditor;
     }
   }
 //   customElements.define('dom-elementr', DOMElement);

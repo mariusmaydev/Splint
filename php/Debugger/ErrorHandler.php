@@ -10,13 +10,22 @@
 
 
     class ErrorHandler {
-
+        public $arg = "";
         private function __construct(public int $errorType, public string $errorMessage, string $errorFile, int $errorLine){
+            $this -> parseArg();
             $this -> throw();
+        }
+        private function parseArg(){
+            $start = strpos($this -> errorMessage, '<arg value="') + 12;
+            $length = strpos($this -> errorMessage, '">') - $start;
+            $this -> arg = substr($this -> errorMessage, $start, $length);
+            $this -> errorMessage = substr($this -> errorMessage, 0, $start + $length) . "\r\n" . substr($this -> errorMessage, $start + $length);
         }
         private function throw(){
             $message = StringTools::indent("\n" . $this -> errorMessage) . "\n";
+            $message = "\r\n<S-msg>" . $message . "</S-msg>\r\n";
             $message .= $this -> getBase();
+            $message = "<S-error>" . $message . "\r\n</S-error>";
             $type = $this -> errorType;
             if( str_contains($this -> errorMessage, "SQL syntax")){
                 file_put_contents(PATH_error_log_mySQL, $message.PHP_EOL, FILE_APPEND );
@@ -34,7 +43,7 @@
                 case E_USER_NOTICE  : $type = "[DEBUG][NOTICE]"; break;
                 default : $type = "[ERROR]";break;
             }
-        $res = "";
+        $res = "<S-trace>\r\n";
         $bt = debug_backtrace();
         foreach($bt as $key => $trace){
             if(!isset($trace['file']) || str_contains($trace['file'], 'Debugger')){
@@ -42,6 +51,7 @@
             }
             $res .= sprintf( '[%s]%s at %s(%s)', date('d-m H:i'), $type, $trace['file'], $trace['line']) . "\n";
         }
+        $res .= "</S-trace>";
         return $res;
         }
         public static function call(int $errorType, string $errorMessage, string $errorFile, int $errorLine){

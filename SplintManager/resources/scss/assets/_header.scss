@@ -6,6 +6,7 @@
         width: 100%;
         height: 6vh;
         padding: 0.5rem;
+        box-sizing: border-box;
         > .content {
             @include basicContainer();
             background-color: $SP-color-header;

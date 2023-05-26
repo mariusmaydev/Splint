@@ -96,4 +96,7 @@ class S_Button {
     static get Toggle(){
       return S_toggleButton;
     }
+    static get Toggle2(){
+        return nS_ToggleButton;
+    }
   }

@@ -1,6 +1,6 @@
 
 class templateMenuPage {
-    data = [];
+    #data = [];
     constructor(name){
         this.parent = document.body;
         this.name = name;
@@ -11,7 +11,7 @@ class templateMenuPage {
         // this.draw();
     }
     draw(){
-        this.list = new SPLINT.DOMElement.Table.List(this.mainElement, this.name, this.data);
+        this.list = new SPLINT.DOMElement.Table.List(this.mainElement, this.name, this.#data);
         this.list.func_drawListElement = function(data, index, listElement){
             let button = new SPLINT.DOMElement.Button(listElement, data.name, data.name);
                 button.onclick = function(){
@@ -21,6 +21,6 @@ class templateMenuPage {
         this.list.draw();
     }
     addData(name, value){
-        this.data.push({name: name, value: value});
+        this.#data.push({name: name, value: value});
     }
 }

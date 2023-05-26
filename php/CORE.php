@@ -1,11 +1,7 @@
 <?php 
-    if(!defined('PROJECT_NAME')){
-        if(isset($_GET['projectName']) && $_GET['projectName'] != null){
-            define('PROJECT_NAME', $_GET['projectName']);//$_SERVER['QUERY_STRING']);
-        } else {
-            define('PROJECT_NAME', 'fd');
-        }
-    }
+    require_once 'DataManagement/shmop/S_shmop.php';
+    require_once 'Tools/FileTools.php';
+    define('PROJECT_NAME', searchConfig());
     define('SPLINT_MAIN_DIR', dirname(__FILE__));
     define('SERVER_SSL', "http");
     define('SERVER_ROOT', $_SERVER["DOCUMENT_ROOT"]);
@@ -14,7 +10,7 @@
     include 'autoloader.php';
     require_once 'INIT/init.php';
     require_once 'Tools/Math.php';
-    require_once 'Debugger/Debugger.php';
+    require_once 'Debugger/Debugg2.php';
     require_once 'Tools/Path.php';
     require_once 'Debugger/ErrorHandler.php';
     require_once 'DataBase/DataBase.php';
@@ -22,8 +18,37 @@
     require_once 'DataManagement/sessions/sessions.php';
     require_once 'Tools/createDHLcsv.php';
     require_once 'JSBuilder/JSBuilder.php';
-    Debugg::log(PROJECT_NAME);
 
+    function searchConfig(){
+        $path = $_SERVER["DOCUMENT_ROOT"] . "/Splint/SplintManager/cache/projects.map";
+        $r = S_shmop::read("SM_projects");
+        if($r == null || true){
+            if(file_exists($path)){
+                $r = unserialize(file_get_contents($path));
+                S_shmop::write("SM_projects", $r);
+            } else {
+                $dir = str_replace("//", "/", $_SERVER["DOCUMENT_ROOT"] );
+                $dir = str_replace('/', DIRECTORY_SEPARATOR, $dir);
+                $r = FileTools::deepScan($dir);
+                file_put_contents($path, serialize($r));
+                
+                S_shmop::write("SM_projects", $r);
+            }
+        }
+        $lowest = [];
+        $lowest[0] = 100;
+        foreach($r as $key => $value){
+            $i = explode("\\", $value);
+            $i = array_splice($i, 3);
+            $f = explode("/", $_SERVER["HTTP_REFERER"]);
+            $f = array_splice($f, 3);
+            $a = array_diff($i, $f);
+            if(count($a) < $lowest[0]){
+                $lowest = [count($a), array_splice($i, 0, -2)];
+            }
+        }
+        return implode("/", $lowest[1]);
+    }
 
     mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_STRICT ^ MYSQLI_REPORT_INDEX);
 

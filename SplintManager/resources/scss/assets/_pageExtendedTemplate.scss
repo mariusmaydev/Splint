@@ -1,0 +1,65 @@
+@import '_pageMenuTemplate.scss';
+// @import 'main';
+// @import 'header';
+// body {
+//     > .ManagerMenuPage {
+//     }
+// }
+
+.ManagerMenuPageExtended {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    > .leftContent {
+        min-width: max-content;
+        width: 10%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: max-content;
+        @include SPLINT-border-inset();
+        > .sidebarLeft {
+            > .TableMain {
+                >.ListMain {
+                    >.ListElement {
+                        > button {
+
+                        }
+                        > div {
+                            height: 0;
+                            padding-left: 0.5rem;
+                            overflow: hidden;
+                            visibility: hidden;
+                            &[state*='active']{
+                                padding-top: 0.5em;
+                                margin-bottom: 0em;
+                                padding-bottom: 0;
+                                height: max-content;
+                                visibility: visible;
+                            }
+                            > button {
+                                &::before {
+
+                                    content: '';
+                                    position: absolute;
+                                    bottom: 6px;
+                                    left: -2px;
+                                    width: 5px;
+                                    height: 5px;
+                                    background-color: #000;
+                                    border-radius: 50%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    > .rightContent {
+        width: 100%;
+        height: 100%;
+        @include SPLINT-border-inset();
+    }
+
+}

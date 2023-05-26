@@ -39,14 +39,14 @@ class Table_Masonry {
         this.#fillColumns();
     }
     #generateColumns(){
-        this.mainWidth    = this.listMain.getBoundingClientRect().width;
-        this.mainLeft     = this.listMain.getBoundingClientRect().left;
+        this.mainWidth    = parseInt(this.listMain.getBoundingClientRect().width);
+        this.mainLeft     = parseInt(this.listMain.getBoundingClientRect().left);
         while(this.mainWidth > this.innerWidth){
             let Column = new SPLINT.DOMElement(this.id + "Column_" + this.ColumnCount, "div", this.listMain);
                 Column.Class("column");
                 Column.setAttribute("index", this.ColumnCount);
 
-            this.innerWidth = Column.getBoundingClientRect().right - this.mainLeft;
+            this.innerWidth = parseInt(Column.getBoundingClientRect().right - this.mainLeft);
             this.ColumnCount++;
         }
     }    

@@ -2,11 +2,19 @@
 
 @mixin AdaptiveTableStyle($border-radius){
     .AdaptiveTableMain {
+            // position: relative;
+            // display: block;
+            // width: 98%;
+            // height: 100%;
+            // overflow: hidden;
+            // overflow-y: auto;
         > .ListMain {
+            // width: 100%;
             > .column {
+                // width: 30%;
                 > .ListElement {
                     > img {
-                        border-radius: $border-radius;
+                        // border-radius: $border-radius;
                     }
                 }
             }

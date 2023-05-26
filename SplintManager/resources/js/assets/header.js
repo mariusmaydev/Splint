@@ -12,6 +12,9 @@ class P_Header {
     draw(){
         this.logo = new SPLINT.DOMElement(this.id + "Logo_Container", "div", this.contentElement);
         this.logo.Class("logo");
+        this.logo.onclick = function(){
+            PageNavigation.src = "/index.html";
+        }
             let logoImg = new SPLINT.DOMElement(this.id + "Logo_img", "img", this.logo);
                 logoImg.alt = "LOGO";
 
