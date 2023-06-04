@@ -1,13 +1,10 @@
 
 
-class n_InputDiv {
+class n_InputDiv extends S_DOMElement_TEMPLATE {
     constructor(parent, name, _value, transitionMultiplyer = 10){
-        this.parent = parent;
+        super("InputDiv", parent, name + "_" + parent.id)
+        this.Class("n_inputDiv");
         this._value = _value;
-        this.name = name;
-        this.id = parent.id + "_n_InputDiv_" + name + "_";
-        this.mainElement = new SPLINT.DOMElement(this.id + "main", "div", this.parent);
-        this.mainElement.Class("n_inputDiv");
 
             this.inputBody = new SPLINT.DOMElement(this.id + "input_Body", "div", this.mainElement);
             this.inputBody.Class("inputBody");
@@ -85,8 +82,5 @@ class n_InputDiv {
     }
     set type(type){
       this.input.type = type;
-    }
-    remove(){
-        this.mainElement.remove();
     }
 }

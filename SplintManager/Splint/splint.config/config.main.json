@@ -15,12 +15,24 @@
 	"host": "localhost",
 	"host1": "192.168.178.67",
 	"port": "80",
-	"settings": {
+    "settings": {
+		"cacheResources": {
+            "cdn" : false,
+            "splint" : {
+                "js" : false,
+                "css" : false,
+                "fileTree" : false
+            },
+            "project" : {
+                "js" : false,
+                "css" : false,
+                "fileTree" : false
+            }
+        },
 		"debugging": {
-			"error": true,
+			"error": false,
 			"warn": false,
 			"log": false
-		},
-		"cacheResources": false
+		}
 	}
 }

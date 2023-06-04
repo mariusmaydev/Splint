@@ -25,7 +25,8 @@
             $message = StringTools::indent("\n" . $this -> errorMessage) . "\n";
             $message = "\r\n<S-msg>" . $message . "</S-msg>\r\n";
             $message .= $this -> getBase();
-            $message = "<S-error>" . $message . "\r\n</S-error>";
+            $message = "<S-error>" . $message . "\r\n";
+            $message .= "<S-time>" . date("Y-m-d H:i:s") . "</S-time></S-error>";
             $type = $this -> errorType;
             if( str_contains($this -> errorMessage, "SQL syntax")){
                 file_put_contents(PATH_error_log_mySQL, $message.PHP_EOL, FILE_APPEND );
@@ -49,7 +50,7 @@
             if(!isset($trace['file']) || str_contains($trace['file'], 'Debugger')){
                 continue;
             }
-            $res .= sprintf( '[%s]%s at %s(%s)', date('d-m H:i'), $type, $trace['file'], $trace['line']) . "\n";
+            $res .= sprintf( ' at %s(%s)%s', $type, $trace['file'], $trace['line']) . "\n";
         }
         $res .= "</S-trace>";
         return $res;

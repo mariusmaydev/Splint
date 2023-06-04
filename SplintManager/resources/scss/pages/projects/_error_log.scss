@@ -5,9 +5,35 @@
 }
 
 .PHP_debuggLog {
+    height: 100%;
+    box-sizing: border-box;
     > .content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: stretch;
+        > .head {
+            position: relative;
+            width: 100%;
+            height: 2em;
+            background-color: red;
+            @include SPLINT-border-inset();
+            > button {
+                > span {
+                    
+                }
+            }
+        }
         > .TableMain {
+            height: calc(100% - 2em);
+            box-sizing: border-box;
             > .ListMain {
+                height: 100%;
+                overflow: auto;
+                overflow-x: hidden;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
                 > .ListElement {
                     @include SPLINT-border-inset(darkgray, 1px, true, false, false, false);
                     > .s-TextView {
@@ -16,18 +42,74 @@
                         }
                     }
                     > .traceDiv {
-                        height: 1em;
-                        overflow: hidden;
-                        background-color: rgba(255, 0, 0, 0.185);
-                        &[state*='active']{
+                        height: max-content;
+                        // overflow: hidden;
+                        background-color: rgba(255, 0, 0, 0.062);
+                        &[s-state*='active']{
+                            > .s-TextView {
+                                display: block;
+                                > p {
+    
+                                }
+                            }
                             height: max-content;
                         }
                         > .traceHead {
                             position: relative;
-                            height: 1em;
+                            height: max-content;
+                            box-sizing: border-box;
                             width: 100%;
+                            display: flex;
+                            justify-content: stretch;
+                            align-items: center;
+                            > button {
+                                position: relative;
+                                height: 100%;
+                                
+                            }
+                            > .text {
+                                cursor: pointer;
+                                margin-top: auto;
+                                margin-bottom: auto;
+                                box-sizing: border-box;
+                                position: relative;
+                                height: 100%;
+                                > span {
+                                    // display: none;
+                                    font-size: 1.1em;
+                                }
+                            }
+                            > .timeContainer {
+                                width: max-content;
+                                margin-left: auto;
+                                right: 0;
+                                > .head {
+                                    position: relative;
+                                    margin-left: auto;
+                                    width: 100%;
+                                    right: 0.5em;
+                                    > span {
+
+                                    }
+                                    > .TableMain {
+                                        &:not([s-state*='active']){
+                                            display: none;
+                                        }
+                                        background-color: white;
+                                        border: 1px solid black;
+                                        width: 100%;
+                                        height: max-content;
+                                        position: absolute;
+                                        > .ListMain {
+                                            display: flex;
+                                            flex-direction: column;
+                                        }
+                                    }
+                                }
+                            }
                         }
                         > .s-TextView {
+                            display: none;
                             > p {
 
                             }

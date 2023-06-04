@@ -2,6 +2,7 @@
 var SPLINT_EVENTS = new Object();
 
 SPLINT_EVENTS.onStateChange       = new CustomEvent("S_onStateChange");
+SPLINT_EVENTS.NonStateChange       = new CustomEvent("S_NonStateChange");
 SPLINT_EVENTS.toModule            = new CustomEvent("S_toModule");
 SPLINT_EVENTS.toCommonJS          = new CustomEvent("S_toCommonJS");
 SPLINT_EVENTS.loadedCompletely    = new CustomEvent("S_loadedCompletely");
@@ -15,6 +16,14 @@ Object.defineProperty(HTMLElement.prototype, 'S_onStateChange', {
     });
   }
 });
+
+Object.defineProperty(HTMLElement.prototype, 'S_NonStateChange', {
+    set: function(func){
+      this.addEventListener("S_NonStateChange", function(e){
+        func(e, this.getAttribute("s-state"));
+      });
+    }
+  });
 
 Object.defineProperty(HTMLElement.prototype, 'S_toModule', {
   set: function(func){

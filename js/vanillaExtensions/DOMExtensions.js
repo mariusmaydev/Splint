@@ -3,10 +3,21 @@
         constructor(instance){
             this.instance = instance;
         } 
+        #state_c = null;
         get state(){
             let c = class {
                 constructor(instance){
                     this.instance = instance;
+                }
+                #func_onActive = function(){};
+                #func_onPassive = function(){};
+                #func_onToggle = function(){};
+                get(){
+                    if(this.instance.getAttribute("s-state") == "active"){
+                        return "active";
+                    } else {
+                        return "passive";
+                    }
                 }
                 remove(){
                     if(this.instance.getAttribute("s-state") != null){
@@ -23,29 +34,64 @@
                 setActive(){
                     this.instance.setAttribute("s-state", "active");
                     this.instance.state = "active";
+                    this.#onToggle("e", "active")
                 }
                 setPassive(){
                     this.instance.setAttribute("s-state", "passive");
                     this.instance.state = "passive";
+                    this.#onToggle("e", "passive")
+                }
+                #onToggle(e, state){
+                    if(state == "active"){
+                        this.#func_onActive(...arguments);
+                    } else {
+                        this.#func_onPassive(...arguments);
+                    }
+                    this.#func_onToggle(...arguments);
+                }
+                get onActive(){
+                    return this.#func_onActive;
+                }
+                set onActive(func){
+                    this.#func_onActive = func;
+                }
+                get onPassive(){
+                    return this.#func_onPassive;
+                }
+                set onPassive(func){
+                    this.#func_onPassive = func;
+                }
+                set onToggle(func){
+                    this.#func_onToggle = func;
+                    // this.instance.S_NonStateChange = this.#onToggle.bind(this);
                 }
             }
-            return new c(this.instance);
+            if(this.#state_c == null){
+                this.#state_c = new c(this.instance);
+            }
+            return this.#state_c;
         }   
     }
     
     Object.defineProperty(HTMLElement.prototype, "SPLINT", {
         get: function(){
-            return new SPLINT_DOMextensions(this);
+            if(this.SPLINT_STORAGE == undefined || this.SPLINT_STORAGE == null){
+                this.SPLINT_STORAGE = new SPLINT_DOMextensions(this);
+            }
+            return this.SPLINT_STORAGE;
         },
         enumerable: false,
-        configurable: false
+        configurable: true
     })
     Object.defineProperty(HTMLElement.prototype, "S", {
         get: function(){
-            return new SPLINT_DOMextensions(this);
+            if(this.SPLINT_STORAGE == undefined || this.SPLINT_STORAGE == null){
+                this.SPLINT_STORAGE = new SPLINT_DOMextensions(this);
+            }
+            return this.SPLINT_STORAGE;
         },
         enumerable: false,
-        configurable: false
+        configurable: true
     })
   //----------------------------------------------------------------
   //Erweiterungen für alle DOMElemente
@@ -157,13 +203,13 @@
   HTMLElement.prototype.setTooltip = function(value, direction){
     return new Tooltip_S(value, direction, this);
   }
-  HTMLElement.prototype.clear = function(element){
-    for(let i = 0; i < this.childNodes.length; i++){
-      if(this.childNodes[i] != element){
-        this.childNodes[i].remove();
-      }
-    }
-  }
+//   HTMLElement.prototype.clear = function(element){
+//     for(let i = 0; i < this.childNodes.length; i++){
+//       if(this.childNodes[i] != element){
+//         this.childNodes[i].remove();
+//       }
+//     }
+//   }
   HTMLElement.prototype.disable = function(type){
     this.setAttribute(type, "");
   }
@@ -281,6 +327,7 @@ HTMLElement.prototype.newChild = function(name, tag, oncreate = function(){}){
           this.childNodes[i].remove();
         }
       }
+      this.innerHTML = "";
     }
   } 
   HTMLElement.prototype.state = function(){

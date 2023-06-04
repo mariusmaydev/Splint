@@ -123,6 +123,9 @@ class DOMElement_manager {
     static get InputDiv(){
       return n_InputDiv;
     }
+    static get FolderInput(){
+        return S_folderInput;
+    }
     static get InputText(){
       return TextInputDiv;
     }

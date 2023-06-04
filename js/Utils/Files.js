@@ -57,21 +57,22 @@ class S_FileUtils {
         }
     }
     static write(data, uri){
-        let rawFile = new XMLHttpRequest();
-        rawFile.open("POST", uri, true);
-        rawFile.setRequestHeader('Content-type', 'application/json');
-        rawFile.onreadystatechange = function() {
-            console.log(rawFile.responseText)
-            if(rawFile.readyState === 4) {
-                if(rawFile.status === 200 || rawFile.status == 0){
-                    // resolve(rawFile.responseText);
-                } else {
-                    // resolve(false);
+        return new Promise(async function(resolve){
+            let rawFile = new XMLHttpRequest();
+            rawFile.open("POST", uri, true);
+            rawFile.setRequestHeader('Content-type', 'application/json');
+            rawFile.onreadystatechange = function() {
+                console.dir(rawFile)
+                if(rawFile.readyState === 4) {
+                    if(rawFile.status === 200 || rawFile.status == 0){
+                        resolve(rawFile.responseText);
+                    } else {
+                        resolve(false);
+                    }
                 }
             }
-        }
-        rawFile.send((JSON.stringify(data)));
-
+            rawFile.send(JSON.stringify(data));
+        });
     }
     static #parseOutput(flag = false){            
         if(typeof this.value == "string"){

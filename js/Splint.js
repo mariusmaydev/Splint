@@ -14,6 +14,9 @@ class SPLINT {
     static get Events(){
         return S_Events;
     }
+    static get CONSTANTS(){
+        return S_constants;
+    }
     static get DataStorage(){
         return S_DataStorage;
     }
@@ -90,7 +93,6 @@ class SPLINT {
         SPLINT.debugger.logUser(SPLINT);
     }
 }
-class S extends SPLINT {};
 
 const SPLINT_loadedDocs = [];
 class SPLINT_loaderHelper {
@@ -117,6 +119,12 @@ class SPLINT_loaderHelper {
             // sc.async = true;
             // sc.id = Math.random();
             // document.head.appendChild(sc)
+            let cache = false;
+            if(path.includes(SPLINT.projectRootPath)){
+                cache = SPLINT.config.main.settings.cacheResources.project.js
+            } else if(path.includes(SPLINT.rootPath + "/js/")){
+                cache = SPLINT.config.main.settings.cacheResources.splint.js
+            }
             if(sync){
                 $.ajax({
                     beforeSend: function(){
@@ -137,7 +145,7 @@ class SPLINT_loaderHelper {
                     type: 'GET',
                     url: path,
                     async: !sync,
-                    cache: SPLINT.CONFIG.settings.cacheResources,
+                    cache: cache,
                     dataType: 'script',
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
                         reject(arguments);
@@ -150,7 +158,7 @@ class SPLINT_loaderHelper {
                 function load(){
                     let tag = document.createElement('script');
                     tag.type = "text/javascript";
-                    if(SPLINT.CONFIG.settings.cacheResources){
+                    if(cache){
                         tag.src = path;
                     } else {
                         tag.src = path + "?v=" + Math.round(Date.now()/1000);
@@ -168,7 +176,7 @@ class SPLINT_loaderHelper {
                     tag.onerror = function(){
                         SPLINT.Error.FileNotFound(path);
                         // SPLINT.debugger.error("init - loader", "try reloading is you have changed the file tree")
-                        Splint_bindJS.loadPATH(true);
+                        Splint_bindJS.loadPATH();
                         SPLINT_loaderHelper.queryPaths();
                         // load();
                         obj1.resolved = true;
@@ -191,6 +199,12 @@ class SPLINT_loaderHelper {
                     if(e.path == path){
                         return e.promise;
                     }
+                }
+                let cache = false;
+                if(path.includes(SPLINT.projectRootPath)){
+                    cache = SPLINT.config.main.settings.cacheResources.project.js
+                } else if(path.includes(SPLINT.rootPath + "/js/")){
+                    cache = SPLINT.config.main.settings.cacheResources.splint.js
                 }
                 let promise = $.ajax({
                         beforeSend: function(){
@@ -241,7 +255,7 @@ class SPLINT_loaderHelper {
                         type: 'GET',
                         url: path,
                         async: true,
-                        cache: SPLINT.CONFIG.settings.cacheResources,
+                        cache: cache,
                         dataType: 'text',
                     }).done(function(){
                         return true;
@@ -262,13 +276,19 @@ class SPLINT_loaderHelper {
                 return e.promise;
             }
         }
+        let cache = false;
+        if(src.includes(SPLINT.projectRootPath)){
+            cache = SPLINT.config.main.settings.cacheResources.project.css
+        } else if(src.includes(SPLINT.rootPath + "/scss/")){
+            cache = SPLINT.config.main.settings.cacheResources.splint.css
+        }
         let obj = new Object();
         obj.path = src;
         obj.resolved = false;
         obj.promise =  new Promise(async function(resolve, reject){
             let tag = document.createElement('link');
             tag.rel = "stylesheet";
-            if(SPLINT.CONFIG.settings.cacheResources){
+            if(cache){
                 tag.href = src;
             } else {
                 tag.href = src + "?v=" + (new Date()).getTime();
@@ -327,6 +347,8 @@ class SPLINT_Loader extends SPLINT_loaderHelper{
                 await Promise.all([
                     SPLINT.require("@SPLINT_ROOT/Utils/ANSI.js"),
                     SPLINT.require("@SPLINT_ROOT/Events/Events.js"),
+                    SPLINT.require("@SPLINT_ROOT/constants.js"),
+                    SPLINT.require("@SPLINT_ROOT/DOMElements/DOMElementTemplate.js"),
                     SPLINT.require("@SPLINT_ROOT/DataManagement/callPHP/CallPHP.js"),
                     SPLINT.require("@SPLINT_ROOT/Utils/debugger/SplintError.js"),
                     SPLINT.require("@SPLINT_ROOT/Utils/debugger/debugger.js"),
@@ -472,7 +494,7 @@ class Splint_bindJS {
                     tag.setAttribute("async", "true");
                     document.head.appendChild(tag);
                     tag.oerror = function(){
-                        Splint_bindJS.loadPATH(true);
+                        Splint_bindJS.loadPATH();
                         load();
                         console.log(arguments);
                     }
@@ -484,13 +506,14 @@ class Splint_bindJS {
         f(SPLINT.PATH.project.CSS, "stylesheet");
         return;
     }
-    static async loadPATH(forceReload = true){
+    static async loadPATH(){
+        
         return Promise.all([
             $.ajax({
                 type: 'GET',
-                url: SPLINT.rootPath + "/loadFolderFromHTML.php?forceReload=" + forceReload + "&projectName=" + SPLINT.config.main.projectName,
+                url: SPLINT.rootPath + "/loadFolderFromHTML.php?forceReload=" + !SPLINT.config.main.settings.cacheResources.project.fileTree + "&projectName=" + SPLINT.config.main.projectName,
                 async: true,
-                cache: false,
+                cache: SPLINT.config.main.settings.cacheResources.project.fileTree,
                 dataType: 'JSON',
                 success: function(data) {
                     SPLINT.PATH.project = data;
@@ -501,9 +524,9 @@ class Splint_bindJS {
             }),
             $.ajax({
                 type: 'GET',
-                url: SPLINT.rootPath + "/loadFromHTML.php?forceReload=" + forceReload + "&projectName=" + SPLINT.config.main.projectName,
+                url: SPLINT.rootPath + "/loadFromHTML.php?forceReload=" + !SPLINT.config.main.settings.cacheResources.splint.fileTree + "&projectName=" + SPLINT.config.main.projectName,
                 async: true,
-                cache: false,
+                cache: SPLINT.config.main.settings.cacheResources.splint.fileTree,
                 dataType: 'JSON',
                 success: function(data) {
                     SPLINT.PATH.splint = data;

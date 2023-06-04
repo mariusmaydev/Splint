@@ -111,7 +111,6 @@ class nS_Location {
         return response;
     }
     static call(reload = true){
-        console.log(this.href);
         for(const e of Object.entries(this.STORAGE.params)){
             if(!this.href.includes("?")){
                 this.href = this.href + "?";
@@ -126,6 +125,7 @@ class nS_Location {
         for(const e of this.STORAGE.hashes){
             this.href = this.href + "#" + e;
         }
+        console.log(this.href);
         if(reload){
             window.location.href = this.href;
         } else {

@@ -1,18 +1,12 @@
 
-class n_SelectInput {
+class n_SelectInput extends S_DOMElement_TEMPLATE {
     constructor(parent, name = "", labelName = ""){
-        this.parent = parent;
-        this.name = name;
+        super("SelectInput", parent, name);
         this.labelName = labelName;
-        this.id = "n_SelectInput_" + name + "_";
-        this.mainElement = new SPLINT.DOMElement(this.id + "main", "div", this.parent);
-        this.mainElement.Class("n_SelectInputMain");
+        this.Class("n_SelectInputMain");
         this.draw();
         this.initEvents();
         this.onValueChange = function(){};
-    }
-    Class(className){
-        this.mainElement.Class(className);
     }
     initEvents(){
         window.addEventListener("mousedown", function(e){

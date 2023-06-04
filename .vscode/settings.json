@@ -138,6 +138,7 @@
     ],
     "liveSassCompile.settings.formats":[
 
+
         // You can add more
         {
             "format": "expanded",//"expanded",
@@ -147,7 +148,6 @@
             // "savePath": "/Splint/SplintExample/css"
         }
     ],
-    "liveSassCompile.settings.autoprefix": null,
     "liveSassCompile.settings.generateMap": true,
     "logViewer.watch": [
         {
@@ -284,6 +284,11 @@
 "outline.collapseItems": "alwaysCollapse",
 "liveSassCompile.settings.excludeList": [
     "/**/node_modules/**",
-    "/.vscode/**"
+    "/.vscode/**",
+    "/../../fd/**",
+    "/.git/**",
+    "/node_modules/**",
+    "/lib/**",
+    
 ]
 }

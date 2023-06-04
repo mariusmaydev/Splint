@@ -27,6 +27,9 @@ class S_DOMElement extends HTMLElement {
     static get Input(){
         return S_Input;
     }
+    static get Button(){
+        return S_exButton;
+    }
     static get Chart(){
         return S_Chart;
     }

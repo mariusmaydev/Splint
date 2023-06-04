@@ -13,6 +13,37 @@
     }
 }
 
+.s-button_basic {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    
+    cursor: pointer;
+    margin: 0.5em;
+    > span {
+        display: block;
+    }
+}
+
+.s-button_link {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    
+    cursor: pointer;
+    margin: 0.5em;
+    > span {
+        text-decoration: underline;
+        color: blue;
+        display: block;
+    }
+    &:hover {
+        > span {
+            color: rgb(34, 34, 255);
+        }
+    }
+}
+
 // .button_General {
 //     $color-blue         : rgb(51, 122, 207);
 //     $color-blue-hover   : rgb(36, 87, 150);

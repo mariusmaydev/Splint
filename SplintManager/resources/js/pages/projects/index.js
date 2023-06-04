@@ -10,10 +10,12 @@ class P_IndexProjects extends templateMenuPage {
         let hashes = SPLINT.Tools.Location.getHashes();
         console.dir(window.location.hashes)
         if(hashes.includes("viewProjectDetails")){
-            let params = SPLINT.Tools.Location.getParams();
-            this.mainElement.innerHTML = "";
             new P_ProjectDetails(this.mainElement, this.data);
-        } else {
+        } else if(hashes.includes("create")){
+            this.mainElement.clear();
+            new P_createProject(this.mainElement);
+        } else if(hashes.length == 0){
+            this.mainElement.clear();
             this.drawList();
         }
     }
@@ -26,6 +28,22 @@ class P_IndexProjects extends templateMenuPage {
         console.dir(res);
         this.projectsTable = new SPLINT.DOMElement.Table.List(this.mainElement, "projectsTable", res);
         this.projectsTable.Class("projectsTable");
+        this.projectsTable.func_drawFirstListElement = function(listElement){
+            
+            let headline = new SPLINT.DOMElement.SpanDiv(listElement, "headline_NEW", "create new");
+                headline.Class("headline");
+                let buttonsDiv = new SPLINT.DOMElement(listElement.id + "_buttons", "div", listElement);
+                    buttonsDiv.Class("buttons");
+                    let button = new SPLINT.DOMElement.Button(buttonsDiv, "NEW", "details");
+                        button.setStyleTemplate(S_Button.STYLE_DEFAULT);
+                        button.onclick = function(){
+                            SPLINT.Tools.Location.addHash("create").addParams({"type" : "new"}).call();
+                        }
+                
+                // let informationTable = new SPLINT.DOMElement.Table.TextTable(listElement, "information_NEW");
+                    // informationTable.addRow("URI", data.uri);
+            console.log(arguments)
+        }
         this.projectsTable.func_drawListElement = function(data, index, listElement){
             let headline = new SPLINT.DOMElement.SpanDiv(listElement, "headline_" + index, data.config.projectName);
                 headline.Class("headline");
@@ -34,13 +52,13 @@ class P_IndexProjects extends templateMenuPage {
                     let button = new SPLINT.DOMElement.Button(buttonsDiv, index, "details");
                         button.setStyleTemplate(S_Button.STYLE_DEFAULT);
                         button.onclick = function(){
-                            SPLINT.Tools.Location.addHash("viewProjectDetails").addParams({"projectIndex":index}).call();
-                        }
+                            this.mainElement.clear();
+                            SPLINT.Tools.Location.addHash("viewProjectDetails").addParams({"name":data.config.projectName}).call();
+                        }.bind(this);
                 
                 let informationTable = new SPLINT.DOMElement.Table.TextTable(listElement, "information_" + index);
                     informationTable.addRow("URI", data.uri);
-            console.log(data);
-        }
+        }.bind(this);
         this.projectsTable.draw();
         // this.projectsTable = new SPLINT.DOMElement.Table.Grid(this.mainElement, "projectsTable", res.length, 2);
         // this.projectsTable.getHead();

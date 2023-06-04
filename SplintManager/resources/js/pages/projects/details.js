@@ -2,54 +2,82 @@
 class P_ProjectDetails extends templateExtendedPage {
     constructor(parent, data){
         super("projectDetails", parent);
-        // this.parent = parent;
-        // this.data = data;
-        // console.dir("data");
-        // console.dir(data);
-        // this.mainElement = new SPLINT.DOMElement(this.id + "main", "div", this.parent);
-        // this.mainElement.Class("ProjectDetailsMain");
-        // this.contentLeft = SPLINT.DOMElement(this.id + "contentLeft", "div", this.mainElement);
-        // this.contentRight = SPLINT.DOMElement(this.id + "contentRight", "div", this.mainElement);
         this.initEvents();
         this.draw();
     }
     initEvents(){
         window.onhashchange = function(){
+            SM_header.drawPath();
             let hashes = SPLINT.Tools.Location.getHashes();
             if(hashes.includes("config")){
+                this.rightContent.clear();
                 this.drawConfig();
             } else if(hashes.includes("error_log")){
+                this.rightContent.clear();
                 new SM_error_log_Overview(this.rightContent, this.data);
+            } else if(hashes.includes("PHP_error_log_MySQL")){
+                this.rightContent.clear();
+                new SM_PHP_debuggLog(this.rightContent, this.data, "PHP_error_log_MySQL.log");  
+                this.focusData("PHP_error_log_MySQL");
+            } else if(hashes.includes("PHP_error_log")){
+                this.rightContent.clear();
+                new SM_PHP_debuggLog(this.rightContent, this.data, "PHP_error_log.log");  
+            } else if(hashes.includes("PHP_debugg_log")){
+                this.rightContent.clear();
+                new SM_PHP_debuggLog(this.rightContent, this.data, "PHP_debugg_log.log");  
+            } else if(hashes.includes("viewProjectDetails")){
+                this.rightContent.clear();
+                let f = async function(){
+                    await this.getData();
+                    this.drawOverview();
+                }.bind(this);
+                f();
+            } else {
+                // window.location.hash = "viewProjectDetails";
             }
         }.bind(this)
     }
     async getData(){
-        let params = SPLINT.Tools.Location.getParams().projectIndex;
+        let params = SPLINT.Tools.Location.getParams().name;
         let a = (await SP_inspectProjects.inspect(true));
-        this.data = a[parseInt(params)];
+        for(const e of a){
+            if(e.config.projectName == params){
+                this.data = e
+            }
+        }
     }
     async draw(){
-        this.addData("error_log", "error_log", {"PHP debugg log":"PHP_debugg_log"});
+        this.addData("error_log", "error_log", {
+            "PHP error log"     : "PHP_error_log", 
+            "PHP debugg log"    : "PHP_debugg_log", 
+            "PHP MySQL log"     : "PHP_error_log_MySQL"});
         this.addData("config", "config");
         super.draw();
         await this.getData();
+        this.drawOverview();
     }
     drawConfig(){
-        console.dir(this.data);
         let c_serverContainer = new SPLINT.DOMElement(this.id + "c_serverContainer", "div", this.rightContent);
         let obje = new SPLINT.DOMElement.ObjectEditor(c_serverContainer, "test", this.data.config);
             obje.onedit = function(obj, val){
-                console.log(obj, val);
                 SP_inspectProjects.saveConfig(obj, this.data.uri);
             }.bind(this);
         return;
+    }
+    drawOverview(){
+        let headline = new SPLINT.DOMElement(this.id + "headline", "div", this.rightContent);
+            headline.Class("headline");
+            let head_name = new SPLINT.DOMElement.SpanDiv(headline, "name", this.data.config.projectName);
+
+        let log_Container = new SPLINT.DOMElement(this.id + "log_container", "div", this.rightContent);
+            let log_overview = new SM_error_log_Overview(log_Container, this.data);
+            
     }
     drawError_logOverview(){
         let error_logContainer = new SPLINT.DOMElement(this.id + "error_log_Container", "div", this.rightContent);
         //         // let call = new SPLINT.CallPHP(SP)
         let uri = location.origin + this.data.config.paths.error_log + "PHP_error_log.log";
         let res = SPLINT.Utils.Files.read(uri);
-                console.log(res);//await CallPHP_log.read_error_log());
     }
 }
 // class P_IndexProjects extends templateMenuPage {

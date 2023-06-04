@@ -6,9 +6,10 @@ body {
     @include SP_Header();
     box-sizing: border-box;
     > .ManagerMenuPage {
-        padding-left: 2em;
-        padding-right: 2em;
-        height: calc(100% - 6vh);
+        padding-left: 1em;
+        padding-right: 1em;
+        padding-top: 0.25em;
+        height: calc(100% - calc(6vh + 1.25em));
         box-sizing: border-box;
         overflow: hidden;
         >.TableMain {

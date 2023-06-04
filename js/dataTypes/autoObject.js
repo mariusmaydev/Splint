@@ -11,6 +11,21 @@ class S_ObjectFunctions {
         })
         // this.toMap = this.toMap;
     }
+    secureValues(recursive = false){
+        for(const e of Object.entries(this.instance)){
+            Object.defineProperty(this.instance, e[0], {
+                value: e[1],
+                enumerable: true,
+                configurable: false,
+                writable: false
+            })
+            if(recursive){
+                if(e[1] instanceof Object){
+                    e[1].SPLINT.secureValues(recursive);
+                }
+            }
+        }
+    }
     log(){
         SPLINT.debugger.logUser(typeof this.instance, this.instance);
     }

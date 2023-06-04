@@ -1,11 +1,12 @@
-
+var SM_header;
 class templateMenuPage {
     #data = [];
     constructor(name){
         this.parent = document.body;
         this.name = name;
         this.id = "pageMenu__" + name + "__";
-        this.header = new P_Header();
+        SM_header = new P_Header();
+        this.header = SM_header;
         this.mainElement = new SPLINT.DOMElement(this.id + "main", "div", this.parent);
         this.mainElement.Class("ManagerMenuPage");
         // this.draw();

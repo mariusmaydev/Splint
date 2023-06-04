@@ -106,8 +106,9 @@ export class Animation {
     pause(){
         
     }
-    start(forward = true, duration = this.duration, name, isInfinity = false){
+    start(forward = true, duration = this.duration, name, isInfinity = false, ...args){
         this.name = name;
+        this.args = args;
         this.isInfinity = isInfinity;
         this._duration = duration;
         this.forward = forward;
@@ -133,11 +134,11 @@ export class Animation {
         if(!this.active){
             return;
         }
-        this.onTick(this.model, this.progress, this.groupe);
+        this.onTick(this.model, this.progress, this.groupe, ...this.args);
         if(this.forward){
             this.progress = 100 / this._duration * this.clock.getElapsedTime();
             if(this.progress >= 100){
-                this.onTick(this.model, 100, this.groupe);
+                this.onTick(this.model, 100, this.groupe, ...this.args);
                 this.stop();
                 if(this.isInfinity){
                     this.start(!this.forward, this._duration, this.name, this.isInfinity);
@@ -146,7 +147,7 @@ export class Animation {
         } else { 
             this.progress = 100 - (100 / this._duration * this.clock.getElapsedTime());
             if(this.progress <= 0){
-                this.onTick(this.model, 0, this.groupe);
+                this.onTick(this.model, 0, this.groupe, ...this.args);
                 this.stop();
                 if(this.isInfinity){
                     this.start(!this.forward, this._duration, this.name, this.isInfinity);

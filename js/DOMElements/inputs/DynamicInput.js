@@ -1,14 +1,11 @@
 
-class S_DynamicInput {
+class S_DynamicInput extends S_DOMElement_TEMPLATE {
     #listElements = [];
     #headline = null;
     #HeadlineContainer = null;
     constructor(parent, name, headline = null){
-        this.parent = parent;
-        this.name = name;
-        this.id = "s-DynamicInput__" + name + "__";
-        this.mainElement = new SPLINT.DOMElement(this.id + "main", "div", this.parent);
-        this.mainElement.Class("s-DynamicInput");
+        super("DynamicInput", parent, name);
+        this.Class("s-DynamicInput");
         this.contentElement = new SPLINT.DOMElement(this.id + "content", "div", this.mainElement);
         this.contentElement.Class("content");
         this.#headline = headline;

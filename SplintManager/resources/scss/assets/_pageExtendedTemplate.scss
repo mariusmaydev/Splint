@@ -17,7 +17,9 @@
         flex-direction: column;
         justify-content: center;
         height: max-content;
-        @include SPLINT-border-inset();
+        @include basicContainer();
+        margin-right: 1em;
+        // background-color: rgb(251, 251, 251);
         > .sidebarLeft {
             > .TableMain {
                 >.ListMain {
@@ -30,6 +32,8 @@
                             padding-left: 0.5rem;
                             overflow: hidden;
                             visibility: hidden;
+                            display: flex;
+                            flex-direction: column;
                             &[state*='active']{
                                 padding-top: 0.5em;
                                 margin-bottom: 0em;
@@ -42,12 +46,16 @@
 
                                     content: '';
                                     position: absolute;
-                                    bottom: 6px;
+                                    // bottom: 6px;
+                                    margin-top: 5px;
                                     left: -2px;
                                     width: 5px;
                                     height: 5px;
                                     background-color: #000;
                                     border-radius: 50%;
+                                }
+                                > span {
+                                    text-align: left;
                                 }
                             }
                         }
@@ -58,8 +66,9 @@
     }
     > .rightContent {
         width: 100%;
-        height: 100%;
-        @include SPLINT-border-inset();
+        height: calc(100% - 1em);
+        @include basicContainer();
+        box-sizing: border-box;
     }
 
 }

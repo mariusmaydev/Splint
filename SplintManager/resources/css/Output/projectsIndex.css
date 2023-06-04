@@ -362,6 +362,36 @@
   background-color: red;
 }
 
+.s-button_basic {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin: 0.5em;
+}
+
+.s-button_basic > span {
+  display: block;
+}
+
+.s-button_link {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin: 0.5em;
+}
+
+.s-button_link > span {
+  text-decoration: underline;
+  color: blue;
+  display: block;
+}
+
+.s-button_link:hover > span {
+  color: rgb(34, 34, 255);
+}
+
 .DropDownInputMain {
   position: relative;
   background-color: #ffd7af;
@@ -1867,6 +1897,36 @@ s-input > .response > span {
   background-color: red;
 }
 
+.s-button_basic {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin: 0.5em;
+}
+
+.s-button_basic > span {
+  display: block;
+}
+
+.s-button_link {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin: 0.5em;
+}
+
+.s-button_link > span {
+  text-decoration: underline;
+  color: blue;
+  display: block;
+}
+
+.s-button_link:hover > span {
+  color: rgb(34, 34, 255);
+}
+
 .DropDownInputMain {
   position: relative;
   background-color: #ffd7af;
@@ -3015,7 +3075,7 @@ body {
 body .P_HeaderContainer {
   position: sticky;
   width: 100%;
-  height: 6vh;
+  height: calc(6vh + 1em);
   padding: 0.5rem;
   box-sizing: border-box;
 }
@@ -3027,8 +3087,9 @@ body .P_HeaderContainer > .content {
   background-color: rgb(0, 147, 0);
   padding: 0;
   box-sizing: border-box;
-  height: 100%;
+  height: calc(100% - 1em);
   width: calc(100% - 1rem);
+  display: flex;
 }
 body .P_HeaderContainer > .content > .logo {
   box-shadow: inset 1px 0px 0px 0px black, inset -1px 0px 0px 0px black, inset 0px 1px 0px 0px black, inset 0px -1px 0px 0px black;
@@ -3039,10 +3100,48 @@ body .P_HeaderContainer > .content > .logo > img {
   width: 100%;
   height: 100%;
 }
+body .P_HeaderContainer > .content > .buttons {
+  width: 100%;
+  padding-right: 1em;
+  display: flex;
+  justify-content: right;
+}
+body .P_HeaderContainer > .content > .buttons > button {
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 100%;
+  margin-inline: 0;
+  padding-inline: 1em;
+}
+body .P_HeaderContainer > .content > .buttons > button:hover > span:not(.material-symbols-outlined) {
+  text-decoration-color: black;
+}
+body .P_HeaderContainer > .content > .buttons > button > span {
+  font-size: 1.6em;
+}
+body .P_HeaderContainer > .path {
+  margin-top: 0.25em;
+  height: 1em;
+  display: flex;
+}
+body .P_HeaderContainer > .path > button {
+  margin-inline: 0.5em;
+  height: 100%;
+}
+body .P_HeaderContainer > .path > button:first-child > span {
+  font-size: 0.9em;
+}
+body .P_HeaderContainer > .path > button > span {
+  font-size: 0.75em;
+}
+body .P_HeaderContainer > .path > div > span {
+  font-size: 0.8em;
+}
 body > .ManagerMenuPage {
-  padding-left: 2em;
-  padding-right: 2em;
-  height: calc(100% - 6vh);
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.25em;
+  height: calc(100% - (6vh + 1.25em));
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -3064,13 +3163,19 @@ body > .ManagerMenuPage > .TableMain > .ListMain > .ListElement > button > span 
   flex-direction: column;
   justify-content: center;
   height: max-content;
-  box-shadow: inset 1px 0px 0px 0px red, inset -1px 0px 0px 0px red, inset 0px 1px 0px 0px red, inset 0px -1px 0px 0px red;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 3px, rgba(0, 0, 0, 0.11) 0px 0px 3px;
+  border-radius: 0px;
+  background-color: white;
+  padding: 0.5em;
+  margin-right: 1em;
 }
 .ManagerMenuPageExtended > .leftContent > .sidebarLeft > .TableMain > .ListMain > .ListElement > div {
   height: 0;
   padding-left: 0.5rem;
   overflow: hidden;
   visibility: hidden;
+  display: flex;
+  flex-direction: column;
 }
 .ManagerMenuPageExtended > .leftContent > .sidebarLeft > .TableMain > .ListMain > .ListElement > div[state*=active] {
   padding-top: 0.5em;
@@ -3082,17 +3187,24 @@ body > .ManagerMenuPage > .TableMain > .ListMain > .ListElement > button > span 
 .ManagerMenuPageExtended > .leftContent > .sidebarLeft > .TableMain > .ListMain > .ListElement > div > button::before {
   content: "";
   position: absolute;
-  bottom: 6px;
+  margin-top: 5px;
   left: -2px;
   width: 5px;
   height: 5px;
   background-color: #000;
   border-radius: 50%;
 }
+.ManagerMenuPageExtended > .leftContent > .sidebarLeft > .TableMain > .ListMain > .ListElement > div > button > span {
+  text-align: left;
+}
 .ManagerMenuPageExtended > .rightContent {
   width: 100%;
-  height: 100%;
-  box-shadow: inset 1px 0px 0px 0px red, inset -1px 0px 0px 0px red, inset 0px 1px 0px 0px red, inset 0px -1px 0px 0px red;
+  height: calc(100% - 1em);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 3px, rgba(0, 0, 0, 0.11) 0px 0px 3px;
+  border-radius: 0px;
+  background-color: white;
+  padding: 0.5em;
+  box-sizing: border-box;
 }
 
 .errorLog_Overview {
@@ -3100,21 +3212,99 @@ body > .ManagerMenuPage > .TableMain > .ListMain > .ListElement > button > span 
   overflow: auto;
 }
 
+.PHP_debuggLog {
+  height: 100%;
+  box-sizing: border-box;
+}
+.PHP_debuggLog > .content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+.PHP_debuggLog > .content > .head {
+  position: relative;
+  width: 100%;
+  height: 2em;
+  background-color: red;
+  box-shadow: inset 1px 0px 0px 0px red, inset -1px 0px 0px 0px red, inset 0px 1px 0px 0px red, inset 0px -1px 0px 0px red;
+}
+.PHP_debuggLog > .content > .TableMain {
+  height: calc(100% - 2em);
+  box-sizing: border-box;
+}
+.PHP_debuggLog > .content > .TableMain > .ListMain {
+  height: 100%;
+  overflow: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
 .PHP_debuggLog > .content > .TableMain > .ListMain > .ListElement {
   box-shadow: 0px 0px 0px 0px white, 0px 0px 0px 0px white, inset 0px 1px 0px 0px darkgray, 0px 0px 0px 0px white;
 }
 .PHP_debuggLog > .content > .TableMain > .ListMain > .ListElement > .traceDiv {
-  height: 1em;
-  overflow: hidden;
-  background-color: rgba(255, 0, 0, 0.185);
-}
-.PHP_debuggLog > .content > .TableMain > .ListMain > .ListElement > .traceDiv[state*=active] {
   height: max-content;
+  background-color: rgba(255, 0, 0, 0.062);
+}
+.PHP_debuggLog > .content > .TableMain > .ListMain > .ListElement > .traceDiv[s-state*=active] {
+  height: max-content;
+}
+.PHP_debuggLog > .content > .TableMain > .ListMain > .ListElement > .traceDiv[s-state*=active] > .s-TextView {
+  display: block;
 }
 .PHP_debuggLog > .content > .TableMain > .ListMain > .ListElement > .traceDiv > .traceHead {
   position: relative;
-  height: 1em;
+  height: max-content;
+  box-sizing: border-box;
   width: 100%;
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+}
+.PHP_debuggLog > .content > .TableMain > .ListMain > .ListElement > .traceDiv > .traceHead > button {
+  position: relative;
+  height: 100%;
+}
+.PHP_debuggLog > .content > .TableMain > .ListMain > .ListElement > .traceDiv > .traceHead > .text {
+  cursor: pointer;
+  margin-top: auto;
+  margin-bottom: auto;
+  box-sizing: border-box;
+  position: relative;
+  height: 100%;
+}
+.PHP_debuggLog > .content > .TableMain > .ListMain > .ListElement > .traceDiv > .traceHead > .text > span {
+  font-size: 1.1em;
+}
+.PHP_debuggLog > .content > .TableMain > .ListMain > .ListElement > .traceDiv > .traceHead > .timeContainer {
+  width: max-content;
+  margin-left: auto;
+  right: 0;
+}
+.PHP_debuggLog > .content > .TableMain > .ListMain > .ListElement > .traceDiv > .traceHead > .timeContainer > .head {
+  position: relative;
+  margin-left: auto;
+  width: 100%;
+  right: 0.5em;
+}
+.PHP_debuggLog > .content > .TableMain > .ListMain > .ListElement > .traceDiv > .traceHead > .timeContainer > .head > .TableMain {
+  background-color: white;
+  border: 1px solid black;
+  width: 100%;
+  height: max-content;
+  position: absolute;
+}
+.PHP_debuggLog > .content > .TableMain > .ListMain > .ListElement > .traceDiv > .traceHead > .timeContainer > .head > .TableMain:not([s-state*=active]) {
+  display: none;
+}
+.PHP_debuggLog > .content > .TableMain > .ListMain > .ListElement > .traceDiv > .traceHead > .timeContainer > .head > .TableMain > .ListMain {
+  display: flex;
+  flex-direction: column;
+}
+.PHP_debuggLog > .content > .TableMain > .ListMain > .ListElement > .traceDiv > .s-TextView {
+  display: none;
 }
 body > .ManagerMenuPage > .TableMain.projectsTable > .ListMain > .ListElement {
   height: 5em;

@@ -22,6 +22,31 @@ class S_Button {
     Class(className){
         this.button.Class(className);
     }
+    /**
+     * Set the basic styling
+     * @param {SPLINT_constants.BUTTON_STYLES} styleConst
+     */
+    set basicStyling(styleConst){
+        for(const e of Object.values(S_constants.BUTTON_STYLES)){
+            this.button.classList.remove(e);
+        }
+        if(styleConst != null){
+            this.button.classList.add(styleConst);
+        }
+    }
+    setStyleTemplate(type){
+      if(type == this.STYLE_NONE){
+        this.button.classList.remove(this.STYLE_STANDARD);
+        this.button.classList.remove(this.STYLE_DEFAULT);
+        return;
+      }
+      switch(type){
+        case S_Button.STYLE_DEFAULT : this.button.classList.remove(S_Button.STYLE_STANDARD); break;
+        case S_Button.STYLE_STANDARD : this.button.classList.remove(S_Button.STYLE_DEFAULT); break;
+        case S_Button.STYLE_NONE : this.button.classList.remove(S_Button.STYLE_DEFAULT); this.button.classList.remove(S_Button.STYLE_STANDARD); break;
+      }
+      this.button.classList.add(type);
+    }
     setStyleTemplate(type){
       if(type == this.STYLE_NONE){
         this.button.classList.remove(this.STYLE_STANDARD);
