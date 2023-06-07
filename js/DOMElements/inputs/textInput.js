@@ -10,6 +10,9 @@ class TextInputDiv {
       this.oninput = function(){};
       this.draw();
     }
+    Class(className){
+        this.div.Class(className);
+    }
     get Value(){
       return this.textarea.value;
     }
@@ -30,7 +33,7 @@ class TextInputDiv {
       }.bind(this);
     }
     setLabel(text){
-      this.label = new Label(this.div, this.input, text);
+      this.label = new Label(this.div, this.textarea, text);
       this.label.before();
       return this.label;
     }

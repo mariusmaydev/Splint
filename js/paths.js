@@ -12,6 +12,7 @@ if(SPLINT.PATHS.rootPath == undefined){
 SPLINT.PATHS.php.email          = SPLINT.PATHS.rootPath + "/php/email/emailAccess.php";
 SPLINT.PATHS.php.DataStorage    = SPLINT.PATHS.rootPath + "/php/DataStorage/DataStorageAccess.php";
 SPLINT.PATHS.Access             = SPLINT.PATHS.rootPath + "/php/Communication/AccessSplint.php";
+SPLINT.PATHS.php.moonraker      = SPLINT.PATHS.rootPath + "/php/API/moonraker/moonrakerAccess.php";
 
 SPLINT.PATHS.php.JSBuilder      = SPLINT.PATHS.rootPath + "/php/JSBuilder/JSBuilderAccess.php";
 

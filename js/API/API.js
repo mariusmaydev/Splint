@@ -12,4 +12,7 @@ class S_API {
     static get Paypal(){
         return S_API_Paypal;
     }
+    static get Moonraker(){
+        return S_moonraker;
+    }
 }

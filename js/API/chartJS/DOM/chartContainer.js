@@ -15,6 +15,8 @@ class S_ChartContainer {
         this.parent = parent;
         this.#mainElement = new SPLINT.DOMElement(this.id + "_Body", "div", this.parent);
         this.#mainElement.Class("S-chartContainer");
+        this.#labelContainer = new SPLINT.DOMElement(this.id + "_labelContainer", "div", this.#mainElement);
+        this.#labelContainer.Class("labelContainer");
         this.#canvas = new SPLINT.DOMElement(this.id + "_Canvas", "canvas", this.#mainElement);
         this.#context = this.#canvas.getContext("2d");
         this._config = config;
@@ -45,6 +47,17 @@ class S_ChartContainer {
     #context
     #Chart
     #name;
+    #label;
+    #labelContainer;
+    #labelElement;
+    set label(v){
+        this.#label = v;
+        if(v != null){
+            this.#labelElement = new SPLINT.DOMElement.SpanDiv(this.#labelContainer, "label", v);
+        } else {
+            this.#labelContainer.clear();
+        }
+    }
     get name(){
         return this.#name;
     }

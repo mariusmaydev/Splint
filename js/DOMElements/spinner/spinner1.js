@@ -15,6 +15,9 @@ class Spinner1 {
         new SPLINT.DOMElement(null, "div", this.mainElement);
         new SPLINT.DOMElement(null, "div", this.mainElement);
     }
+    remove(){
+        this.mainElement.remove();
+    }
     show(){
         this.mainElement.state().setActive();
     }
