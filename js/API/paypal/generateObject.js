@@ -10,8 +10,6 @@ class S_PaypalObject {
         let Items = (await ShoppingCart.get()).shoppingCart;
         let FullPrice = 0;
         let productsData = await productHelper.getProducts();
-        console.log(Items)
-        console.dir(await productHelper.getProducts());
         for(const item of Items){
             item.price = parseFloat(productsData[item.ProductName].price);
             FullPrice += S_Math.multiply(item.price, item.amount);

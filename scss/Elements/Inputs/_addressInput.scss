@@ -1,0 +1,61 @@
+@use '../../_main.scss' as *;
+
+.S-AddressInput {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    row-gap: 0.5em;
+    column-gap: 0.5em;
+    grid-template-areas: 
+        "fN fN fN fN fN fN lN lN lN lN"
+        "plz plz plz ct ct ct ct cy cy cy"
+        "st st st st st hn hn hn hn hn"
+        "ema ema ema ema ema ph ph ph ph ph";
+    > div, s-input {
+        background-color: transparent;
+        box-sizing: border-box;
+        >.inputBody {
+            padding-top: 0.5em;
+            > label {
+
+            }
+        }
+        &[identifier*='title']{
+            display: none;
+        }
+        &[id*='salutation']{
+            display: none;
+            grid-area: none;
+        }
+        &[identifier*='firstName']{
+            grid-area: fN;
+        }
+        &[identifier*='lastName']{
+            grid-area: lN;
+        }
+        &[identifier*='postcode']{
+            grid-area: plz;
+        }
+        &[identifier*='city']{
+            grid-area: ct;
+        }
+        &[id*='country']{
+            grid-area: cy;
+        }
+        &[identifier*='street']{
+            grid-area: st;
+        }
+        &[identifier*='housenumber']{
+            grid-area: hn;
+        }
+        &[identifier*='email']{
+            grid-area: ema;
+        }
+        &[identifier*='phone']{
+            grid-area: ph;
+        }
+    }
+    > s-input {
+            padding-bottom: -0.5em;
+
+    }
+}

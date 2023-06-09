@@ -1,29 +1,54 @@
 
 class S_ObjectEditor {
-    constructor(parent, name, obj){
+    constructor(parent, name, obj, drawDirect = true){
         this.parent = parent;
         this.name = name;
-        this.obj = obj;
+        if(obj instanceof Array){
+            this.obj = obj[1];
+            this.obj_name = obj[0];
+
+        } else {
+            this.obj = obj;
+            this.obj_name = null;
+        }
+        this.drawDirect = drawDirect;
         this.id = "s_ObjectEditor_" + name + "_";
         this.mainElement = new SPLINT.DOMElement(this.id + "main", "div", this.parent);
         this.mainElement.Class("s-ObjectEditor");
         this.Table = new SPLINT.DOMElement.Table.Grid(this.mainElement, name, Object.entries(this.obj).length, 3);
         this.onedit = function(obj, newValue){};
-        this.draw();
+        this.onPattern = function(e){};
+        this.patterns = [];
+        if(drawDirect){
+            this.draw();
+        }
+    }
+    getPart(i_name){
+        return document.querySelector("[i_name=" + i_name + "]");
     }
     draw(){
         let index = 0;
         for(const e of Object.entries(this.obj)){
             let gen = SPLINT.DOMElement.SpanDiv.get;
             if(typeof e[1] == 'object'){
-                gen(this.Table.getData(index, 0), "", e[0]);
+                if(this.patterns.includes(e[0])){
+                    this.onPattern(e, this.obj, this.obj_name);
+                    continue;
+                }
+                let sp = gen(this.Table.getData(index, 0), "", e[0]);
+                    sp.span.setAttribute("i_name", e[0]);
                 let ele = this.Table.getData(index, 1);
                 ele.parentElement.setAttribute("container", "true");
-                let objEditor = new SPLINT.DOMElement.ObjectEditor(ele, ele.id + "_branch_" + Math.random(), e[1]);
+                let objEditor = new SPLINT.DOMElement.ObjectEditor(ele, ele.id + "_branch_" + Math.random(), e, this.drawDirect);
+                    objEditor.onPattern = this.onPattern;
+                    objEditor.patterns = this.patterns;
                     objEditor.onedit = function(obj, val){
                         this.obj[e[0]] = obj;
                         this.onedit(this.obj, obj);
                     }.bind(this);
+                    if(!this.drawDirect){
+                        objEditor.draw();
+                    }
                 index = index+ 1;
                 continue;
             }

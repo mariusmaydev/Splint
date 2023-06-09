@@ -12,9 +12,17 @@ class S_Button {
         console.error("wrong parentElement <new Button>");
       }
       this.name   = name;
-      this.value  = value;
+      this._value  = value;
       this.onclick = function(){};
       this.draw();
+    }
+    set value(v){
+        this._value = v;
+        this.span.innerHTML = v;
+        this.span.classList.remove("material-symbols-outlined");
+    }
+    get value(){
+        return this._value;
     }
     setTooltip(value, direction){
         this.button.setTooltip(value, direction);
@@ -75,7 +83,7 @@ class S_Button {
       }.bind(this);
       
         this.span = new SPLINT.DOMElement(this.parent.id + "_span_" + this.name, "span", this.button);
-        this.span.innerHTML = this.value;
+        this.span.innerHTML = this._value;
     }
     bindDropdown(func){
       this.dropdownDiv = new SPLINT.DOMElement(this.parent.id + "_button_" + this.name + "_dropdown", "div", this.button);
@@ -123,5 +131,8 @@ class S_Button {
     }
     static get Toggle2(){
         return nS_ToggleButton;
+    }
+    static get Choice(){
+        return S_ChoiceButton;
     }
   }

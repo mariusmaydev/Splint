@@ -12,6 +12,9 @@
         const GUEST         = "GUEST";
         const DATA          = "DATA";
         const ADMIN         = "ADMIN";
+        
+        const ADMIN_USER_ID      = "ADMIN_USER_ID";
+        const ADMIN_USER_NAME    = "ADMIN_USER_NAME";
         var $session = null;
 
         static function start(){

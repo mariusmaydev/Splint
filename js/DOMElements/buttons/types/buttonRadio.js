@@ -1,4 +1,4 @@
-SPLINT.require('@SPLINT_ROOT/DOMElements/buttons/button.js');
+
 
 class S_radioButton extends S_Button {
     constructor(parent, name){

@@ -89,8 +89,10 @@ class S_Events {
     static #new(name){
         let a = new CustomEvent(name);
             a.STACK = [];
+            a.dispatched = false;
             a.dispatch = function(){
                 this.eventTarget.dispatchEvent(a);
+                a.dispatched = true;
             }.bind(this);
         return a;
     }

@@ -57,6 +57,7 @@ class P_ProjectDetails extends templateExtendedPage {
         this.drawOverview();
     }
     drawConfig(){
+        console.dir(this.data);
         let c_serverContainer = new SPLINT.DOMElement(this.id + "c_serverContainer", "div", this.rightContent);
         let obje = new SPLINT.DOMElement.ObjectEditor(c_serverContainer, "test", this.data.config);
             obje.onedit = function(obj, val){

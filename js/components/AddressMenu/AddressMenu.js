@@ -207,7 +207,7 @@ class AddressMenu {
       this.drawSubmit = true;
       this.mainElement = new SPLINT.DOMElement(this.id + "main", "div", parent);
       this.mainElement.Class("AddressInput");
-      this.draw();
+    //   this.draw();
     }
     draw(){
       this.mainElement.innerHTML = "";
@@ -234,6 +234,7 @@ class AddressMenu {
       this.city_input = new n_InputDiv(this.mainElement, "city", "Stadt");
       this.city_input.Class("city_input");
   
+      console.trace("draw")
       this.dropdown_country = new n_SelectInput(this.mainElement, "country", "Land");
       this.dropdown_country.Class("dropdown_country");
       this.dropdown_country.addEntry("DE", "Deutschland");

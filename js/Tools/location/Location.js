@@ -9,11 +9,20 @@ class nS_Location {
             this.STORAGE.hashes = this.#queryHashes();
         }.bind(this))
     }
+    static set URL(v){
+        this.href = v.split("?")[0].split("#")[0];
+    }
+    static get URL(){
+        return this.href;
+    }
     static set hash(v){
         window.location.hash = v;
     }
     static get hashes() {
         return window.location.hash
+    }
+    static goBack(steps = -1){
+        window.history.go(steps);
     }
     static #queryHashes(){
         let hashes = window.location.hash.split("#")
@@ -138,6 +147,11 @@ class nS_Location {
                 uri = uri.slice(1);
             }
             window.location.href = SPLINT.projectRootPath + uri;
+        }
+    }
+    static URI = class {
+        static fromProjectRoot(path){
+            return SPLINT.projectRootPath + path;
         }
     }
 }

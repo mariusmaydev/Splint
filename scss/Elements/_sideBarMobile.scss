@@ -1,0 +1,41 @@
+@use '../_main.scss' as *;
+.s-sideBarMobile {
+    position: absolute;
+    height: 100%;
+    // background-color: red;
+    @include standardDiv();
+    width: 200px;
+    transform: translateX(-100%);
+    transition: transform 1s ease-in;
+    &[s-state*='active']{
+        transform: translateX(0);
+
+    }
+    > .headContainer {
+        display: flex;
+        padding: 0.25em;
+        height: max-content;
+        justify-content: center;
+        align-items: center;
+        @include SPLINT-border-inset(gray, 1px, false, false, true, false);
+        > .headline {
+            width: 100%;
+            font-size: 2em;
+            > span {
+
+            }
+        }
+        > .buttonClose {
+            position: relative;
+            // left: 100%;
+            height: 100%;
+            // aspect-ratio: 1/1;
+            // margin-left: auto;
+        }
+    }
+    > .content {
+        width: 100%;
+        height: 100%;
+        
+    }
+}

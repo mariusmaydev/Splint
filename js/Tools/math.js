@@ -1,4 +1,12 @@
 class S_Math {
+    static roundFX(number, digits = 2, up = true){
+        let f = number * (Math.pow(10, digits));
+        if(up){
+            return Math.ceil(f) / (Math.pow(10, digits));
+        } else {
+            return Math.floor(f) / (Math.pow(10, digits));
+        }
+    }
     static multiply(v1, v2){
       return Math.round(v1 * v2 * 100) / 100;
     }

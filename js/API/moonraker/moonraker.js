@@ -1,9 +1,7 @@
 
 class S_moonraker {
-    // static PATH = 
     static {
         this.domain = SPLINT.config.main.moonraker.SSL + "://" + SPLINT.config.main.moonraker.host;
-        console.dir(this.domain);
         this.PATH = SPLINT.PATHS.php.moonraker;
     }
     static async test(){

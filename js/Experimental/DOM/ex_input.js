@@ -1,9 +1,10 @@
 
+SPLINT.require_now("@SPLINT_ROOT/Experimental/ex_DOMElement.js");
 class S_Input extends S_DOMElement {
     static { 
         this.TAG_NAME = "s-input";
     }
-    static get observedAttributes() { return ['name', 'value', 'type', 'step', 'min', 'max', 'pattern']; }
+    static get observedAttributes() { return ['name', 'value', 'type', 'step', 'min', 'max', 'pattern', 'identifier']; }
     constructor(parent, name, value = "", transitionMultiplyer = 10){
         super();
         this.parent     = parent;
@@ -16,7 +17,7 @@ class S_Input extends S_DOMElement {
                 this.value      = value;
                 this.name       = name;
                 this.type       = "value";
-                // this.input.setAttribute("required", "");
+                this.input.setAttribute("required", "");
 
                 this.label = new SPLINT.DOMElement(this.id + "label", "label", this.inputBody);
 
@@ -41,6 +42,8 @@ class S_Input extends S_DOMElement {
     get max(){ return this.getAttribute("max") }
     set pattern(v){ this.setAttribute("pattern", v) }
     get pattern(){ return this.getAttribute("pattern") }
+    set identifier(v){ this.setAttribute("identifier", v) }
+    get identifier(){ return this.getAttribute("identifier") }
     draw(){
         for(const index in this.name){
             let val = this.name[index];
@@ -88,6 +91,12 @@ class S_Input extends S_DOMElement {
     disableAnimation(){
         this.input.oninput = function(){};
     }
+    isEmpty(){
+        if(this.value == "" || this.value == null){
+            return true;
+        }
+        return false;
+    }
     attributeChangedCallback(name, oldValue, newValue) {
         this.onAttributeChanged(name, oldValue, newValue);
         if(name == "value"){
@@ -110,6 +119,9 @@ class S_Input extends S_DOMElement {
         }
         if(name == "pattern"){
             this.input.setAttribute("pattern", newValue);
+        }
+        if(name == "identifier"){
+            this.input.setAttribute("identifier", newValue);
         }
     }
 }

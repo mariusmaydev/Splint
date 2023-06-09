@@ -101,8 +101,8 @@ class SPLINT_loaderHelper {
             obj1.resolved = false;
         let path = SPLINT_LOADER.parseSRC(classPath);
             obj1.path = path;
-        for(const key in SPLINT_Loader.LOADED_DOCS2){
-            let e = SPLINT_Loader.LOADED_DOCS2[key];
+        for(const key in SPLINT_Loader.LOADED_DOCS){
+            let e = SPLINT_Loader.LOADED_DOCS[key];
             if(e.path == path){
                 if(sync){
                     obj1 = e;
@@ -111,7 +111,7 @@ class SPLINT_loaderHelper {
                 }
             }
         }
-        SPLINT_Loader.LOADED_DOCS2.push(obj1);
+        SPLINT_Loader.LOADED_DOCS.push(obj1);
         
         obj1.promise =  new Promise(async function(resolve, reject){
             // let sc = document.createElement("script");
@@ -195,7 +195,7 @@ class SPLINT_loaderHelper {
     static async initLoader(){
             let f = async function(uri){
                 let path = Splint_bindJS.getSplintPATH("/Splint/js" + uri)[0];
-                for(const e of SPLINT_Loader.LOADED_DOCS2){
+                for(const e of SPLINT_Loader.LOADED_DOCS){
                     if(e.path == path){
                         return e.promise;
                     }
@@ -261,17 +261,17 @@ class SPLINT_loaderHelper {
                         return true;
                     });
                     
-                SPLINT_Loader.LOADED_DOCS2.push({path: path, promise: promise});
+                SPLINT_Loader.LOADED_DOCS.push({path: path, promise: promise});
                 return promise;
             }.bind(this);
-        return Promise.all([
+        return Promise.allSettled([
                 f("/INIT/loaderHelper.js").then(function(){
                     return f("/INIT/loader.js");
                 }),
                 f("/paths.js")]);
     }
     static async createCommonLinkTag(src){
-        for(const e of SPLINT_Loader.LOADED_DOCS2){
+        for(const e of SPLINT_Loader.LOADED_DOCS){
             if(e.path == src){
                 return e.promise;
             }
@@ -306,7 +306,7 @@ class SPLINT_loaderHelper {
             }
             return true;
         })
-        SPLINT_Loader.LOADED_DOCS2.push(obj)
+        SPLINT_Loader.LOADED_DOCS.push(obj)
         return obj.promise;
     }
     static getConfig(projectPath){
@@ -331,7 +331,7 @@ class SPLINT_loaderHelper {
 
 class SPLINT_Loader extends SPLINT_loaderHelper{
     static LOADED_DOCS = [];
-    static LOADED_DOCS2 = [];
+    static LOADED_DOCS = [];
     static async start(){
         return new Promise(async function(resolve, reject){
             this.loadGoogleIcons();
@@ -344,9 +344,10 @@ class SPLINT_Loader extends SPLINT_loaderHelper{
                 // Splint_bindJS.preload();
             SPLINT_loaderHelper.initLoader().then(async function(){
                 this.bind().CSS();
-                await Promise.all([
+                await SPLINT.require("@SPLINT_ROOT/Events/Events.js");
+                await Promise.allSettled([
+                    
                     SPLINT.require("@SPLINT_ROOT/Utils/ANSI.js"),
-                    SPLINT.require("@SPLINT_ROOT/Events/Events.js"),
                     SPLINT.require("@SPLINT_ROOT/constants.js"),
                     SPLINT.require("@SPLINT_ROOT/DOMElements/DOMElementTemplate.js"),
                     SPLINT.require("@SPLINT_ROOT/DataManagement/callPHP/CallPHP.js"),
@@ -369,10 +370,10 @@ class SPLINT_Loader extends SPLINT_loaderHelper{
             await Splint_bindJS.loader();
             Splint_bindJS.removeSplintTags();
             let f = []
-            for(const e of Object.values(SPLINT_Loader.LOADED_DOCS2)){
+            for(const e of Object.values(SPLINT_Loader.LOADED_DOCS)){
                 f.push(e.promise);
             }
-            Promise.all(f).then(function(){
+            Promise.allSettled(f).then(function(){
                 SPLINT.Events.onInitComplete.dispatch();
             })
             return true;
@@ -443,6 +444,7 @@ class SPLINT_Loader extends SPLINT_loaderHelper{
         return;
     }
     static loadImportMap(){
+        return new Promise(function(resolve){
         let tag = document.createElement("script");
             tag.setAttribute("type", "importmap");
             tag.setAttribute("id", "SPLINT_importmap");
@@ -450,8 +452,8 @@ class SPLINT_Loader extends SPLINT_loaderHelper{
                 "imports": {
                   "SPLINT"                  : SPLINT.rootPath + "/js/modules/ThreeJS/CORE.js",
                   "splint"                  : SPLINT.rootPath + "/js/modules/ThreeJS/CORE.js",
-                  "threeJS"                 : SPLINT.rootPath + "/lib/threeJS/build/three.module.js",
-                  "three"                   : SPLINT.rootPath + "/lib/threeJS/build/three.module.js",
+                  "threeJS"                 : SPLINT.rootPath + "/lib/threeJS/build/three.module.min.js",
+                  "three"                   : SPLINT.rootPath + "/lib/threeJS/build/three.module.min.js",
                   "@THREE_ROOT_DIR/"        : SPLINT.rootPath + "/lib/threeJS/",
                   "@THREE_MODULES_DIR/"     : SPLINT.rootPath + "/lib/threeJS/examples/jsm/",
                   "@SPLINT_MODULES_DIR/"    : SPLINT.rootPath + "/js/modules/",
@@ -463,7 +465,11 @@ class SPLINT_Loader extends SPLINT_loaderHelper{
               }
             tag.innerHTML = JSON.stringify(mapJSON, null, 2);
             document.body.appendChild(tag);
-            getPromiseFromEvent(tag, "load");
+            tag.onload = function(){
+                resolve(true);
+            }.bind(this);
+            resolve(true);
+        });
     }
 }
 
@@ -479,33 +485,33 @@ function getPromiseFromEvent(item, event) {
 
 
 class Splint_bindJS {
-    static async preload(){
-        async function f(obj, as){
-            for(const entry of obj){
-                function load(){
-                    let tag = document.createElement('link');
-                    tag.rel = "preload";
-                    if(SPLINT.CONFIG.settings.cacheResources){
-                        tag.href = entry;
-                    } else {
-                        tag.href = entry + "?v=" + (new Date()).getTime();
-                    }
-                    tag.as = as;
-                    tag.setAttribute("async", "true");
-                    document.head.appendChild(tag);
-                    tag.oerror = function(){
-                        Splint_bindJS.loadPATH();
-                        load();
-                        console.log(arguments);
-                    }
-                }
-                load();
-            }
-        }
-        f(SPLINT.PATH.splint.JS, "script");
-        f(SPLINT.PATH.project.CSS, "stylesheet");
-        return;
-    }
+    // static async preload(){
+    //     async function f(obj, as){
+    //         for(const entry of obj){
+    //             function load(){
+    //                 let tag = document.createElement('link');
+    //                 tag.rel = "preload";
+    //                 if(SPLINT.CONFIG.settings.cacheResources){
+    //                     tag.href = entry;
+    //                 } else {
+    //                     tag.href = entry + "?v=" + (new Date()).getTime();
+    //                 }
+    //                 tag.as = as;
+    //                 tag.setAttribute("async", "true");
+    //                 document.head.appendChild(tag);
+    //                 tag.oerror = function(){
+    //                     Splint_bindJS.loadPATH();
+    //                     load();
+    //                     console.log(arguments);
+    //                 }
+    //             }
+    //             load();
+    //         }
+    //     }
+    //     f(SPLINT.PATH.splint.JS, "script");
+    //     f(SPLINT.PATH.project.CSS, "stylesheet");
+    //     return;
+    // }
     static async loadPATH(){
         
         return Promise.all([
@@ -562,6 +568,26 @@ class Splint_bindJS {
         }
         return;
     }
+    static async FIRST(){
+        let stack = [];
+        let parts = SPLINT_LOADER.ELEMENTS.scripts_first;
+        for(let i = 0; i < parts.length; i++){
+            let val = parts[i].src;
+            if(!val.startsWith("@") && !val.startsWith("http") && !val.startsWith("https")){
+                val = '@PROJECT_ROOT' + val;
+            }
+            let f = SPLINT_LOADER.parseSRC(val.replace("/js", ""));
+            if(typeof f == 'object'){
+                SArray.assort(f, "/");
+                for(const e of f){
+                    stack.push(SPLINT.require_now(e));
+                }
+            } else {
+                stack.push(SPLINT.require_now(f));
+            }
+        }
+        return Promise.allSettled(stack);
+    }
     static async PRE(){
         let stack = [];
         let parts = SPLINT_LOADER.ELEMENTS.scripts_pre;
@@ -590,7 +616,8 @@ class Splint_bindJS {
             for(const file of SPLINT.PATH.splint.JS){
                 stack.push(SPLINT_loaderHelper.loadScript(file, false));
             }
-            await Promise.all(stack);
+            await Promise.allSettled(stack);
+            await this.FIRST();
             await this.parts();
             resolve(true);
         }.bind(this));
@@ -642,25 +669,6 @@ class Splint_bindJS {
             }
         }
         return Promise.allSettled(stack);
-        // let parts = SPLINT_LOADER.ELEMENTS.modules;
-        // for(let i = 0; i < parts.length; i++){
-        //     let src = parts[i].src;
-        //     if(src.substring(0, 1) == "/"){
-        //         src = SPLINT.projectRootPath + src.replace("/", "");
-        //     }
-        //     let tag = document.createElement('script');
-        //         tag.type = "module";
-        //         if(SPLINT.CONFIG.settings.cacheResources){
-        //             src = src.replace("@PROJECT_SRC_ROOT/", SPLINT.config.main.paths.project_root) + "?v=" + (new Date()).getTime();
-
-        //         } else {
-        //             src = src.replace("@PROJECT_SRC_ROOT/", SPLINT.config.main.paths.project_root);
-        //         }
-        //         SPLINT.require(src, )
-        //         tag.async = true;
-        //         tag.defer = true;
-        //     document.body.appendChild(tag);
-        // }
     }
     static removeSplintTags(){
         for(const entry of Object.entries(SPLINT_LOADER.ELEMENTS)){

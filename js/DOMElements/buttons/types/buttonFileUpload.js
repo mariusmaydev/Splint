@@ -1,4 +1,4 @@
-SPLINT.require('@SPLINT_ROOT/DOMElements/buttons/button.js');
+
 
 class FileUploadButton_S extends S_Button {
     constructor(parent, name, accept, type, path2php){

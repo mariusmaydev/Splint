@@ -129,6 +129,9 @@ class DOMElement_manager {
     static get InputText(){
       return TextInputDiv;
     }
+    static get InputAddress(){
+      return S_AddressInput;
+    }
     static get InputAmount(){
       return AmountInput;
     }

@@ -14,6 +14,7 @@ class SPLINT_LOADER_helper {
         }
         let res = new Object();
             res.scripts_pre     = [];
+            res.scripts_first   = [];
             res.scripts         = [];
             res.stylesheets     = [];
             res.modules         = [];
@@ -28,6 +29,9 @@ class SPLINT_LOADER_helper {
                 case 's-part'     : {
                     if(element.hasAttribute("pre")){
                         res.scripts_pre.push(parse(element));
+                        break;
+                    } else if(element.hasAttribute("first")){
+                        res.scripts_first.push(parse(element));
                         break;
                     }
                     res.scripts.push(parse(element)); 

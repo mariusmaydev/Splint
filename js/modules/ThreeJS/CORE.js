@@ -1,5 +1,5 @@
 
-import * as THREE from 'three';
+// import * as THREE from 'threeJS';
 import TEXTURE from './loader/texture.js';
 import FILE from './loader/file.js';
 import OBJECTS from './objects/objects.js';
