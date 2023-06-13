@@ -1,6 +1,6 @@
 {
 	"paths": {
-		"error_log": "/Splint/SplintManager/resources/php/",
+		"error_log": "/Splint/SplintManager/Splint/logs/",
 		"project_root": "/Splint/SplintManager/resources/",
 		"css_root": "/Splint/SplintManager/resources/css/Output/",
 		"DataBase": {
@@ -34,5 +34,9 @@
 			"warn": false,
 			"log": false
 		}
+    },
+    "moonraker": {
+		"host": "192.168.178.82",
+		"SSL": "http"
 	}
 }

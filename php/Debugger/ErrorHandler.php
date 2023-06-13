@@ -39,18 +39,19 @@
         private function getBase() : string {
             $type = "";
             switch($this -> errorType){
-                case E_USER_ERROR   : $type = "[DEBUG][ERROR]"; break;
-                case E_USER_WARNING : $type = "[DEBUG][WARN]"; break;
-                case E_USER_NOTICE  : $type = "[DEBUG][NOTICE]"; break;
-                default : $type = "[ERROR]";break;
+                case E_USER_ERROR   : $type = "ERROR"; break;
+                case E_USER_WARNING : $type = "WARN"; break;
+                case E_USER_NOTICE  : $type = "NOTICE"; break;
+                default : $type = "ERROR";break;
             }
-        $res = "<S-trace>\r\n";
+            $res = "<S-type>" . $type . "</S-type>\r\n";
+        $res .= "<S-trace>\r\n";
         $bt = debug_backtrace();
         foreach($bt as $key => $trace){
             if(!isset($trace['file']) || str_contains($trace['file'], 'Debugger')){
                 continue;
             }
-            $res .= sprintf( ' at %s(%s)%s', $type, $trace['file'], $trace['line']) . "\n";
+            $res .= sprintf( '> %s:%s', $trace['file'], $trace['line']) . "\n";
         }
         $res .= "</S-trace>";
         return $res;

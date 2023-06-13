@@ -69,7 +69,7 @@ class P_Header {
             let button = new SPLINT.DOMElement.Button(this.path, "path_bt_p_" + i, Object.values(ele)[0]);
             button.onclick = function(){
                 if(SPLINT.Utils.Files.doesExist(last.fullPath, true)){
-                    SPLINT.Tools.Location.href = last.fullPath;
+                    SPLINT.Tools.Location.URL = last.fullPath;
                     SPLINT.Tools.Location.addParams(...last.params).call();
                 } else {
                     // window.location.href = this.navPath.path[this.navPath.path.length - 2].fullPath;
@@ -83,7 +83,7 @@ class P_Header {
             let button = new SPLINT.DOMElement.Button(this.path, "path_bt_h_" + i, ele);
             button.onclick = function(){
                 if(SPLINT.Utils.Files.doesExist(last.fullPath, true)){
-                    SPLINT.Tools.Location.href = last.fullPath;
+                    SPLINT.Tools.Location.URL = last.fullPath;
                     SPLINT.Tools.Location.addHash(ele).addParams(...last.params).call();
                     // PageNavigation.src
                     // window.location.href = last.fullPath;

@@ -34,8 +34,20 @@
                 display: flex;
                 flex-direction: column;
                 flex-wrap: nowrap;
+                justify-content: start;
                 > .ListElement {
                     @include SPLINT-border-inset(darkgray, 1px, true, false, false, false);
+                    &[type='NOTICE']{
+                        border-left: 4px solid lightblue;
+                    }
+                    &[type='ERROR']{
+                        border-left: 4px solid red;
+                    }
+                    &[type='WARN']{
+                        border-left: 4px solid gold;
+                    }
+                    margin-left: 0;
+                    padding-left: 0.5em;
                     > .s-TextView {
                         > p {
 
@@ -49,7 +61,7 @@
                             > .s-TextView {
                                 display: block;
                                 > p {
-    
+                                    margin-left: 0.5em;
                                 }
                             }
                             height: max-content;

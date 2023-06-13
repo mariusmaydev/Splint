@@ -10,6 +10,7 @@
     $rootpath = realpath($_SERVER["DOCUMENT_ROOT"]);
     include $rootpath.'/Splint/php/autoloader.php';
     require_once $rootpath . '/Splint/php/Tools/Path.php';
+
     class BindFolderByHTML {
         private $obj;
         private $subPath;

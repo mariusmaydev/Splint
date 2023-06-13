@@ -31,6 +31,13 @@ class SM_parseLog {
                     obj.msg = obj.msg.substring(4);
                 }
 
+            let Ystart = e.indexOf("<S-type>") + 8;
+            let Yend = e.indexOf("</S-type>");
+            obj.type = e.substring(Ystart, Yend);
+            if(obj.type.startsWith("<br>")){
+                obj.type = obj.type.substring(4);
+            }
+
             let Tstart = e.indexOf("<S-trace>") + 9;
             let Tend = e.indexOf("</S-trace>");
             obj.trace = e.substring(Tstart, Tend);
@@ -39,14 +46,28 @@ class SM_parseLog {
             }
             res.push(obj);
         }
-        let f = function(msg, resO){
+        let f = function(ele, resO){
             for(const i1 in resO){
                 let ele1 = resO[i1];
-                if(msg == ele1.msg){
+                if(ele.msg == ele1.msg && ele.type == ele1.type){
                     return i1
                 }
             }
             return false;
+        }
+        if(res.length == 0){
+            let resO = [];
+                Object.defineProperty(resO, "len", {
+                    value: 0,
+                    enumerable: false,
+                    configurable: false
+                })
+                Object.defineProperty(resO, "last", {
+                    value: null,
+                    enumerable: false,
+                    configurable: false
+                })
+                return resO;
         }
         let resO = [];
             Object.defineProperty(resO, "len", {
@@ -61,7 +82,7 @@ class SM_parseLog {
             })
         for(const i in res){
             let ele = res[i];
-            let k = f(ele.msg, resO);
+            let k = f(ele, resO);
             if(k === false){
 
                 resO.push(ele);

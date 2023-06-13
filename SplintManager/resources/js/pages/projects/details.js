@@ -1,18 +1,24 @@
 
 class P_ProjectDetails extends templateExtendedPage {
+    static isDraw = null;
+    static instance = null;
     constructor(parent, data){
         super("projectDetails", parent);
+        this.baseHash = "viewProjectDetails";
         this.initEvents();
-        this.draw();
     }
-    initEvents(){
-        window.onhashchange = function(){
+    async getHash(){
+        P_ProjectDetails.isDraw = new Promise(async function(resolve){
+            console.log("d")
+            await this.draw();
             SM_header.drawPath();
             let hashes = SPLINT.Tools.Location.getHashes();
             if(hashes.includes("config")){
+                this.focusData("config");
                 this.rightContent.clear();
                 this.drawConfig();
             } else if(hashes.includes("error_log")){
+                this.focusData("error_log");
                 this.rightContent.clear();
                 new SM_error_log_Overview(this.rightContent, this.data);
             } else if(hashes.includes("PHP_error_log_MySQL")){
@@ -20,9 +26,11 @@ class P_ProjectDetails extends templateExtendedPage {
                 new SM_PHP_debuggLog(this.rightContent, this.data, "PHP_error_log_MySQL.log");  
                 this.focusData("PHP_error_log_MySQL");
             } else if(hashes.includes("PHP_error_log")){
+                this.focusData("PHP_error_log");
                 this.rightContent.clear();
                 new SM_PHP_debuggLog(this.rightContent, this.data, "PHP_error_log.log");  
             } else if(hashes.includes("PHP_debugg_log")){
+                this.focusData("PHP_debugg_log");
                 this.rightContent.clear();
                 new SM_PHP_debuggLog(this.rightContent, this.data, "PHP_debugg_log.log");  
             } else if(hashes.includes("viewProjectDetails")){
@@ -33,9 +41,19 @@ class P_ProjectDetails extends templateExtendedPage {
                 }.bind(this);
                 f();
             } else {
-                // window.location.hash = "viewProjectDetails";
+                window.location.hash = "viewProjectDetails";
             }
-        }.bind(this)
+        }.bind(this)).then(function(){
+            P_ProjectDetails.isDraw = null;
+        }.bind(this));
+        return P_ProjectDetails.isDraw;
+    }
+    initEvents(){
+        if(P_ProjectDetails.isDraw != null){
+            return;
+        }
+        window.onhashchange = this.getHash.bind(this)
+        this.getHash();
     }
     async getData(){
         let params = SPLINT.Tools.Location.getParams().name;
@@ -54,7 +72,7 @@ class P_ProjectDetails extends templateExtendedPage {
         this.addData("config", "config");
         super.draw();
         await this.getData();
-        this.drawOverview();
+        
     }
     drawConfig(){
         console.dir(this.data);

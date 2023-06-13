@@ -1,1 +1,296 @@
-	
+	<S-error>
+<S-msg>
+     
+     test
+</S-msg>
+<S-trace>
+ at [DEBUG][NOTICE](C:\xampp\htdocs\Splint\loadFolderFromHTML.php)14
+</S-trace>
+<S-time>2023-06-13 02:00:35</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     test
+</S-msg>
+<S-trace>
+ at [DEBUG][NOTICE](C:\xampp\htdocs\Splint\loadFolderFromHTML.php)14
+</S-trace>
+<S-time>2023-06-13 02:00:42</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     test
+</S-msg>
+<S-trace>
+ at [DEBUG][NOTICE](C:\xampp\htdocs\Splint\loadFolderFromHTML.php)14
+</S-trace>
+<S-time>2023-06-13 02:00:46</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     test
+</S-msg>
+<S-trace>
+ at [DEBUG][NOTICE] C:\xampp\htdocs\Splint\php\CORE.php 22
+ at [DEBUG][NOTICE] C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php 5
+</S-trace>
+<S-time>2023-06-13 02:05:27</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     test
+</S-msg>
+<S-trace>
+- C:\xampp\htdocs\Splint\php\CORE.php:22
+- C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:5
+</S-trace>
+<S-time>2023-06-13 02:07:45</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     test
+</S-msg>
+<S-trace>
+- C:\xampp\htdocs\Splint\php\CORE.php:22
+- C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:5
+</S-trace>
+<S-time>2023-06-13 02:07:46</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     test
+</S-msg>
+<S-trace>
+-> C:\xampp\htdocs\Splint\php\CORE.php:22
+-> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:5
+</S-trace>
+<S-time>2023-06-13 02:08:49</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     test
+</S-msg>
+<S-trace>
+-> C:\xampp\htdocs\Splint\php\CORE.php:22
+-> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:5
+</S-trace>
+<S-time>2023-06-13 02:08:54</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     test
+</S-msg>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\CORE.php:22
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:5
+</S-trace>
+<S-time>2023-06-13 02:10:03</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     test
+</S-msg>
+<S-type>[DEBUG][NOTICE]</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\CORE.php:22
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:5
+</S-trace>
+<S-time>2023-06-13 02:13:52</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     test
+</S-msg>
+<S-type>[DEBUG][NOTICE]</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\CORE.php:22
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:5
+</S-trace>
+<S-time>2023-06-13 02:13:57</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     test
+</S-msg>
+<S-type>[DEBUG][NOTICE]</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\CORE.php:22
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:5
+</S-trace>
+<S-time>2023-06-13 02:16:05</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     test
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\CORE.php:22
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:5
+</S-trace>
+<S-time>2023-06-13 02:17:09</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     test
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\CORE.php:22
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:5
+</S-trace>
+<S-time>2023-06-13 02:17:13</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     test
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\CORE.php:22
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:5
+</S-trace>
+<S-time>2023-06-13 02:17:37</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     test
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\CORE.php:22
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:5
+</S-trace>
+<S-time>2023-06-13 02:18:26</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     test
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\CORE.php:22
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:5
+</S-trace>
+<S-time>2023-06-13 02:19:52</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     test
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\CORE.php:22
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:5
+</S-trace>
+<S-time>2023-06-13 02:20:36</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     test
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\CORE.php:22
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:5
+</S-trace>
+<S-time>2023-06-13 02:20:45</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     test
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\CORE.php:22
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:5
+</S-trace>
+<S-time>2023-06-13 02:20:47</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     test
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\CORE.php:22
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:5
+</S-trace>
+<S-time>2023-06-13 02:22:05</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     test
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\CORE.php:22
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:5
+</S-trace>
+<S-time>2023-06-13 02:23:39</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     test
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\CORE.php:22
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:5
+</S-trace>
+<S-time>2023-06-13 02:25:26</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     test
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\CORE.php:22
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:5
+</S-trace>
+<S-time>2023-06-13 02:25:43</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     test2
+</S-msg>
+<S-type>WARN</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\CORE.php:22
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:5
+</S-trace>
+<S-time>2023-06-13 02:26:00</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     test2
+</S-msg>
+<S-type>WARN</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\CORE.php:22
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:5
+</S-trace>
+<S-time>2023-06-13 02:26:53</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     test2
+</S-msg>
+<S-type>ERROR</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\CORE.php:22
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:5
+</S-trace>
+<S-time>2023-06-13 02:28:06</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     test3
+</S-msg>
+<S-type>ERROR</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\CORE.php:22
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:5
+</S-trace>
+<S-time>2023-06-13 02:29:59</S-time></S-error>

@@ -3452,9 +3452,21 @@ body > .ManagerMenuPage > .TableMain > .ListMain > .ListElement > button > span 
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
+  justify-content: start;
 }
 .PHP_debuggLog > .content > .TableMain > .ListMain > .ListElement {
   box-shadow: 0px 0px 0px 0px white, 0px 0px 0px 0px white, inset 0px 1px 0px 0px darkgray, 0px 0px 0px 0px white;
+  margin-left: 0;
+  padding-left: 0.5em;
+}
+.PHP_debuggLog > .content > .TableMain > .ListMain > .ListElement[type=NOTICE] {
+  border-left: 4px solid lightblue;
+}
+.PHP_debuggLog > .content > .TableMain > .ListMain > .ListElement[type=ERROR] {
+  border-left: 4px solid red;
+}
+.PHP_debuggLog > .content > .TableMain > .ListMain > .ListElement[type=WARN] {
+  border-left: 4px solid gold;
 }
 .PHP_debuggLog > .content > .TableMain > .ListMain > .ListElement > .traceDiv {
   height: max-content;
@@ -3465,6 +3477,9 @@ body > .ManagerMenuPage > .TableMain > .ListMain > .ListElement > button > span 
 }
 .PHP_debuggLog > .content > .TableMain > .ListMain > .ListElement > .traceDiv[s-state*=active] > .s-TextView {
   display: block;
+}
+.PHP_debuggLog > .content > .TableMain > .ListMain > .ListElement > .traceDiv[s-state*=active] > .s-TextView > p {
+  margin-left: 0.5em;
 }
 .PHP_debuggLog > .content > .TableMain > .ListMain > .ListElement > .traceDiv > .traceHead {
   position: relative;

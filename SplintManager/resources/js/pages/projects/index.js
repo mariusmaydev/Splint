@@ -8,7 +8,7 @@ class P_IndexProjects extends templateMenuPage {
     }
     selectHash(){
         let hashes = SPLINT.Tools.Location.getHashes();
-        console.dir(window.location.hashes)
+        console.dir(hashes)
         if(hashes.includes("viewProjectDetails")){
             new P_ProjectDetails(this.mainElement, this.data);
         } else if(hashes.includes("create")){

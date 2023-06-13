@@ -19,10 +19,10 @@ class SM_PHP_debuggLog {
         this.data = this.data.replaceAll("\r\n", "<br>");
         this.data = this.data.replaceAll("\r", "<br>");
         this.data = this.data.replaceAll("\n", "<br>");
-        this.data = this.data.replaceAll("DEBUG", '<span style="color: orange;">DEBUG</span>')
-        this.data = this.data.replaceAll("WARN", '<span style="color: darkorange;">WARN</span>')
-        this.data = this.data.replaceAll("ERROR", '<span style="color: red;">ERROR</span>')
-        this.data = this.data.replaceAll("NOTICE", '<span style="color: blue;">NOTICE</span>')
+        // this.data = this.data.replaceAll("DEBUG", '<span style="color: orange;">DEBUG</span>')
+        // this.data = this.data.replaceAll("WARN", '<span style="color: darkorange;">WARN</span>')
+        // this.data = this.data.replaceAll("ERROR", '<span style="color: red;">ERROR</span>')
+        // this.data = this.data.replaceAll("NOTICE", '<span style="color: blue;">NOTICE</span>')
         this.data = SM_parseLog.parse(this.data);
     }
     drawHead(){
@@ -45,8 +45,10 @@ class SM_PHP_debuggLog {
     }
     async draw(){
         await this.getData();
+        console.dir(this.data)
         this.list = new SPLINT.DOMElement.Table.List(this.contentElement, "debuggLogPHP", this.data);
         this.list.func_drawListElement = function(data, index, listElement){
+            listElement.setAttribute("type", data.type);
             let msgEle = new SPLINT.DOMElement.TextView(listElement, "msg" + index);
                 msgEle.value = data.msg;
             let traceDiv = new SPLINT.DOMElement(listElement.id + "taceContainer", "div", listElement);

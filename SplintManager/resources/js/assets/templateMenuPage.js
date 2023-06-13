@@ -22,6 +22,11 @@ class templateMenuPage {
         this.list.draw();
     }
     addData(name, value){
+        for(const e of Object.entries(this.#data)){
+            if(e[1].name == name){
+                return;
+            }
+        }
         this.#data.push({name: name, value: value});
     }
 }

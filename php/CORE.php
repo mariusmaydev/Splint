@@ -18,7 +18,7 @@
     require_once 'DataManagement/sessions/sessions.php';
     require_once 'Tools/createDHLcsv.php';
     require_once 'JSBuilder/JSBuilder.php';
-    
+
     function searchConfig(){
         $path = $_SERVER["DOCUMENT_ROOT"] . "/Splint/SplintManager/cache/projects.map";
         $r = S_shmop::read("SM_projects");

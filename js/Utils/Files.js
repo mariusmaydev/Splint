@@ -1,4 +1,6 @@
-
+/**
+ * @class
+ * */
 class S_FileUtils {
     // static loadFromRoot(uri){
     //     return new parseOutput(this.read(location.origin + "/" + uri));
@@ -6,6 +8,12 @@ class S_FileUtils {
     // static loadFromProject(uri){
     //     return new parseOutput(this.read(SPLINT.URIs.project + uri));
     // }
+    /**
+     * desc
+     * @date 2023-06-12
+     * @param { * } urlToFile
+     * @param { * } parm2
+     */
     static doesExist(urlToFile, sync = false) {
         var xhr = new XMLHttpRequest();
         xhr.open('HEAD', urlToFile, !sync);
@@ -17,6 +25,12 @@ class S_FileUtils {
             return true;
         }
     }
+    /**
+     * desc
+     * @date 2023-06-12
+     * @param { * } uri
+     * @param { * } parm2
+     */
     static read(uri, sync = false){
         if(sync){
             // if(!this.doesExist(uri, true)){
@@ -56,6 +70,12 @@ class S_FileUtils {
             });
         }
     }
+    /**
+     * desc
+     * @date 2023-06-12
+     * @param { * } data
+     * @param { * } uri
+     */
     static write(data, uri){
         return new Promise(async function(resolve){
             let rawFile = new XMLHttpRequest();
@@ -74,6 +94,11 @@ class S_FileUtils {
             rawFile.send(JSON.stringify(data));
         });
     }
+    /**
+     * desc
+     * @date 2023-06-12
+     * @param { * } parm1
+     */
     static #parseOutput(flag = false){            
         if(typeof this.value == "string"){
             try {

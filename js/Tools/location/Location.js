@@ -25,6 +25,7 @@ class nS_Location {
         window.history.go(steps);
     }
     static #queryHashes(){
+        
         let hashes = window.location.hash.split("#")
             hashes = SArray.removeValues(hashes, '');
         return hashes;
@@ -36,6 +37,7 @@ class nS_Location {
     }
     static getHashes(){
         this.STORAGE.hashes = this.#queryHashes();
+        console.log(this.STORAGE.hashes);
         return this.STORAGE.hashes;
     }
     static removeHash(...hash){
