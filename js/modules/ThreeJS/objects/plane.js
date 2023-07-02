@@ -1,5 +1,5 @@
 
-import * as THREE from 'threeJS';
+import * as THREE from 'three';
 
 export default class Plane {
     constructor(width, height, wS, hS){

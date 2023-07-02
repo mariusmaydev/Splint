@@ -26,6 +26,7 @@ draco.setDecoderPath('https://www.gstatic.com/draco/v1/decoders/');
 // Splint\lib\threeJS\examples\js\libs\draco
 // 'http://localhost/Splint/lib/threeJS/examples/js/libs/draco/'
 export default class SPLINT extends window.SPLINT {
+    static resourceList = null;
     static raycaster(instance){
         return new RAYCASTER(instance);
     }
@@ -54,8 +55,12 @@ export default class SPLINT extends window.SPLINT {
         }
     }
     static async preloadResources(){
+        console.log("ok")
         SPLINT.R_promise = new Promise(async function(resolve){
-            let res = SPLINT.file.loadFromProject("/Splint/splint.config/resource.list.json").toObject();
+            let res = (await SPLINT.file.loadFromProjectAsync("/Splint/splint.config/resource.list.json")).toObject();
+
+            SPLINT.resourceList = res.paths;
+            console.dir(SPLINT);
             RESOURCES = new Object();
             RESOURCES.textures = new Object();
             RESOURCES.SVGs = new Object();
@@ -70,12 +75,53 @@ export default class SPLINT extends window.SPLINT {
             }
             for(const [key, value] of Object.entries(res.paths.models)) {
                 RESOURCES.models[key] = await loader.loadAsync(SPLINT.config.URIs.project + "/" + value);
+                RESOURCES.models[key].scene = RESOURCES.models[key].scene.children[0]
                 RESOURCES.models[key].scene.name = utils.getFileNameFromURI(value);
             }
             for(const [key, value] of Object.entries(res.paths.SVGs)) {
                 RESOURCES.SVGs[key] = await svgLoader.loadAsync(SPLINT.config.URIs.project + "/" + value);
                 RESOURCES.SVGs[key].name = utils.getFileNameFromURI(value);
             }
+            // async function f(r){
+            //     for(const e of Object.entries(r)){
+            //         console.log(e);
+            //         if(typeof e[1] === "string"){
+            //             Object.defineProperty(r, e[0] + "_save", {
+            //                 value: e[1]
+            //             })
+            //             Object.defineProperty(r, e[0], {
+            //                 get: async function(){
+            //                     console.log(this[e[0] + "_save"])
+            //                     if(this[e[0] + "_save"].includes("/textures/")){
+            //                         RESOURCES.textures[e[0]] = TEXTURE.loadFromProject(this[e[0] + "_save"]);
+            //                         RESOURCES.textures[e[0]].name = utils.getFileNameFromURI(this[e[0] + "_save"]);
+            //                         return RESOURCES.textures[e[0]];
+            //                     }
+            //                     if(this[e[0] + "_save"].includes("/3Dmodels/")){
+            //                         RESOURCES.models[e[0]] = (await loader.loadAsync(SPLINT.config.URIs.project + "/" + this[e[0] + "_save"]));
+            //                         RESOURCES.models[e[0]].scene = RESOURCES.models[e[0]].scene.children[0]
+            //                         RESOURCES.models[e[0]].scene.name = utils.getFileNameFromURI(this[e[0] + "_save"]);
+            //                         return RESOURCES.models[e[0]];
+            //                     }
+            //                     if(this[e[0] + "_save"].includes("/SVGs/")){
+            //                         RESOURCES.SVGs[e[0]] = (await svgLoader.loadAsync(SPLINT.config.URIs.project + "/" + this[e[0] + "_save"]));
+            //                         RESOURCES.SVGs[e[0]].name = utils.getFileNameFromURI(this[e[0] + "_save"]);
+            //                         return RESOURCES.SVGs[e[0]];
+            //                     }
+            //                     return false;
+            //                 },
+            //                 configurable: false,
+            //                 enumerable: false
+            //             })
+            //         } else if(typeof e[1] === "object"){
+            //             await f(e[1]);
+            //         }
+            //     }
+
+            // }
+            // f(res.paths).then(async function(){
+            //     console.dir(await SPLINT.resourceList);
+            // });
             resolve('resolved');
         });
     }

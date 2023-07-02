@@ -1,4 +1,4 @@
-import * as THREE from 'threeJS';
+import * as THREE from 'three';
 
 export default class DirectionalLight extends THREE.DirectionalLight {
     constructor(color, intensity){

@@ -1,6 +1,8 @@
-import * as THREE from 'threeJS';
+import {
+    Mesh
+} from 'three';
 
-THREE.Mesh.prototype.hasParentWithName = function(name){
+Mesh.prototype.hasParentWithName = function(name){
     let object = this;
     while(object.parent != null){
         if(object.parent.name == name){

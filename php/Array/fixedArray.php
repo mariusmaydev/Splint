@@ -10,10 +10,13 @@
         public $y;
         private $error = 0;
         private $fill = 0;
+        private $size = 0;
+        public $default = 0;
         function __construct(int $x, int $y){
             $this -> array = new SplFixedArray($x * $y);
             $this -> x = $x;
             $this -> y = $y;
+            $this -> size = $y * $x;
         }
         public function getFill() : int {
             return $this -> fill;
@@ -23,7 +26,7 @@
         }
         public function set(int $x, int $y, $value) : void {
             $index = $y * $this -> x + $x;
-            if($index < $this -> array -> getSize() && $index >= 0){
+            if($index < $this -> size && $index >= 0){
                 $this -> array[$index] = $value;
                 $this -> fill++;
             }
@@ -31,13 +34,15 @@
         public function get(int $x, int $y){
             if(isset($this -> array[$y * $this -> x + $x])){
                 return $this -> array[$y * $this -> x + $x];
+            } else if($x * $y > $this -> size){
+                return $this -> default;
             } else {
                 return $this -> error;
             }
         }
         public function getIndexForCoords(int $x, int $y) : int {            
             $index = $y * $this -> x + $x;
-            if($x < $this -> x && $y < $this -> y && $index >= 0 && $index < $this -> array -> getSize()){
+            if($x < $this -> x && $y < $this -> y && $index >= 0 && $index < $this -> size){
                 return $index;
             } else {
                 return -1;

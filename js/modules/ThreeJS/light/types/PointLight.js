@@ -1,4 +1,4 @@
-import * as THREE from 'threeJS';
+import * as THREE from 'three';
 
 export default class PointLight extends THREE.PointLight {
     constructor(color, intensity = 1, distance = 0, decay = 2){

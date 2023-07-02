@@ -1,5 +1,5 @@
 import SPLINT from 'SPLINT';
-import * as THREE from 'threeJS';
+import * as THREE from 'three';
 
 export default class Texture {
     static load(uri, onLoad = function(){}, onProgress = function(){}, onError = function(){}){

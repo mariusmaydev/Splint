@@ -51,7 +51,7 @@
             new BindSplintByHTML();
         }
         private function init(){
-            $cachePath = SERVER_ROOT . SPLINT_CONFIG -> loader -> cachePath . "SplintFilePathCache.txt";
+            $cachePath = SERVER_ROOT . SPLINT_CONFIG -> loader -> cachePath . "SplintFilePathCache.json";
             $f = S_shmop::read("SplintMap");
             if($f == null || $this -> forceReload){
                 if(file_exists($cachePath) && !$this -> forceReload){

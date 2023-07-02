@@ -452,7 +452,6 @@ class SPLINT_Loader extends SPLINT_loaderHelper{
                 "imports": {
                   "SPLINT"                  : SPLINT.rootPath + "/js/modules/ThreeJS/CORE.js",
                   "splint"                  : SPLINT.rootPath + "/js/modules/ThreeJS/CORE.js",
-                  "threeJS"                 : SPLINT.rootPath + "/lib/threeJS/build/three.module.min.js",
                   "three"                   : SPLINT.rootPath + "/lib/threeJS/build/three.module.min.js",
                   "@THREE_ROOT_DIR/"        : SPLINT.rootPath + "/lib/threeJS/",
                   "@THREE_MODULES_DIR/"     : SPLINT.rootPath + "/lib/threeJS/examples/jsm/",

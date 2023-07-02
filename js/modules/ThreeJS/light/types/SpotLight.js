@@ -1,4 +1,4 @@
-import * as THREE from 'threeJS';
+import * as THREE from 'three';
 
 export default class SpotLight extends THREE.SpotLight {
     constructor(color, intensity, distance = 0, angle = Math.PI / 3, penumbra = 0, decay = 1){

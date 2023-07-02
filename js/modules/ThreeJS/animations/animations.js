@@ -1,4 +1,4 @@
-import * as THREE from 'threeJS';
+import * as THREE from 'three';
 
 // export default class Animations {
 //     static get Mixer(){

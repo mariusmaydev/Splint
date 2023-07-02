@@ -1,1 +1,4634 @@
-	
+	<S-error>
+<S-msg>
+     
+     Array
+     (
+         [Feuerzeug] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\Feuerzeug.glb
+         [Feuerzeug_img0] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\Feuerzeug_img0.png
+         [Feuerzeug_img1] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\Feuerzeug_img1.png
+         [Feuerzeug_img2] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\Feuerzeug_img2.png
+         [Feuerzeug_img3] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\Feuerzeug_img3.png
+         [Feuerzeug_o] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\Feuerzeug_o.glb
+         [BumpMap3_1] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\other\BumpMap3_1.png
+         [BumpMap3_2] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\other\BumpMap3_2.png
+         [DisplacementMap3] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\other\DisplacementMap3.png
+         [Feuerzeug2] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\other\Feuerzeug2.glb
+         [envMap] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\other\envMap.png
+         [normalMap3] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\other\normalMap3.png
+         [normalMap_lighterBody] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\other\normalMap_lighterBody.png
+         [test_thumbnail] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\other\test_thumbnail.png
+         [test_thumbnail2] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\other\test_thumbnail2.png
+         [bumpMap_Body] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\textures\bumpMap_Body.png
+         [bumpMap_Engraving] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\textures\bumpMap_Engraving.png
+         [displacementMap_Engraving] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\textures\displacementMap_Engraving.png
+         [envMap_Inner] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\textures\envMap_Inner.png
+         [normalMap_Engraving] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\textures\normalMap_Engraving.png
+         [specularMap_Engraving] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\textures\specularMap_Engraving.png
+         [texture_chrome] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\textures\texture_chrome.png
+         [texture_chrome_new] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\textures\texture_chrome_new.png
+         [thumbnail] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\textures\thumbnail.png
+         [thumbnail_Chrome] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\textures\thumbnail_Chrome.png
+         [thumbnail_add] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\textures\thumbnail_add.png
+         [thumbnail_black] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\textures\thumbnail_black.png
+         [thumbnail_black_contrast] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\textures\thumbnail_black_contrast.png
+         [thumbnail_noOpacity] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\textures\thumbnail_noOpacity.png
+         [thumbnail_noOpacity_b] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\textures\thumbnail_noOpacity_b.png
+         [thumbnail_noOpacity_h] => C:\xampp\htdocs\fd\data\3Dmodels\Lighter\textures\thumbnail_noOpacity_h.png
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\Tools\File\File_DeepScan.php:15
+> C:\xampp\htdocs\Splint\php\autoloader.php:12
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:7
+</S-trace>
+<S-time>2023-06-17 01:04:45</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:7
+</S-trace>
+<S-time>2023-06-17 01:04:45</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:7
+</S-trace>
+<S-time>2023-06-17 02:22:37</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:7
+</S-trace>
+<S-time>2023-06-17 02:34:17</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:7
+</S-trace>
+<S-time>2023-06-17 02:34:21</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:7
+</S-trace>
+<S-time>2023-06-17 02:34:22</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:7
+</S-trace>
+<S-time>2023-06-17 02:34:24</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:7
+</S-trace>
+<S-time>2023-06-17 02:34:25</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:7
+</S-trace>
+<S-time>2023-06-17 02:34:26</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:7
+</S-trace>
+<S-time>2023-06-17 04:29:50</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:7
+</S-trace>
+<S-time>2023-06-17 04:30:01</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:7
+</S-trace>
+<S-time>2023-06-17 04:30:02</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:7
+</S-trace>
+<S-time>2023-06-17 04:30:04</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:7
+</S-trace>
+<S-time>2023-06-17 04:30:05</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:7
+</S-trace>
+<S-time>2023-06-17 04:30:24</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:7
+</S-trace>
+<S-time>2023-06-17 04:30:31</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:7
+</S-trace>
+<S-time>2023-06-17 04:30:34</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:7
+</S-trace>
+<S-time>2023-06-17 04:30:35</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:13
+</S-trace>
+<S-time>2023-06-17 04:30:35</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:7
+</S-trace>
+<S-time>2023-06-17 04:30:36</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:13
+</S-trace>
+<S-time>2023-06-17 04:30:36</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:7
+</S-trace>
+<S-time>2023-06-17 04:30:37</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:13
+</S-trace>
+<S-time>2023-06-17 04:30:37</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:7
+</S-trace>
+<S-time>2023-06-17 04:30:41</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:13
+</S-trace>
+<S-time>2023-06-17 04:30:41</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:7
+</S-trace>
+<S-time>2023-06-17 04:30:48</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:7
+</S-trace>
+<S-time>2023-06-17 04:30:55</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:13
+</S-trace>
+<S-time>2023-06-17 04:30:55</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:7
+</S-trace>
+<S-time>2023-06-17 04:30:57</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:7
+</S-trace>
+<S-time>2023-06-17 04:31:17</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:7
+</S-trace>
+<S-time>2023-06-17 04:31:20</S-time></S-error>
+<S-error>
+<S-msg>
+     
+     Array
+     (
+         [C:\xampp\htdocs\Splint\php] => Array
+             (
+                 [0] => APILinks.php
+                 [1] => CORE.php
+                 [2] => LibraryBinder.php
+                 [3] => autoloader.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API] => Array
+             (
+                 [0] => ipapi.php
+                 [1] => ipinfo.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\API\moonraker] => Array
+             (
+                 [0] => moonraker.php
+                 [1] => moonrakerAccess.php
+                 [2] => moonrakerGcode.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Array] => Array
+             (
+                 [0] => fixedArray.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Communication] => Array
+             (
+                 [0] => AccessSplint.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseAccess.php
+                 [2] => DataBaseHelper.php
+                 [3] => DataSet.php
+                 [4] => SQL.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement] => Array
+             (
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\sessions] => Array
+             (
+                 [0] => sessions.php
+                 [1] => sessionsAccess.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataManagement\shmop] => Array
+             (
+                 [0] => S_shmop.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\DataStorage] => Array
+             (
+                 [0] => DataStorage.php
+                 [1] => DataStorageAccess.php
+                 [2] => DataStorageHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Debugger] => Array
+             (
+                 [0] => Debugg2.php
+                 [1] => Debugger.php
+                 [2] => ErrorHandler.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\EX_MySQL] => Array
+             (
+                 [0] => Debugg.php
+                 [1] => MySQL.php
+                 [2] => Table.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\HTML] => Array
+             (
+                 [0] => HTML.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\INIT] => Array
+             (
+                 [0] => init.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\JSBuilder] => Array
+             (
+                 [0] => JSBuilder.php
+                 [1] => JSBuilderAccess.php
+                 [2] => JSBuilderHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\NC] => Array
+             (
+                 [0] => NCHelper.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools] => Array
+             (
+                 [0] => Communication.php
+                 [1] => FileTools.php
+                 [2] => Math.php
+                 [3] => Path.php
+                 [4] => StringTools.php
+                 [5] => createDHLcsv.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\Tools\File] => Array
+             (
+                 [0] => File_DeepScan.php
+                 [1] => PathObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\d - DataBase] => Array
+             (
+                 [0] => DataBase.php
+                 [1] => DataBaseFunctions.php
+                 [2] => DataSet.php
+                 [3] => SQLCommands.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email] => Array
+             (
+                 [0] => email.php
+                 [1] => emailAccess.php
+                 [2] => emailObject.php
+             )
+     
+         [C:\xampp\htdocs\Splint\php\email\imap] => Array
+             (
+                 [0] => imap.php
+             )
+     
+     )
+     
+</S-msg>
+<S-type>NOTICE</S-type>
+<S-trace>
+> C:\xampp\htdocs\Splint\php\autoloader.php:16
+> C:\xampp\htdocs\Splint\php\Communication\AccessSplint.php:7
+</S-trace>
+<S-time>2023-06-17 04:31:59</S-time></S-error>

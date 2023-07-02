@@ -1,5 +1,5 @@
 import SPLINT from 'SPLINT';
-import * as THREE from 'threeJS';
+import * as THREE from 'three';
 import { SVGLoader } from '@THREE_MODULES_DIR/loaders/SVGLoader.js';
 
 export default class SVGModelLoader {

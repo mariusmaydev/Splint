@@ -1,15 +1,19 @@
-import * as THREE from 'threeJS';
+import {
+    Raycaster,
+    Vector2,
+    
+} from 'three';
 import { utils } from './utils.js';
 
 export default class S_raycaster {
     constructor(instance) {
         this.inst = instance;
-        this.raycaster = new THREE.Raycaster();
+        this.raycaster = new Raycaster();
         this.raycaster.params.Points.threshold = 0.1;
         this.objects = [];
         this.scene = this.inst.scene;
         this.mouseDownFlag = false;
-        this.pointer = new THREE.Vector2();
+        this.pointer = new Vector2();
         this.active = true;
     }
 

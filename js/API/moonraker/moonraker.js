@@ -10,8 +10,39 @@ class S_moonraker {
         let res = call.send();
         return res;
     }
+    static async printFile(filePath){
+        let name =  "New_Model";
+        let code = (await SPLINT.API.Moonraker.loadGCode(filePath));
+        await SPLINT.API.Moonraker.uploadGCode(code, name);
+        let g = SPLINT.API.Moonraker.startPrint(name);
+        this.Helper.onReady = function(){
+            console.log("ok")
+            this.deleteFile(name + ".gcode");
+        }.bind(this);
+        console.dir(g);
+        return g;
+    }
+    static getServerConfig(){
+        return this.#call("/server/config", "GET");
+    }
     static getServerInfo(){
         return this.#call("/server/info", "GET");
+    }
+    static getPrintInfo(){
+        return this.#call("/printer/objects/list", "GET");
+    }
+    static queryPrinterObjectStatus(){
+        return this.#call("/printer/objects/list", "GET");
+    }
+    static async subscribePrinterObjectStatus(){
+        await this.Helper.createWebsocket();
+        return this.#call("/printer/objects/subscribe?connection_id=" + this.Helper.websocketID + "&gcode_move&toolhead", "POST");
+    }
+    static getPrinterGCodeStore(amount){
+        return this.#call("/server/gcode_store?count=" + amount + "", "GET");
+    }
+    static deleteFile(fileName){
+        return this.#call("/server/files/gcodes/" + fileName, "DELETE");
     }
     static cancelPrint(){
         return this.#call("/printer/print/cancel", "POST")
@@ -68,5 +99,8 @@ class S_moonraker {
             }
             rawFile.send();
         }.bind(this));
+    }
+    static get Helper(){
+        return S_moonrakerHelper;
     }
 }

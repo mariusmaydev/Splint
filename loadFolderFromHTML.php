@@ -10,7 +10,7 @@
     $rootpath = realpath($_SERVER["DOCUMENT_ROOT"]);
     include $rootpath.'/Splint/php/autoloader.php';
     require_once $rootpath . '/Splint/php/Tools/Path.php';
-
+    // http://52qlucglu6fuaqist2herssakipapig2higaaayu7446n55xw4ylxqid.onion
     class BindFolderByHTML {
         private $obj;
         private $subPath;
@@ -29,7 +29,7 @@
             new BindFolderByHTML($path);
         }
         private function init(){
-            $cachePath = SERVER_ROOT . SPLINT_CONFIG -> loader -> cachePath . "ProjectFilePathCache.txt";
+            $cachePath = SERVER_ROOT . SPLINT_CONFIG -> loader -> cachePath . "ProjectFilePathCache.json";
             $f = S_shmop::read("ProjectMap");
             if($f == null || $this -> forceReload){
                 if(file_exists($cachePath) && !$this -> forceReload){

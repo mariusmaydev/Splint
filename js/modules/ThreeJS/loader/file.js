@@ -7,6 +7,30 @@ export default class File {
     static loadFromProject(uri){
         return new parseOutput(this.read(SPLINT.URIs.project + uri));
     }
+    static async loadFromProjectAsync(uri){
+        return new Promise(async function(resolve){
+            let resA = await this.readAsync(SPLINT.URIs.project + uri);
+            let res = new parseOutput(resA);
+            resolve(res);
+            return res;
+        }.bind(this));
+    }
+    static readAsync(uri){
+        return new Promise(async function(resolve){
+            let rawFile = new XMLHttpRequest();
+            rawFile.open("GET", uri, true);
+            rawFile.onreadystatechange = function() {
+                if(rawFile.readyState === 4) {
+                    if(rawFile.status === 200 || rawFile.status == 0){
+                        resolve(rawFile.responseText)
+                        return rawFile.responseText;
+                    }
+                }
+            }
+            rawFile.send(null);
+
+        });
+    }
     static read(uri){
         let rawFile = new XMLHttpRequest();
         rawFile.open("GET", uri, false);

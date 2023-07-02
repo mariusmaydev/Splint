@@ -1,4 +1,4 @@
-import * as THREE from 'threeJS';
+import * as THREE from 'three';
 
 export default class HemisphereLight extends THREE.HemisphereLight {
     constructor(skyColor, goundColor, intensity){

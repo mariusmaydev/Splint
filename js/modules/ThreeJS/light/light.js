@@ -1,4 +1,4 @@
-import * as THREE from 'threeJS';
+
 import HEMISPHERE from './types/HemisphereLight.js';
 import SPOT from './types/SpotLight.js';
 import POINT from './types/PointLight.js';

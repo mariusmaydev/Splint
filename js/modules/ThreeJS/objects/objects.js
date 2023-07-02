@@ -1,5 +1,5 @@
 import SPLINT from 'SPLINT';
-import * as THREE from 'threeJS';
+import * as THREE from 'three';
 import Plane from './plane.js';
 
 export default class OBJECT {

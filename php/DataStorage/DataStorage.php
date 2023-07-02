@@ -29,9 +29,10 @@
             }
             Communication::sendBack(true);
         }
-        public static function get(string $path){
+        public static function get(string $path, bool $print = true){
             $res = DataStorageHelper::loadConfig();
             $content = file_get_contents(SERVER_ROOT . $res -> rootPath . $path);
-            Communication::sendBack($content);
+            Communication::sendBack($content, true, $print);
+            return $content;
         }
     }

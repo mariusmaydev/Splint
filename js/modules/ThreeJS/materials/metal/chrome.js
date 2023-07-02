@@ -1,4 +1,4 @@
-import * as THREE from 'threeJS';
+import * as THREE from 'three';
 import MaterialHelper from '../MaterialHelper.js';
 import { S_MATERIAL_LIST } from '../M_materials.js';
 import MATERIAL_LIST from '../M_materials.js';
