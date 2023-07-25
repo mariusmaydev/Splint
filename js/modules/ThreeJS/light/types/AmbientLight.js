@@ -1,6 +1,9 @@
-import * as THREE from 'three';
 
-export default class AmbientLight extends THREE.AmbientLight {
+// import { AmbientLight as T_AmbientLight } from "@THREE_ROOT_DIR/src/lights/AmbientLight.js";
+import { AmbientLight as T_AmbientLight } from "three";
+// import { PointLightHelper } from "@THREE_ROOT_DIR/src/helpers/PointLightHelper";
+
+export default class AmbientLight extends T_AmbientLight {
     constructor(color, intensity){
         super(color, intensity);
     }

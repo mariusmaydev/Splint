@@ -90,6 +90,29 @@ class P_ProjectDetails extends templateExtendedPage {
 
         let log_Container = new SPLINT.DOMElement(this.id + "log_container", "div", this.rightContent);
             let log_overview = new SM_error_log_Overview(log_Container, this.data);
+
+        let button_Container = new SPLINT.DOMElement(this.id + "button_container", "div", this.rightContent);
+            button_Container.Class("buttonContainer");
+            let bt_computeProject = new SPLINT.DOMElement.Button(button_Container, "computeProject", "compute");
+                bt_computeProject.onclick = async function(){
+                    console.log(this.data)
+                    let res = new Object();
+                    let g = (await Splint_bindJS.loadPATH(this.data.config));
+                    console.log(g);
+                    
+                    console.log(SPLINT_Loader.LOADED_DOCS);
+                    // SArray.assort(g[1].JS, "/");
+
+                    // let stack = []
+                    // for(const file of SPLINT.PATH.splint.JS){
+                    //     stack.push(SPLINT_loaderHelper.loadScript(file, false));
+                    // }
+                    // await Promise.allSettled(stack);
+                    // await this.FIRST();
+                    // await this.parts();
+                    let f = (await JSBuilder.test(g[1]["JS"], this.data.config));
+                    console.log(f)
+                }.bind(this);
             
     }
     drawError_logOverview(){

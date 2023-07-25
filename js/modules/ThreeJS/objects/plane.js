@@ -1,5 +1,11 @@
 
-import * as THREE from 'three';
+import {
+    Mesh,
+    PlaneGeometry,
+} from 'three';
+// import { Mesh } from "@THREE_ROOT_DIR/src/objects/Mesh.js";
+// import { PlaneGeometry } from "@THREE_ROOT_DIR/src/geometries/PlaneGeometry.js";
+import * as THC from "@THREE_ROOT_DIR/src/constants.js";
 
 export default class Plane {
     constructor(width, height, wS, hS){
@@ -8,12 +14,12 @@ export default class Plane {
         this.pos.y = 0;
         this.pos.z = 0;
 
-        this.planeGeo = new THREE.PlaneGeometry(width, height, wS, hS);
-        this.plane = new THREE.Mesh(this.planeGeo);
-        this.plane.material.side = THREE.DoubleSide;
+        this.planeGeo = new PlaneGeometry(width, height, wS, hS);
+        this.plane = new Mesh(this.planeGeo);
+        this.plane.material.side = THC.DoubleSide;
 
         this.plane.receiveShadow = false;
-        this.plane.material.side = THREE.DoubleSide;
+        this.plane.material.side = THC.DoubleSide;
         this.plane.castShadow = false;
     }
     position(x = 0, y = 0, z = 0){
@@ -34,7 +40,7 @@ export default class Plane {
         this.plane.material = mat;
         this._material = mat;
         this.plane.receiveShadow = false;
-        this.plane.material.side = THREE.DoubleSide;
+        this.plane.material.side = THC.DoubleSide;
         this.plane.castShadow = false;
     }
     setMapOffset(x, y){

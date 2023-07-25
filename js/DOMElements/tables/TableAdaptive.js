@@ -74,6 +74,7 @@ class Table_Masonry {
             };
             let listElement = new SPLINT.DOMElement(this.id + "ListElement_" + index, "div", columnElement);
                 listElement.Class("ListElement");
+                listElement.setAttribute("c_index", columnElement.getAttribute("index"));
             this.onDrawListElement(listElement, index, resolve_func);
         });
         function f1(ColumnCount){

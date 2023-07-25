@@ -1067,14 +1067,15 @@
 
 .DropDownInputMain_S > .DropDown_expander {
   z-index: 120;
-  background-color: transparent;
+  background-color: white;
   position: absolute;
   padding: 0;
   box-sizing: content-box;
   width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 3px, rgba(0, 0, 0, 0.11) 0px 0px 3px;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .DropDownInputMain_S > .DropDown_expander[state*=active] {
@@ -1091,12 +1092,15 @@
   border-radius: 5px 5px;
   background-color: white;
   padding: 0.5em;
-  margin-top: 0.2em;
-  text-align: center;
+  border-radius: 0em;
+  border-bottom: 1px solid lightgray;
+  margin-top: 0em;
+  text-align: left;
 }
 
 .DropDownInputMain_S > .DropDown_expander > div > span {
   text-align: center;
+  font-family: attr(data-value) !important;
 }
 
 .DropDownInputMain_S > .DropDown_expander > div[state*=active] {
@@ -2708,14 +2712,15 @@ s-input > .response > span {
 
 .DropDownInputMain_S > .DropDown_expander {
   z-index: 120;
-  background-color: transparent;
+  background-color: white;
   position: absolute;
   padding: 0;
   box-sizing: content-box;
   width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 3px, rgba(0, 0, 0, 0.11) 0px 0px 3px;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .DropDownInputMain_S > .DropDown_expander[state*=active] {
@@ -2732,12 +2737,15 @@ s-input > .response > span {
   border-radius: 5px 5px;
   background-color: white;
   padding: 0.5em;
-  margin-top: 0.2em;
-  text-align: center;
+  border-radius: 0em;
+  border-bottom: 1px solid lightgray;
+  margin-top: 0em;
+  text-align: left;
 }
 
 .DropDownInputMain_S > .DropDown_expander > div > span {
   text-align: center;
+  font-family: attr(data-value) !important;
 }
 
 .DropDownInputMain_S > .DropDown_expander > div[state*=active] {

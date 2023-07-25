@@ -28,16 +28,16 @@ class DropDownInput_S {
             }
         }.bind(this);
         this.button = this.input.drawToggleButton();
-        this.button.bindIcon("expand_more");
+        this.button.bindIcon("chevron_left");
 
         this.button.onactive = function(){
             this.openDropDown();
-            this.button.bindIcon("chevron_left");
+            this.button.bindIcon("expand_more");
         }.bind(this); 
 
         this.button.onpassive = function(){
             this.closeDropDown();
-            this.button.bindIcon("expand_more");
+            this.button.bindIcon("chevron_left");
         }.bind(this); 
         this.dropDown = new SPLINT.DOMElement(this.id + "dropdown", "div", this.mainElement);
         this.dropDown.Class("DropDown_expander");
@@ -54,9 +54,11 @@ class DropDownInput_S {
             this.button.unsetActive();
         }
     }
-    addEntry(name, value){
+    addEntry(name, value, func = function(){}){
         let entry = new SPLINT.DOMElement.SpanDiv(this.dropDown, name, value);
             entry.div.setAttribute("value", value);
+            func(entry, value);
+            // entry.span.setAttribute("data-value", value);
             entry.div.onclick = function(){
                 this.value = entry.value;              
                     for(let i = 0; i < this.dropDown.children.length; i++){

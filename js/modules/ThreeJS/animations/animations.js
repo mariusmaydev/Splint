@@ -1,4 +1,6 @@
-import * as THREE from 'three';
+
+// import { Clock } from "@THREE_ROOT_DIR/src/core/Clock.js";
+import { Clock } from "three";
 
 // export default class Animations {
 //     static get Mixer(){
@@ -93,7 +95,7 @@ export class Animation {
     constructor(model, duration, mixer) {
         this.mixer = mixer;
         this.duration = duration;
-        this.clock = new THREE.Clock(false);
+        this.clock = new Clock(false);
         this.progress = 0;
         this.model = model;
         this.groupe = null;

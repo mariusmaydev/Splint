@@ -1,6 +1,13 @@
-import * as THREE from 'three';
 
-export default class HemisphereLight extends THREE.HemisphereLight {
+// import { HemisphereLight as T_HemisphereLight } from "@THREE_ROOT_DIR/src/lights/HemisphereLight.js";
+// import { HemisphereLightHelper } from "@THREE_ROOT_DIR/src/helpers/HemisphereLightHelper.js";
+
+import {
+    HemisphereLight as T_HemisphereLight,
+    HemisphereLightHelper
+} from 'three';
+
+export default class HemisphereLight extends T_HemisphereLight {
     constructor(skyColor, goundColor, intensity){
         super(skyColor, goundColor, intensity);
         this.debugg = false;
@@ -14,7 +21,7 @@ export default class HemisphereLight extends THREE.HemisphereLight {
             return;
         }
         if(debugg){
-            this.helper = new THREE.HemisphereLightHelper(this, this.helper.size, this.helper.color);
+            this.helper = new HemisphereLightHelper(this, this.helper.size, this.helper.color);
 
             this.scene.add(this);
             this.scene.add(this.helper)

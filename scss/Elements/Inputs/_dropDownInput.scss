@@ -30,15 +30,16 @@
     }
     > .DropDown_expander {
         z-index: 120;
-        background-color: transparent;
+        background-color: white;
         position: absolute;
         padding: 0;
         box-sizing: content-box;
         // margin-left: 0.5em;
         width: calc(100%);
+        @include box-shadow();
         display: flex;
         flex-direction: column;
-        overflow: hidden;
+        overflow-y: scroll;
         &[state*='active']{
             height: 10em;
             // display: flex;
@@ -51,10 +52,14 @@
         > div {
             z-index: 122;
             @include standardDiv();
-            margin-top: 0.2em;
-            text-align: center;
+            border-radius: 0em;
+            border-bottom: 1px solid lightgray;
+            margin-top: 0em;
+            text-align: left;
+            // $var : attr(data-value);
             > span {
                 text-align: center;
+                font-family: attr(data-value) !important;
 
             }
             &[state*='active']{

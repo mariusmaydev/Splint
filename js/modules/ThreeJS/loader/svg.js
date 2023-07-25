@@ -1,17 +1,33 @@
-import SPLINT from 'SPLINT';
-import * as THREE from 'three';
-import { SVGLoader } from '@THREE_MODULES_DIR/loaders/SVGLoader.js';
+
+// import { MeshBasicMaterial } from "@THREE_ROOT_DIR/src/materials/MeshBasicMaterial.js";
+// import { Mesh } from "@THREE_ROOT_DIR/src/objects/Mesh.js";
+// import { Group } from "@THREE_ROOT_DIR/src/objects/Group.js";
+// import { LineSegments } from "@THREE_ROOT_DIR/src/objects/LineSegments.js";
+// import { LineBasicMaterial } from "@THREE_ROOT_DIR/src/materials/LineBasicMaterial.js";
+// import { ExtrudeGeometry } from "@THREE_ROOT_DIR/src/geometries/ExtrudeGeometry.js";
+// import { EdgesGeometry } from "@THREE_ROOT_DIR/src/geometries/EdgesGeometry.js";
+// import { SVGLoader } from '@THREE_MODULES_DIR/loaders/SVGLoader.js';
+import {
+    SVGLoader,
+    EdgesGeometry,
+    ExtrudeGeometry,
+    LineBasicMaterial,
+    LineSegments,
+    Group,
+    Mesh,
+    MeshBasicMaterial
+} from 'three';
 
 export default class SVGModelLoader {
     static load(svgData){
-        const svgGroup = new THREE.Group();
+        const svgGroup = new Group();
         const updateMap = [];
         svgGroup.scale.set(0.00001, 0.00001, 0.00001);
         svgGroup.position.set(0, 0, 0);
         // svgGroup.scale.y *= -1;
 
-        const fillMaterial = new THREE.MeshBasicMaterial({ wireframe: false, opacity: 1, transparent: true });
-        const stokeMaterial = new THREE.LineBasicMaterial({
+        const fillMaterial = new MeshBasicMaterial({ wireframe: false, opacity: 1, transparent: true });
+        const stokeMaterial = new LineBasicMaterial({
             wireframe: false, opacity: 0, transparent: true 
         });
         // Loop through all of the parsed paths
@@ -21,7 +37,7 @@ export default class SVGModelLoader {
             // Each path has array of shapes
             shapes.forEach((shape, j) => {
                 // Finally we can take each shape and extrude it
-                const meshGeometry = new THREE.ExtrudeGeometry(shape, {
+                const meshGeometry = new ExtrudeGeometry(shape, {
                     bevelEnabled: false,
                     // amount: 5,
                     // bevelSize: 14,
@@ -32,9 +48,9 @@ export default class SVGModelLoader {
 
                 // Create a mesh and add it to the group
 
-                const linesGeometry = new THREE.EdgesGeometry(meshGeometry);
-                const mesh = new THREE.Mesh(meshGeometry, fillMaterial);
-                const lines = new THREE.LineSegments(linesGeometry, stokeMaterial);
+                const linesGeometry = new EdgesGeometry(meshGeometry);
+                const mesh = new Mesh(meshGeometry, fillMaterial);
+                const lines = new LineSegments(linesGeometry, stokeMaterial);
           
                 updateMap.push({ shape, mesh, lines });
                 svgGroup.add(mesh, lines);
@@ -55,7 +71,7 @@ export default class SVGModelLoader {
             object: svgGroup,
             update(extrusion) {
               updateMap.forEach((updateDetails) => {
-                const meshGeometry = new THREE.ExtrudeGeometry(
+                const meshGeometry = new ExtrudeGeometry(
                   updateDetails.shape,
                   {
                     depth: extrusion,
@@ -66,7 +82,7 @@ export default class SVGModelLoader {
                     // bevelSegments: 15,
                   }
                 );
-                const linesGeometry = new THREE.EdgesGeometry(meshGeometry);
+                const linesGeometry = new EdgesGeometry(meshGeometry);
         
                 updateDetails.mesh.geometry.dispose();
                 updateDetails.lines.geometry.dispose();

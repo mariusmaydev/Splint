@@ -1,16 +1,17 @@
 
-// import * as THREE from 'threeJS';
 import TEXTURE from './loader/texture.js';
 import FILE from './loader/file.js';
 import OBJECTS from './objects/objects.js';
 import MOUSEHANDLER from './tools/mouseHandler.js';
 import { GLTFLoader } from '@THREE_MODULES_DIR/loaders/GLTFLoader.js';
-import { SVGLoader } from '@THREE_MODULES_DIR/loaders/SVGLoader.js';
+// import { SVGLoader } from '@THREE_MODULES_DIR/loaders/SVGLoader.js';
 import { DRACOLoader } from '@THREE_MODULES_DIR/loaders/DRACOLoader.js';
 import { utils } from './tools/utils.js';
-export * as ANIMATIONS from './animations/animations.js';
+// import { Loader as loader1} from '@THREE_ROOT_DIR/editor/js/Loader.js'
+
+// export * as ANIMATIONS from './animations/animations.js';
 import * as ANIMATIONS from './animations/animations.js';
-import SVGModelLoader from './loader/svg.js';
+// import SVGModelLoader from './loader/svg.js';
 import RAYCASTER from './tools/raycaster.js';
 import './tools/extensions.js';
 
@@ -20,7 +21,7 @@ var CONFIG = null;
 var RESOURCES = null;
 
 const draco = new DRACOLoader();
-draco.setDecoderPath('https://www.gstatic.com/draco/v1/decoders/');
+draco.setDecoderPath('http://localhost/Splint/lib/threeJS/examples/js/libs/draco/gltf/');//lib\threeJS\examples\js\libs\draco\gltf');
 
 
 // Splint\lib\threeJS\examples\js\libs\draco
@@ -55,9 +56,9 @@ export default class SPLINT extends window.SPLINT {
         }
     }
     static async preloadResources(){
-        console.log("ok")
         SPLINT.R_promise = new Promise(async function(resolve){
             let res = (await SPLINT.file.loadFromProjectAsync("/Splint/splint.config/resource.list.json")).toObject();
+
 
             SPLINT.resourceList = res.paths;
             console.dir(SPLINT);
@@ -65,8 +66,9 @@ export default class SPLINT extends window.SPLINT {
             RESOURCES.textures = new Object();
             RESOURCES.SVGs = new Object();
             RESOURCES.models = new Object();
+            // let l1 = new loader1();
             let loader = new GLTFLoader();
-            let svgLoader = new SVGLoader();
+            // let svgLoader = new SVGLoader();
 
                 loader.setDRACOLoader(draco);
             for(const [key, value] of Object.entries(res.paths.textures)) {
@@ -74,14 +76,17 @@ export default class SPLINT extends window.SPLINT {
                 RESOURCES.textures[key].name = utils.getFileNameFromURI(value);
             }
             for(const [key, value] of Object.entries(res.paths.models)) {
+                // debugger
+                // draco.loadAsync()
                 RESOURCES.models[key] = await loader.loadAsync(SPLINT.config.URIs.project + "/" + value);
+                console.log(RESOURCES.models[key]);
                 RESOURCES.models[key].scene = RESOURCES.models[key].scene.children[0]
                 RESOURCES.models[key].scene.name = utils.getFileNameFromURI(value);
             }
-            for(const [key, value] of Object.entries(res.paths.SVGs)) {
-                RESOURCES.SVGs[key] = await svgLoader.loadAsync(SPLINT.config.URIs.project + "/" + value);
-                RESOURCES.SVGs[key].name = utils.getFileNameFromURI(value);
-            }
+            // for(const [key, value] of Object.entries(res.paths.SVGs)) {
+            //     RESOURCES.SVGs[key] = await svgLoader.loadAsync(SPLINT.config.URIs.project + "/" + value);
+            //     RESOURCES.SVGs[key].name = utils.getFileNameFromURI(value);
+            // }
             // async function f(r){
             //     for(const e of Object.entries(r)){
             //         console.log(e);
@@ -168,9 +173,9 @@ export default class SPLINT extends window.SPLINT {
     static get Utils(){
         return utils;
     }
-    static get SVGModelLoader(){
-        return SVGModelLoader;
-    }
+    // static get SVGModelLoader(){
+    //     return SVGModelLoader;
+    // }
 }
 
 // async function loadA(url) {

@@ -1,4 +1,8 @@
-import * as THREE from 'three';
+// import * as THREE from 'three';
+import {
+    Texture,
+} from 'three';
+// import { Texture } from "@THREE_ROOT_DIR/src/textures/Texture.js";
 
 export default class MaterialHelper {
     constructor(name, renderer = null){
@@ -29,7 +33,7 @@ export default class MaterialHelper {
         let material = materialIn.clone();
         for (const [key, value] of Object.entries(materialIn)) {
 
-            if( value instanceof THREE.Texture){
+            if( value instanceof Texture){
                 material[key] = MaterialHelper.getTexture(materialIn[key]);
                 material[key].needsUpdate = true;
             }

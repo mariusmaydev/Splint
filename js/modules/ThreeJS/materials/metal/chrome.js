@@ -1,9 +1,15 @@
-import * as THREE from 'three';
+// import * as THREE from 'three';
 import MaterialHelper from '../MaterialHelper.js';
-import { S_MATERIAL_LIST } from '../M_materials.js';
-import MATERIAL_LIST from '../M_materials.js';
+// import { S_MATERIAL_LIST } from '../M_materials.js';
+// import { MeshPhysicalMaterial } from "@THREE_ROOT_DIR/src/materials/MeshPhysicalMaterial.js";
+import {
+    MeshPhysicalMaterial,
+} from 'three';
+
+import * as THC from "@THREE_ROOT_DIR/src/constants.js";
+// import MATERIAL_LIST from '../M_materials.js';
 // import M_material from '../M_material.js';
-import SPLINT from 'SPLINT';
+// import SPLINT from 'SPLINT';
 
 export default class material_chrome {
     static light(color = 0xffffff, envMap = null){
@@ -46,7 +52,7 @@ export default class material_chrome {
         //     envMap.premultiplyAlpha = false;
         //     envMap.needsUpdate = true;
 
-        material = new THREE.MeshPhysicalMaterial( {
+        material = new MeshPhysicalMaterial( {
             color: color,
             // map: texture,
             // blending: THREE.NormalBlending,
@@ -55,7 +61,7 @@ export default class material_chrome {
             roughness: 0.5, // between 0 and 1
             // envMap: envMap,
             envMapIntensity: 0.5,
-            depthFunc: THREE.LessEqualDepth,
+            depthFunc: THC.LessEqualDepth,
             depthTest: true,
             emissive: 0x000000,
             emissiveIntensity: 0.4,

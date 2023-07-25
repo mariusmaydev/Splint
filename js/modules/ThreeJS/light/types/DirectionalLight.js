@@ -1,6 +1,11 @@
-import * as THREE from 'three';
 
-export default class DirectionalLight extends THREE.DirectionalLight {
+// import { DirectionalLight as T_DirectionalLight} from "@THREE_ROOT_DIR/src/lights/DirectionalLight.js";
+// import { DirectionalLightHelper } from "@THREE_ROOT_DIR/src/helpers/DirectionalLightHelper.js";
+import {
+    DirectionalLight as T_DirectionalLight,
+    DirectionalLightHelper
+} from 'three';
+export default class DirectionalLight extends T_DirectionalLight {
     constructor(color, intensity){
         super(color, intensity);
         this.debugg = false;
@@ -15,7 +20,7 @@ export default class DirectionalLight extends THREE.DirectionalLight {
         }
         if(debugg){
             // this.target.updateMatrixWorld();
-            this.helper = new THREE.DirectionalLightHelper(this, this.helper.size, this.helper.color);
+            this.helper = new DirectionalLightHelper(this, this.helper.size, this.helper.color);
             
             this.scene.add(this);
             this.scene.add(this.helper)

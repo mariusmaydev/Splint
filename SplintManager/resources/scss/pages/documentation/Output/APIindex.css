@@ -1067,15 +1067,14 @@
 
 .DropDownInputMain_S > .DropDown_expander {
   z-index: 120;
-  background-color: white;
+  background-color: transparent;
   position: absolute;
   padding: 0;
   box-sizing: content-box;
   width: 100%;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 3px, rgba(0, 0, 0, 0.11) 0px 0px 3px;
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
+  overflow: hidden;
 }
 
 .DropDownInputMain_S > .DropDown_expander[state*=active] {
@@ -1092,15 +1091,12 @@
   border-radius: 5px 5px;
   background-color: white;
   padding: 0.5em;
-  border-radius: 0em;
-  border-bottom: 1px solid lightgray;
-  margin-top: 0em;
-  text-align: left;
+  margin-top: 0.2em;
+  text-align: center;
 }
 
 .DropDownInputMain_S > .DropDown_expander > div > span {
   text-align: center;
-  font-family: attr(data-value) !important;
 }
 
 .DropDownInputMain_S > .DropDown_expander > div[state*=active] {
@@ -2712,15 +2708,14 @@ s-input > .response > span {
 
 .DropDownInputMain_S > .DropDown_expander {
   z-index: 120;
-  background-color: white;
+  background-color: transparent;
   position: absolute;
   padding: 0;
   box-sizing: content-box;
   width: 100%;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 3px, rgba(0, 0, 0, 0.11) 0px 0px 3px;
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
+  overflow: hidden;
 }
 
 .DropDownInputMain_S > .DropDown_expander[state*=active] {
@@ -2737,15 +2732,12 @@ s-input > .response > span {
   border-radius: 5px 5px;
   background-color: white;
   padding: 0.5em;
-  border-radius: 0em;
-  border-bottom: 1px solid lightgray;
-  margin-top: 0em;
-  text-align: left;
+  margin-top: 0.2em;
+  text-align: center;
 }
 
 .DropDownInputMain_S > .DropDown_expander > div > span {
   text-align: center;
-  font-family: attr(data-value) !important;
 }
 
 .DropDownInputMain_S > .DropDown_expander > div[state*=active] {
@@ -3370,4 +3362,66 @@ body > .ManagerMenuPage > .TableMain {
 }
 body > .ManagerMenuPage > .TableMain > .ListMain > .ListElement > button > span {
   font-size: 2em;
-}/*# sourceMappingURL=index.css.map */
+}
+.ManagerMenuPageExtended {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.ManagerMenuPageExtended > .leftContent {
+  min-width: max-content;
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: max-content;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 3px, rgba(0, 0, 0, 0.11) 0px 0px 3px;
+  border-radius: 0px;
+  background-color: white;
+  padding: 0.5em;
+  margin-right: 1em;
+}
+.ManagerMenuPageExtended > .leftContent > .sidebarLeft > .TableMain > .ListMain > .ListElement > div {
+  height: 0;
+  padding-left: 0.5rem;
+  overflow: hidden;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.ManagerMenuPageExtended > .leftContent > .sidebarLeft > .TableMain > .ListMain > .ListElement > div[state*=active] {
+  padding-top: 0.5em;
+  margin-bottom: 0em;
+  padding-bottom: 0;
+  height: max-content;
+  visibility: visible;
+}
+.ManagerMenuPageExtended > .leftContent > .sidebarLeft > .TableMain > .ListMain > .ListElement > div > button::before {
+  content: "";
+  position: absolute;
+  margin-top: 5px;
+  left: -2px;
+  width: 5px;
+  height: 5px;
+  background-color: #000;
+  border-radius: 50%;
+}
+.ManagerMenuPageExtended > .leftContent > .sidebarLeft > .TableMain > .ListMain > .ListElement > div > button > span {
+  text-align: left;
+}
+.ManagerMenuPageExtended > .rightContent {
+  width: 100%;
+  height: calc(100% - 1em);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 3px, rgba(0, 0, 0, 0.11) 0px 0px 3px;
+  border-radius: 0px;
+  background-color: white;
+  padding: 0.5em;
+  box-sizing: border-box;
+}
+
+.s-UnsplashMenu > .content > .TableMain > .ListMain {
+  display: grid;
+  gap: 1em;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-rows: masonry;
+}/*# sourceMappingURL=APIindex.css.map */

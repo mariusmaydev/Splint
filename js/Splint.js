@@ -1,6 +1,7 @@
 
 class SPLINT {
     static loadedScripts = [];
+    static computeFlag = false;
     static #config = null;
     static PATH = new Object();
     static async start(){
@@ -126,6 +127,10 @@ class SPLINT_loaderHelper {
                 cache = SPLINT.config.main.settings.cacheResources.splint.js
             }
             if(sync){
+                // let dataType = 'text';
+                // if(!SPLINT.computeFlag){
+                //     dataType = 'script';
+                // }(?<=\.).*(?=[,\n])
                 $.ajax({
                     beforeSend: function(){
                     },
@@ -146,7 +151,7 @@ class SPLINT_loaderHelper {
                     url: path,
                     async: !sync,
                     cache: cache,
-                    dataType: 'script',
+                    dataType: "script",
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
                         reject(arguments);
                     }
@@ -207,7 +212,7 @@ class SPLINT_loaderHelper {
                     cache = SPLINT.config.main.settings.cacheResources.splint.js
                 }
                 let promise = $.ajax({
-                        beforeSend: function(){
+                        beforeSend: function(g){
                         },
                         dataFilter :function(data){
                             // String
@@ -246,10 +251,10 @@ class SPLINT_loaderHelper {
                                     }
                                 }
                             }
-                            let f = document.createElement("script");
-                            let a = document.createTextNode(data);    
-                            f.appendChild(a);
-                            document.body.appendChild(f);
+                                let f = document.createElement("script");
+                                let a = document.createTextNode(data);    
+                                f.appendChild(a);
+                                document.body.appendChild(f);
                             return data;
                         },
                         type: 'GET',
@@ -331,17 +336,24 @@ class SPLINT_loaderHelper {
 
 class SPLINT_Loader extends SPLINT_loaderHelper{
     static LOADED_DOCS = [];
-    static LOADED_DOCS = [];
+    // static LOADED_DOCS = [];
     static async start(){
         return new Promise(async function(resolve, reject){
             this.loadGoogleIcons();
             await Promise.all([
                 this.loadJQuery(),
                 this.loadConfig()]);
-            await Promise.all([
-                this.loadImportMap(),
-                Splint_bindJS.loadPATH()]);
-                // Splint_bindJS.preload();
+                await this.loadImportMap();
+                let tag1 = document.createElement('link');
+                    tag1.rel = "modulepreload";
+                    tag1.href = "./../../../../Splint/lib/threeJS/build/three.module.min.js";
+                document.head.appendChild(tag1);
+                await Splint_bindJS.loadPATH();
+            // await Promise.all([
+            //     this.loadImportMap(),
+            //     Splint_bindJS.loadPATH()]);
+            //     // let link = "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,1&display=block";
+            //     // Splint_bindJS.preload();
             SPLINT_loaderHelper.initLoader().then(async function(){
                 this.bind().CSS();
                 await SPLINT.require("@SPLINT_ROOT/Events/Events.js");
@@ -357,9 +369,9 @@ class SPLINT_Loader extends SPLINT_loaderHelper{
                     SPLINT.require("@SPLINT_ROOT/dataTypes/SArray.js"),
                     SPLINT.require("@SPLINT_ROOT/dataTypes/autoObject.js")
                     ]);
-                this.bind().MODULES();
+                await this.bind().MODULES();
                 this.bind().PRE().then(async function(){
-                    await this.loadChartJS();
+                    // await this.loadChartJS();
                     await this.bind().ALL();
                     resolve(true);
                 }.bind(this));
@@ -421,6 +433,15 @@ class SPLINT_Loader extends SPLINT_loaderHelper{
         let tag = document.createElement("script");
             tag.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js";
             tag.setAttribute("async", true);
+            // tag.onload = function(){
+            //     fetch(this.src)
+            //     .then(res => {
+            //         return res.text();
+            //     })
+            //     .then(text => {
+            //         console.log(text);
+            //     });
+            // }
             document.body.appendChild(tag);
         return getPromiseFromEvent(tag, "load");
     }
@@ -474,7 +495,7 @@ class SPLINT_Loader extends SPLINT_loaderHelper{
 
 function getPromiseFromEvent(item, event) {
     return new Promise((resolve) => {
-      const listener = () => {
+      const listener = (e) => {
         item.removeEventListener(event, listener);
         resolve();
       }
@@ -511,17 +532,28 @@ class Splint_bindJS {
     //     f(SPLINT.PATH.project.CSS, "stylesheet");
     //     return;
     // }
-    static async loadPATH(){
-        
+    static async loadPATH(configIn = null){
+        let config = SPLINT.config.main;
+        // if(configIn == null){
+        //     config = SPLINT.config.main;
+        // }
+        // if(res == null){
+        //     res = new Object();
+        // }
+        console.log(SPLINT.rootPath)
         return Promise.all([
             $.ajax({
                 type: 'GET',
-                url: SPLINT.rootPath + "/loadFolderFromHTML.php?forceReload=" + !SPLINT.config.main.settings.cacheResources.project.fileTree + "&projectName=" + SPLINT.config.main.projectName,
+                url: SPLINT.rootPath + "/loadFolderFromHTML.php?forceReload=" + !config.settings.cacheResources.project.fileTree + "&projectName=" + config.projectName,
                 async: true,
-                cache: SPLINT.config.main.settings.cacheResources.project.fileTree,
+                cache: config.settings.cacheResources.project.fileTree,
                 dataType: 'JSON',
                 success: function(data) {
-                    SPLINT.PATH.project = data;
+                    if(configIn == null){
+                        SPLINT.PATH.project = data;
+                    } else {
+                        // res.a = data;
+                    }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     SPLINT.debugger.error("loader", "")
@@ -529,12 +561,16 @@ class Splint_bindJS {
             }),
             $.ajax({
                 type: 'GET',
-                url: SPLINT.rootPath + "/loadFromHTML.php?forceReload=" + !SPLINT.config.main.settings.cacheResources.splint.fileTree + "&projectName=" + SPLINT.config.main.projectName,
+                url: SPLINT.rootPath + "/loadFromHTML.php?forceReload=" + !config.settings.cacheResources.splint.fileTree + "&projectName=" + config.projectName,
                 async: true,
-                cache: SPLINT.config.main.settings.cacheResources.splint.fileTree,
+                cache: config.settings.cacheResources.splint.fileTree,
                 dataType: 'JSON',
                 success: function(data) {
-                    SPLINT.PATH.splint = data;
+                    if(configIn == null){
+                        SPLINT.PATH.splint = data;
+                    } else {
+                        // res.b = data;
+                    }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     SPLINT.debugger.error("loader", "")
@@ -607,10 +643,12 @@ class Splint_bindJS {
         }
         return Promise.allSettled(stack);
     }
-    static async ALL(){
+    static async ALL(computeFlag = false){
         return new Promise(async function(resolve, reject){
             // this.MODULES();
+
             SArray.assort(SPLINT.PATH.splint.JS, "/");
+
             let stack = []
             for(const file of SPLINT.PATH.splint.JS){
                 stack.push(SPLINT_loaderHelper.loadScript(file, false));

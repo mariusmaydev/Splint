@@ -4,12 +4,14 @@ class JSBuilder {
     static #call(data){
         return CallPHP_S.call(this.PATH, data);
     }
-    static test(){
-        let data = CallPHP_S.getCallObject("TEST");
+    static async test(paths, config){
+        let call = new SPLINT.CallPHP(this.PATH, "TEST");
+            call.data.paths = paths;
+            call.data.config = config;
             // data.path = "/settings.json";
-            data.content = "content";
+            // data.content = "content";
 
-        return this.#call(data).toObject(true);
+        return call.send();//this.#call(data).toObject(true);
     }
     static edit(path, content = ""){
       let data = CallPHP_S.getCallObject("EDIT");
