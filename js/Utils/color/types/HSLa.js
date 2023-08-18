@@ -1,5 +1,5 @@
 SPLINT.require_now("@SPLINT_ROOT/Utils/color/color.js");
-class S_colorHSLa extends S_Colors {
+class S_colorHSLa extends SPLINT.Utils.Colors {
     constructor(h = 0, s = 0, l = 0, a = 1) {
         super();
         this.h = h;
@@ -15,7 +15,7 @@ class S_colorHSLa extends S_Colors {
         });
     }
     fromRGB(S_color){
-        let c = S_Colors.rgbToHsl(S_color.r, S_color.g, S_color.b);
+        let c = SPLINT.Utils.Colors.rgbToHsl(S_color.r, S_color.g, S_color.b);
         this.h = c.h;
         this.s = c.s;
         this.l = c.l;

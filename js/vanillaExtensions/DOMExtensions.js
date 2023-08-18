@@ -201,7 +201,7 @@
         }.bind(this));
     } 
   HTMLElement.prototype.setTooltip = function(value, direction){
-    return new Tooltip_S(value, direction, this);
+    return new SPLINT.DOMElement.Tooltip(value, direction, this);
   }
 //   HTMLElement.prototype.clear = function(element){
 //     for(let i = 0; i < this.childNodes.length; i++){

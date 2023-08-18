@@ -16,7 +16,7 @@ class n_InputDiv extends S_DOMElement_TEMPLATE {
                 this.label = new SPLINT.DOMElement(this.id + "label", "label", this.inputBody);
                 this.transitionMultiplyer = transitionMultiplyer;
 
-            this.responseDiv = new spanDiv(this.mainElement, "response", "");
+            this.responseDiv = new SPLINT.DOMElement.spanDiv(this.mainElement, "response", "");
             this.responseDiv.div.Class("response");
         this.draw();
         this.oninput = function(e){};
@@ -67,7 +67,7 @@ class n_InputDiv extends S_DOMElement_TEMPLATE {
         this.input.onEnter = this._onEnter;
     }
     drawToggleButton(value){
-        this.button = new S_switchButton(this.inputBody, "button", value);
+        this.button = new SPLINT.DOMElement.Button.Switch(this.inputBody, "button", value);
         return this.button;
     }
     disableAnimation(){

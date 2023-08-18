@@ -52,20 +52,28 @@ class formatUnix_S {
       let date = new Date(today.getFullYear() + "." + (parseInt(today.getMonth())+1) + "." + today.getDate());
       return date.getTime();
     }
+    static convertDateTimeToFormatedUnix(dateIn, short = true){        
+    //   let today = new Date(dateIn);
+      let date = new Date(dateIn);
+      if(short){
+        return date.getTime() / 1000;
+      }
+      return date.getTime();
+    }
     static getTime(){
       let date = new Date();
       let unixtime = date.getTime();
       return unixtime;
     }
     static convertToGMT(unixTime){
-      date = new Date(unixTime);
+      let date = new Date(unixTime);
       console.log(date);
       date.setTime(date.getTime() + date.getTimezoneOffset()*60*1000);
       date = new Date(date).getTime();
       return date;
     }
     static convertFromGMT(unixTime){
-      date = new Date(unixTime);
+      let date = new Date(unixTime);
       console.log(date);
       date.setTime(date.getTime() - date.getTimezoneOffset()*60*1000);
       date = new Date(date).getTime();

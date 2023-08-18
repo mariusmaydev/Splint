@@ -26,7 +26,7 @@ class S_API_IPinfo {
         
     }
     static async evaluate(data){
-        let call = new SPLINT.CallPHP(this.PATH, "API.IPINFO.EVAL");
+        let call = new SPLINT.Data.CallPHP(this.PATH, "API.IPINFO.EVAL");
             call.data.data    = data;
             call.method = "GET";
             call.headers["Content-Type"] = 'json';

@@ -55,6 +55,13 @@ class SpanDiv {
         this._hide = flag;
         this.div.setAttribute("hidden", flag);
     }
+    set identifier(v){
+        this.div.setAttribute("name", v);
+        this.span.setAttribute("name", v);
+    }
+    get identifier(){
+        return this.div.name;
+    }
     isHidden(){
         return this._hide;
     }

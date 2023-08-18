@@ -8,7 +8,7 @@ class S_ChartContainer {
      * 
      * @param {string} name 
      * @param {HTMLElement} parent 
-     * @param {object | S_chartObject} config 
+     * @param {object | SPLINT.API.ChartJS.Object} config 
      */
     constructor(name, parent, config){
         this.id = "S-ChartContainer__" + name + "__";
@@ -20,7 +20,7 @@ class S_ChartContainer {
         this.#canvas = new SPLINT.DOMElement(this.id + "_Canvas", "canvas", this.#mainElement);
         this.#context = this.#canvas.getContext("2d");
         this._config = config;
-        if(this._config instanceof S_chartObject){
+        if(this._config instanceof SPLINT.API.ChartJS.Object){
             this.#Chart = new Chart(this.#context, this._config);
         } else {
             this.#Chart = new Chart(this.#context, this._config);

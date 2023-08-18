@@ -2,12 +2,17 @@
 
 class S_API_ChartJS {
     static get Container(){
+        SPLINT.getClass("S_ChartContainer", "chartContainer")
         return S_ChartContainer;
+    }    
+    static get Object(){
+        SPLINT.getClass("S_chartObject", "chartObject")
+        return S_chartObject;
     }    
     static parseGradient(S_colorGradient){
         let Storage = [];
         for(const index in S_colorGradient){
-            let c = S_Colors.parse(S_colorGradient[index], 'rgba');
+            let c = SPLINT.Utils.Colors.parse(S_colorGradient[index], 'rgba');
                 let r = String(c.r).split('.')[0];
                 let g = String(c.g).split('.')[0];
                 let b = String(c.b).split('.')[0];

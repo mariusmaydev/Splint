@@ -2,7 +2,7 @@ class S_ObjectMapper {
     #objectOut;
     constructor(object){
         this.objectIn = object;
-        this.#objectOut = new S_MappedObject();
+        this.#objectOut = new SPLINT.Types.MappedObject();
         this.callback = function(l){};
     }
     get(){
@@ -11,7 +11,7 @@ class S_ObjectMapper {
     }
     #generateMap(objIn, lastOBJ){
         if(lastOBJ == undefined){
-            lastOBJ = new S_MappedObject();
+            lastOBJ = new SPLINT.Types.MappedObject();
             this.#objectOut = lastOBJ;
         }
         let keys = Object.keys(objIn);
@@ -44,7 +44,7 @@ class S_ObjectMapParser {
     #objOut;
     #mappedObj;
     constructor(mappedObject){
-        this.#objOut = new SPLINT.autoObject();
+        this.#objOut = new SPLINT.Types.autoObject();
         this.#mappedObj = mappedObject;
     }
     get(){
@@ -55,7 +55,7 @@ class S_ObjectMapParser {
     #generate(mappedObjIn){
         for(const entry of mappedObjIn.value){
             if(typeof entry == 'object'){
-                this.#objOut[entry.map] = new SPLINT.autoObject();
+                this.#objOut[entry.map] = new SPLINT.Types.autoObject();
                 console.log(entry);
                 if (Symbol.iterator in Object(entry.value)) {
                     this.#generate(entry);

@@ -5,7 +5,7 @@ class S_moonrakerHelper {
         this.websocketID    = null;
         this.printProgress  = 1;
         this.onReadyStack   = []; 
-        this.createWebsocket();   
+        // this.createWebsocket();   
     }
 
     static set onReady(func){

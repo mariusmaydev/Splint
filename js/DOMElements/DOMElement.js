@@ -106,58 +106,95 @@ class DOMElement_manager {
       return S_SVGElement;
     }
     static get Button(){
-      return S_Button;
+        SPLINT.getClass("S_Button", "button");
+        return S_Button;
+    }
+    static get Spinner(){
+        SPLINT.getClass("Spinner1", "spinner1");
+        return Spinner1;
+    }
+    static get spanDiv(){
+        SPLINT.getClass("spanDiv", "SpanDiv");
+        return spanDiv;
     }
     static get SpanDiv(){
-      return SpanDiv;
+        SPLINT.getClass("SpanDiv", "SpanDiv");
+        return SpanDiv;
+    }
+    static get Slider(){
+        SPLINT.getClass("Slider", "Slider");
+        return Slider;
     }
     static get HorizontalLine(){
-      return S_HorizontalLine;
+        SPLINT.getClass("S_HorizontalLine", "HorizontalLine");
+        return S_HorizontalLine;
     }
     static get Label(){
-      return Label;
+        SPLINT.getClass("Label", "Label");
+        return Label;
     }
     static get simple(){
-      return SimpleElement;
+        SPLINT.getClass("SimpleElement", "DOMElement");
+        return SimpleElement;
     }
     static get InputDiv(){
-      return n_InputDiv;
+        SPLINT.getClass("n_InputDiv", "n_inputDiv");
+        return n_InputDiv;
     }
     static get FolderInput(){
         return S_folderInput;
     }
     static get InputText(){
-      return TextInputDiv;
+        SPLINT.getClass("TextInputDiv", "textInput");
+        return TextInputDiv;
     }
     static get InputAddress(){
-      return S_AddressInput;
+        SPLINT.getClass("S_AddressInput", "AddressInput");
+        return S_AddressInput;
     }
     static get InputAmount(){
-      return AmountInput;
+        SPLINT.getClass("AmountInput", "amountInput");
+        return AmountInput;
     }
     static get InputDropDown(){
-      return DropDownInput_S;
+        SPLINT.getClass("DropDownInput_S", "dropDownInput");
+        return DropDownInput_S;
     }
     static get InputDynamic(){
-      return S_DynamicInput;
+        SPLINT.getClass("S_DynamicInput", "DynamicInput");
+        return S_DynamicInput;
     }
     static get popupWindow(){
-      return S_popupWindow;
+        SPLINT.getClass("S_popupWindow", "subWindow");
+        return S_popupWindow;
     }
     static get TextView(){
+        SPLINT.getClass("S_TextView", "TextView");
         return S_TextView;
     }
     static get Table(){
-      return Table;
+        SPLINT.getClass("Table", "Table");
+        return Table;
+    }
+    static get PriceDiv(){
+        SPLINT.getClass("PriceDiv_S", "PriceDiv");
+        return PriceDiv_S;
     }
     static get Nesting(){
-      return S_Nesting;
+        SPLINT.getClass("S_Nesting", "Nesting");
+        return S_Nesting;
     }
     static get ChartContainer(){
+        SPLINT.getClass("S_ChartContainer", "chartContainer");
         return S_ChartContainer;
     }
     static get ObjectEditor(){
+        SPLINT.getClass("S_ObjectEditor", "objectEditor");
         return S_ObjectEditor;
+    }
+    static get Tooltip(){
+        SPLINT.getClass("Tooltip_S", "Tooltip");
+        return Tooltip_S;
     }
   }
 //   customElements.define('dom-elementr', DOMElement);

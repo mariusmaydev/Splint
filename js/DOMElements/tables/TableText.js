@@ -24,7 +24,7 @@ class textTable {
         this.draw();
     }
     draw(){
-        this.table2D = new Table2D(this.parent, this.name, this.rows, this.cols);
+        this.table2D = new SPLINT.DOMElement.Table.Grid(this.parent, this.name, this.rows, this.cols);
         if(this.data.head.length > 0){
             this.table2D.getHead();
             for(const indexC in this.data.head){

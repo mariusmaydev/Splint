@@ -12,7 +12,7 @@ class S_API_ipapi {
         });
     }
     static async evaluate(IP){
-        let call = new SPLINT.CallPHP(this.PATH, "API.IPAPI.EVAL");
+        let call = new SPLINT.Data.CallPHP(this.PATH, "API.IPAPI.EVAL");
             call.data.IP    = IP;
             call.method = "GET";
             call.headers["Content-Type"] = 'json';

@@ -16,10 +16,8 @@ class S_moonraker {
         await SPLINT.API.Moonraker.uploadGCode(code, name);
         let g = SPLINT.API.Moonraker.startPrint(name);
         this.Helper.onReady = function(){
-            console.log("ok")
             this.deleteFile(name + ".gcode");
         }.bind(this);
-        console.dir(g);
         return g;
     }
     static getServerConfig(){
@@ -73,7 +71,6 @@ class S_moonraker {
                 ajaxData.async        = true;
                 ajaxData.success      = function(data){
                     resolve(data);
-                    console.log(data)
                 }.bind(this);
                 ajaxData.error      = function(data){
                     resolve(data);
@@ -101,6 +98,7 @@ class S_moonraker {
         }.bind(this));
     }
     static get Helper(){
+        SPLINT.getClass("S_moonrakerHelper", "moonrakerHelper");
         return S_moonrakerHelper;
     }
 }

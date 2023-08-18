@@ -11,7 +11,7 @@ class S_chartObject {
             this.data.datasets.push(...dataSets);
         }
         this.plugins = [];
-        this.options = new SPLINT.autoObject();
+        this.options = new SPLINT.Types.autoObject();
         this.options.maintainAspectRatio = false;
         // this.options.scales.x.type = 'linear';
         this.options.layout.padding = 20;
@@ -41,7 +41,7 @@ class S_chartDataSet {
         if(backgroundColor != null){
             this.backgroundColor = backgroundColor;
         }
-        this.options = new SPLINT.autoObject();
+        this.options = new SPLINT.Types.autoObject();
         this.type = 'bar';
         this.label = label;
         this.base = 0;
@@ -56,7 +56,7 @@ class S_chartDataSet {
     update(){
         if(this.gradient instanceof SPLINT.Utils.Colors.Gradient){
             this.gradient.steps = this.#data.length;
-            this.#backgroundColor = S_API_ChartJS.parseGradient(this.gradient);
+            this.#backgroundColor = SPLINT.API.ChartJS.parseGradient(this.gradient);
         }
     }
     #backgroundColor;
@@ -66,7 +66,7 @@ class S_chartDataSet {
         if(color instanceof SPLINT.Utils.Colors.Gradient){
             this.gradient = color.clone();
             this.gradient.steps = this.#data.length;
-            this.#backgroundColor = S_API_ChartJS.parseGradient(this.gradient);
+            this.#backgroundColor = SPLINT.API.ChartJS.parseGradient(this.gradient);
         } else {
             this.gradient = null;
             this.#backgroundColor = color.clone();

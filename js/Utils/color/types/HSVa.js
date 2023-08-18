@@ -1,5 +1,5 @@
 SPLINT.require_now("@SPLINT_ROOT/Utils/color/color.js");
-class S_colorHSVa extends S_Colors {
+class S_colorHSVa extends SPLINT.Utils.Colors {
     constructor(h = 0, s = 0, v = 0, a = 1) {
         super();
         this.h = h;
@@ -15,15 +15,15 @@ class S_colorHSVa extends S_Colors {
         });
     }    
     fromHEX(hexIn){
-        let hex = S_Colors.hexToRgb(hexIn);
-        let c = S_Colors.rgbToHsv(hex.r, hex.g, hex.b);
+        let hex = SPLINT.Utils.Colors.hexToRgb(hexIn);
+        let c = SPLINT.Utils.Colors.rgbToHsv(hex.r, hex.g, hex.b);
         this.h = c.h;
         this.s = c.s;
         this.v = c.v;
         return this;
     } 
     fromRGB(S_color){
-        let c = S_Colors.rgbToHsv(S_color.r, S_color.g, S_color.b);
+        let c = SPLINT.Utils.Colors.rgbToHsv(S_color.r, S_color.g, S_color.b);
         this.h = c.h;
         this.s = c.s;
         this.v = c.v;

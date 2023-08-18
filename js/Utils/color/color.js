@@ -5,15 +5,19 @@ SPLINT.require_now("@SPLINT_ROOT/Utils/color/AcolorConverter.js");
  */
  class S_Colors extends S_ColorsConverter {
     static get colorHSVa(){
+        SPLINT.getClass("S_colorHSVa", "HSVa")
         return S_colorHSVa;
     }
     static get colorHSLa(){
+        SPLINT.getClass("S_colorHSLa", "HSLa")
         return S_colorHSLa;
     }
     static get colorRGBa(){ 
+        SPLINT.getClass("S_colorRGBa", "RGBa")
         return S_colorRGBa;
     }
     static get Gradient(){ 
+        SPLINT.getClass("Gradient", "Gradient")
         return Gradient;
     }
     

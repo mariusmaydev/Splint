@@ -26,7 +26,7 @@ class SplintError {
         console.groupEnd();
     }
     static FileNotFound(src = null){
-        let s = S_ANSI.use;
+        let s = SPLINT.Utils.ANSI.use;
         let obj = new Object();
             obj.ID = 1;
             obj.name = "FileNotFound";

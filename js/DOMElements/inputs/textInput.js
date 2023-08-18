@@ -20,7 +20,7 @@ class TextInputDiv {
       this.textarea  = new SPLINT.DOMElement(this.id + "_textarea", "textarea", this.div);
       this.textarea.placeholder = this.value;
       this.textarea.onclick = this.OnClick;
-      this.label = new Label(this.div, this.textarea, this.value);
+      this.label = new SPLINT.DOMElement.Label(this.div, this.textarea, this.value);
       this.label.before();
       this.divider = new SPLINT.DOMElement.HorizontalLine(this.div);
       this.divider.style.visibility = "hidden";
@@ -33,7 +33,7 @@ class TextInputDiv {
       }.bind(this);
     }
     setLabel(text){
-      this.label = new Label(this.div, this.textarea, text);
+      this.label = new SPLINT.DOMElement.Label(this.div, this.textarea, text);
       this.label.before();
       return this.label;
     }

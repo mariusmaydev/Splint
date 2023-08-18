@@ -1,5 +1,5 @@
 SPLINT.require_now("@SPLINT_ROOT/Utils/color/color.js");
-class S_colorRGBa extends S_Colors {
+class S_colorRGBa extends SPLINT.Utils.Colors {
     constructor(r = 0, g = 0, b = 0, a = 1) {
         super();
         this.r = r;
@@ -15,14 +15,14 @@ class S_colorRGBa extends S_Colors {
         });
     }   
     fromHex(hexIn){
-        let hex = S_Colors.hexToRgb(hexIn);
+        let hex = SPLINT.Utils.Colors.hexToRgb(hexIn);
         this.r = hex.r;
         this.g = hex.g;
         this.b = hex.b;
         return this;
     } 
     fromHSL(color){
-        let c = S_Colors.hslToRgb(color.h, color.s, color.l);
+        let c = SPLINT.Utils.Colors.hslToRgb(color.h, color.s, color.l);
         this.r = c.r;
         this.g = c.g;
         this.b = c.b;
@@ -30,7 +30,7 @@ class S_colorRGBa extends S_Colors {
         return this;
     }  
     fromHSV(color){
-        let c = S_Colors.hsvToRgb(color.h, color.s, color.v);
+        let c = SPLINT.Utils.Colors.hsvToRgb(color.h, color.s, color.v);
         this.r = c.r;
         this.g = c.g;
         this.b = c.b;

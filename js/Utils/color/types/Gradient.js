@@ -25,8 +25,8 @@ class Gradient extends Array {
         this.name = "new gradient";
     }
     switchColors(){
-        let r = S_Colors.parse(this.color2, 'rgba');
-        this._color2 = S_Colors.parse(this.color1, 'rgba');
+        let r = SPLINT.Utils.Colors.parse(this.color2, 'rgba');
+        this._color2 = SPLINT.Utils.Colors.parse(this.color1, 'rgba');
         this.color1 = r;
     }
     set steps(v){
@@ -54,8 +54,8 @@ class Gradient extends Array {
         while (this.length > 0) {
             this.pop();
         }      
-        this._color1 = S_Colors.parse(this._color1, 'hsva');
-        this._color2 = S_Colors.parse(this._color2, 'hsva');
+        this._color1 = SPLINT.Utils.Colors.parse(this._color1, 'hsva');
+        this._color2 = SPLINT.Utils.Colors.parse(this._color2, 'hsva');
         let Hstep = Math.abs(this._color1.h - this._color2.h) / (this._steps);
         let Sstep = Math.abs(this._color1.s - this._color2.s) / (this._steps);
         let Vstep = Math.abs(this._color1.v - this._color2.v) / (this._steps);
@@ -65,7 +65,7 @@ class Gradient extends Array {
             let s = this._color1.s + (Sstep * i);
             let v = this._color1.v + (Vstep * i);
             let a = this._color1.a + (Astep * i);
-            let cn = new S_Colors.colorHSVa(h, s, v, a);
+            let cn = new SPLINT.Utils.Colors.colorHSVa(h, s, v, a);
             this.push(cn);
         }
     }

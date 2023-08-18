@@ -42,12 +42,15 @@ class Table {
         return Table;
     }
     static get TextTable(){
+        SPLINT.getClass("textTable", "TableText")
         return textTable;
     }
     static get Grid(){
+        SPLINT.getClass("Table2D", "Table2D")
         return Table2D;
     }
     static get Masonry(){
+        SPLINT.getClass("Table_Masonry", "TableAdaptive")
         return Table_Masonry;
     }
 }

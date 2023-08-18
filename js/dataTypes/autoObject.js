@@ -184,7 +184,7 @@ class autoObject extends Object {
                     if(stack.includes("undefined")){
                         stack = false;
                     }
-                    target[prop] = new autoObject(stack);
+                    target[prop] = new SPLINT.Types.autoObject(stack);
 
                     return target[prop];
                 }

@@ -10,7 +10,7 @@ class S_unsplashMenu {
         this.drawList();
     }
     async drawList(){
-        let dataIn = await S_API_unsplash.test();
+        let dataIn = await SPLINT.API.Unsplash.test();
         console.dir(dataIn);
         let list = new SPLINT.DOMElement.Table.List(this.contentElement, "imageList", dataIn);
             list.func_drawListElement = function(data, index, listElement){

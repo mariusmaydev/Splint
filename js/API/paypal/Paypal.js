@@ -12,17 +12,21 @@ class S_API_Paypal {
     }
     static draw = class {
         static get fastCheckout(){
+            SPLINT.getClass("S_PaypalFastCheckout", "PaypalFastCheckout");
             return S_PaypalFastCheckout;
         }
         static get checkout(){
+            SPLINT.getClass("S_PaypalCheckout", "PaypalCheckout");
             return S_PaypalCheckout;
         }
         static get Buttons(){
+            SPLINT.getClass("S_PaypalButtons", "PaypalButtons");
             return S_PaypalButtons;
         }
         // Paypal
     }
     static get Object(){
+        SPLINT.getClass("S_PaypalObject", "generateObject");
         return S_PaypalObject;
     }
     static ScriptLoader = class {

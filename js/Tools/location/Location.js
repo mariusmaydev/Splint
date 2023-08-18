@@ -27,12 +27,12 @@ class nS_Location {
     static #queryHashes(){
         
         let hashes = window.location.hash.split("#")
-            hashes = SArray.removeValues(hashes, '');
+            hashes = SPLINT.SArray.removeValues(hashes, '');
         return hashes;
     }
     static addHash(...hashes){
         this.#queryHashes();
-        this.STORAGE.hashes = SArray.combine(this.STORAGE.hashes, hashes);
+        this.STORAGE.hashes = SPLINT.SArray.combine(this.STORAGE.hashes, hashes);
         return this;
     }
     static getHashes(){
@@ -41,7 +41,7 @@ class nS_Location {
         return this.STORAGE.hashes;
     }
     static removeHash(...hash){
-        let res = SArray.removeValues(window.location.hash.split("#"), [hash, ''].flat());
+        let res = SPLINT.SArray.removeValues(window.location.hash.split("#"), [hash, ''].flat());
         window.location.hash = "#" + (res.join('#'));
     }
     /**

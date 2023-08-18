@@ -21,7 +21,8 @@ var CONFIG = null;
 var RESOURCES = null;
 
 const draco = new DRACOLoader();
-draco.setDecoderPath('http://localhost/Splint/lib/threeJS/examples/js/libs/draco/gltf/');//lib\threeJS\examples\js\libs\draco\gltf');
+draco.setDecoderPath('../../../../Splint/lib/threeJS/examples/js/libs/draco/gltf/');//lib\threeJS\examples\js\libs\draco\gltf');
+draco.preload();
 
 
 // Splint\lib\threeJS\examples\js\libs\draco
@@ -79,7 +80,6 @@ export default class SPLINT extends window.SPLINT {
                 // debugger
                 // draco.loadAsync()
                 RESOURCES.models[key] = await loader.loadAsync(SPLINT.config.URIs.project + "/" + value);
-                console.log(RESOURCES.models[key]);
                 RESOURCES.models[key].scene = RESOURCES.models[key].scene.children[0]
                 RESOURCES.models[key].scene.name = utils.getFileNameFromURI(value);
             }

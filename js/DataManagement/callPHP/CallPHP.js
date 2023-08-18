@@ -4,6 +4,7 @@ class S_CallPHP {
     static #STACK = [];
     static #EXECUTING_STACK = true;
     static get Manager(){
+        SPLINT.getClass("S_CallPHPManager", "CallPHPManager");
         return S_CallPHPManager;
     }
     static AccessSplint(key){
@@ -15,7 +16,7 @@ class S_CallPHP {
         this.activeCall     = null;
         this.ACCESS_KEY     = accessKey;
         this.method         = "POST";
-        this.mode           = "cors";
+        this.mode           = "no-cors";
         this.cache          = "force-cache";
         this.processData    = true;
         this.credentials    = "same-origin";
@@ -75,7 +76,7 @@ class S_CallPHP {
         this.url += "?" + SPLINT.PROJECT_NAME;
         this.headers["X-SPLINT-ACCESS_KEY"] =  this.ACCESS_KEY;
 
-        let obj = new SPLINT.autoObject();
+        let obj = new SPLINT.Types.autoObject();
             obj.method                  = this.method;
             // obj.mode                    = this.mode;
             obj.cache                   = this.cache;

@@ -11,7 +11,9 @@ class S_Button {
       } else {
         console.error("wrong parentElement <new Button>");
       }
+      this.descSpan = null;
       this.name   = name;
+      this.hasIcon = false;
       this._value  = value;
       this.onclick = function(){};
       this.draw();
@@ -78,6 +80,9 @@ class S_Button {
     draw(){
       this.button = new SPLINT.DOMElement(this.parent.id + "_button_" + this.name, "button", this.parent);
       this.button.Class("button_General");
+      this.button.ontouchend = function(e){
+        this.onclick(e);
+      }.bind(this);
       this.button.onclick = function(e){ 
         this.onclick(e); 
       }.bind(this);
@@ -112,27 +117,62 @@ class S_Button {
         this.button.click();
     }
     bindIcon(IconName, Class){
+        this.hasIcon = true;
       this.span.bindIcon(IconName, Class);
     }
+    set Description(value){
+        if(!this.hasIcon){
+            console.error("no icon set");
+            return false;
+        }
+        if(value == null){
+            if(this.descSpan != null){
+                this.descSpan.remove();
+            }
+            return true;
+        }
+        if(this.descSpan == null){
+            this.descSpan = new SPLINT.DOMElement(this.parent.id + "_descSpan_" + this.name, "span", this.button);
+            this.descSpan.Class("description");
+        }
+        this.descSpan.innerHTML = value;
+    }
+    get Description(){
+        if(!this.hasIcon){
+            console.error("no icon set");
+            return false;
+        }
+        if(this.descSpan != null){
+            return this.descSpan.innerHTML;
+        }
+        return null;
+    }
     removeIcon(IconName){
+        this.Description = null;
+        this.hasIcon = false;
       this.span.removeIcon(IconName);
     }
     setAttribute(name, value){
       this.button.setAttribute(name, value);
     }
     static get Radio(){
-      return S_radioButton;
+        SPLINT.getClass("S_radioButton", "buttonRadio");
+        return S_radioButton;
     }
     static get Switch(){
-      return S_switchButton;
+        SPLINT.getClass("S_switchButton", "buttonSwitch");
+        return S_switchButton;
     }
     static get Toggle(){
-      return S_toggleButton;
+        SPLINT.getClass("S_toggleButton", "buttonToggle");
+        return S_toggleButton;
     }
     static get Toggle2(){
+        SPLINT.getClass("nS_ToggleButton", "buttonToggle2");
         return nS_ToggleButton;
     }
     static get Choice(){
+        SPLINT.getClass("S_ChoiceButton", "buttonChoice");
         return S_ChoiceButton;
     }
   }

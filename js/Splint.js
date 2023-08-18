@@ -19,24 +19,32 @@ class SPLINT {
         return S_constants;
     }
     static get DataStorage(){
+        SPLINT.getClass("S_DataStorage", "DataStorage");
         return S_DataStorage;
     }
     static get BufferStorage(){
+        SPLINT.getClass("S_BufferStorage", "BufferStorage");
         return S_BufferStorage;
     }
     static get DOMElement(){
+        SPLINT_loaderHelper.v2 = false;
+        // console.trace("a");
+        SPLINT.getClass("DOMElement", "DOMElement");
         return DOMElement;
     }
     static get EX(){
         return SPLINT_Experimental;
     }
     static get SessionsPHP(){
+        SPLINT.getClass("S_SessionsPHP", "sessions");
         return S_SessionsPHP;
     }
     static get autoObject(){
+        SPLINT.getClass("autoObject", "autoObject");
         return autoObject;
     }
     static get SArray(){
+        SPLINT.getClass("SArray", "SArray");
         return SArray;
     }
     static get debugger(){
@@ -46,12 +54,14 @@ class SPLINT {
         return SplintError;
     }
     static get CallPHP(){
+        SPLINT.getClass("S_CallPHP", "CallPHP");
         return S_CallPHP;
     }
     static get ViewPort(){
         return ViewPort;
     }
     static get API(){
+        SPLINT.getClass("S_API", "API");
         return S_API;
     }
     static require_now(uri){
@@ -60,18 +70,76 @@ class SPLINT {
     static require(uri, type = null){
         return SPLINT_loaderHelper.loadScript(uri, false, type);
     }
+    static getClass(ClassName, fileName = null){
+        if(fileName == null){
+            fileName = ClassName;
+        }
+        let t = class {};
+        if(typeof window[ClassName] == 'undefined'){
+            for(const index in SPLINT.PATH.splint.JS){
+                let element = SPLINT.PATH.splint.JS[index];
+                let g = element.split("/");
+                let d = g.at(-1).split(".")[0];
+                if(d == fileName){
+                    SPLINT.require_now(element);
+                    t = Object.assign(eval(ClassName), {})
+                    window[ClassName] = t;
+
+                }
+            }
+            // console.dir(SPLINT.PATH.splint.JS)
+        } else {
+            t = window[ClassName];
+        }
+      return t;
+    }
     static Tools = class {
         static get Location(){
+            SPLINT.getClass("nS_Location", "Location");
             return nS_Location;
         }
         static get parse(){
             return S_Tparser;
         }
         static get DateTime(){
+            SPLINT.getClass("S_DateTime", "DateTime");
             return S_DateTime;
         }
     }
+    static Types = class {
+        static get MappedObject(){
+            SPLINT.getClass("S_MappedObject", "SMappedObject");
+            return S_MappedObject;
+        }
+        static get autoObject(){
+            SPLINT.getClass("autoObject", "autoObject");
+            return autoObject;
+        }
+        static get SArray(){
+            SPLINT.getClass("SArray", "SArray");
+            return SArray;
+        }
+    }
+    static Data = class {
+        static get CallPHP(){
+            SPLINT.getClass("S_CallPHP", "CallPHP");
+            return S_CallPHP;
+        }
+        static get CallPHP_OLD(){
+            SPLINT.getClass("CallPHP_S", "callPHP");
+            return CallPHP_S;
+        }
+        static get Cookie(){
+            SPLINT.getClass("Cookie", "cookies");
+            return Cookie;
+        }
+        static get BufferStorage(){
+            SPLINT.getClass("S_BufferStorage", "BufferStorage");
+            return S_BufferStorage;
+        }
+    }
     static get Utils(){
+        SPLINT.getClass("S_Utils", "Utils");
         return S_Utils;
     }
     static get CONFIG(){
@@ -97,9 +165,13 @@ class SPLINT {
 
 const SPLINT_loadedDocs = [];
 class SPLINT_loaderHelper {
+    static v = true;
+    static v2 = true;
+    static v1 = true;
     static async loadScript(classPath, sync = false, type = null){
         let obj1 = new Object();
             obj1.resolved = false;
+            // console.log("b!",classPath.endsWith("Table.js"))
         let path = SPLINT_LOADER.parseSRC(classPath);
             obj1.path = path;
         for(const key in SPLINT_Loader.LOADED_DOCS){
@@ -346,6 +418,7 @@ class SPLINT_Loader extends SPLINT_loaderHelper{
                 await this.loadImportMap();
                 let tag1 = document.createElement('link');
                     tag1.rel = "modulepreload";
+                    tag1.async = true;
                     tag1.href = "./../../../../Splint/lib/threeJS/build/three.module.min.js";
                 document.head.appendChild(tag1);
                 await Splint_bindJS.loadPATH();
@@ -431,7 +504,7 @@ class SPLINT_Loader extends SPLINT_loaderHelper{
     }
     static async loadJQuery(){
         let tag = document.createElement("script");
-            tag.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js";
+            tag.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js";
             tag.setAttribute("async", true);
             // tag.onload = function(){
             //     fetch(this.src)
@@ -540,7 +613,6 @@ class Splint_bindJS {
         // if(res == null){
         //     res = new Object();
         // }
-        console.log(SPLINT.rootPath)
         return Promise.all([
             $.ajax({
                 type: 'GET',
@@ -651,7 +723,10 @@ class Splint_bindJS {
 
             let stack = []
             for(const file of SPLINT.PATH.splint.JS){
-                stack.push(SPLINT_loaderHelper.loadScript(file, false));
+                
+                if(!file.includes("DOMElements") && !file.includes("Utils") && !file.includes("dataTypes") && !file.includes("DataManagement") && !file.includes("API")){
+                    stack.push(SPLINT_loaderHelper.loadScript(file, false));
+                }
             }
             await Promise.allSettled(stack);
             await this.FIRST();
@@ -669,6 +744,7 @@ class Splint_bindJS {
     }
     static async parts(){
         let stack = [];
+
         let parts = SPLINT_LOADER.ELEMENTS.scripts;
         for(let i = 0; i < parts.length; i++){
             let val = parts[i].src;

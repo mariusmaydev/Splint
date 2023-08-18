@@ -7,6 +7,9 @@ class SArray extends Array {
         this.assort = function(array, divider = '/', up = true){
             return this.prototype.assort.call(array, divider, up);
         }
+        this.assortInt = function(array, key = null, up = true){
+            return this.prototype.assortInt.call(array, key, up);
+        }
         this.combine = function(array1, array2){
             return this.prototype.combine.call(array1, array2);
         }
@@ -33,6 +36,27 @@ class SArray extends Array {
     push(...items){
         this.onPush(...items);
         return super.push(...items);
+    }
+    assortInt(key, up = true){
+        this.sort(function (a, b) {
+            if(up){
+                if(a[key] > b[key]){    
+                    return 1;
+                }
+                if(a[key] < b[key]){
+                    return -1;
+                }
+            } else {
+                if(a[key] < b[key]){    
+                    return 1;
+                }
+                if(a[key] > b[key]){
+                    return -1;
+                }
+            }
+          return 0;
+        });
+        return this;
     }
     assort(divider = '/', up = true) {
         this.sort(function (a, b) {

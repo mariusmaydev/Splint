@@ -74,13 +74,13 @@ class S_radioButton extends S_Button {
                 let inputSpan = new SPLINT.DOMElement(this.id + "input_span_" + i, "span", inputBody);
             let labelDiv = new SPLINT.DOMElement(parent.id + "_radioButtonLabelDiv_" + this.name + "_" + i, "div", inputDiv.id);
                 labelDiv.Class("labelDiv");
-                let span0 = new spanDiv(labelDiv, "span0", data.name);
+                let span0 = new SPLINT.DOMElement.spanDiv(labelDiv, "span0", data.name);
                     span0.Class("name").set();
                 labelDiv.setAttribute("value", data.id);
                 labelDiv.setAttribute("state", "passive");
                 labelDiv.setAttribute("name", this.name);
                 if(data.data != undefined){
-                  let span1 = new spanDiv(labelDiv, "span1", data.data);
+                  let span1 = new SPLINT.DOMElement.spanDiv(labelDiv, "span1", data.data);
                 }
             if(data.price != undefined){
               let price = new priceDiv(inputDiv, data.price);
