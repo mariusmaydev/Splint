@@ -1,8 +1,13 @@
 
 class DropDownInput_S {
-    constructor(parent, name = ""){
+    constructor(parent, name = "", title = ""){
         this.parent = parent;
         this.name = name;
+        if(title == ""){
+            this.title = name;
+        } else {
+            this.title = title;
+        }
         this.id = "DropDownInput_" + name + "_";
         this.mainElement = new SPLINT.DOMElement(this.id + "main", "div", this.parent);
         this.mainElement.Class("DropDownInputMain_S");
@@ -21,7 +26,7 @@ class DropDownInput_S {
         }.bind(this));
     }
     draw(){
-        this.input = new SPLINT.DOMElement.InputDiv(this.mainElement, this.id + "input", this.name);
+        this.input = new SPLINT.DOMElement.InputDiv(this.mainElement, this.id + "input", this.title);
         this.input.inputBody.onclick = function(e){
             if(!e.target.hasParentWithClass("switchButton")){
                 this.openDropDown();

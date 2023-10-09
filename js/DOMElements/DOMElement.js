@@ -125,6 +125,10 @@ class DOMElement_manager {
         SPLINT.getClass("Slider", "Slider");
         return Slider;
     }
+    static get SlideShow(){
+        SPLINT.getClass("SlideShow_S", "slideShow");
+        return SlideShow_S;
+    }
     static get HorizontalLine(){
         SPLINT.getClass("S_HorizontalLine", "HorizontalLine");
         return S_HorizontalLine;
@@ -143,6 +147,10 @@ class DOMElement_manager {
     }
     static get FolderInput(){
         return S_folderInput;
+    }
+    static get InputSelect(){
+        SPLINT.getClass("n_SelectInput", "n_selectInput");
+        return n_SelectInput;
     }
     static get InputText(){
         SPLINT.getClass("TextInputDiv", "textInput");
@@ -195,6 +203,10 @@ class DOMElement_manager {
     static get Tooltip(){
         SPLINT.getClass("Tooltip_S", "Tooltip");
         return Tooltip_S;
+    }
+    static get popupWindow(){
+        SPLINT.getClass("S_popupWindow", "subWindow");
+        return S_popupWindow;
     }
   }
 //   customElements.define('dom-elementr', DOMElement);

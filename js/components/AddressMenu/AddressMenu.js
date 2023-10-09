@@ -181,7 +181,7 @@ class AddressMenu {
           let row4 = new SPLINT.DOMElement(this.id + "addressListElement_" + "row4", "div", informationDiv);
               let country = new SPLINT.DOMElement.SpanDiv(row4, "country_", getCountryForCode(this.data.Country));
   
-      let contactTable = new Table2D(this.mainElement, "contactTable_" + this.id + "_", 2, 2);
+      let contactTable = new SPLINT.DOMElement.Table.Grid(this.mainElement, "contactTable_" + this.id + "_", 2, 2);
           if(this.data.Email != undefined){
             new SPLINT.DOMElement.SpanDiv(contactTable.getData(0, 0), "", "Emailadresse:");
             new SPLINT.DOMElement.SpanDiv(contactTable.getData(0, 1), "", this.data.Email);

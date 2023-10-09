@@ -13,7 +13,7 @@ class S_AddressInput extends S_DOMElement_TEMPLATE {
     draw(){
         this.mainElement.clear();
   
-      this.dropdown_salutation = new n_SelectInput(this.mainElement, "salutation", "Anrede");
+      this.dropdown_salutation = new SPLINT.DOMElement.InputSelect(this.mainElement, "salutation", "Anrede");
       this.dropdown_salutation.Class("dropdown_salutation");
       this.dropdown_salutation.addEntry("Mr", "Herr");
       this.dropdown_salutation.addEntry("Mrs", "Frau");
@@ -39,7 +39,7 @@ class S_AddressInput extends S_DOMElement_TEMPLATE {
       this.city_input.identifier = "city";
       this.city_input.Class("city_input");
   
-      this.dropdown_country = new n_SelectInput(this.mainElement, "country", "Land");
+      this.dropdown_country = new SPLINT.DOMElement.InputSelect(this.mainElement, "country", "Land");
       this.dropdown_country.Class("dropdown_country");
       this.dropdown_country.addEntry("DE", "Deutschland");
       this.dropdown_country.addEntry("AU", "Österreich");

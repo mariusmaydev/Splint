@@ -9,6 +9,10 @@ class S_API_ChartJS {
         SPLINT.getClass("S_chartObject", "chartObject")
         return S_chartObject;
     }    
+    static get DataSet(){
+        SPLINT.getClass("S_chartDataSet", "chartObject")
+        return S_chartDataSet;
+    }    
     static parseGradient(S_colorGradient){
         let Storage = [];
         for(const index in S_colorGradient){

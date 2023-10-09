@@ -83,7 +83,7 @@ class S_radioButton extends S_Button {
                   let span1 = new SPLINT.DOMElement.spanDiv(labelDiv, "span1", data.data);
                 }
             if(data.price != undefined){
-              let price = new priceDiv(inputDiv, data.price);
+              let price = new SPLINT.DOMElement.PriceDiv(inputDiv, "sending", data.price);
             }
             let displayDiv = new SPLINT.DOMElement(parent.id + "_radioButtonDisplayDiv_" + this.name + "_" + i, "div", labelDiv.id);
                 displayDiv.Class("displayDiv");

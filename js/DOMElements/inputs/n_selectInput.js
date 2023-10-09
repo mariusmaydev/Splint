@@ -17,7 +17,7 @@ class n_SelectInput extends S_DOMElement_TEMPLATE {
         }.bind(this));
     }
     draw(){
-        this.input = new n_InputDiv(this.mainElement, "input", this.labelName);
+        this.input = new SPLINT.DOMElement.InputDiv(this.mainElement, "input", this.labelName);
         this.input.input.onclick = function(e){
             if(!e.target.hasParentWithClass("switchButton")){
                 this.openSelect();
