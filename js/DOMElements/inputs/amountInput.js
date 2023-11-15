@@ -12,7 +12,7 @@ class AmountInput {
       this.draw();
     }
     draw(){
-      let button_sub = new S_Button(this.mainElement, "sub");
+      let button_sub = new SPLINT.DOMElement.Button(this.mainElement, "sub");
           button_sub.bindIcon("remove");
           button_sub.onclick = function(){
             if(parseInt(this.amountInput.value.replace(this.arg, "")) > this.min){
@@ -31,7 +31,7 @@ class AmountInput {
           }.bind(this);
   
   
-      let button_add = new S_Button(this.mainElement, "add");
+      let button_add = new SPLINT.DOMElement.Button(this.mainElement, "add");
           button_add.bindIcon("add");
           button_add.onclick = function(){
             this.amount = parseInt(this.amountInput.value.replace(this.arg, "")) + 1;

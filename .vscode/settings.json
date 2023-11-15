@@ -128,7 +128,6 @@
     "tabnine.experimentalAutoImports": true,
     "open-php-html-js-in-browser.selectedBrowser": "Chrome",
     "workbench.iconTheme": "vs-seti",
-    "workbench.editor.untitled.hint": "hidden",
     "sass.andStared": [
 
         "active",
@@ -187,7 +186,6 @@
 },
 "explorer.compactFolders": false,
 "workbench.editor.showTabs": true,
-"workbench.activityBar.visible": true,
 "workbench.editor.enablePreviewFromCodeNavigation": true,
 "workbench.editor.untitled.labelFormat": "content",
 "workbench.editor.splitInGroupLayout": "horizontal",
