@@ -1281,7 +1281,7 @@ s-input > .response > span {
 .S-AddressInput {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  row-gap: 0.5em;
+  row-gap: 1.5em;
   column-gap: 0.5em;
   grid-template-areas: "fN fN fN fN fN fN lN lN lN lN" "plz plz plz ct ct ct ct cy cy cy" "st st st st st hn hn hn hn hn" "ema ema ema ema ema ph ph ph ph ph";
 }
@@ -2926,7 +2926,7 @@ s-input > .response > span {
 .S-AddressInput {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  row-gap: 0.5em;
+  row-gap: 1.5em;
   column-gap: 0.5em;
   grid-template-areas: "fN fN fN fN fN fN lN lN lN lN" "plz plz plz ct ct ct ct cy cy cy" "st st st st st hn hn hn hn hn" "ema ema ema ema ema ph ph ph ph ph";
 }

@@ -24,6 +24,36 @@ class DropDownInput_S {
                 this.closeDropDown();
             }
         }.bind(this));
+        window.addEventListener("mouseup", function(e){
+            if(!e.target.hasParentWithClass("DropDownInputMain_S")){
+                this.closeDropDown();
+            }
+        }.bind(this));
+        this.input.input.onclick = function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            this.input.input.focus();
+            this.openDropDown();
+        }.bind(this)
+        this.input.oninput = function(e){
+            let childs = this.dropDown.childNodes;
+            let value = e.target.value.toLowerCase();
+            for(let child of childs){
+                let txtValue = child.textContent || child.innerText;
+                if (txtValue.toLowerCase().indexOf(value) > -1) {
+                  child.style.display = "";
+                  this.input.input.onkeydown = function(e){
+                    if(e.keyCode == 13){
+                        this.value = txtValue;  
+                        this.closeDropDown();
+                        this.input.input.blur();
+                    }    
+                  }.bind(this)
+                } else {
+                  child.style.display = "none";
+                }
+            }
+        }.bind(this)
     }
     draw(){
         this.input = new SPLINT.DOMElement.InputDiv(this.mainElement, this.id + "input", this.title);
@@ -52,15 +82,30 @@ class DropDownInput_S {
         if(!this.button.button.state().isActive()){
             this.button.setActive();
         }
+        for(let i = 0; i < this.dropDown.children.length; i++){
+            let ele = document.getElementById(this.dropDown.children[i].id);
+            console.log(ele.textContent ,this.input.value)
+            if(ele.textContent ==this.input.value){
+                ele.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+                console.dir(ele)
+            }
+        }
     }
     closeDropDown(){
         this.dropDown.state().unsetActive();
         if(this.button.button.state().isActive()){
             this.button.unsetActive();
         }
+        for(let i = 0; i < this.dropDown.children.length; i++){
+            let ele = document.getElementById(this.dropDown.children[i].id);
+                ele.style.display = "";
+
+        }
     }
     addEntry(name, value, func = function(){}){
         let entry = new SPLINT.DOMElement.SpanDiv(this.dropDown, name, value);
+            entry.div.setAttribute("name", name);
+
             entry.div.setAttribute("value", value);
             func(entry, value);
             // entry.span.setAttribute("data-value", value);
@@ -71,7 +116,17 @@ class DropDownInput_S {
                             ele.setAttribute("state", "passive");
                     }
                     entry.div.setAttribute("state", "active");
+                    this.closeDropDown();
             }.bind(this);
+    }
+    removeEntry(name = null, value = null){
+        for(let i = 0; i < this.dropDown.children.length; i++){
+            let ele = document.getElementById(this.dropDown.children[i].id);
+
+            if(ele.getAttribute("value") == value || ele.getAttribute("name") == name || (name == null && value == null)){
+                ele.remove();
+            }
+        }
     }
     set value(v){
         this.onValueChange(v);

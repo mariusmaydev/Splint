@@ -6,6 +6,10 @@ class S_AddressInput extends S_DOMElement_TEMPLATE {
         this.expanded = expanded;
         this.onsubmit = function(){};
         this.draw();
+        this.autoComplete = new SPLINT.API.AutoCompleteAddress();
+            // let g = f.suggestPostCode("09322");
+            // console.log(g)
+        this.autoFilled = false;
     }
     submit(){
         return this.onsubmit();
@@ -31,13 +35,107 @@ class S_AddressInput extends S_DOMElement_TEMPLATE {
       this.lastName_input.identifier = "lastName";
       this.lastName_input.Class("lastName_input");
       
+    //   this.addressSuggest_dropdown = new SPLINT.DOMElement.InputDropDown(this.mainElement, "AddressSuggest", "Adresse");
+    //   this.addressSuggest_dropdown.identifier = "addressSuggest";
+    //   this.addressSuggest_dropdown.Class("addressSuggest_dropdown");
+    //   this.addressSuggest_dropdown.input.input.oninput= async function(){
+    //     console.dir(this.addressSuggest_dropdown);
+    //     let g = await this.autoComplete.suggestAddress(this.addressSuggest_dropdown.input.input.value);
+    //     console.log(g)
+    //     this.addressSuggest_dropdown.removeEntry();
+    //     for(let index in g.results){
+    //         this.addressSuggest_dropdown.addEntry(index, g.results[index].formatted)
+    //     }
+    //     this.addressSuggest_dropdown.onValueChange = function(e){
+    //         let nodes = this.addressSuggest_dropdown.dropDown.childNodes
+    //         for(let node of nodes){
+    //             if(node.textContent == e){
+    //                 console.dir(node);
+    //                 let el = g.results[parseInt(node.getAttribute("name"))];
+    //                 console.log(el)
+    //                 this.city_input.value = el.city;
+    //                 // this.country_input.value = el.country;
+    //                 // this.postcode_input.value = el.postcode;
+    //             }
+    //         }
+    //     }.bind(this)
+    //   }.bind(this);
+    //   this.addressSuggest_input = new SPLINT.EX.DOMElement.Input(this.mainElement, "AddressSuggest");
+    //   this.addressSuggest_input.identifier = "Adresse";
+    //   this.addressSuggest_input.Class("addressSuggest_input");
+    //   this.addressSuggest_input.input.oninput = async function(){
+    //     console.dir(this.addressSuggest_input);
+    //     let g = await this.autoComplete.suggestAddress(this.addressSuggest_input.input.value);
+    //     console.log(g)
+    //     if(g.results.length > 0){
+    //         let h = new SPLINT.DOMElement.Tooltip(g.results[0].formatted, "bottom", this.addressSuggest_input.inputBody);
+
+    //     }
+    //   }.bind(this);
       this.postcode_input = new SPLINT.EX.DOMElement.Input(this.mainElement, "Postleitzahl");
+
+      
+      this.postcode_input.input.oninput = async function(){
+        if(this.postcode_input.input.value == ""){
+            return;
+        }
+        let g = await this.autoComplete.suggestPostCode(this.postcode_input.input.value);
+        if(g.results.length > 0){
+            let res = g.results[0];
+            let h = new SPLINT.DOMElement.Tooltip(res.postcode, "bottom", this.postcode_input.inputBody);
+            this.postcode_input.inputBody.onclick = function(e){
+                let j= document.elementsFromPoint(e.x, e.y)
+                if(j[1].tagName == "S-INPUT" || j[2].tagName == "S-INPUT" || j[3].tagName == "S-INPUT"){
+                    return;
+                }
+                h.remove();
+                this.postcode_input.value = res.postcode;
+                if(this.city_input.value == ""){
+                    this.city_input.value = res.city;
+                }
+                    this.dropdown_country.value = res.country_code.toUpperCase();
+                
+                this.autoFilled = true;
+            }.bind(this)
+        }
+      }.bind(this);
       this.postcode_input.identifier = "postcode";
       this.postcode_input.Class("postcode_input");
       
       this.city_input = new SPLINT.EX.DOMElement.Input(this.mainElement, "Stadt");
+      this.city_input.input.oninput = async function(){
+        if(this.city_input.input.value == ""){
+            return;
+        }
+        // if(this.autoFilled){
+        //     return;
+        // }
+        let g = await this.autoComplete.suggestCity(this.city_input.input.value);
+        if(g.results.length > 0){
+            let res = g.results[0];
+            let h = new SPLINT.DOMElement.Tooltip(res.city, "bottom", this.city_input.inputBody);
+            this.city_input.inputBody.onclick = function(e){
+                let j= document.elementsFromPoint(e.x, e.y)
+                if(j[1].tagName == "S-INPUT" || j[2].tagName == "S-INPUT" || j[3].tagName == "S-INPUT"){
+                    return;
+                }
+                h.remove();
+                this.city_input.value = res.city;
+                if(this.postcode_input.value == ""){
+                    this.postcode_input.value = res.postcode;
+                }
+                    this.dropdown_country.value = res.country_code.toUpperCase();
+                
+                this.autoFilled = true;
+            }.bind(this)
+        }
+      }.bind(this);
       this.city_input.identifier = "city";
       this.city_input.Class("city_input");
+      
+    //   this.city_input = new SPLINT.EX.DOMElement.Input(this.mainElement, "Stadt");
+    //   this.city_input.identifier = "city";
+    //   this.city_input.Class("city_input");
   
       this.dropdown_country = new SPLINT.DOMElement.InputSelect(this.mainElement, "country", "Land");
       this.dropdown_country.Class("dropdown_country");
@@ -59,6 +157,7 @@ class S_AddressInput extends S_DOMElement_TEMPLATE {
         this.phone_input = new SPLINT.EX.DOMElement.Input(this.mainElement, "Telefonnummer");
         this.phone_input.identifier = "phone";
       }
+
     }
     drawSumbit(){
         if(this.buttonsDiv != undefined){

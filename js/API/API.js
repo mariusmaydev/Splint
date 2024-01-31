@@ -24,4 +24,9 @@ class S_API {
         SPLINT.getClass("S_API_unsplash", "unsplash");
         return S_API_unsplash;
     }
+    static get AutoCompleteAddress(){
+        SPLINT.getClass("S_API_autoCompleteAddress", "autocompleteAddress");
+        return S_API_autoCompleteAddress;
+
+    }
 }

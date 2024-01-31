@@ -37,9 +37,13 @@ class S_radioButton extends S_Button {
       return this.headline;
     }
     setValue(value){
+        // this.inn
       if(value != null && value != false){
         $(`input[name="${CSS.escape(this.name)}"]`).filter("[value='" + value + "']").prop('checked', true);
-        $(`div[name="${CSS.escape(this.name)}"]`).filter("[value='" + value + "']").attr('state', 'active');
+        let ele = $(`div[name="${CSS.escape(this.name)}"]`).filter("[value='" + value + "']");
+        ele.attr('state', 'active');
+        ele[0].parentElement.setAttribute('state', 'active');
+        console.log(ele);
       }
     }
     Headline(str){
@@ -92,8 +96,14 @@ class S_radioButton extends S_Button {
 
       }
       $(`input[type="radio"][name="${CSS.escape(this.name)}"]`).on('change', function(e) {
-        $(`div[name="${CSS.escape(this.name)}"]`).attr('state', 'passive');
-        $(`div[name="${CSS.escape(this.name)}"]`).filter("[value='" + e.currentTarget.value + "']").attr('state', 'active');
+        let ele1 = $(`div[name="${CSS.escape(this.name)}"]`);
+        ele1.attr('state', 'passive');
+        $(`div[name="${CSS.escape(this.name)}"]`).filter("[value='" + e.currentTarget.value + "']").attr('state', 'active');    
+        for(let el of ele1){
+            el.parentElement.setAttribute('state', 'passive');     
+        }      
+
+        $(`div[name="${CSS.escape(this.name)}"]`).filter("[value='" + e.currentTarget.value + "']")[0].parentElement.setAttribute('state', 'active');
         // console.log(e);
         this.onChange(e);
       }.bind(this));

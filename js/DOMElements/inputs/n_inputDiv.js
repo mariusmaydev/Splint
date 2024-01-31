@@ -20,6 +20,7 @@ class n_InputDiv extends S_DOMElement_TEMPLATE {
             this.responseDiv.div.Class("response");
         this.draw();
         this.oninput = function(e){};
+        this.onclick = function(e){};
         this._onEnter = function(e){};
         this.initEvents();
     }
@@ -65,6 +66,7 @@ class n_InputDiv extends S_DOMElement_TEMPLATE {
         this.input.S_onStateChange = function(e, state){
         }.bind(this);
         this.input.onEnter = this._onEnter;
+        this.input.onclick = this.onclick;
     }
     drawToggleButton(value){
         this.button = new SPLINT.DOMElement.Button.Switch(this.inputBody, "button", value);
