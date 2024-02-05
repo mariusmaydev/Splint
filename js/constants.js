@@ -17,4 +17,4 @@ class S_constants extends SPLINT {
     }
 }
 class SPLINT_constants extends S_constants {};
-class S extends S_constants {};
+class S extends S_constants {}; 
