@@ -1,11 +1,14 @@
 import SPLINT from 'SPLINT';
 // import * as THREE from 'three';
-// import { TextureLoader } from "@THREE_ROOT_DIR/src/loaders/TextureLoader.js";
-import {
-    TextureLoader,
-} from 'three';
+import { TextureLoader } from "@THREE_ROOT_DIR/src/loaders/TextureLoader.js";
+// import TextureLoader from "../../../../"
 
+// const 
 export default class Texture {
+    static loader;
+    static {
+        Texture.loader = new TextureLoader();
+    }
     static load(uri, onLoad = function(){}, onProgress = function(){}, onError = function(){}){
         return new TextureLoader().load(uri, onLoad, onProgress, onError);
     }
@@ -19,7 +22,7 @@ export default class Texture {
         if(uri[0] == "/"){
             uri = uri.slice(1);
         }
-        return new TextureLoader().loadAsync(location.origin + "/" + uri, onLoad, onProgress, onError);
+        return Texture.loader.loadAsync(location.origin + "/" + uri, onLoad, onProgress, onError);
     }
     static loadFromSplint(uri, onLoad = function(){}, onProgress = function(){}, onError = function(){}){
         if(uri[0] == "/"){

@@ -1,11 +1,11 @@
 
-// import { HemisphereLight as T_HemisphereLight } from "@THREE_ROOT_DIR/src/lights/HemisphereLight.js";
-// import { HemisphereLightHelper } from "@THREE_ROOT_DIR/src/helpers/HemisphereLightHelper.js";
+import { HemisphereLight as T_HemisphereLight } from "@THREE_ROOT_DIR/src/lights/HemisphereLight.js";
+import { HemisphereLightHelper } from "@THREE_ROOT_DIR/src/helpers/HemisphereLightHelper.js";
 
-import {
-    HemisphereLight as T_HemisphereLight,
-    HemisphereLightHelper
-} from 'three';
+// import {
+//     HemisphereLight as T_HemisphereLight,
+//     HemisphereLightHelper
+// } from 'three';
 
 export default class HemisphereLight extends T_HemisphereLight {
     constructor(skyColor, goundColor, intensity){

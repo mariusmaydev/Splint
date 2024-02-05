@@ -4,7 +4,7 @@ class S_Input extends S_DOMElement {
     static { 
         this.TAG_NAME = "s-input";
     }
-    static get observedAttributes() { return ['name', 'value', 'type', 'step', 'min', 'max', 'pattern', 'identifier']; }
+    static get observedAttributes() { return ['name', 'value', 'type', 'step', 'min', 'max', 'pattern', 'identifier', 'readonly']; }
     constructor(parent, name, value = "", transitionMultiplyer = 10){
         super();
         this.parent     = parent;
@@ -44,6 +44,8 @@ class S_Input extends S_DOMElement {
     get pattern(){ return this.getAttribute("pattern") }
     set identifier(v){ this.setAttribute("identifier", v) }
     get identifier(){ return this.getAttribute("identifier") }
+    set readOnly(v){ this.setAttribute("readonly", v) }
+    get readOnly(){ return this.getAttribute("readonly") }
     draw(){
         for(const index in this.name){
             let val = this.name[index];
@@ -101,6 +103,7 @@ class S_Input extends S_DOMElement {
         this.onAttributeChanged(name, oldValue, newValue);
         if(name == "value"){
             this.input.value = newValue;
+            this.input.setAttribute("value", newValue);
         }
         if(name == "type"){
             this.input.type = newValue;
@@ -123,6 +126,12 @@ class S_Input extends S_DOMElement {
         if(name == "identifier"){
             this.input.setAttribute("identifier", newValue);
         }
+        if(name == "readonly"){
+            this.input.setAttribute("readonly", newValue);
+        }
+    }
+    clear(){
+        this.value = "";
     }
 }
 

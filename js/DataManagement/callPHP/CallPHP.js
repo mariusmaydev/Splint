@@ -19,6 +19,7 @@ class S_CallPHP {
         this.mode           = "no-cors";
         this.cache          = "force-cache";
         this.processData    = true;
+        this.withCredentials = true;
         this.credentials    = "same-origin";
         this.redirect       = "follow";
         this.referrerPolicy = "no-referrer";
@@ -61,28 +62,31 @@ class S_CallPHP {
         }
         return this.callbackPromise;
     }
-    async send(){
+    async send(disableProjectIDparam = false){
         if(this.isPending){
             return this.activeCall;
         }
         this.isPending = true;
-        return this.sendRequest();
+        return this.sendRequest(disableProjectIDparam);
     }
-    async sendRequest(){
+    async sendRequest(disableProjectIDparam = false){
         if(this.url == null){
             SPLINT.debugger.error("CallPHP", "no url provided");
             return;
         }
-        this.url += "?" + SPLINT.PROJECT_NAME;
+        if(!disableProjectIDparam){
+            this.url += "?" + SPLINT.PROJECT_NAME;
+        }
         this.headers["X-SPLINT-ACCESS_KEY"] =  this.ACCESS_KEY;
 
         let obj = new SPLINT.Types.autoObject();
             obj.method                  = this.method;
             // obj.mode                    = this.mode;
             obj.cache                   = this.cache;
-            // obj.credentials             = this.credentials;
+            obj.credentials             = this.credentials;
             obj.headers                 = this.headers;
             obj.keepalive               = this.keepalive;
+            obj.withCredentials         = this.withCredentials;
             // obj.redirect                = this.redirect;
             // obj.referrerPolicy          = this.referrerPolicy;
             if(this.processData){

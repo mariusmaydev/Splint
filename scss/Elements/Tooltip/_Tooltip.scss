@@ -3,6 +3,7 @@
 @use 'left' as left;
 @use 'right' as right;
 @use 'top' as top;
+@use "../../tools/tools" as *;
 
 .tooltip_S {
   &[state*='active']{

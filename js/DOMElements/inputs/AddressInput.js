@@ -75,7 +75,7 @@ class S_AddressInput extends S_DOMElement_TEMPLATE {
       this.postcode_input = new SPLINT.EX.DOMElement.Input(this.mainElement, "Postleitzahl");
 
       
-      this.postcode_input.input.oninput = async function(){
+      this.postcode_input.oninput = async function(){
         if(this.postcode_input.input.value == ""){
             return;
         }
@@ -103,10 +103,10 @@ class S_AddressInput extends S_DOMElement_TEMPLATE {
       this.postcode_input.Class("postcode_input");
       
       this.city_input = new SPLINT.EX.DOMElement.Input(this.mainElement, "Stadt");
-      this.city_input.input.oninput = async function(){
-        if(this.city_input.input.value == ""){
-            return;
-        }
+      this.city_input.oninput = async function(){
+        // if(this.city_input.input.value == ""){
+        //     return;
+        // }
         // if(this.autoFilled){
         //     return;
         // }

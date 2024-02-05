@@ -12,6 +12,10 @@ export default class MouseHandler3D {
     this.#onMove();
     this.#onMouseDown();
     this.#onMouseUp();
+
+    this.#onTouchMove();
+    this.#onTouchDown();
+    this.#onTouchEnd();
     this.onMove = function(){};
   }
   block(){
@@ -20,9 +24,21 @@ export default class MouseHandler3D {
   unblock(){
     this.blocked = false;
   }
+  #onTouchDown(){
+    this.parent.addEventListener("touchstart", function(event){
+      this.mouseDown = true;
+    }.bind(this), false);
+  }
   #onMouseDown(){
     this.parent.addEventListener("mousedown", function(event){
       this.mouseDown = true;
+    }.bind(this), false);
+  }
+  #onTouchEnd(){
+    this.parent.addEventListener("touchend", function(event){
+      this.mouseDown = false;
+      this.lY = 0;
+      this.lX = 0;
     }.bind(this), false);
   }
   #onMouseUp(){
@@ -43,6 +59,27 @@ export default class MouseHandler3D {
       this.lX = this.X;
       this.lY = this.Y;
       this.onMove(event, this.blocked);
+    }.bind(this), false);
+  }
+  #onTouchMove(){
+    this.parent.addEventListener("touchmove", function(event){
+        if(!this.active){
+            return;
+        }
+      let offset = $("#" + this.parent.id).offset();
+      if(event.targetTouches.length > 1){
+        return;
+      } 
+      this.X = event.targetTouches[0].pageX - (offset.left);
+      this.Y = event.targetTouches[0].pageY - (offset.top);
+      this.dY = this.lY - this.Y; 
+      this.dX = this.lX - this.X; 
+      if(this.lY != 0){
+        this.onMove(event, this.blocked);
+
+      }
+      this.lX = this.X;
+      this.lY = this.Y;
     }.bind(this), false);
   }
 }

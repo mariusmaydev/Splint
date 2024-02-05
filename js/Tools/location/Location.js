@@ -37,7 +37,6 @@ class nS_Location {
     }
     static getHashes(){
         this.STORAGE.hashes = this.#queryHashes();
-        console.log(this.STORAGE.hashes);
         return this.STORAGE.hashes;
     }
     static removeHash(...hash){
@@ -136,7 +135,6 @@ class nS_Location {
         for(const e of this.STORAGE.hashes){
             this.href = this.href + "#" + e;
         }
-        console.log(this.href);
         if(reload){
             window.location.href = this.href;
         } else {

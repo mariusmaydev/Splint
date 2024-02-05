@@ -1,10 +1,10 @@
 
-import {
-    Mesh,
-    PlaneGeometry,
-} from 'three';
-// import { Mesh } from "@THREE_ROOT_DIR/src/objects/Mesh.js";
-// import { PlaneGeometry } from "@THREE_ROOT_DIR/src/geometries/PlaneGeometry.js";
+// import {
+    // Mesh,
+    // PlaneGeometry,
+// } from 'three';
+import { Mesh } from "@THREE_ROOT_DIR/src/objects/Mesh.js";
+import { PlaneGeometry } from "@THREE_ROOT_DIR/src/geometries/PlaneGeometry.js";
 import * as THC from "@THREE_ROOT_DIR/src/constants.js";
 
 export default class Plane {

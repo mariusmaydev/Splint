@@ -24,48 +24,56 @@
   position: absolute;
   z-index: 10;
   top: 50%;
-  transform: translateY(-50%);
-  left: 130%;
-  background: #ffcb66;
-  padding: 5px 15px;
+  transform: translateY(-75%);
+  left: 140%;
+  background: transparent;
+  padding: 0.3em;
+  font-size: 1rem;
   color: black;
-  border-radius: 10px;
+  border-radius: 0;
   white-space: nowrap;
   opacity: 0;
-  transition: all 0.4s ease;
+  transition: all ease 0.4s 0s;
 }
 
 .tooltip_S[data-tooltip-direction=right]:before {
   pointer-events: none;
-  content: "";
+  content: attr(data-tooltip-value);
   position: absolute;
   z-index: 10;
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-right: 10px solid #ffcb66;
-  border-bottom: 10px solid transparent;
-  transition: all 0.4s ease;
-  opacity: 0;
-  left: 130%;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-75%) skewX(-20deg);
+  left: 140%;
+  font-size: 1rem;
+  background: #FFAA32;
+  box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.7);
+  padding: 0.3em;
+  color: transparent;
+  border-radius: 0;
+  white-space: nowrap;
+  opacity: 0;
+  transition: all ease 0.4s 0s;
 }
 
 .tooltip_S[data-tooltip-direction=right]:hover:after {
   top: 50%;
-  transform: translateY(-50%);
-  left: 110%;
+  transform: translateY(-75%);
+  transition-duration: 200ms;
+  transition-delay: 0.6s;
+  left: 115%;
 }
 
 .tooltip_S[data-tooltip-direction=right]:hover:before {
   top: 50%;
-  transform: translateY(-50%);
-  left: 103%;
+  transform: translateY(-75%) skewX(-20deg);
+  transition-duration: 200ms;
+  transition-delay: 0.6s;
+  left: 115%;
 }
 
 .tooltip_S[data-tooltip-direction=right]:hover:after, .tooltip_S[data-tooltip-direction=right]:hover:before {
   opacity: 1;
+  pointer-events: all;
 }
 
 .tooltip_S[data-tooltip-direction=top] {
@@ -73,47 +81,59 @@
 }
 
 .tooltip_S[data-tooltip-direction=top]:after {
-  z-index: 10;
+  pointer-events: none;
   content: attr(data-tooltip-value);
   position: absolute;
-  bottom: 130%;
+  z-index: 10;
   left: 50%;
+  bottom: 130%;
   transform: translateX(-50%);
-  background: #ffcb66;
-  padding: 5px 15px;
+  background: transparent;
+  padding: 0.3em;
   color: black;
-  border-radius: 10px;
+  border-radius: 0;
   white-space: nowrap;
   opacity: 0;
-  transition: all 0.4s ease;
+  font-size: 1rem;
+  transition: all ease 0.4s 0s;
 }
 
 .tooltip_S[data-tooltip-direction=top]:before {
-  z-index: 10;
-  content: "";
+  pointer-events: none;
+  content: attr(data-tooltip-value);
   position: absolute;
-  width: 0;
-  height: 0;
-  border-top: 10px solid #ffcb66;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  transition: all 0.4s ease;
-  opacity: 0;
+  z-index: 10;
   left: 50%;
-  transform: translateX(-50%);
   bottom: 130%;
+  transform: translateX(-50%) skewX(-20deg);
+  background: #FFAA32;
+  box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.7);
+  padding: 0.3em;
+  color: transparent;
+  border-radius: 0;
+  font-size: 1rem;
+  white-space: nowrap;
+  opacity: 0;
+  transition: all ease 0.4s 0s;
 }
 
 .tooltip_S[data-tooltip-direction=top]:hover:after {
-  bottom: 120%;
+  transform: translateX(-50%);
+  transition-duration: 200ms;
+  transition-delay: 0.6s;
+  bottom: 115%;
 }
 
 .tooltip_S[data-tooltip-direction=top]:hover:before {
-  bottom: 103%;
+  transform: translateX(-50%) skewX(-20deg);
+  transition-duration: 200ms;
+  transition-delay: 0.6s;
+  bottom: 115%;
 }
 
 .tooltip_S[data-tooltip-direction=top]:hover:after, .tooltip_S[data-tooltip-direction=top]:hover:before {
   opacity: 1;
+  pointer-events: all;
 }
 
 .tooltip_S[data-tooltip-direction=left] {
@@ -121,51 +141,61 @@
 }
 
 .tooltip_S[data-tooltip-direction=left]:after {
-  z-index: 10;
+  pointer-events: none;
   content: attr(data-tooltip-value);
   position: absolute;
+  z-index: 10;
   top: 50%;
-  transform: translateY(-50%);
-  right: 130%;
-  background: #ffcb66;
-  padding: 5px 15px;
+  transform: translateY(-25%);
+  right: 140%;
+  background: transparent;
+  padding: 0.3em;
   color: black;
-  border-radius: 10px;
+  font-size: 1rem;
+  border-radius: 0;
   white-space: nowrap;
   opacity: 0;
-  transition: all 0.4s ease;
+  transition: all ease 0.4s 0s;
 }
 
 .tooltip_S[data-tooltip-direction=left]:before {
-  z-index: 10;
-  content: "";
+  pointer-events: none;
+  content: attr(data-tooltip-value);
   position: absolute;
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-left: 10px solid #ffcb66;
-  border-bottom: 10px solid transparent;
-  transition: all 0.4s ease;
-  opacity: 0;
-  right: 130%;
+  z-index: 10;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-25%) skewX(-20deg);
+  right: 140%;
+  background: #FFAA32;
+  box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.7);
+  padding: 0.3em;
+  font-size: 1rem;
+  color: transparent;
+  border-radius: 0;
+  white-space: nowrap;
+  opacity: 0;
+  transition: all ease 0.4s 0s;
 }
 
 .tooltip_S[data-tooltip-direction=left]:hover:after {
   top: 50%;
-  transform: translateY(-50%);
-  right: 110%;
+  transform: translateY(-25%);
+  transition-duration: 200ms;
+  transition-delay: 0.6s;
+  right: 115%;
 }
 
 .tooltip_S[data-tooltip-direction=left]:hover:before {
   top: 50%;
-  transform: translateY(-50%);
-  right: 103%;
+  transform: translateY(-25%) skewX(-20deg);
+  transition-duration: 200ms;
+  transition-delay: 0.6s;
+  right: 115%;
 }
 
 .tooltip_S[data-tooltip-direction=left]:hover:after, .tooltip_S[data-tooltip-direction=left]:hover:before {
   opacity: 1;
+  pointer-events: all;
 }
 
 .tooltip_S[data-tooltip-direction=bottom] {
@@ -173,47 +203,60 @@
 }
 
 .tooltip_S[data-tooltip-direction=bottom]:after {
-  z-index: 10;
+  pointer-events: all;
   content: attr(data-tooltip-value);
   position: absolute;
-  top: 130%;
+  z-index: 10;
   left: 50%;
+  top: 130%;
   transform: translateX(-50%);
-  background: #ffcb66;
-  padding: 5px 15px;
+  font-size: 1rem;
+  background: transparent;
+  padding: 0.3em;
   color: black;
-  border-radius: 10px;
+  border-radius: 0;
   white-space: nowrap;
   opacity: 0;
-  transition: all 0.4s ease;
+  transition: all ease 0.4s 0s;
 }
 
 .tooltip_S[data-tooltip-direction=bottom]:before {
-  z-index: 10;
-  content: "";
+  pointer-events: all;
+  content: attr(data-tooltip-value);
   position: absolute;
-  width: 0;
-  height: 0;
-  border-bottom: 10px solid #ffcb66;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  transition: all 0.4s ease;
-  opacity: 0;
+  z-index: 10;
   left: 50%;
-  transform: translateX(-50%);
   top: 130%;
+  font-size: 1rem;
+  transform: translateX(-50%) skewX(-20deg);
+  background: #FFAA32;
+  box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.7);
+  padding: 0.3em;
+  color: transparent;
+  border-radius: 0;
+  white-space: nowrap;
+  opacity: 0;
+  transition: all ease 0.4s 0s;
 }
 
 .tooltip_S[data-tooltip-direction=bottom]:hover:after {
-  top: 120%;
+  transform: translateX(-50%);
+  transition-duration: 200ms;
+  transition-delay: 0.6s;
+  top: 115%;
 }
 
 .tooltip_S[data-tooltip-direction=bottom]:hover:before {
-  top: 103%;
+  transform: translateX(-50%) skewX(-20deg);
+  transition-duration: 200ms;
+  transition-delay: 0.6s;
+  top: 115%;
 }
 
 .tooltip_S[data-tooltip-direction=bottom]:hover:after, .tooltip_S[data-tooltip-direction=bottom]:hover:before {
   opacity: 1;
+  pointer-events: all;
+  user-select: none;
 }
 
 .AdaptiveTableMain {
@@ -1240,6 +1283,21 @@ s-input > .inputBody > input {
   font-size: 1em;
 }
 
+s-input > .inputBody > input:read-only {
+  color: gray;
+  border-bottom: 2px gray solid;
+}
+
+s-input > .inputBody > input:read-only:not([value=""]) {
+  outline: 0;
+}
+
+s-input > .inputBody > input:read-only:not([value=""]) + label span {
+  color: gray;
+  font-size: 0.8em;
+  transform: translateY(-1.5em);
+}
+
 s-input > .inputBody > input:valid, s-input > .inputBody > input:focus {
   outline: 0;
   border-bottom-color: gray;
@@ -1385,7 +1443,7 @@ s-input > .response > span {
 
 .n_RadioButton > .inner > div > .inputBody > input:checked ~ span {
   box-sizing: border-box;
-  background-color: #2196F3;
+  background-color: #FFAA32;
 }
 
 .n_RadioButton > .inner > div > .inputBody > input:checked ~ span:after {
@@ -1400,7 +1458,7 @@ s-input > .response > span {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: #eee;
+  background-color: white;
   border-radius: 50%;
 }
 
@@ -1419,7 +1477,7 @@ s-input > .response > span {
 }
 
 .n_RadioButton > .inner > div > .inputBody:hover input ~ span {
-  background-color: #ccc;
+  background-color: #FFC166;
 }
 
 .toggleButton {
@@ -1669,48 +1727,56 @@ s-input > .response > span {
   position: absolute;
   z-index: 10;
   top: 50%;
-  transform: translateY(-50%);
-  left: 130%;
-  background: #ffcb66;
-  padding: 5px 15px;
+  transform: translateY(-75%);
+  left: 140%;
+  background: transparent;
+  padding: 0.3em;
+  font-size: 1rem;
   color: black;
-  border-radius: 10px;
+  border-radius: 0;
   white-space: nowrap;
   opacity: 0;
-  transition: all 0.4s ease;
+  transition: all ease 0.4s 0s;
 }
 
 .tooltip_S[data-tooltip-direction=right]:before {
   pointer-events: none;
-  content: "";
+  content: attr(data-tooltip-value);
   position: absolute;
   z-index: 10;
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-right: 10px solid #ffcb66;
-  border-bottom: 10px solid transparent;
-  transition: all 0.4s ease;
-  opacity: 0;
-  left: 130%;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-75%) skewX(-20deg);
+  left: 140%;
+  font-size: 1rem;
+  background: #FFAA32;
+  box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.7);
+  padding: 0.3em;
+  color: transparent;
+  border-radius: 0;
+  white-space: nowrap;
+  opacity: 0;
+  transition: all ease 0.4s 0s;
 }
 
 .tooltip_S[data-tooltip-direction=right]:hover:after {
   top: 50%;
-  transform: translateY(-50%);
-  left: 110%;
+  transform: translateY(-75%);
+  transition-duration: 200ms;
+  transition-delay: 0.6s;
+  left: 115%;
 }
 
 .tooltip_S[data-tooltip-direction=right]:hover:before {
   top: 50%;
-  transform: translateY(-50%);
-  left: 103%;
+  transform: translateY(-75%) skewX(-20deg);
+  transition-duration: 200ms;
+  transition-delay: 0.6s;
+  left: 115%;
 }
 
 .tooltip_S[data-tooltip-direction=right]:hover:after, .tooltip_S[data-tooltip-direction=right]:hover:before {
   opacity: 1;
+  pointer-events: all;
 }
 
 .tooltip_S[data-tooltip-direction=top] {
@@ -1718,47 +1784,59 @@ s-input > .response > span {
 }
 
 .tooltip_S[data-tooltip-direction=top]:after {
-  z-index: 10;
+  pointer-events: none;
   content: attr(data-tooltip-value);
   position: absolute;
-  bottom: 130%;
+  z-index: 10;
   left: 50%;
+  bottom: 130%;
   transform: translateX(-50%);
-  background: #ffcb66;
-  padding: 5px 15px;
+  background: transparent;
+  padding: 0.3em;
   color: black;
-  border-radius: 10px;
+  border-radius: 0;
   white-space: nowrap;
   opacity: 0;
-  transition: all 0.4s ease;
+  font-size: 1rem;
+  transition: all ease 0.4s 0s;
 }
 
 .tooltip_S[data-tooltip-direction=top]:before {
-  z-index: 10;
-  content: "";
+  pointer-events: none;
+  content: attr(data-tooltip-value);
   position: absolute;
-  width: 0;
-  height: 0;
-  border-top: 10px solid #ffcb66;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  transition: all 0.4s ease;
-  opacity: 0;
+  z-index: 10;
   left: 50%;
-  transform: translateX(-50%);
   bottom: 130%;
+  transform: translateX(-50%) skewX(-20deg);
+  background: #FFAA32;
+  box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.7);
+  padding: 0.3em;
+  color: transparent;
+  border-radius: 0;
+  font-size: 1rem;
+  white-space: nowrap;
+  opacity: 0;
+  transition: all ease 0.4s 0s;
 }
 
 .tooltip_S[data-tooltip-direction=top]:hover:after {
-  bottom: 120%;
+  transform: translateX(-50%);
+  transition-duration: 200ms;
+  transition-delay: 0.6s;
+  bottom: 115%;
 }
 
 .tooltip_S[data-tooltip-direction=top]:hover:before {
-  bottom: 103%;
+  transform: translateX(-50%) skewX(-20deg);
+  transition-duration: 200ms;
+  transition-delay: 0.6s;
+  bottom: 115%;
 }
 
 .tooltip_S[data-tooltip-direction=top]:hover:after, .tooltip_S[data-tooltip-direction=top]:hover:before {
   opacity: 1;
+  pointer-events: all;
 }
 
 .tooltip_S[data-tooltip-direction=left] {
@@ -1766,51 +1844,61 @@ s-input > .response > span {
 }
 
 .tooltip_S[data-tooltip-direction=left]:after {
-  z-index: 10;
+  pointer-events: none;
   content: attr(data-tooltip-value);
   position: absolute;
+  z-index: 10;
   top: 50%;
-  transform: translateY(-50%);
-  right: 130%;
-  background: #ffcb66;
-  padding: 5px 15px;
+  transform: translateY(-25%);
+  right: 140%;
+  background: transparent;
+  padding: 0.3em;
   color: black;
-  border-radius: 10px;
+  font-size: 1rem;
+  border-radius: 0;
   white-space: nowrap;
   opacity: 0;
-  transition: all 0.4s ease;
+  transition: all ease 0.4s 0s;
 }
 
 .tooltip_S[data-tooltip-direction=left]:before {
-  z-index: 10;
-  content: "";
+  pointer-events: none;
+  content: attr(data-tooltip-value);
   position: absolute;
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-left: 10px solid #ffcb66;
-  border-bottom: 10px solid transparent;
-  transition: all 0.4s ease;
-  opacity: 0;
-  right: 130%;
+  z-index: 10;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-25%) skewX(-20deg);
+  right: 140%;
+  background: #FFAA32;
+  box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.7);
+  padding: 0.3em;
+  font-size: 1rem;
+  color: transparent;
+  border-radius: 0;
+  white-space: nowrap;
+  opacity: 0;
+  transition: all ease 0.4s 0s;
 }
 
 .tooltip_S[data-tooltip-direction=left]:hover:after {
   top: 50%;
-  transform: translateY(-50%);
-  right: 110%;
+  transform: translateY(-25%);
+  transition-duration: 200ms;
+  transition-delay: 0.6s;
+  right: 115%;
 }
 
 .tooltip_S[data-tooltip-direction=left]:hover:before {
   top: 50%;
-  transform: translateY(-50%);
-  right: 103%;
+  transform: translateY(-25%) skewX(-20deg);
+  transition-duration: 200ms;
+  transition-delay: 0.6s;
+  right: 115%;
 }
 
 .tooltip_S[data-tooltip-direction=left]:hover:after, .tooltip_S[data-tooltip-direction=left]:hover:before {
   opacity: 1;
+  pointer-events: all;
 }
 
 .tooltip_S[data-tooltip-direction=bottom] {
@@ -1818,47 +1906,60 @@ s-input > .response > span {
 }
 
 .tooltip_S[data-tooltip-direction=bottom]:after {
-  z-index: 10;
+  pointer-events: all;
   content: attr(data-tooltip-value);
   position: absolute;
-  top: 130%;
+  z-index: 10;
   left: 50%;
+  top: 130%;
   transform: translateX(-50%);
-  background: #ffcb66;
-  padding: 5px 15px;
+  font-size: 1rem;
+  background: transparent;
+  padding: 0.3em;
   color: black;
-  border-radius: 10px;
+  border-radius: 0;
   white-space: nowrap;
   opacity: 0;
-  transition: all 0.4s ease;
+  transition: all ease 0.4s 0s;
 }
 
 .tooltip_S[data-tooltip-direction=bottom]:before {
-  z-index: 10;
-  content: "";
+  pointer-events: all;
+  content: attr(data-tooltip-value);
   position: absolute;
-  width: 0;
-  height: 0;
-  border-bottom: 10px solid #ffcb66;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  transition: all 0.4s ease;
-  opacity: 0;
+  z-index: 10;
   left: 50%;
-  transform: translateX(-50%);
   top: 130%;
+  font-size: 1rem;
+  transform: translateX(-50%) skewX(-20deg);
+  background: #FFAA32;
+  box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.7);
+  padding: 0.3em;
+  color: transparent;
+  border-radius: 0;
+  white-space: nowrap;
+  opacity: 0;
+  transition: all ease 0.4s 0s;
 }
 
 .tooltip_S[data-tooltip-direction=bottom]:hover:after {
-  top: 120%;
+  transform: translateX(-50%);
+  transition-duration: 200ms;
+  transition-delay: 0.6s;
+  top: 115%;
 }
 
 .tooltip_S[data-tooltip-direction=bottom]:hover:before {
-  top: 103%;
+  transform: translateX(-50%) skewX(-20deg);
+  transition-duration: 200ms;
+  transition-delay: 0.6s;
+  top: 115%;
 }
 
 .tooltip_S[data-tooltip-direction=bottom]:hover:after, .tooltip_S[data-tooltip-direction=bottom]:hover:before {
   opacity: 1;
+  pointer-events: all;
+  user-select: none;
 }
 
 .AdaptiveTableMain {
@@ -2885,6 +2986,21 @@ s-input > .inputBody > input {
   font-size: 1em;
 }
 
+s-input > .inputBody > input:read-only {
+  color: gray;
+  border-bottom: 2px gray solid;
+}
+
+s-input > .inputBody > input:read-only:not([value=""]) {
+  outline: 0;
+}
+
+s-input > .inputBody > input:read-only:not([value=""]) + label span {
+  color: gray;
+  font-size: 0.8em;
+  transform: translateY(-1.5em);
+}
+
 s-input > .inputBody > input:valid, s-input > .inputBody > input:focus {
   outline: 0;
   border-bottom-color: gray;
@@ -3030,7 +3146,7 @@ s-input > .response > span {
 
 .n_RadioButton > .inner > div > .inputBody > input:checked ~ span {
   box-sizing: border-box;
-  background-color: #2196F3;
+  background-color: #FFAA32;
 }
 
 .n_RadioButton > .inner > div > .inputBody > input:checked ~ span:after {
@@ -3045,7 +3161,7 @@ s-input > .response > span {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: #eee;
+  background-color: white;
   border-radius: 50%;
 }
 
@@ -3064,7 +3180,7 @@ s-input > .response > span {
 }
 
 .n_RadioButton > .inner > div > .inputBody:hover input ~ span {
-  background-color: #ccc;
+  background-color: #FFC166;
 }
 
 .toggleButton {

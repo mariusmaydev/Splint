@@ -1,10 +1,10 @@
 
-// import { SpotLight as T_SpotLight } from "@THREE_ROOT_DIR/src/lights/SpotLight.js";
-// import { SpotLightHelper } from "@THREE_ROOT_DIR/src/helpers/SpotLightHelper.js";
-import {
-    SpotLight as T_SpotLight,
-    SpotLightHelper
-} from 'three';
+import { SpotLight as T_SpotLight } from "@THREE_ROOT_DIR/src/lights/SpotLight.js";
+import { SpotLightHelper } from "@THREE_ROOT_DIR/src/helpers/SpotLightHelper.js";
+// import {
+    // SpotLight as T_SpotLight,
+    // SpotLightHelper
+// } from 'three';
 
 export default class SpotLight extends T_SpotLight {
     constructor(color, intensity, distance = 0, angle = Math.PI / 3, penumbra = 0, decay = 1){

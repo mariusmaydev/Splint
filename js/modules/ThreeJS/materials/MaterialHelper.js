@@ -1,8 +1,8 @@
 // import * as THREE from 'three';
-import {
-    Texture,
-} from 'three';
-// import { Texture } from "@THREE_ROOT_DIR/src/textures/Texture.js";
+// import {
+    // Texture,
+// } from 'three';
+import { Texture } from "@THREE_ROOT_DIR/src/textures/Texture.js";
 
 export default class MaterialHelper {
     constructor(name, renderer = null){

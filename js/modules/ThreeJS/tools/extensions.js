@@ -1,7 +1,5 @@
-import {
-    Mesh
-} from 'three';
-// import { Mesh } from "@THREE_ROOT_DIR/src/objects/Mesh.js";
+
+import { Mesh } from "@THREE_ROOT_DIR/src/objects/Mesh.js";
 
 Mesh.prototype.hasParentWithName = function(name){
     let object = this;

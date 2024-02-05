@@ -9,7 +9,7 @@ class S_DynamicInput extends S_DOMElement_TEMPLATE {
         this.contentElement = new SPLINT.DOMElement(this.id + "content", "div", this.mainElement);
         this.contentElement.Class("content");
         this.#headline = headline;
-        this.template = function(contentElement, listElement, index, id){
+        this.template = function(contentElement, listElement, index, id, ...args){
             let input1 = new SPLINT.DOMElement.InputDiv(contentElement, "1", "input1");
             let input2 = new SPLINT.DOMElement.InputDiv(contentElement, "2", "input2");
         }
@@ -31,7 +31,6 @@ class S_DynamicInput extends S_DOMElement_TEMPLATE {
         return this.#HeadlineContainer;
     }
     get list(){
-
         let res = [];
         for(const i in this.#listElements){
             let e = this.#listElements[i];
@@ -58,8 +57,15 @@ class S_DynamicInput extends S_DOMElement_TEMPLATE {
             this.#HeadlineContainer.remove();
         }
     }
-    draw(){
-        let index = this.#listElements.length;
+    add(index = null, ...args){
+        this.draw(index, ...args);
+    }
+    draw(index = null, ...args){
+        if(index == null){
+            index = this.#listElements.length;
+        } else {
+            this.#listElements[index] = null;
+        }
         let lE_ID = this.id + "listElement_" + index + "_";
         let listElement = new SPLINT.DOMElement(lE_ID + "main", "div", this.contentElement);
             listElement.Class("listElement");
@@ -67,7 +73,7 @@ class S_DynamicInput extends S_DOMElement_TEMPLATE {
         this.#listElements.push(listElement);
             let listElementContent = new SPLINT.DOMElement(lE_ID + "content", "div", listElement);
                 listElementContent.Class("content");
-                this.template(listElementContent, listElement, index, lE_ID);
+                this.template(listElementContent, listElement, index, lE_ID, ...args);
             let listElementButtons = new SPLINT.DOMElement(lE_ID + "buttons", "div", listElement);
                 listElementButtons.Class("buttons");
                 let buttonAdd = new SPLINT.DOMElement.Button(listElementButtons, "add");
@@ -82,13 +88,16 @@ class S_DynamicInput extends S_DOMElement_TEMPLATE {
                     buttonSub.setStyleTemplate(SPLINT.DOMElement.Button.STYLE_DEFAULT)
                     buttonSub.onclick = function(){
                         this.onSub(listElementContent, listElement);
-                        // for(const i in this.#listElements){
-                        //     let e = this.#listElements[i];
-                        //     if(e.index == index){
                                 this.#listElements[index] = null;
-                            // }
-                        // }
                         listElement.remove();
                     }.bind(this);
+    }
+    clear(){
+        let list = this.list;
+        for(let element of list){
+            element.listElement.remove();
+        }
+        this.#listElements = [];
+        this.draw();
     }
 }

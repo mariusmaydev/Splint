@@ -80,9 +80,9 @@ class S_Button {
     draw(){
       this.button = new SPLINT.DOMElement(this.parent.id + "_button_" + this.name, "button", this.parent);
       this.button.Class("button_General");
-      this.button.ontouchend = function(e){
-        this.onclick(e);
-      }.bind(this);
+    //   this.button.ontouchend = function(e){
+    //     this.onclick(e);
+    //   }.bind(this);
       this.button.onclick = function(e){ 
         this.onclick(e); 
       }.bind(this);

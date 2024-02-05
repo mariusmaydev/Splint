@@ -3,9 +3,9 @@ import TEXTURE from './loader/texture.js';
 import FILE from './loader/file.js';
 import OBJECTS from './objects/objects.js';
 import MOUSEHANDLER from './tools/mouseHandler.js';
-import { GLTFLoader } from '@THREE_MODULES_DIR/loaders/GLTFLoader.js';
+import { GLTFLoader } from './loader/GLTFLoader_Modified.js';
 // import { SVGLoader } from '@THREE_MODULES_DIR/loaders/SVGLoader.js';
-import { DRACOLoader } from '@THREE_MODULES_DIR/loaders/DRACOLoader.js';
+import { DRACOLoader } from './loader/DRACOLoader_Modified.js';
 import { utils } from './tools/utils.js';
 // import { Loader as loader1} from '@THREE_ROOT_DIR/editor/js/Loader.js'
 
@@ -28,6 +28,8 @@ draco.preload();
 // Splint\lib\threeJS\examples\js\libs\draco
 // 'http://localhost/Splint/lib/threeJS/examples/js/libs/draco/'
 export default class SPLINT extends window.SPLINT {
+    static VSMShadowMap = 3;
+    
     static resourceList = null;
     static raycaster(instance){
         return new RAYCASTER(instance);
@@ -62,7 +64,6 @@ export default class SPLINT extends window.SPLINT {
 
 
             SPLINT.resourceList = res.paths;
-            console.dir(SPLINT);
             RESOURCES = new Object();
             RESOURCES.textures = new Object();
             RESOURCES.SVGs = new Object();

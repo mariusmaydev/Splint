@@ -1,46 +1,111 @@
 @use '../../_main.scss' as *;
+@use "../../tools/tools" as *;
 
 //bottom
+
+@use '../../_main.scss' as *;
+@use "../../tools/tools" as *;
+
+//right
 
 @mixin draw {
       position: relative;
       &:after {
-        z-index: 10;
+        pointer-events: all;
         content: attr(data-tooltip-value);
         position: absolute;
-        top: 130%;
+        z-index: 10;
         left: 50%;
+        top: 130%;
         transform: translateX(-50%);
-        background: #ffcb66;
-        padding: 5px 15px;
+        // right: 140%;
+        font-size: 1rem;
+        background: transparent;
+        padding: 0.3em;
         color: black;
-        border-radius : 10px;
+        border-radius : 0;
         white-space: nowrap;
         opacity: 0;
-        transition : all 0.4s ease;
-      }
+        transition : all ease 0.4s 0s;
+      } 
       &:before {
-        z-index: 10;
-        content: "";
+        pointer-events: all;
+        content: attr(data-tooltip-value);
         position: absolute;
-        width: 0;
-        height: 0;
-        border-bottom: 10px solid #ffcb66;
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        transition : all 0.4s ease;
-        opacity: 0;
+        z-index: 10;
         left: 50%;
-        transform: translateX(-50%);
         top: 130%;
+        font-size: 1rem;
+        transform: translateX(-50%) skewX(-20deg);
+        // right: 140%;
+        background: #FFAA32;
+        box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.7);
+        padding: 0.3em;
+        color: transparent;
+        border-radius : 0;
+        white-space: nowrap;
+        opacity: 0;
+        transition : all ease 0.4s 0s;
       }
       &:hover:after {
-        top: 120%;
+        // top: 50%;
+        transform: translateX(-50%);
+        transition-duration: 200ms;
+        transition-delay: 0.6s;
+        top: 115%;
       }
       &:hover:before {
-        top: 103%;
+        // top: 50%;
+        transform: translateX(-50%) skewX(-20deg);
+        transition-duration: 200ms;
+        transition-delay: 0.6s;
+        top: 115%;
       }
       &:hover:after, &:hover:before {
         opacity: 1;
+        pointer-events: all;
+        user-select: none;
       }
 }
+// @mixin draw {
+//       position: relative;
+//       &:after {
+//         z-index: 10;
+//         content: attr(data-tooltip-value);
+//         position: absolute;
+//         top: 130%;
+//         left: 50%;
+//         transform: translateX(-50%);
+//         background: #ffcb66;
+//         padding: 5px 15px;
+//         color: black;
+//         border-radius : 10px;
+//         white-space: nowrap;
+//         opacity: 0;
+//         transition : all 0.4s ease;
+//       }
+//       &:before {
+//         z-index: 10;
+//         content: "";
+//         position: absolute;
+//         width: 0;
+//         height: 0;
+//         border-bottom: 10px solid #ffcb66;
+//         border-left: 10px solid transparent;
+//         border-right: 10px solid transparent;
+//         transition : all 0.4s ease;
+//         opacity: 0;
+//         left: 50%;
+//         transform: translateX(-50%);
+//         top: 130%;
+//       }
+//       &:hover:after {
+//         top: 120%;
+//       }
+//       &:hover:before {
+//         top: 103%;
+//       }
+//       &:hover:after, &:hover:before {
+//         opacity: 1;
+//       }
+// }

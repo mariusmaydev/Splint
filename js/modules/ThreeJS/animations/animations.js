@@ -1,6 +1,6 @@
 
-// import { Clock } from "@THREE_ROOT_DIR/src/core/Clock.js";
-import { Clock } from "three";
+import { Clock } from "@THREE_ROOT_DIR/src/core/Clock.js";
+// import { Clock } from "three";
 
 // export default class Animations {
 //     static get Mixer(){

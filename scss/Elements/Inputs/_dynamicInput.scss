@@ -1,5 +1,6 @@
 @use '../../_main.scss' as *;
 
+@use "../../tools/tools" as *;
 .s-DynamicInput {
     > .content {
         > .listElement {

@@ -416,11 +416,11 @@ class SPLINT_Loader extends SPLINT_loaderHelper{
                 this.loadJQuery(),
                 this.loadConfig()]);
                 await this.loadImportMap();
-                let tag1 = document.createElement('link');
-                    tag1.rel = "modulepreload";
-                    tag1.async = true;
-                    tag1.href = "./../../../../Splint/lib/threeJS/build/three.module.min.js";
-                document.head.appendChild(tag1);
+                // let tag1 = document.createElement('link');
+                //     tag1.rel = "modulepreload";
+                //     tag1.async = true;
+                //     tag1.href = "./../../../../Splint/lib/threeJS/build/three.module.min.js";
+                // document.head.appendChild(tag1);
                 await Splint_bindJS.loadPATH();
             // await Promise.all([
             //     this.loadImportMap(),
@@ -525,7 +525,7 @@ class SPLINT_Loader extends SPLINT_loaderHelper{
             getPromiseFromEvent(tag, "load");
     }
     static async loadGoogleIcons(){
-        let link = "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,1&display=block";
+        let link = "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,200&display=block";
         let tag1 = document.createElement('link');
             tag1.rel = "preconnect";
             tag1.href = 'https://fonts.googleapis.com';

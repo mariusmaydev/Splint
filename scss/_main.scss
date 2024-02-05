@@ -1,7 +1,7 @@
 
 @use "sass:string";
-@import "tools/_tools.scss";
-@import "_splint.style.config.scss";
+@use "tools/tools" as *;
+@use "splint.style.config.scss" as *;
 
 $--IMPORTANT            : "!important";
 

@@ -98,8 +98,9 @@ class DropDownInput_S {
         }
         for(let i = 0; i < this.dropDown.children.length; i++){
             let ele = document.getElementById(this.dropDown.children[i].id);
-                ele.style.display = "";
-
+                if(ele != null){
+                    ele.style.display = "";
+                }
         }
     }
     addEntry(name, value, func = function(){}){

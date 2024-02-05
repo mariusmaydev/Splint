@@ -34,6 +34,9 @@ class S_popupWindow {
   append(element){
     this.content.append(element);
   }
+  setZindex(val){
+    this.background.style.zIndex = val;
+  }
   drawButtonClose(){
     this.buttonClose = new S_Button(this.content, "close");
     this.buttonClose.bindIcon("close");

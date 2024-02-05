@@ -21,12 +21,17 @@ class S_switchButton extends S_Button {
       this.button.classList.remove("switchButton");
     }
     setActive(){
-      this.button.state().setActive();
-      this.onactive();
+      if(!this.button.state().isActive()){
+        this.button.state().setActive();
+        this.onactive();
+
+      }
     }
     unsetActive(){
-      this.button.state().unsetActive();
-      this.onpassive();
+        if(this.button.state().isActive()){
+            this.button.state().unsetActive();
+            this.onpassive();
+        }
     }
     toggle(){
       if(this.button.state().isActive()){
