@@ -17,6 +17,18 @@ class S_ObjectTools {
     static is_equal(obj1, obj2){
         return (JSON.stringify(obj1) == JSON.stringify(obj2));
     }
+    static deepClone(obj) {
+      if (obj === null || typeof obj !== "object")
+        return obj
+      var props = Object.getOwnPropertyDescriptors(obj)
+      for (var prop in props) {
+        props[prop].value = S_ObjectTools.deepClone(props[prop].value)
+      }
+      return Object.create(
+        Object.getPrototypeOf(obj), 
+        props
+      )
+    }
     static serialize(obj, prefix) {
         var str = [], p;
         for (p in obj) {

@@ -208,6 +208,10 @@ class DOMElement_manager {
         SPLINT.getClass("S_popupWindow", "subWindow");
         return S_popupWindow;
     }
+    static get SimpleElement(){
+        SPLINT.getClass("S_SimpleElement", "SimpleElement");
+        return S_SimpleElement;
+    }
   }
 //   customElements.define('dom-elementr', DOMElement);
 

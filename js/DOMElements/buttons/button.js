@@ -175,4 +175,8 @@ class S_Button {
         SPLINT.getClass("S_ChoiceButton", "buttonChoice");
         return S_ChoiceButton;
     }
+    static get FileUpload(){
+        SPLINT.getClass("FileUploadButton_S", "buttonFileUpload");
+        return FileUploadButton_S;
+    }
   }

@@ -32,6 +32,7 @@ class S_CallPHP {
         // this.headers["accept"] = "application/json; charset=utf-8";
         // this.headers["content-encoding"] = "application/json; charset=utf-8";
         this.headers["Content-Type"] = 'application/x-www-form-urlencoded; charset=UTF-8';
+        this.headers["Access-Control-Allow-Origin"] = '*';
         this.onBeforeSend   = function(){};
         this.onError        = function(){};
         this.onSuccess      = function(){};
@@ -86,6 +87,7 @@ class S_CallPHP {
             obj.credentials             = this.credentials;
             obj.headers                 = this.headers;
             obj.keepalive               = this.keepalive;
+            // obj.redirect                = this.redirect;
             obj.withCredentials         = this.withCredentials;
             // obj.redirect                = this.redirect;
             // obj.referrerPolicy          = this.referrerPolicy;

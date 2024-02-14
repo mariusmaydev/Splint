@@ -5,6 +5,7 @@ class S_popupWindow {
     this.showBackground = showBackground;
     this.element  = new SPLINT.DOMElement(this.id + "main", "div", document.body);
     this.element.Class("subWindow_MAIN");
+    this.onclose = function(){};
     if(showBackground){
       this.background   = new SPLINT.DOMElement(this.id + "background", "div", this.element);
       this.background.Class("background");
@@ -16,6 +17,7 @@ class S_popupWindow {
       this.drawButtonClose();
     }
     this.close = function(){
+        this.onclose();
         this.element.remove();
     }.bind(this)
   }

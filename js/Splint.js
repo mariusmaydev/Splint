@@ -57,8 +57,22 @@ class SPLINT {
         SPLINT.getClass("S_CallPHP", "CallPHP");
         return S_CallPHP;
     }
+    static get FileUpload(){
+        SPLINT.getClass("FileUpload_S", "FileUpload");
+        return FileUpload_S;
+    }
     static get ViewPort(){
         return ViewPort;
+    }
+    static SVG = class {
+        static get Loader(){
+            SPLINT.getClass("SVG_Loader_S", "SVGLoader");
+            return SVG_Loader_S;
+        }
+        static get Object(){
+            SPLINT.getClass("SVG_Object_S", "SVGObject");
+            return SVG_Object_S;
+        }
     }
     static get API(){
         SPLINT.getClass("S_API", "API");
@@ -101,9 +115,17 @@ class SPLINT {
         static get parse(){
             return S_Tparser;
         }
+        static get CursorHandler(){
+            SPLINT.getClass("CursorHandler_S", "cursorHandler");
+            return CursorHandler_S;
+        }
         static get DateTime(){
             SPLINT.getClass("S_DateTime", "DateTime");
             return S_DateTime;
+        }
+        static get ObjectTools(){
+            SPLINT.getClass("S_ObjectTools", "objects");
+            return S_ObjectTools;
         }
     }
     static Types = class {
@@ -415,6 +437,11 @@ class SPLINT_Loader extends SPLINT_loaderHelper{
             await Promise.all([
                 this.loadJQuery(),
                 this.loadConfig()]);
+                // console.dir(SPLINT)
+                // debugger
+                console.time("a");
+                SPLINT_metaTagProvider.getMetaTagConfig();
+                console.timeEnd("a");
                 await this.loadImportMap();
                 // let tag1 = document.createElement('link');
                 //     tag1.rel = "modulepreload";
@@ -536,6 +563,9 @@ class SPLINT_Loader extends SPLINT_loaderHelper{
             tag.async = true;
             document.head.appendChild(tag);
         return;
+    }
+    static generateMetaTags(){
+
     }
     static loadImportMap(){
         return new Promise(function(resolve){
@@ -792,4 +822,55 @@ class Splint_bindJS {
     }
 }
 
+class SPLINT_metaTagProvider {
+    static async getMetaTagConfig(){
+        await SPLINT_metaTagProvider.loadMetaConfig();
+        for(const entry of Object.entries(SPLINT.config.meta)){
+           SPLINT_metaTagProvider.newTag(entry[0], entry[1]);
+        }
+    }
+    static newTag(name, content){
+        let tag = document.createElement("meta")
+            tag.name = name;
+            tag.content = content;
+        document.head.append(tag);
+    }
+    static async getConfigMeta(projectPath){
+        let uri = location.origin + "/" + projectPath + "/Splint/" + "splint.config/config.meta.json";
+        let promise = new Promise(async function(resolve){
+            let rawFile = new XMLHttpRequest();
+            rawFile.open("GET", uri, true);
+            rawFile.onreadystatechange = function() {
+                if(rawFile.readyState === 4) {
+                    if(rawFile.status === 200 || rawFile.status == 0){
+                        resolve(rawFile.responseText);
+                        return rawFile.responseText;
+                    } else {
+                        return false;
+                    }
+                }
+            }
+            rawFile.send(null);
+        });
+        let r = await promise;
+        return JSON.parse(r);
+    }
+    
+    /**
+     * @return  {Object}  config file object
+     */
+    static async loadMetaConfig(){
+        return new Promise(async function(resolve){
+            try {
+                let projectName = location.pathname.split('/')[1];
+                SPLINT.config.meta = (await SPLINT_metaTagProvider.getConfigMeta(projectName))
+            } catch {
+                let projectName = location.pathname.split('/')[1] + "/" + location.pathname.split('/')[2];
+                SPLINT.config.meta = (await SPLINT_metaTagProvider.getConfigMeta(projectName))
+            }
+            resolve(SPLINT.config.meta);
+            return SPLINT.config.meta;
+        });
+    }
+}
 

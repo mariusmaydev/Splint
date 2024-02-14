@@ -12,7 +12,7 @@ class S_PaypalButtons {
         
             paypal.Buttons({
                 style: {
-                layout: 'horizontal',
+                layout: 'vertical',
                 color: 'gold',
                 shape: 'rect',
                 label: 'paypal',
@@ -20,7 +20,8 @@ class S_PaypalButtons {
                 },
                 onClick: (data) => {
                     // fundingSource = "venmo"
-                    fundingSource = data.fundingSource;
+                    console.dir(data)
+                    // fundingSource = data.fundingSource;
             
                     // Use this value to determine the funding source used to pay
                     // Update your confirmation pages and notifications from PayPal to Venmo
@@ -31,7 +32,10 @@ class S_PaypalButtons {
                 //   });
                 // },
                 createOrder: (data, actions) => {
-                    return actions.order.create(orderObject);
+                    console.dir(data);
+                    let id = actions.order.create(orderObject);
+                    console.dir(id);
+                    return id;
                 },
                 onApprove: (data, actions) => {
                 return actions.order.capture().then(function(orderData) {
@@ -47,8 +51,9 @@ class S_PaypalButtons {
                 // Show a cancel page, or return to cart
                 },
                 onError: function (err) {
+                    console.log(err)
                 // For example, redirect to a specific error page
-                window.location.href = "/your-error-page-here";
+                // window.location.href = "/your-error-page-here";
                 }
             }).render('#paypal-button-container');
         

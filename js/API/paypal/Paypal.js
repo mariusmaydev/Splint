@@ -35,7 +35,7 @@ class S_API_Paypal {
         static {
             this.src = new Object();
             this.src.authorize = "https://www.paypal.com/sdk/js?client-id=CLIENT_ID&intent=authorize";
-            this.src.init = "https://www.paypal.com/sdk/js?client-id=CLIENT_ID&components=buttons,payment-fields,marks,funding-eligibility&enable-funding=giropay&currency=EUR";
+            this.src.init = "https://www.paypal.com/sdk/js?client-id=CLIENT_ID&components=buttons,payment-fields,marks,funding-eligibility&enable-funding=giropay,card,credit,bancontact&currency=EUR";
         }
         static async init(){
             return this.#load(this.src.init.replace('CLIENT_ID', this.ClientID));

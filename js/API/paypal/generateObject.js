@@ -49,8 +49,22 @@ class S_PaypalObject {
         }
         }
 
-        orderObject += ']}]}';
+        orderObject += ']}],';
+        orderObject += '"payment_source": {' + 
+            '"paypal": {' + 
+              '"experience_context": {'+
+                '"payment_method_preference": "IMMEDIATE_PAYMENT_REQUIRED",'+
+                '"brand_name": "EXAMPLE INC",'+
+                '"locale": "en-US",'+
+                '"landing_page": "LOGIN",'+
+                '"user_action": "PAY_NOW",'+
+                '"return_url": "https://example.com/returnUrl",'+
+                '"cancel_url": "https://example.com/cancelUrl"'+
+              '}'+
+            '}'+
+          '}}';
         orderObject = JSON.parse(orderObject);
+        console.log(orderObject)
         return orderObject;
     }
 }
