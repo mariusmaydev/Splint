@@ -115,14 +115,14 @@ export class Animation {
         this._duration = duration;
         this.forward = forward;
         this.active = true;
-        this.groupe = this.onStart(this.model, name);
+        this.groupe = this.onStart(this.model, name, this);
         this.clock.start();
         this.mixer.tick();
     }
     stop(name = this.name){
         cancelAnimationFrame(this.mixer.FrameID)
         this.active = false;
-        this.onStop(this.progress, name, this.groupe);
+        this.onStop(this.progress, name, this.groupe, this.args);
         this.clock.stop();
         // let index = this.mixer.activeAnimations.indexOf(this);
     }

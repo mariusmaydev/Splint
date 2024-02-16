@@ -64,7 +64,8 @@ class S_PaypalObject {
             '}'+
           '}}';
         orderObject = JSON.parse(orderObject);
-        console.log(orderObject)
+        orderObject.applicationContext = new Object();
+        orderObject.applicationContext.shipping_preference = "SET_PROVIDED_ADDRESS";
         return orderObject;
     }
 }

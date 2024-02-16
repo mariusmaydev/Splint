@@ -17,6 +17,17 @@ class S_Utils {
         SPLINT.getClass("S_ANSI", "ANSI");
         return S_ANSI;
     }
+    static get TouchEmulator(){
+        SPLINT.require_now('@SPLINT_ROOT/Utils/TouchEmulator.js');
+        return class {
+            static start(){
+                TouchEmulator();
+            }
+            static remove(){
+                removeTouchEmulator();
+            }
+        }
+    }
     /**
      * desc
      * @date 2023-06-12

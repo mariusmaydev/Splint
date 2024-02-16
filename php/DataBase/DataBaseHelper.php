@@ -1,9 +1,9 @@
 <?php
 
     
-    $servername             = "127.0.0.1";
-    $user                   = "root";
-    $pw                     = "";
+    $servername             = SPLINT_CONFIG -> dataBase -> hostname;
+    $user                   = SPLINT_CONFIG -> dataBase -> userName;
+    $pw                     = SPLINT_CONFIG -> dataBase -> password;
 
     class DataBaseHelper {
       public static function connectToServer(){
@@ -12,7 +12,6 @@
           global $pw;
           $con = new mysqli($servername, $user, $pw);
           if($con -> connect_error){
-            Debugg::log("err");
               return false;
           } else {
               return $con;

@@ -21,6 +21,10 @@ class nS_Location {
     static get hashes() {
         return window.location.hash
     }
+    static Direct(url){
+        this.href = url;
+        window.location.href = url;
+    }
     static goBack(steps = -1){
         window.history.go(steps);
     }

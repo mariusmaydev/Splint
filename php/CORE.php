@@ -7,6 +7,8 @@
     define('SERVER_ROOT', $_SERVER["DOCUMENT_ROOT"]);
     define('SPLINT_CONFIG', getSplintConfig());
     define('DOMAIN', SPLINT_CONFIG -> SSL . '://' . SPLINT_CONFIG -> host);
+    define('DATABASE', SPLINT_CONFIG -> dataBase);
+    define('PAYPAL', getSplintConfig("paypal.server"));
     include 'autoloader.php';
     require_once 'INIT/init.php';
     require_once 'Tools/Math.php';
@@ -76,7 +78,9 @@
     define('SPLINT_ROOT_ABS', SplintInformation::SplintROOT());
     define('SPLINT_ROOT', DOMAIN . SplintInformation::SplintROOT());
 
-    function getSplintConfig() : stdClass {
+    function getSplintConfig($name = null) : stdClass {
+        if($name != null){
+            return json_decode(file_get_contents($_SERVER["DOCUMENT_ROOT"] ."/" . PROJECT_NAME. "/Splint/splint.config/config." . $name . ".json"));
+        }
         return json_decode(file_get_contents($_SERVER["DOCUMENT_ROOT"] ."/" . PROJECT_NAME. "/Splint/splint.config/config.main.json"));
     }
-

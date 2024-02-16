@@ -4,6 +4,10 @@ class S_DateTime {
         SPLINT.getClass("S_Timer", "Timer");
         return S_Timer;
     }
+    static get Helper(){
+        SPLINT.getClass("S_TimeHelper", "TimeHelper");
+        return S_TimeHelper;
+    }
     /**
      * @description get real UNIX-time in seconds
      */

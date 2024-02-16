@@ -76,6 +76,11 @@
             ViewPort.lastSize = ViewPort.#size;
         }
     }
+    static isTouchDevice(){
+        return (('ontouchstart' in window) ||
+           (navigator.maxTouchPoints > 0) ||
+           (navigator.msMaxTouchPoints > 0));
+    }
   }
 //   const spl_windowExtensionsOBJ = new Object();
 //         spl_windowExtensionsOBJ.isMobile = function(){

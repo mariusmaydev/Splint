@@ -582,8 +582,7 @@ class SPLINT_Loader extends SPLINT_loaderHelper{
                   "@SPLINT_MODULES_DIR/"    : SPLINT.rootPath + "/js/modules/",
                   "@SPLINT_THREE_DIR/"      : SPLINT.rootPath + "/js/modules/ThreeJS/",
                   "@PROJECT_ROOT/"          : SPLINT.projectRootPath + "js/",
-                  "@SPLINT_ROOT/"           : SPLINT.rootPath + "/js/",
-                  "@NODE_MODULES_DIR/*"     : SPLINT.rootPath + "/node_modules/"
+                  "@SPLINT_ROOT/"           : SPLINT.rootPath + "/js/"
                 }
               }
             tag.innerHTML = JSON.stringify(mapJSON, null, 2);

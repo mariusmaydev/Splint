@@ -64,6 +64,7 @@ class S_radioButton extends S_Button {
         }
         let data = this.data[i];
         let inputDiv = new SPLINT.DOMElement(this.id + "inputDiv_" + i, "div", radioDiv);
+            inputDiv.setAttribute("value", data.id);
             inputDiv.onclick = function(e){
               input.click();
               e.stopPropagation();
