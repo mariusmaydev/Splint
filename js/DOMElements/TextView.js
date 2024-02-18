@@ -8,6 +8,9 @@ class S_TextView {
         this.mainElement.Class("s-TextView");
         this.paragraph = new SPLINT.DOMElement(this.id + "paragrapth", "p", this.mainElement);
     }
+    Class(name){
+        this.mainElement.Class(name);
+    }
     #value = "";
     set value(v){
         this.#value = v;

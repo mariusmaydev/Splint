@@ -10,6 +10,9 @@ class SlideShow_S {
         this.onClickElement = function(){};
         this.draw();
     }
+    Class(name){
+        this.mainElement.Class(name);
+    }
     draw(){
         this.mainElement.addEventListener("wheel", function(e){
             if (e.deltaY > 0) {

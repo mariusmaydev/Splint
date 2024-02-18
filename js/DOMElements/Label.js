@@ -23,22 +23,3 @@ class Label {
         this.elementFor.parentNode.insertBefore(this.element, this.elementFor.nextSibling);
     }
 }
-// function Label(parent, element, value){
-//     this.element = createLabel(parent, element.id, value);
-//     this.before = function(){
-//       element.parentNode.insertBefore(this.element, element);
-//     }
-//     this.after = function(){
-//       element.parentNode.insertBefore(this.element, element.nextSibling);
-//     }
-//   }
-
-// /**
-//  * @deprecated
-//  */
-//   function createLabel(grandfather, parentID, content){
-//     let label = new SPLINT.DOMElement(parentID + "_label_/UID()/", "label", grandfather.id);
-//         label.setAttribute("for", grandfather.id);
-//         label.innerHTML = content;
-//     return label;
-//   }

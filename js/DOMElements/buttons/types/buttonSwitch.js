@@ -41,9 +41,9 @@ class S_switchButton extends S_Button {
       }
     }
     drawSwitch(){
-      this.button.onclick = function(){
+      this.button.onclick = function(e){
         this.toggle();
-        this.onchange(this.button.state().get());
+        this.onchange(this.button.state().get(), e);
       }.bind(this);
       if(this.extended){
         this.button.onmouseenter = function(){

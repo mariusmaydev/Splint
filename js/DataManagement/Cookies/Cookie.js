@@ -1,6 +1,5 @@
 
 class S_Cookie {
-    static cookiesEnabled   = navigator.cookieEnabled;
     static cookiesAccepted  = null;
     static get(name = null){
         let cookies = document.cookie.split("; ");
@@ -15,7 +14,7 @@ class S_Cookie {
         return response;
     }
     static set(name, value, exdays = 1){
-        if(!this.CookiesAllowed){
+        if(!this.CookiesState != 0){
             this.#sendError();
             return false;
         }
@@ -28,7 +27,10 @@ class S_Cookie {
         this.set(name, "-", -1);
     }
     static requestUserPermision(){
-        if(SPLINT.Data.Cookies.cookiesEnabled){
+        // SPLINT.getClass("S_CookieBanner", "CookieBanner");
+        // S_CookieBanner.open();
+        // return;
+        if(navigator.cookieEnabled){
             let res = SPLINT.Data.Cookies.get("COOKIE_ACCEPTED");
             if(res == undefined){
                 SPLINT.getClass("S_CookieBanner", "CookieBanner");
@@ -39,11 +41,11 @@ class S_Cookie {
         }
 
     }
-    static get CookiesAllowed(){
-        if(S_Cookie.cookiesEnabled == true && S_Cookie.cookiesAccepted == true){
-            return true;
+    static get CookiesState(){
+        if(navigator.cookieEnabled == true){
+            return S_Cookie.cookiesAccepted;
         } else {
-            return false;
+            return 0;
         }
     }
     static #sendError(){

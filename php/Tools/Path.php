@@ -135,7 +135,7 @@ class Path {
     }
     public function getURL(){
         $path = $this -> getPathAsString();
-        return SPLINT_CONFIG -> paths -> SSL . "://" . SPLINT_CONFIG -> host . $path;
+        return SPLINT_CONFIG -> SSL . "://" . SPLINT_CONFIG -> host . $path;
     }
     private function createPath(){
         $path = $this -> getPathAsString(true);

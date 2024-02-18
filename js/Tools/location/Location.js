@@ -29,7 +29,6 @@ class nS_Location {
         window.history.go(steps);
     }
     static #queryHashes(){
-        
         let hashes = window.location.hash.split("#")
             hashes = SPLINT.SArray.removeValues(hashes, '');
         return hashes;

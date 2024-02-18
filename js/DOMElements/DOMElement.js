@@ -172,6 +172,10 @@ class DOMElement_manager {
         SPLINT.getClass("S_DynamicInput", "DynamicInput");
         return S_DynamicInput;
     }
+    static get Checkbox(){
+        SPLINT.getClass("S_Checkbox", "checkbox");
+        return S_Checkbox;
+    }
     static get popupWindow(){
         SPLINT.getClass("S_popupWindow", "subWindow");
         return S_popupWindow;

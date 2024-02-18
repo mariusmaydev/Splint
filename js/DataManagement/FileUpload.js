@@ -2,10 +2,14 @@ class FileUpload_S {
 
     static PATH = PATH.php.upload;
 
-    constructor(file_data, dst){
+    constructor(file_data, dst, form = null){
       this.file_data    = file_data;
       this.dst          = dst;
-      this.data         = new FormData();
+      if(form != null){
+        this.data = form;
+      } else {
+        this.data         = new FormData();
+      }
       this.data.append("METHOD", dst);
       this.data.append("file", file_data);
       this.onsuccess  = function(data){}; 
@@ -18,10 +22,10 @@ class FileUpload_S {
         return false;
       }
     }
-    static direct(file_data, type, onsuccess){
+    static direct(file_data, type, onsuccess, form = null){
       
       if(file_data != false){
-        let fileUpload = new FileUpload_S(file_data, type);
+        let fileUpload = new FileUpload_S(file_data, type, form);
             fileUpload.onsuccess = onsuccess;
             fileUpload.upload();
         return true;

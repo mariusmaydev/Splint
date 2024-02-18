@@ -437,30 +437,15 @@ class SPLINT_loaderHelper {
 
 class SPLINT_Loader extends SPLINT_loaderHelper{
     static LOADED_DOCS = [];
-    // static LOADED_DOCS = [];
     static async start(){
         return new Promise(async function(resolve, reject){
             this.loadGoogleIcons();
             await Promise.all([
                 this.loadJQuery(),
                 this.loadConfig()]);
-                // console.dir(SPLINT)
-                // debugger
-                console.time("a");
                 SPLINT_metaTagProvider.getMetaTagConfig();
-                console.timeEnd("a");
                 await this.loadImportMap();
-                // let tag1 = document.createElement('link');
-                //     tag1.rel = "modulepreload";
-                //     tag1.async = true;
-                //     tag1.href = "./../../../../Splint/lib/threeJS/build/three.module.min.js";
-                // document.head.appendChild(tag1);
                 await Splint_bindJS.loadPATH();
-            // await Promise.all([
-            //     this.loadImportMap(),
-            //     Splint_bindJS.loadPATH()]);
-            //     // let link = "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,1&display=block";
-            //     // Splint_bindJS.preload();
             SPLINT_loaderHelper.initLoader().then(async function(){
                 this.bind().CSS();
                 await SPLINT.require("@SPLINT_ROOT/Events/Events.js");
@@ -478,12 +463,9 @@ class SPLINT_Loader extends SPLINT_loaderHelper{
                     ]);
                 await this.bind().MODULES();
                 this.bind().PRE().then(async function(){
-                    // await this.loadChartJS();
                     await this.bind().ALL();
                     resolve(true);
                 }.bind(this));
-                // this.loadGoogleLogin();
-                // await this.#bindLoaderHelper();
             }.bind(this));
         }.bind(this)).then(async function(){
             await Splint_bindJS.loader();
