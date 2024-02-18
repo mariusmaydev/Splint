@@ -151,6 +151,13 @@ class SPLINT {
             SPLINT.getClass("CallPHP_S", "callPHP");
             return CallPHP_S;
         }
+        static get Cookies(){
+            SPLINT.getClass("S_Cookie", "Cookie");
+            return S_Cookie;
+        }
+        /**
+         * @deprecated
+         */
         static get Cookie(){
             SPLINT.getClass("Cookie", "cookies");
             return Cookie;

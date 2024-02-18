@@ -3,7 +3,7 @@ class Cookie {
 
     }
     static isEnabled(){
-      let cookieEnabled = navigator.cookieEnabled;
+        let cookieEnabled = navigator.cookieEnabled;
   
       if (typeof navigator.cookieEnabled == "undefined" && !cookieEnabled) { 
           document.cookie = "testcookie";
@@ -38,3 +38,5 @@ class Cookie {
       console.log(Cookie.get());
     }
   }
+
+  console.log(navigator.cookieEnabled)

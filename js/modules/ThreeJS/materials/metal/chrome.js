@@ -3,6 +3,7 @@ import MaterialHelper from '../MaterialHelper.js';
 // import { S_MATERIAL_LIST } from '../M_materials.js';
 // import { MeshPhysicalMaterial } from "@THREE_ROOT_DIR/src/materials/MeshPhysicalMaterial.js";
 import { MeshPhysicalMaterial } from "@THREE_ROOT_DIR/src/materials/MeshPhysicalMaterial.js";
+import { MeshStandardMaterial } from "@THREE_ROOT_DIR/src/materials/MeshStandardMaterial.js";
 // import {
 //     MeshPhysicalMaterial,
 // } from 'three';

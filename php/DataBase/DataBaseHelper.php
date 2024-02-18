@@ -6,11 +6,11 @@
     $pw                     = SPLINT_CONFIG -> dataBase -> password;
 
     class DataBaseHelper {
-      public static function connectToServer(){
+      public static function connectToServer($DBName = null){
           global $servername;
           global $user;
           global $pw;
-          $con = new mysqli($servername, $user, $pw);
+          $con = new mysqli($servername, $user, $pw, $DBName);
           if($con -> connect_error){
               return false;
           } else {

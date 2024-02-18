@@ -1,4 +1,9 @@
 
+
+            //sb-bbtde25993789@personal.example.com
+            //MzN90xI-
+
+            
 class S_PaypalButtons {
     static async drawCard(bt, f1, f2, f3, f4){
         await SPLINT.API.Paypal.load();
@@ -175,8 +180,6 @@ class S_PaypalButtons {
                 console.dir(orderObject)
                 payment.obj = orderObject;
             },
-            //sb-bbtde25993789@personal.example.com
-            //MzN90xI-
             createOrder: (data, actions) => {
                 var postData = {request_type: 'create_order', payment_source: data.paymentSource, obj: JSON.stringify(payment.obj)};
                 return fetch(SPLINT.rootPath + "/php/API/paypal/paypalAccess.php", {
