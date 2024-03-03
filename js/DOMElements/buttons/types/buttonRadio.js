@@ -36,10 +36,10 @@ class S_radioButton extends S_Button {
     get headline_ele(){
       return this.headline;
     }
-    setValue(value){
+    setValue(value, name = this.name){
       if(value != null && value != false){
-        $(`input[name="${CSS.escape(this.name)}"]`).filter("[value='" + value + "']").prop('checked', true);
-        let ele = $(`div[name="${CSS.escape(this.name)}"]`).filter("[value='" + value + "']");
+        $(`input[name="${CSS.escape(name)}"]`).filter("[value='" + value + "']").prop('checked', true);
+        let ele = $(`div[name="${CSS.escape(name)}"]`).filter("[value='" + value + "']");
         ele.attr('state', 'active');
         ele[0].parentElement.setAttribute('state', 'active');
       }

@@ -32,8 +32,9 @@
             }
         }
         public function get(int $x, int $y){
-            if(isset($this -> array[$y * $this -> x + $x])){
-                return $this -> array[$y * $this -> x + $x];
+            $index = $y * $this -> x + $x;
+            if(isset($this -> array[$index])){
+                return $this -> array[$index];
             } else if($x * $y > $this -> size){
                 return $this -> default;
             } else {

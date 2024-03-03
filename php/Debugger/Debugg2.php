@@ -28,10 +28,11 @@
 
     define('TIMER', new DebugTimer());
     class DebugTimer {
-        public $timeStart   = 0;
-        public $timeLast    = 0;
-        public $active      = false;
-        public $endOnDestruct = true;
+        public $timeStart       = 0;
+        public $timeLast        = 0;
+        public $active          = false;
+        public $endOnDestruct   = true;
+        public $stack           = "";
         public function __construct(){
         }
         public function __destruct(){
@@ -43,22 +44,27 @@
             $this -> active = false;
             $time = microtime(true) - $this -> timeLast;
             $timeFull = microtime(true) - $this -> timeStart;
-            Debugg::log("END   TIMER " . round($time, 3) . "   FullTime: " . round($timeFull, 3));
+            $this -> stack .= "END   TIMER " . round($time, 3) . "   FullTime: " . round($timeFull, 3) . "\n";
+            Debugger::log($this -> stack);
+            // Debugg::log("END   TIMER " . round($time, 3) . "   FullTime: " . round($timeFull, 3));
         }
         public function start(bool $endOnDestruct = true){
+            $this -> stack = "";
             $this -> active = true;
             $this -> endOnDestruct = $endOnDestruct;
             $this -> timeStart = microtime(true);
             $this -> timeLast = microtime(true);
             $backtrace = debug_backtrace()[0];
             $file = Path::cut($backtrace['file'], 6);
-            Debugg::log("START TIMER          -> " . $file . ": " . $backtrace['line']);
+            $this -> stack .= "START TIMER          -> " . $file . ": " . $backtrace['line'] . "\n";
+            // Debugg::log("START TIMER          -> " . $file . ": " . $backtrace['line']);
         }
         public function print(string $value = ""){
             $time = microtime(true) - $this -> timeLast;
             $backtrace = debug_backtrace()[0];
             $file = Path::cut($backtrace['file'], 6);
-            Debugg::log($value . " ˅    TIME: " . str_pad(round($time, 3), 8, " ", STR_PAD_RIGHT) . " -> " . $file . ": " . $backtrace['line']);
+            $this -> stack .= $value . " ˅\n      TIME: " . str_pad(round($time, 3), 8, " ", STR_PAD_RIGHT) . " -> " . $file . ": " . $backtrace['line'] . "\n";
+            // Debugg::log($value . " ˅    TIME: " . str_pad(round($time, 3), 8, " ", STR_PAD_RIGHT) . " -> " . $file . ": " . $backtrace['line']);
             $this -> timeLast = microtime(true);
         }
     }

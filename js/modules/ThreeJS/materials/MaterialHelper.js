@@ -1,20 +1,30 @@
-// import * as THREE from 'three';
-// import {
-    // Texture,
-// } from 'three';
+
 import { Texture } from "@THREE_ROOT_DIR/src/textures/Texture.js";
+import { CanvasTexture } from "@THREE_ROOT_DIR/src/textures/CanvasTexture.js";
 
 export default class MaterialHelper {
-    constructor(name, renderer = null){
-        this.renderer = renderer;
-        this.name = name;
-        this.material = window.SPLINT.threeJS.materials[this.name];
+    static materials = new Object();
+    static {
+        Object.defineProperty(S_ObjectFunctions.prototype, "ThreeClone", {
+            value: function(){
+                if(this.instance.isTexture){
+                    return MaterialHelper.getTexture(this.instance);
+                }
+            },
+            enumerable: false,
+            configurable: false,
+            writable: false
+        });
     }
-    set material(v){
-        window.SPLINT.threeJS.materials[this.name] = v;
+    static get(name){
+        if(this.materials[name] != undefined){
+            return this.materials[name];
+        } else {
+            return false;
+        }
     }
-    get material(){
-        return window.SPLINT.threeJS.materials[this.name];
+    static set(material){
+        this.materials[material.name] = material;
     }
     static getTexture(texture_in){
         let texture = texture_in.clone()
@@ -40,5 +50,48 @@ export default class MaterialHelper {
         }
 
         return material;
+    }
+    static getTransparentTexture(texture, ColorPreserve = {r: 255, g: 247, b: 214, a: 100}, func = function(data, color, i){
+        return data[i] <= color.r
+        && data[i + 1] <= color.g
+        && data[i + 2] <= color.b
+        && data[i + 3] >= color.a;
+    }){
+
+        let canvas = document.createElement('canvas');
+            canvas.width = texture.source.data.width;
+            canvas.height = texture.source.data.height;
+
+        // Get the canvas drawing context, and draw the image to it.
+        let context = canvas.getContext('2d');
+            context.drawImage(texture.source.data, 0, 0, canvas.width, canvas.height);
+
+        let imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+
+        // Create a function for preserving a specified colour.
+        let preserveColor = function(imageData, color) {
+            // Get the pixel data from the source.
+            let data = imageData.data;
+            // Iterate through all the pixels.
+            for (let i = 0; i < data.length; i += 4) {
+                // Check if the current pixel should have preserved transparency. This simply compares whether the color we passed in is equivalent to our pixel data.
+                let preserve = func(data, color, i);
+                // data[i] <= color.r
+                //     && data[i + 1] <= color.g
+                //     && data[i + 2] <= color.b
+                //     && data[i + 3] >= color.a;
+
+                // Either preserve the initial transparency or set the transparency to 0.
+                data[i + 3] = preserve ? data[i + 3] : 0;
+            }
+            return imageData;
+        };
+
+        // Get the new pixel data and set it to the canvas context.
+        let newData = preserveColor(imageData, ColorPreserve);
+        context.putImageData(newData, 0, 0);
+        let textureOut = new CanvasTexture(canvas);
+            textureOut.needsUpdate = true;
+        return textureOut;
     }
 }

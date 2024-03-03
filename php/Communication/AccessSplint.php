@@ -7,6 +7,8 @@ use API\ipapi;
     switch(Communication::getAccess()){
         case "EDIT"                 : DataStorage::edit($_POST["path"], $_POST["content"]); break;
         case "GET"                  : DataStorage::get($_POST["path"]); break;
+        case "REMOVE"               : DataStorage::remove($_POST["path"]); break;
+        case "GET.PATHS"            : DataStorage::getPaths($_POST["path"]); break;
         case "SPLINT.GET_CONFIG"    : Communication::sendBack(SPLINT_CONFIG); break;
         case "SPLINT.GET_VAR"       : Communication::sendBack($GLOBALS); break;
         case "API.IPAPI.EVAL"       : ipapi::eval($_POST["IP"]); break;

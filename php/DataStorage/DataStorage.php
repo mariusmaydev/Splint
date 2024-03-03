@@ -3,6 +3,7 @@
     require_once dirname(__FILE__) . "/../CORE.php";
     require_once dirname(__FILE__) . "/../DataStorage/DataStorageHelper.php";
 
+    use Splint\File\File_DeepScan;
     class DataStorage {
         public static function editAny(string $path, string $content){
             $ext = pathinfo($path, PATHINFO_EXTENSION);
@@ -34,5 +35,34 @@
             $content = file_get_contents(SERVER_ROOT . $res -> rootPath . $path);
             Communication::sendBack($content, true, $print);
             return $content;
+        }
+        public static function remove(string $path, bool $print = true){
+            $res = DataStorageHelper::loadConfig();
+            $pathStorage = SERVER_ROOT . $res -> rootPath . $path;
+            // $response = [];
+            // if(file_exists($pathStorage)){
+            //     $imgNames = File_DeepScan::scanDir($pathStorage);
+            //     foreach(array_values($imgNames)[0] as $name){
+            //         $response[str_replace('.json','', $name)] = DOMAIN . $pathStorage . $name;
+            //     }
+            // }
+            if(file_exists($pathStorage)){
+                unlink($pathStorage);
+            }
+            // Communication::sendBack($response, true, $print);
+            return $pathStorage;
+        }
+        public static function getPaths(string $path, bool $print = true){
+            $res = DataStorageHelper::loadConfig();
+            $pathStorage = SERVER_ROOT . $res -> rootPath . $path;
+            $response = [];
+            if(file_exists($pathStorage)){
+                $imgNames = File_DeepScan::scanDir($pathStorage);
+                foreach(array_values($imgNames)[0] as $name){
+                    $response[str_replace('.json','', $name)] = DOMAIN . $pathStorage . $name;
+                }
+            }
+            Communication::sendBack($response, true, $print);
+            return $pathStorage;
         }
     }

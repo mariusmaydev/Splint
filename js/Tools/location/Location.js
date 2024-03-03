@@ -79,10 +79,20 @@ class nS_Location {
      */  
     static removeParams(...params){
         for(const e of params){
-            let index = this.STORAGE.params.indexOf(e);
-            if(index !== -1){
-                this.STORAGE.params.splice(index, 1);
-            }
+            delete this.STORAGE.params[e];
+            // console.dir(this.STORAGE.params)
+            // if(Array.isArray(e)){
+            //     this.STORAGE.params[e[0]] = e[1];
+            // } else if(typeof e == 'object'){
+            //     let o = Object.entries(e)[0];
+            //     console.log(o)
+            //     this.STORAGE.params[o[0]] = o[1];
+            // }
+            // console.log(e,this.STORAGE.params[e])
+            // let index = this.STORAGE.params[e];
+            // if(index !== -1){
+            //     this.STORAGE.params.splice(index, 1);
+            // }
         }
         return this;
     }
@@ -124,6 +134,7 @@ class nS_Location {
         return response;
     }
     static call(reload = true){
+        console.log(this.STORAGE.params)
         for(const e of Object.entries(this.STORAGE.params)){
             if(!this.href.includes("?")){
                 this.href = this.href + "?";

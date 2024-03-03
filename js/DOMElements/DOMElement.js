@@ -92,8 +92,8 @@ class DOMElement_manager {
       if(this.id != null && document.getElementById(this.id) != null && document.getElementById(this.id).tagName == this.tag.toUpperCase()){
         this.element = document.getElementById(this.id);
       } else {
-        this.oncreate();
         this.element = document.createElement(this.tag);
+        this.oncreate(this);
         if(this.id != null){
           this.element.id = this.id;
         }

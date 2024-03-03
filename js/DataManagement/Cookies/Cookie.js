@@ -49,7 +49,7 @@ class S_Cookie {
         }
     }
     static #sendError(){
-        SPLINT.debugger.warn("Cookies", "Cookies sind nicht aktiviert");
+        SPLINT.debugger.error("Cookies", "Cookies sind nicht aktiviert");
     }
 }
 
