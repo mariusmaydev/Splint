@@ -14,6 +14,11 @@ class Table {
     Class(className){
         this.mainElement.Class(className);
     }
+    update(data){
+        this.mainElement.clear();
+        this.data = data;
+        this.draw();
+    }
     draw(){
         this.listElementMain = new SPLINT.DOMElement(this.id + "listMain", "div", this.mainElement);
         this.listElementMain.Class("ListMain");

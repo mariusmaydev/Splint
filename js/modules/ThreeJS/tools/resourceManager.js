@@ -1,7 +1,6 @@
 import TextureLoader from '../loader/texture.js';
 import { DRACOLoader } from '../loader/DRACOLoader_Modified.js';
 import { GLTFLoader } from '../loader/GLTFLoader_Modified.js';
-// import { RGBELoader } from "@THREE_ROOT_DIR/examples/jsm/loaders/RGBELoader.js";
 import { utils } from './utils.js';
 import SPLINT from 'SPLINT';
 
@@ -60,7 +59,6 @@ export default class S_resourceManager {
         for(const [key, value] of Object.entries(S_resourceManager.dataTextures)){
             this.#addEntryTexture(key, value, "data");
         }
-        console.dir(S_resourceManager)
     }
     static async loadTextureAsync(name, url, type = "normal"){
         if(type == "normal"){
@@ -90,6 +88,7 @@ export default class S_resourceManager {
             obj = S_resourceManager.dataTextures;
         }
         obj[key + "_data"] = value;
+        obj[key + "_path"] = value;
         obj.SPLINT.hideProperty(key + "_data");
         Object.defineProperty(obj, key, {
             get: async function(){

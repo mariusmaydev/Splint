@@ -26,6 +26,16 @@ class S_Button {
     get value(){
         return this._value;
     }
+    set disabled(v){
+        this.setAttribute("disabled", v);
+    }
+    get disabled(){
+        if(this.button.getAttribute("disabled") == "true"){
+            return true;
+        } else {
+            return false;
+        }
+    }
     setTooltip(value, direction){
         this.button.setTooltip(value, direction);
     }

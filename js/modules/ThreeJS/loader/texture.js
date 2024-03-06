@@ -2,7 +2,7 @@ import SPLINT from 'SPLINT';
 // import * as THREE from 'three';
 import { TextureLoader } from "@THREE_ROOT_DIR/src/loaders/TextureLoader.js";
 import { CubeTextureLoader } from "@THREE_ROOT_DIR/src/loaders/CubeTextureLoader.js";
-import { RGBELoader } from "@THREE_ROOT_DIR/examples/jsm/loaders/RGBELoader.js";
+import { RGBELoader } from "./RGBELoader_Modified.js";
 // import TextureLoader from "../../../../"
 
 // const 
@@ -43,19 +43,7 @@ export default class Texture {
 			];
 			return Texture.cubeLoader.loadAsync( urls );
         } else if(type == "data"){
-            // let t1 = new RGBELoader()
-            //         .setPath( '../../../../../../Splint/lib/threeJS/examples/textures/equirectangular/' )
-            //         .load( 'quarry_01_1k.hdr'
-            //         // , function ( texture ) {
-    
-            //         //     texture.mapping = THC.EquirectangularReflectionMapping;
-    
-            //         //     this.scene.background = texture;
-            //         //     this.scene.environment = texture;
-    
-            //         // }.bind(this) 
-            //         );
-                    return Texture.rgbeLoader.loadAsync(SPLINT.config.URIs.project + "/" + uri);
+            return Texture.rgbeLoader.loadAsync(SPLINT.config.URIs.project + "/" + uri);
         }
     }
     static async loadFromRoot(uri, onLoad = function(){}, onProgress = function(){}, onError = function(){}){

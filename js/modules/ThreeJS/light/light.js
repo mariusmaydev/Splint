@@ -17,7 +17,7 @@ export class lightCluster {
     }
 }
 
-class lightList {
+export class lightList {
     constructor(scene, debugg = false, helperSize = 1) {
         this.scene          = scene;
         this.debugg         = debugg;

@@ -30,8 +30,10 @@ class S_popupWindow {
       this.close();
     }.bind(this);
   }
-  Class(className){
-    this.element.Class(className);
+  Class(...classNames){
+    for(const ele of classNames) {
+        this.element.Class(ele);
+    }
   }
   append(element){
     this.content.append(element);

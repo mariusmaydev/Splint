@@ -1,6 +1,7 @@
 
 import { Texture } from "@THREE_ROOT_DIR/src/textures/Texture.js";
 import { CanvasTexture } from "@THREE_ROOT_DIR/src/textures/CanvasTexture.js";
+import TextureCache from "./TextureCache.js";
 
 export default class MaterialHelper {
     static materials = new Object();
@@ -15,6 +16,9 @@ export default class MaterialHelper {
             configurable: false,
             writable: false
         });
+    }
+    static get TextureCache(){
+        return TextureCache;
     }
     static get(name){
         if(this.materials[name] != undefined){
@@ -43,13 +47,57 @@ export default class MaterialHelper {
         let material = materialIn.clone();
         for (const [key, value] of Object.entries(materialIn)) {
 
-            if( value instanceof Texture){
+            if( value instanceof Texture && !material[key].isRenderTargetTexture){
                 material[key] = MaterialHelper.getTexture(materialIn[key]);
                 material[key].needsUpdate = true;
             }
         }
 
         return material;
+    }
+    static setMapOffset(material, x, y){
+        if(material.bumpMap != null){
+            material.bumpMap.offset.x = x;
+            material.bumpMap.offset.y = y;
+        }
+        if(material.map != null){
+            material.map.offset.x = x;
+            material.map.offset.y = y;
+        }
+        if(material.normalMap != null){
+            material.normalMap.offset.x = x;
+            material.normalMap.offset.y = y;
+        }
+        if(material.specularMap != null){
+            material.specularMap.offset.x = x;
+            material.specularMap.offset.y = y;
+        }
+        if(material.displacementMap != null){
+            material.displacementMap.offset.x = x;
+            material.displacementMap.offset.y = y;
+        }
+    }
+    static setMapRepeat(material, x, y){
+        if(material.bumpMap != null){
+            material.bumpMap.repeat.x = x;
+            material.bumpMap.repeat.y = y;
+        }
+        if(material.map != null){
+            material.map.repeat.x = x;
+            material.map.repeat.y = y;
+        }
+        if(material.normalMap != null){
+            material.normalMap.repeat.x = x;
+            material.normalMap.repeat.y = y;
+        }
+        if(material.specularMap != null){
+            material.specularMap.repeat.x = x;
+            material.specularMap.repeat.y = y;
+        }
+        if(material.displacementMap != null){
+            material.displacementMap.repeat.x = x;
+            material.displacementMap.repeat.y = y;
+        }
     }
     static getTransparentTexture(texture, ColorPreserve = {r: 255, g: 247, b: 214, a: 100}, func = function(data, color, i){
         return data[i] <= color.r

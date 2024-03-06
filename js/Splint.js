@@ -22,6 +22,10 @@ class SPLINT {
         SPLINT.getClass("S_DataStorage", "DataStorage");
         return S_DataStorage;
     }
+    static get CacheStorage(){
+        SPLINT.getClass("S_CacheStorage", "CacheStorage");
+        return S_CacheStorage;
+    }
     static get BufferStorage(){
         SPLINT.getClass("S_BufferStorage", "BufferStorage");
         return S_BufferStorage;
@@ -107,7 +111,21 @@ class SPLINT {
         }
       return t;
     }
+    static Worker = class {
+        static get WebWorker(){
+            SPLINT.getClass("S_WebWorker", "WebWorker");
+            return S_WebWorker;
+        }
+        static get SharedWorker(){
+            SPLINT.getClass("S_SharedWorker", "SharedWorker");
+            return S_SharedWorker;
+        }
+    }
     static Tools = class {
+        static get CanvasTools(){
+            SPLINT.getClass("S_CanvasTools", "CanvasTools");
+            return S_CanvasTools;
+        }
         static get Location(){
             SPLINT.getClass("nS_Location", "Location");
             return nS_Location;
@@ -197,6 +215,15 @@ class SPLINT_loaderHelper {
     static v = true;
     static v2 = true;
     static v1 = true;
+    static isFileExcluded(URL_or_FileName){
+        let split = URL_or_FileName.split('/');
+        for(const e of split){
+            if(e[0] == "_"){
+                return true;
+            }
+        }
+        return false;
+    }
     static async loadScript(classPath, sync = false, type = null){
         let obj1 = new Object();
             obj1.resolved = false;
@@ -741,7 +768,9 @@ class Splint_bindJS {
 
             let stack = []
             for(const file of SPLINT.PATH.splint.JS){
-                
+                if(SPLINT_loaderHelper.isFileExcluded(file)){
+                    continue;
+                }
                 if(!file.includes("DOMElements") && !file.includes("Utils") && !file.includes("dataTypes") && !file.includes("DataManagement") && !file.includes("API")){
                     stack.push(SPLINT_loaderHelper.loadScript(file, false));
                 }
@@ -766,6 +795,9 @@ class Splint_bindJS {
         let parts = SPLINT_LOADER.ELEMENTS.scripts;
         for(let i = 0; i < parts.length; i++){
             let val = parts[i].src;
+            if(SPLINT_loaderHelper.isFileExcluded(val)){
+                continue;
+            }
             if(!val.startsWith("@") && !val.startsWith("http") && !val.startsWith("https")){
                 val = '@PROJECT_ROOT' + val;
             }
@@ -773,6 +805,10 @@ class Splint_bindJS {
             if(typeof f == 'object'){
                 SArray.assort(f, "/");
                 for(const e of f){
+                    
+                    if(SPLINT_loaderHelper.isFileExcluded(e)){
+                        continue;
+                    }
                     stack.push(SPLINT.require(e));
                 }
             } else {

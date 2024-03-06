@@ -1,32 +1,19 @@
 
 import TEXTURE from './loader/texture.js';
 import ResourceManager from './tools/resourceManager.js';
-import MaterialsHelper from './materials/MaterialHelper.js';
 import FILE from './loader/file.js';
 import OBJECTS from './objects/objects.js';
 import MOUSEHANDLER from './tools/mouseHandler.js';
 import S_GUI from './tools/GUI.js';
-// import { GLTFLoader } from './loader/GLTFLoader_Modified.js';
-// import { SVGLoader } from '@THREE_MODULES_DIR/loaders/SVGLoader.js';
-// import { DRACOLoader } from './loader/DRACOLoader_Modified.js';
 import { utils } from './tools/utils.js';
-// import { Loader as loader1} from '@THREE_ROOT_DIR/editor/js/Loader.js'
-
-// export * as ANIMATIONS from './animations/animations.js';
 import * as ANIMATIONS from './animations/animations.js';
-// import SVGModelLoader from './loader/svg.js';
 import RAYCASTER from './tools/raycaster.js';
 import './tools/extensions.js';
-import { Texture } from "@THREE_ROOT_DIR/src/textures/Texture.js";
 
-export * as lights from './light/light.js';
+import { lightCluster, lightList } from './light/light.js';
 
 var CONFIG = null;
 var RESOURCES = null;
-
-// const draco = new DRACOLoader();
-// draco.setDecoderPath('../../../../Splint/lib/threeJS/examples/js/libs/draco/gltf/');//lib\threeJS\examples\js\libs\draco\gltf');
-// draco.preload();
 
 
 // Splint\lib\threeJS\examples\js\libs\draco
@@ -62,7 +49,18 @@ export default class SPLINT extends window.SPLINT {
             return CONFIG;
         }
     }
-    static async preloadResources(){
+    static get Utils(){
+        return utils;
+    }
+    static get lights(){
+        return class {
+            static get lightCluster(){
+                return lightCluster;
+            }
+            static get lightList(){
+                return lightList;
+            }
+        }
     }
     static get ResourceManager(){
         return ResourceManager;

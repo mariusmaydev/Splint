@@ -6,6 +6,32 @@ class S_Tparser {
         } 
         return false;
     }
+    static blobToBase64(blob) {
+        return new Promise((resolve, _) => {
+          const reader = new FileReader();
+          reader.onloadend = () => resolve(reader.result);
+          reader.readAsDataURL(blob);
+        });
+    }
+    static getImageAsImageData(url, width, height) {
+        return new Promise(async function(resolve){
+            let canvas = document.createElement('canvas');
+                canvas.width = width;
+                canvas.height = height;
+            let context = canvas.getContext('2d');
+            
+            let imageObj = new Image();
+                imageObj.onload = function() {
+                context.drawImage(imageObj, 0, 0, width, height);
+                imgData = context.getImageData(0,0,width, height);
+                canvas.width = 1;
+                canvas.height = 1;
+            
+                resolve(imgData);
+            };
+            imageObj.src = url;
+        });
+    }
     /**
      * @description converts JSON safely
      * @param {string} string 

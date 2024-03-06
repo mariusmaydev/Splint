@@ -24,7 +24,6 @@ class S_switchButton extends S_Button {
       if(!this.button.state().isActive()){
         this.button.state().setActive();
         this.onactive();
-
       }
     }
     unsetActive(){

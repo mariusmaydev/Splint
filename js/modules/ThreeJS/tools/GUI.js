@@ -1,6 +1,5 @@
 
 import GUI from "@THREE_ROOT_DIR/examples/jsm/libs/lil-gui.module.min.js";
-// import * as THC from "@THREE_ROOT_DIR/src/constants.js";
 
 export default class S_GUI {
     static #INSTANCE = null;

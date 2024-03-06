@@ -84,7 +84,6 @@ class DropDownInput_S {
         }
         for(let i = 0; i < this.dropDown.children.length; i++){
             let ele = document.getElementById(this.dropDown.children[i].id);
-            console.log(ele.textContent ,this.input.value)
             if(ele.textContent ==this.input.value){
                 ele.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
                 console.dir(ele)
@@ -119,6 +118,7 @@ class DropDownInput_S {
                     entry.div.setAttribute("state", "active");
                     this.closeDropDown();
             }.bind(this);
+        return entry;
     }
     removeEntry(name = null, value = null){
         for(let i = 0; i < this.dropDown.children.length; i++){
@@ -131,7 +131,7 @@ class DropDownInput_S {
     }
     set value(v){
         this.onValueChange(v);
-        this.input.value = v;  
+        this.input.value = v;
         this.input.input.dispatchEvent(new Event('input', {bubbles:true}));
         for(let i = 0; i < this.dropDown.children.length; i++){
             let ele = document.getElementById(this.dropDown.children[i].id);
@@ -141,5 +141,8 @@ class DropDownInput_S {
                 ele.setAttribute("state", "passive");
             }
         }
+    }
+    get value(){
+        return this.input.value;
     }
 }

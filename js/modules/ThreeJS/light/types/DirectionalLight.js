@@ -1,10 +1,8 @@
 
 import { DirectionalLight as T_DirectionalLight} from "@THREE_ROOT_DIR/src/lights/DirectionalLight.js";
 import { DirectionalLightHelper } from "@THREE_ROOT_DIR/src/helpers/DirectionalLightHelper.js";
-// import {
-//     DirectionalLight as T_DirectionalLight,
-//     DirectionalLightHelper
-// } from 'three';
+
+
 export default class DirectionalLight extends T_DirectionalLight {
     constructor(color, intensity){
         super(color, intensity);
