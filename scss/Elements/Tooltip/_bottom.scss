@@ -11,7 +11,7 @@
 @mixin draw {
       position: relative;
       &:after {
-        pointer-events: all;
+        pointer-events: none;
         content: attr(data-tooltip-value);
         position: absolute;
         z-index: 10;
@@ -29,7 +29,7 @@
         transition : all ease 0.4s 0s;
       } 
       &:before {
-        pointer-events: all;
+        pointer-events: none;
         content: attr(data-tooltip-value);
         position: absolute;
         z-index: 10;

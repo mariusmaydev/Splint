@@ -1,0 +1,249 @@
+@use '../main.scss' as *;
+@use "../tools/tools" as *;
+
+.S-RangeSliderMain {
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+    &[drawDivider='true']{
+        &::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 0px;
+            background: transparent;
+            border-bottom: 1px solid $color-devider;
+            left: 0;
+            // top: 50%;
+            margin-top: 0.25em;
+            position: relative;
+        }
+        &::before {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 0px;
+            background: transparent;
+            border-top: 1px solid $color-devider;
+            left: 0;
+            // top: 50%;
+            margin-bottom: 0.2em;
+            position: relative;
+        }
+    }
+    > .label {
+        position: relative;
+        width: 100%;
+        display: inline-block;
+        box-sizing: border-box;
+        text-align: left;
+        > span {
+
+        }
+    }
+    > .contentBody {
+        height: 1em;
+        display: flex;
+
+        > .sliderBody {
+            order: 1;
+            height: 100%;
+            > .signBody {
+                position: absolute;
+                background-color: transparent;
+                width: max-content;
+                height: 1rem;
+                transform: translateX(-50%);
+                > div {
+                    position: relative;
+                    height: 100%;
+                    > span {
+                        top: 0;
+                        display: block;
+                        height: 100%;
+                        line-height: 100%;
+                        font-size: 1rem;
+                        vertical-align: middle;
+                    }
+                }
+            }
+            > input[type="range"] {
+                width: 100%;
+                position: relative;
+                font-size: 1em;
+                height: 100%;
+                display: inline-block;
+                outline: none;
+                // align-items: center;
+                -webkit-appearance: none;
+                &::-webkit-slider-runnable-track {
+                    box-sizing: border-box;
+                    // top: 45%;
+                    width: 100%;
+                    // margin-inline: -5%;
+                    height: 0.5em;
+                    // margin-top: 0.25em;
+                    // margin-top: 45%;
+                    // margin-bottom: 45%;
+                    background: $color-primary-Dark;
+                    border: none;
+                    border-radius: 10px;
+                }
+                &::-webkit-slider-thumb {
+                    // z-index: 2;
+                    -webkit-appearance: none;
+                    appearance: none;
+                    border: none;
+                    vertical-align: baseline;
+                    height: 1em;
+                    width: 1em;
+                    border-radius: 10%;
+                    margin-top: -0.25em;
+                    background: white;
+                    
+                    // margin-top: calc(-100% + 0.5em);
+                    box-sizing: border-box;
+                    @include border();
+                }
+                &:focus {
+                    outline: none;
+                }
+                
+                &:focus::-webkit-slider-runnable-track {
+                    background: $color-primary-Dark;
+                }
+            }
+            > datalist {
+                display: none;
+                height: 20rem;
+                margin-top: -23px;
+                background-color: red;
+                color: red;
+                > option {
+                    background-color: red;
+                    color: red;
+                    height: 50px;
+                }
+            }
+        }
+        > .valueOutput {
+            display: none !important;
+            order: 2;
+            height: 1em;
+            &[hidden='true']{
+                display: none;
+            }
+            width: 1.5em;
+            display: inline-block;
+            box-sizing: border-box;
+            text-align: center;
+            > span {
+            }
+        }
+    }
+}
+
+
+// .SliderMain {
+//     position: relative;
+//     padding: 1%;
+//     padding-right: 2%;
+//     background-color: transparent;
+//     &.static {
+//         display: flex;
+//         flex-direction: row;
+//         flex-wrap: wrap;
+//         > span {
+//             position: relative;
+//             flex: 1 1 auto;
+//             width: 100%;
+//         }
+//     }
+
+//     > .ScaleDiv {
+//         flex: 10 0 auto;
+//         position: relative;
+//         // margin-left: auto;
+//         // margin-right: auto;
+//         margin-bottom: 2%;
+//         display: flex;
+//         width: max-content;
+//         align-items: center;
+//         input[type="range"]{
+//             z-index: 2;
+//             position: relative;
+//             height: 100%;
+//             width: 100%;
+//             display: inline-block;
+//             background-color: transparent;
+//             // align-self: center;
+//             -webkit-appearance: none;
+//             margin-top: 5%;
+//             margin-bottom: 5%;
+//             margin-left: 0%;
+//             margin-right: 0%;
+//             &::-webkit-slider-runnable-track {
+//                 width: 100%;
+//                 // margin-inline: -5%;
+//                 height: 0.5em;
+//                 // margin-top: 45%;
+//                 // margin-bottom: 45%;
+//                 background: $color-primary-Dark;
+//                 border: none;
+//                 border-radius: 0%;
+//             }
+//             &::-webkit-slider-thumb {
+//                 z-index: 2;
+//                 -webkit-appearance: none;
+//                 border: none;
+//                 height: 1em;
+//                 width: 1em;
+//                 border-radius: 10%;
+//                 background: white;
+//                 margin-top: -0.25em;
+//                 @include border();
+//             }
+//             &:focus {
+//                 outline: none;
+//             }
+            
+//             &:focus::-webkit-slider-runnable-track {
+//                 background: $color-primary-Dark;
+//             }
+//         }
+//         > div {
+//             position: absolute;
+//             z-index: 1;
+//             width: 100%;
+//             height: 100%;
+//             display: flex;
+//             align-items: center;
+//             justify-content: space-between;
+//             pointer-events: none;
+//             > .HR {
+//                 position: relative;
+//                 border-style: outset;
+//                 border: none;
+//                 border-left: 0.01em solid black;
+//                 // margin: 0;
+//                 height: 40%;
+//                 margin: 0;
+//                 width: 0px;
+//                 pointer-events: none;
+//                 &.long{
+//                     border-left: 0.03em solid black;
+//                     height: 100%;
+//                 }
+//             }
+//         }
+//     }
+
+//     > .Sign {
+//         flex: 1 0 auto;
+//         // @include border();
+//         position: relative;
+//         align-self: center;
+//         height: 1em;
+//         margin: 0;
+//         text-align: center;
+//     }
+// }

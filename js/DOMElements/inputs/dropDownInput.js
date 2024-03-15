@@ -1,5 +1,6 @@
 
 class DropDownInput_S {
+    #value = null;
     constructor(parent, name = "", title = ""){
         this.parent = parent;
         this.name = name;
@@ -84,9 +85,8 @@ class DropDownInput_S {
         }
         for(let i = 0; i < this.dropDown.children.length; i++){
             let ele = document.getElementById(this.dropDown.children[i].id);
-            if(ele.textContent ==this.input.value){
+            if(ele.textContent == this.input.value){
                 ele.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
-                console.dir(ele)
             }
         }
     }
@@ -103,14 +103,13 @@ class DropDownInput_S {
         }
     }
     addEntry(name, value, func = function(){}){
-        let entry = new SPLINT.DOMElement.SpanDiv(this.dropDown, name, value);
+        let entry = new SPLINT.DOMElement.SpanDiv(this.dropDown, name, name);
             entry.div.setAttribute("name", name);
 
             entry.div.setAttribute("value", value);
             func(entry, value);
-            // entry.span.setAttribute("data-value", value);
             entry.div.onclick = function(){
-                this.value = entry.value;              
+                this.value = entry.div.getAttribute("value");          
                     for(let i = 0; i < this.dropDown.children.length; i++){
                         let ele = document.getElementById(this.dropDown.children[i].id);
                             ele.setAttribute("state", "passive");
@@ -131,7 +130,12 @@ class DropDownInput_S {
     }
     set value(v){
         this.onValueChange(v);
-        this.input.value = v;
+        for(const child of this.dropDown.children){
+            if(child.getAttribute("value") == v){
+                this.#value = child.getAttribute("value");
+                this.input.value = child.getAttribute("name");
+            }
+        }
         this.input.input.dispatchEvent(new Event('input', {bubbles:true}));
         for(let i = 0; i < this.dropDown.children.length; i++){
             let ele = document.getElementById(this.dropDown.children[i].id);
@@ -143,6 +147,6 @@ class DropDownInput_S {
         }
     }
     get value(){
-        return this.input.value;
+        return this.#value;
     }
 }

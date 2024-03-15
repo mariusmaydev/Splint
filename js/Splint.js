@@ -121,30 +121,9 @@ class SPLINT {
             return S_SharedWorker;
         }
     }
-    static Tools = class {
-        static get CanvasTools(){
-            SPLINT.getClass("S_CanvasTools", "CanvasTools");
-            return S_CanvasTools;
-        }
-        static get Location(){
-            SPLINT.getClass("nS_Location", "Location");
-            return nS_Location;
-        }
-        static get parse(){
-            return S_Tparser;
-        }
-        static get CursorHandler(){
-            SPLINT.getClass("CursorHandler_S", "cursorHandler");
-            return CursorHandler_S;
-        }
-        static get DateTime(){
-            SPLINT.getClass("S_DateTime", "DateTime");
-            return S_DateTime;
-        }
-        static get ObjectTools(){
-            SPLINT.getClass("S_ObjectTools", "objects");
-            return S_ObjectTools;
-        }
+    static get Tools(){
+        SPLINT.getClass("S_Tools", "tools");
+         return S_Tools;
     }
     static Types = class {
         static get MappedObject(){
@@ -466,6 +445,7 @@ class SPLINT_Loader extends SPLINT_loaderHelper{
     static LOADED_DOCS = [];
     static async start(){
         return new Promise(async function(resolve, reject){
+            this.loadGoogleFonts();
             this.loadGoogleIcons();
             await Promise.all([
                 this.loadJQuery(),
@@ -566,6 +546,19 @@ class SPLINT_Loader extends SPLINT_loaderHelper{
             tag.src = "https://accounts.google.com/gsi/client";
             document.body.appendChild(tag);
             getPromiseFromEvent(tag, "load");
+    }
+    static async loadGoogleFonts(){
+        let link = "https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:wght@100;300;400;500;700;900&family=Teko:wght@300..700&display=swap";
+        // let tag1 = document.createElement('link');
+        //     tag1.rel = "preconnect";
+        //     tag1.href = 'https://fonts.googleapis.com';
+        // document.head.appendChild(tag1);
+        let tag = document.createElement("link");
+            tag.href = link;
+            tag.rel = "stylesheet";
+            tag.async = true;
+            document.head.appendChild(tag);
+        return;
     }
     static async loadGoogleIcons(){
         let link = "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,200&display=block";
@@ -897,4 +890,3 @@ class SPLINT_metaTagProvider {
         });
     }
 }
-

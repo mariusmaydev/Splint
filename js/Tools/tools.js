@@ -1,5 +1,6 @@
 
 class S_Tools {
+    
   static getUniqueID(digits = 10){
     return Math.floor(Math.random() * Date.now()).toString().slice(0, digits - 1);
   }
@@ -26,6 +27,38 @@ class S_Tools {
     }
     return array;
   }
+  
+    static get Fonts(){
+        SPLINT.getClass("S_fonts", "fonts");
+        return S_fonts;
+    }
+    static get CanvasTools(){
+        SPLINT.getClass("S_CanvasTools", "CanvasTools");
+        return S_CanvasTools;
+    }
+    static get Location(){
+        SPLINT.getClass("nS_Location", "Location");
+        return nS_Location;
+    }
+    static get parse(){
+        return S_Tparser;
+    }
+    static get CursorHandler(){
+        SPLINT.getClass("CursorHandler_S", "cursorHandler");
+        return CursorHandler_S;
+    }
+    static get DateTime(){
+        SPLINT.getClass("S_DateTime", "DateTime");
+        return S_DateTime;
+    }
+    static get ObjectTools(){
+        SPLINT.getClass("S_ObjectTools", "objects");
+        return S_ObjectTools;
+    }
+    static get Math(){
+        SPLINT.getClass("S_Math", "math");
+        return S_Math;
+    }
 //   static rgb2hsv (r, g, b) {
 //     let rabs, gabs, babs, rr, gg, bb, h, s, v, diff, diffc, percentRoundFn;
 //     rabs = r / 255;

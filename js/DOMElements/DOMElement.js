@@ -125,6 +125,14 @@ class DOMElement_manager {
         SPLINT.getClass("Slider", "Slider");
         return Slider;
     }
+    static get RangeSlider(){
+        SPLINT.getClass("S_rangeSlider", "rangeSlider");
+        return S_rangeSlider;
+    }
+    static get datalistRangeSlider(){
+        SPLINT.getClass("S_datalistRangeSlider", "datalistRangeSlider");
+        return S_datalistRangeSlider;
+    }
     static get SlideShow(){
         SPLINT.getClass("SlideShow_S", "slideShow");
         return SlideShow_S;
