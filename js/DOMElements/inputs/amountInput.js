@@ -15,6 +15,15 @@ class AmountInput {
     set disabled(v){
         this.mainElement.setAttribute("disabled", v);
     }
+    set value(v){
+        if(v > this.min){
+          this.amount = v;
+          this.amountInput.value = this.amount + this.arg;
+        }
+    }
+    get value(){
+        return this.amount;
+    }
     draw(){
       let button_sub = new SPLINT.DOMElement.Button(this.mainElement, "sub");
           button_sub.bindIcon("remove");

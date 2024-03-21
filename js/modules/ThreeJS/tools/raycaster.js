@@ -1,17 +1,16 @@
 
-import { Raycaster } from "@THREE_ROOT_DIR/src/core/Raycaster.js";
-import { Vector2 } from "@THREE_ROOT_DIR/src/math/Vector2.js";
+import * as THREE from '@THREE';
 import { utils } from './utils.js';
 
 export default class S_raycaster {
     constructor(instance) {
         this.inst = instance;
-        this.raycaster = new Raycaster();
+        this.raycaster = new THREE.Raycaster();
         this.raycaster.params.Points.threshold = 0.1;
         this.objects = [];
         this.scene = this.inst.scene;
         this.mouseDownFlag = false;
-        this.pointer = new Vector2();
+        this.pointer = new THREE.Vector2();
         this.active = true;
         this.doesHover = false;
     }

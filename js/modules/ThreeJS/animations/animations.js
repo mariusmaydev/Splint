@@ -1,5 +1,5 @@
 
-import { Clock } from "@THREE_ROOT_DIR/src/core/Clock.js";
+import { Clock } from "@THREE_SRC/core/Clock.js"//"@THREE_ROOT_DIR/src/core/Clock.js";
 // import { Clock } from "three";
 
 // export default class Animations {

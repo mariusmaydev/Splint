@@ -1,5 +1,6 @@
 
-import GUI from "@THREE_ROOT_DIR/examples/jsm/libs/lil-gui.module.min.js";
+import GUI from "@THREE_ADDONS/libs/lil-gui.module.min.js";
+///examples/jsm/libs/lil-gui.module.min.js";
 
 export default class S_GUI {
     static #INSTANCE = null;
@@ -90,19 +91,4 @@ export default class S_GUI {
         f.close();
         return f;
     }
-    // constructor(newInstance = false){
-    //     if(S_GUI.instance != null && !newInstance){
-    //         return S_GUI.instance.element;
-    //     }
-    //     this.element = new GUI();
-    //     S_GUI.instance = this;
-    //     return this.element;
-    // }
-    // draw(){
-    //     gui.add( stdmat, 'roughness', 0, 1 );
-    //     gui.add( stdmat, 'metalness', 0, 1 );
-    // }
-    // addFolder(name){
-    //     return S_GUI.instance.element.addFolder(name);
-    // }
 }

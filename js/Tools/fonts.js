@@ -1,10 +1,25 @@
 
+        
 class S_fonts {
     static loadedFonts = null;
     static #fontWeights = null;
+    static {
+        // setTimeout(async function(){
+        //     S_fonts.preloadFonts.callFromIdle(1000);
+        // }, 10000)
+        
+    }
     static add(name, path, options = {}){
         let font = new FontFace(name, "url(" + SPLINT.projectRootPath + "fonts/" + path + ")", options);
         document.fonts.add(font);
+    }
+    static async preloadFonts(){
+        document.fonts.ready.then(async function(f){
+            let all = [...f.values()];
+                for(const e of all){
+                    e.load();
+                }
+        })
     }
     static async getLoadedFonts(){
         if(S_fonts.loadedFonts != null){
@@ -86,7 +101,6 @@ class S_fonts {
     }
 
     static async getFontFace(fontName, fontWeight = null){
-        console.dir(document.fonts)
         return new Promise(async function(resolve){
             // if(this.#fontWeights == null){
                 let fontFace = await document.fonts.ready.then(async function(){
@@ -95,7 +109,6 @@ class S_fonts {
                         if(font.family == fontName && font.weight == fontWeight){
                             resolve(font);
                             return font;
-    
                         }
                     }
                     return false;
@@ -105,7 +118,6 @@ class S_fonts {
         }.bind(this))
       }
   static async getFontWeights(fontName){
-    console.dir(document.fonts)
     return new Promise(async function(resolve){
         // if(this.#fontWeights == null){
             this.#fontWeights = await document.fonts.ready.then(async function(){

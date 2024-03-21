@@ -14,10 +14,10 @@
  *  bevelOffset: <float> // how far from text outline does bevel start
  * }
  */
+import * as THREE from '@THREE';
+// import { ExtrudeGeometry } from "@THREE_ROOT_DIR/src/geometries/ExtrudeGeometry.js";
 
-import { ExtrudeGeometry } from "@THREE_ROOT_DIR/src/geometries/ExtrudeGeometry.js";
-
-class TextGeometry extends ExtrudeGeometry {
+class TextGeometry extends THREE.ExtrudeGeometry {
 
 	constructor( text, parameters = {} ) {
 

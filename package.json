@@ -1,37 +1,8 @@
 {
-  "dependencies": {
-    "chart.js": "^4.3.0",
-    "dotenv": "^16.4.2",
-    "express": "^4.18.2",
-    "jquery": "^3.7.0",
-    "stripe": "^14.16.0"
-  },
-  "contributes": {
-    "semanticTokenTypes": [
-      {
-        "id": "SPLINT",
-        "superType": "class",
-        "description": "custom bar type"
-      }
-    ],
-    "semanticTokenModifiers": [
-      {
-        "id": "native",
-        "description": "annotate symbol as native"
-      }
-    ],
-    "semanticTokenScopes": [
-      {
-        "language": "javascript",
-        "scopes": {
-          "property.readonly": [
-            "class"
-          ]
-        }
-      }
-    ]
-  },
   "devDependencies": {
-    "jsdoc-to-markdown": "^8.0.0"
+    "vite": "^5.1.6"
+  },
+  "dependencies": {
+    "three": "^0.162.0"
   }
 }

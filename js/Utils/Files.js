@@ -15,16 +15,20 @@ class S_FileUtils {
      * @param { * } urlToFile
      * @param { * } parm2
      */
-    static doesExist(urlToFile, sync = false) {
-        var xhr = new XMLHttpRequest();
-        xhr.open('HEAD', urlToFile, !sync);
-        xhr.send();
-         
-        if (xhr.status == "404") {
-            return false;
-        } else {
-            return true;
-        }
+    static async doesExist(urlToFile, sync = false) {
+        return new Promise(function(resolve){
+            let xhr = new XMLHttpRequest();
+                xhr.open('HEAD', urlToFile, !sync);
+                xhr.send();
+             
+            if (xhr.status == "404") {
+                resolve(false);
+                return false;
+            } else {
+                resolve(true);
+                return true;
+            }
+        });
     }
     /**
      * desc
@@ -32,7 +36,7 @@ class S_FileUtils {
      * @param { * } uri
      * @param { * } parm2
      */
-    static read(uri, sync = false){
+    static read(uri, sync = false, responseType = ""){
         if(sync){
             // if(!this.doesExist(uri, true)){
             //     return false;
@@ -57,9 +61,11 @@ class S_FileUtils {
                 //     return false;
                 // }
                 let rawFile = new XMLHttpRequest();
+                rawFile.responseType =responseType
                 rawFile.open("GET", uri, true);
                 rawFile.onreadystatechange = function() {
                     if(rawFile.readyState === 4) {
+                        console.dir(rawFile)
                         if(rawFile.status === 200 || rawFile.status == 0){
                             resolve(rawFile.responseText);
                         } else {

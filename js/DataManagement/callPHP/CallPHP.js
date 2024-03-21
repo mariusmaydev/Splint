@@ -12,7 +12,7 @@ class S_CallPHP {
     }
     constructor(url = null, accessKey = null){
         this.url            = url;
-
+        this.referrer       = SPLINT.referrer;
         this.activeCall     = null;
         this.ACCESS_KEY     = accessKey;
         this.method         = "POST";
@@ -46,6 +46,7 @@ class S_CallPHP {
         this.controller.abort();
     }
     sendInSequence(preventMultipleRequests = false){
+        console.dir(this)
         if(preventMultipleRequests){
             if(!this.isPending){
                 this.callbackPromise = new Promise(function(resolve){
@@ -82,6 +83,7 @@ class S_CallPHP {
 
         let obj = new SPLINT.Types.autoObject();
             obj.method                  = this.method;
+            obj.referrer                = this.referrer;
             // obj.mode                    = this.mode;
             obj.cache                   = this.cache;
             obj.credentials             = this.credentials;

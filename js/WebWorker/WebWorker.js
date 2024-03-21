@@ -1,3 +1,4 @@
+// SPLINT.require("@SPLINT_ROOT/WebWorker/WebWorkerManager.js");
 
 class S_WebWorker {
     /**
@@ -8,8 +9,9 @@ class S_WebWorker {
         this.workerSRC      = workerSRC;
         this.options        = null;
         this.initComplete   = false;
-        this.onReceive      = function(){};
-        this.onError        = function(){};
+        this.onReceive      = function(event){};
+        this.onError        = function(event){};
+        this.onInitComplete = function(){};
         this.manager        = null;
         this.name           = null;
         this.singeUse       = singeUse;
@@ -23,9 +25,13 @@ class S_WebWorker {
         }
         this.initComplete = true;
         this.url = await S_WebWorkerManager.getWorker(this.workerSRC)
-
         this.worker = new Worker(this.url, this.options);
         this.worker.onmessage = function(e) {
+            if(e.data.method == "SPLINT-update"){
+                SPLINT.Worker.WorkerHelper.updateSplint(this);
+                console.log("e")
+                return;
+            }
             if(this.resolveCall != null){
                 this.resolveCall(e.data);
             }
@@ -40,6 +46,7 @@ class S_WebWorker {
                 this.terminate();
             }
         }.bind(this);
+        this.onInitComplete();
         if(this.manager != null){
             this.manager.onInitWorker(this);
         }
@@ -67,22 +74,9 @@ class S_WebWorker {
         }.bind(this));
     }
     static get Manager(){
+        if(SPLINT.isWorker){
+            return false
+        }
         return S_WebWorkerManager;
-    }
-}
-
-//Example
-class t12 {
-    static {
-        // onmessage = this.doStuff;
-    }
-    static async doStuff(){
-            function f1() {
-                setTimeout(async function(){
-                    self.postMessage("ok");
-                    f1();
-                }, 4000)
-            }
-            f1();
     }
 }

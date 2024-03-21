@@ -1,17 +1,4 @@
-// import * as THREE from 'three';
-import MaterialHelper from '../MaterialHelper.js';
-// import { S_MATERIAL_LIST } from '../M_materials.js';
-// import { MeshPhysicalMaterial } from "@THREE_ROOT_DIR/src/materials/MeshPhysicalMaterial.js";
-import { MeshPhysicalMaterial } from "@THREE_ROOT_DIR/src/materials/MeshPhysicalMaterial.js";
-import { MeshLambertMaterial } from "@THREE_ROOT_DIR/src/materials/MeshLambertMaterial.js";
-// import {
-//     MeshPhysicalMaterial,
-// } from 'three';
-
-import * as THC from "@THREE_ROOT_DIR/src/constants.js";
-// import MATERIAL_LIST from '../M_materials.js';
-// import M_material from '../M_material.js';
-// import SPLINT from 'SPLINT';
+import * as THREE from "@THREE";
 
 export default class material_chrome {
     static light(color = 0xffffff, envMap = null, map = null){
@@ -41,32 +28,32 @@ export default class material_chrome {
             // }
             if(envMap != null && map != null){
                 // map = SPLINT.resources.textures.lighter_inner_texture;
-                map.wrapS = THC.RepeatWrapping;
-                map.wrapT = THC.RepeatWrapping;
+                map.wrapS = THREE.RepeatWrapping;
+                map.wrapT = THREE.RepeatWrapping;
                 map.flipY = false;
-                map.mapping = THC.EquirectangularReflectionMapping;
+                map.mapping = THREE.EquirectangularReflectionMapping;
                 map.generateMipmaps = true;
-                map.magFilter = THC.LinearFilter;
-                map.minFilter = THC.LinearMipmapLinearFilter;
+                map.magFilter = THREE.LinearFilter;
+                map.minFilter = THREE.LinearMipmapLinearFilter;
                 map.anisotropy = 16;
                 map.premultiplyAlpha = false;
                 map.repeat.set(1, 1);
                 map.needsUpdate = true;
 
-            envMap.wrapS = THC.RepeatWrapping;
-            envMap.wrapT = THC.RepeatWrapping;
+            envMap.wrapS = THREE.RepeatWrapping;
+            envMap.wrapT = THREE.RepeatWrapping;
             // texture.repeat.set(1, 0.6156);
             envMap.flipY = false;
             // envMap.repeat.set(1, 1);          
-            envMap.mapping = THC.EquirectangularReflectionMapping;
+            envMap.mapping = THREE.EquirectangularReflectionMapping;
             envMap.generateMipmaps = true;
-            envMap.magFilter = THC.LinearFilter;
-            envMap.minFilter = THC.LinearMipmapLinearFilter;
+            envMap.magFilter = THREE.LinearFilter;
+            envMap.minFilter = THREE.LinearMipmapLinearFilter;
             envMap.anisotropy = 16;
             envMap.premultiplyAlpha = false;
             envMap.needsUpdate = true;
 
-            material = new MeshLambertMaterial( { color: 0xfff700, envMap: refractionCube, refractionRatio: 0.95 } );
+            material = new THREE.MeshLambertMaterial( { color: 0xfff700, envMap: refractionCube, refractionRatio: 0.95 } );
         // material = new MeshPhysicalMaterial( {
         //     color: color,
         //     map: map,
@@ -76,7 +63,7 @@ export default class material_chrome {
         //     roughness: 0.5, // between 0 and 1
         //     envMap: envMap,
         //     envMapIntensity: 1,
-        //     depthFunc: THC.LessEqualDepth,
+        //     depthFunc: THREE.LessEqualDepth,
         //     depthTest: true,
         //     emissive: 0x000000,
         //     emissiveIntensity: 0.2,
@@ -98,7 +85,7 @@ export default class material_chrome {
         //     } );
         } else {
             
-        material = new MeshPhysicalMaterial( {
+        material = new THREE.MeshPhysicalMaterial( {
             color: color,
             // map: texture,
             // blending: THREE.NormalBlending,
@@ -106,7 +93,7 @@ export default class material_chrome {
             metalness: 0.9,   // between 0 and 1
             roughness: 0.5, // between 0 and 1
             // envMap: envMap,
-            depthFunc: THC.LessEqualDepth,
+            depthFunc: THREE.LessEqualDepth,
             depthTest: true,
             emissive: 0x000000,
             emissiveIntensity: 0.4,

@@ -4,13 +4,21 @@ class SPLINT {
     static computeFlag = false;
     static #config = null;
     static PATH = new Object();
+    static isWorker = false;
+    static referrer = "about:client";
     static async start(){
         console.log("start")
         SPLINT_Loader.start();
     }
     static {
         this.config = new Object();
-        window.SPLINT = SPLINT;
+        self.SPLINT = SPLINT;
+    }
+    static WorkerAccess = class {
+        static get SimpleFetch(){
+            SPLINT.getClass("S_SimpleFetch", "SimpleFetch");
+            return S_SimpleFetch;
+        }
     }
     static get Events(){
         return S_Events;
@@ -22,6 +30,10 @@ class SPLINT {
         SPLINT.getClass("S_DataStorage", "DataStorage");
         return S_DataStorage;
     }
+    static get IndexedDB(){
+        SPLINT.getClass("S_IndexedDB", "indexedDB");
+        return S_IndexedDB;
+    }
     static get CacheStorage(){
         SPLINT.getClass("S_CacheStorage", "CacheStorage");
         return S_CacheStorage;
@@ -32,12 +44,15 @@ class SPLINT {
     }
     static get DOMElement(){
         SPLINT_loaderHelper.v2 = false;
-        // console.trace("a");
         SPLINT.getClass("DOMElement", "DOMElement");
         return DOMElement;
     }
     static get EX(){
         return SPLINT_Experimental;
+    }
+    static get BinaryImage(){
+        SPLINT.getClass("S_BinaryImage", "BinaryImage");
+        return S_BinaryImage;
     }
     static get SessionsPHP(){
         SPLINT.getClass("S_SessionsPHP", "sessions");
@@ -61,6 +76,10 @@ class SPLINT {
         SPLINT.getClass("S_CallPHP", "CallPHP");
         return S_CallPHP;
     }
+    static get SimpleFetch(){
+        SPLINT.getClass("S_SimpleFetch", "SimpleFetch");
+        return S_SimpleFetch;
+    }
     static get FileUpload(){
         SPLINT.getClass("FileUpload_S", "FileUpload");
         return FileUpload_S;
@@ -83,6 +102,15 @@ class SPLINT {
         return S_API;
     }
     static require_now(uri){
+        if(self.SPLINT.isWorker){
+            uri = uri.replace("@SPLINT_ROOT", self.origin + "/Splint/js");
+            uri = uri.replace("@PROJECT_ROOT", self.origin + "/fd/resources/js");
+            try {
+                importScripts(uri);
+            } catch(e) {
+            }
+            return;
+        }
         return SPLINT_loaderHelper.loadScript(uri, true);
     }
     static require(uri, type = null){
@@ -93,7 +121,7 @@ class SPLINT {
             fileName = ClassName;
         }
         let t = class {};
-        if(typeof window[ClassName] == 'undefined'){
+        if(typeof self[ClassName] == 'undefined'){
             for(const index in SPLINT.PATH.splint.JS){
                 let element = SPLINT.PATH.splint.JS[index];
                 let g = element.split("/");
@@ -101,13 +129,13 @@ class SPLINT {
                 if(d == fileName){
                     SPLINT.require_now(element);
                     t = Object.assign(eval(ClassName), {})
-                    window[ClassName] = t;
+                    self[ClassName] = t;
 
                 }
             }
             // console.dir(SPLINT.PATH.splint.JS)
         } else {
-            t = window[ClassName];
+            t = self[ClassName];
         }
       return t;
     }
@@ -119,6 +147,10 @@ class SPLINT {
         static get SharedWorker(){
             SPLINT.getClass("S_SharedWorker", "SharedWorker");
             return S_SharedWorker;
+        }
+        static get WorkerHelper(){
+            SPLINT.getClass("S_WorkerHelper", "WorkerHelper");
+            return S_WorkerHelper;
         }
     }
     static get Tools(){
@@ -204,6 +236,7 @@ class SPLINT_loaderHelper {
         return false;
     }
     static async loadScript(classPath, sync = false, type = null){
+        // if()
         let obj1 = new Object();
             obj1.resolved = false;
             // console.log("b!",classPath.endsWith("Table.js"))
@@ -555,6 +588,7 @@ class SPLINT_Loader extends SPLINT_loaderHelper{
         // document.head.appendChild(tag1);
         let tag = document.createElement("link");
             tag.href = link;
+            tag.title = "Google Fonts";
             tag.rel = "stylesheet";
             tag.async = true;
             document.head.appendChild(tag);
@@ -585,9 +619,12 @@ class SPLINT_Loader extends SPLINT_loaderHelper{
                 "imports": {
                   "SPLINT"                  : SPLINT.rootPath + "/js/modules/ThreeJS/CORE.js",
                   "splint"                  : SPLINT.rootPath + "/js/modules/ThreeJS/CORE.js",
-                  "three"                   : SPLINT.rootPath + "/lib/threeJS/build/three.module.min.js",
-                  "@THREE_ROOT_DIR/"        : SPLINT.rootPath + "/lib/threeJS/",
-                  "@THREE_MODULES_DIR/"     : SPLINT.rootPath + "/lib/threeJS/examples/jsm/",
+                  "three"                   : SPLINT.rootPath + "/node_modules/three/build/three.module.js",
+                  "@THREE_ADDONS/"          : SPLINT.rootPath + "/node_modules/three/examples/jsm/",
+                  "@THREE"                  : SPLINT.rootPath + "/node_modules/three/build/three.module.js",
+                  "@THREE_SRC/"             : SPLINT.rootPath + "/node_modules/three/src/",
+                //   "@THREE_ROOT_DIR/"        : SPLINT.rootPath + "/lib/threeJS/",
+                //   "@THREE_MODULES_DIR/"     : SPLINT.rootPath + "/lib/threeJS/examples/jsm/",
                   "@SPLINT_MODULES_DIR/"    : SPLINT.rootPath + "/js/modules/",
                   "@SPLINT_THREE_DIR/"      : SPLINT.rootPath + "/js/modules/ThreeJS/",
                   "@PROJECT_ROOT/"          : SPLINT.projectRootPath + "js/",

@@ -6,11 +6,27 @@ class S_ObjectFunctions {
             value: instance,
             writable: true,
 
-            configurable : false,
+            configurable : true,
             enumerable: false,
         })
         // this.toMap = this.toMap;
     }
+    pack(){
+        this.instance.SPLINT_pack = new Object();
+        this.instance.SPLINT_pack.name = this.instance.constructor.name
+    }
+    unpack(){
+        if(window[this.instance.SPLINT_pack.name] != undefined){
+            let instanceC = new window[this.instance.SPLINT_pack.name]();
+            Object.setPrototypeOf(this.instance, instanceC.constructor.prototype);   
+        }   
+        delete this.instance.SPLINT_pack;   
+    }
+    // getSrcPath(){
+        
+    //     let err = new Error();
+    //     return err
+    // }
     secureValues(recursive = false){
         for(const e of Object.entries(this.instance)){
             Object.defineProperty(this.instance, e[0], {

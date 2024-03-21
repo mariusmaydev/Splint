@@ -1,10 +1,8 @@
 
-import { FileLoader } from "@THREE_ROOT_DIR/src/loaders/FileLoader.js";
-import { Loader } from "@THREE_ROOT_DIR/src/loaders/Loader.js";
-import { ShapePath } from "@THREE_ROOT_DIR/src/extras/core/ShapePath.js";
 
+import * as THREE from "@THREE";
 
-class FontLoader extends Loader {
+class FontLoader extends THREE.Loader {
 
 	constructor( manager ) {
 
@@ -16,7 +14,7 @@ class FontLoader extends Loader {
 
 		const scope = this;
 
-		const loader = new FileLoader( this.manager );
+		const loader = new THREE.FileLoader( this.manager );
 		loader.setPath( this.path );
 		loader.setRequestHeader( this.requestHeader );
 		loader.setWithCredentials( this.withCredentials );
@@ -114,7 +112,7 @@ function createPath( char, scale, offsetX, offsetY, data ) {
 
 	}
 
-	const path = new ShapePath();
+	const path = new THREE.ShapePath();
 
 	let x, y, cpx, cpy, cpx1, cpy1, cpx2, cpy2;
 

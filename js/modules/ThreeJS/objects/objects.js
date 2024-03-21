@@ -1,8 +1,4 @@
 
-// import {
-//     Raycaster,
-//     Vector2,
-// } from 'three';
 import Plane from './plane.js';
 
 export default class OBJECT {

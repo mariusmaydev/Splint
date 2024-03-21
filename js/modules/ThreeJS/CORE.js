@@ -9,9 +9,10 @@ import { utils } from './tools/utils.js';
 import * as ANIMATIONS from './animations/animations.js';
 import RAYCASTER from './tools/raycaster.js';
 import './tools/extensions.js';
-
+import * as THREE from '@THREE';
+// import SPLINT as splint from "../../Splint.js"
 import { lightCluster, lightList } from './light/light.js';
-
+console.dir(self)
 var CONFIG = null;
 var RESOURCES = null;
 

@@ -1,6 +1,6 @@
 import TextureLoader from '../loader/texture.js';
-import { DRACOLoader } from '../loader/DRACOLoader_Modified.js';
-import { GLTFLoader } from '../loader/GLTFLoader_Modified.js';
+import { GLTFLoader } from '@THREE_ADDONS/loaders/GLTFLoader.js';
+import { DRACOLoader } from '@THREE_ADDONS/loaders/DRACOLoader.js';
 import { utils } from './utils.js';
 import SPLINT from 'SPLINT';
 
@@ -12,7 +12,8 @@ export default class S_resourceManager {
     static models       = null;
     static {
         this.draco = new DRACOLoader();
-        this.draco.setDecoderPath('../../../../../Splint/lib/threeJS/examples/js/libs/draco/gltf/');//lib\threeJS\examples\js\libs\draco\gltf');
+        this.draco.setDecoderPath('../../../../Splint/node_modules/three/examples/jsm/libs/draco/gltf/');//../../../../../Splint/lib/threeJS/examples/js/libs/draco/gltf/');//lib\threeJS\examples\js\libs\draco\gltf');
+        this.draco.setDecoderConfig( { type: 'wasm' } );
         this.draco.preload();
         this.GLTFloader = new GLTFLoader();
         this.GLTFloader.setDRACOLoader(this.draco);

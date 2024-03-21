@@ -8,7 +8,7 @@
             // shmop_close($id);
             // shmop_delete($id);
             
-            $id = shmop_open($ID, "c", 0644, strlen(serialize($data)));
+            $id = @shmop_open($ID, "c", 0644, strlen(serialize($data)));
             
             if ($id != false) {
                 return shmop_write($id, serialize($data), 0);

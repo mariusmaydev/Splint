@@ -9,6 +9,10 @@ class S_Utils {
         SPLINT.getClass("S_Colors", "color");
         return S_Colors;
     }
+    static get idleCallbackManager(){
+        SPLINT.getClass("S_idleCallbackManager", "idleCallbackManager");
+        return S_idleCallbackManager;
+    }
     /**
      * desc
      * @date 2023-06-12

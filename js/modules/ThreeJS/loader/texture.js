@@ -1,31 +1,27 @@
 import SPLINT from 'SPLINT';
-// import * as THREE from 'three';
-import { TextureLoader } from "@THREE_ROOT_DIR/src/loaders/TextureLoader.js";
-import { CubeTextureLoader } from "@THREE_ROOT_DIR/src/loaders/CubeTextureLoader.js";
-import { RGBELoader } from "./RGBELoader_Modified.js";
-// import TextureLoader from "../../../../"
+import * as THREE from '@THREE';
+import { RGBELoader } from '@THREE_ADDONS/loaders/RGBELoader.js';
 
-// const 
 export default class Texture {
     static loader;
     static cubeLoader;
     static rgbeLoader;
     static {
-        Texture.loader = new TextureLoader();
-        Texture.cubeLoader = new CubeTextureLoader();
+        Texture.loader = new THREE.TextureLoader();
+        Texture.cubeLoader = new THREE.CubeTextureLoader();
         Texture.rgbeLoader = new RGBELoader();
     }
     static List(){
         
     }
     static load(uri, onLoad = function(){}, onProgress = function(){}, onError = function(){}){
-        return new TextureLoader().load(uri, onLoad, onProgress, onError);
+        return new THREE.TextureLoader().load(uri, onLoad, onProgress, onError);
     }
     static loadFromProject(uri, onLoad = function(){}, onProgress = function(){}, onError = function(){}){
         if(uri[0] == "/"){
             uri = uri.slice(1);
         }
-        return new TextureLoader().load(SPLINT.config.URIs.project + "/" + uri, onLoad, onProgress, onError);
+        return new THREE.TextureLoader().load(SPLINT.config.URIs.project + "/" + uri, onLoad, onProgress, onError);
     }
     static async loadFromProjectAsync(uri, type = "normal"){
         if(uri[0] == "/"){
@@ -56,6 +52,6 @@ export default class Texture {
         if(uri[0] == "/"){
             uri = uri.slice(1);
         }
-        return new TextureLoader().load(SPLINT.config.URIs.splint + "/" + uri, onLoad, onProgress, onError);
+        return new THREE.TextureLoader().load(SPLINT.config.URIs.splint + "/" + uri, onLoad, onProgress, onError);
     }
 }

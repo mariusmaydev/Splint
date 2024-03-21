@@ -1,12 +1,4 @@
 
-// import { MeshBasicMaterial } from "@THREE_ROOT_DIR/src/materials/MeshBasicMaterial.js";
-// import { Mesh } from "@THREE_ROOT_DIR/src/objects/Mesh.js";
-// import { Group } from "@THREE_ROOT_DIR/src/objects/Group.js";
-// import { LineSegments } from "@THREE_ROOT_DIR/src/objects/LineSegments.js";
-// import { LineBasicMaterial } from "@THREE_ROOT_DIR/src/materials/LineBasicMaterial.js";
-// import { ExtrudeGeometry } from "@THREE_ROOT_DIR/src/geometries/ExtrudeGeometry.js";
-// import { EdgesGeometry } from "@THREE_ROOT_DIR/src/geometries/EdgesGeometry.js";
-// import { SVGLoader } from '@THREE_MODULES_DIR/loaders/SVGLoader.js';
 import {
     SVGLoader,
     EdgesGeometry,
@@ -16,7 +8,7 @@ import {
     Group,
     Mesh,
     MeshBasicMaterial
-} from 'three';
+} from '@THREE';
 
 export default class SVGModelLoader {
     static load(svgData){

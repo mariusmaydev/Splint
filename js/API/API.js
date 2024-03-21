@@ -27,6 +27,9 @@ class S_API {
     static get AutoCompleteAddress(){
         SPLINT.getClass("S_API_autoCompleteAddress", "autocompleteAddress");
         return S_API_autoCompleteAddress;
-
     }
+    // static get WebWorkerAPI(){
+    //     SPLINT.getClass("S_WebWorkerAPI", "WebWorkerAPI");
+    //     return S_WebWorkerAPI;
+    // }
 }

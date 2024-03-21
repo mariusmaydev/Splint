@@ -1,6 +1,6 @@
 // function require(anyPath, name){
 //     return window.Chart;
-// // }
+// }
 // const { Chart } = require("chart.js");
 
 class S_ChartContainer {

@@ -1,7 +1,8 @@
 
-import { Texture } from "@THREE_ROOT_DIR/src/textures/Texture.js";
-import { CanvasTexture } from "@THREE_ROOT_DIR/src/textures/CanvasTexture.js";
+// import { Texture } from "@THREE_ROOT_DIR/src/textures/Texture.js";
+// import { CanvasTexture } from "@THREE_ROOT_DIR/src/textures/CanvasTexture.js";
 import TextureCache from "./TextureCache.js";
+import * as THREE from '@THREE';
 
 export default class MaterialHelper {
     static materials = new Object();
@@ -47,7 +48,7 @@ export default class MaterialHelper {
         let material = materialIn.clone();
         for (const [key, value] of Object.entries(materialIn)) {
 
-            if( value instanceof Texture && !material[key].isRenderTargetTexture){
+            if( value instanceof THREE.Texture && !material[key].isRenderTargetTexture){
                 material[key] = MaterialHelper.getTexture(materialIn[key]);
                 material[key].needsUpdate = true;
             }
@@ -59,6 +60,10 @@ export default class MaterialHelper {
         if(material.bumpMap != null){
             material.bumpMap.offset.x = x;
             material.bumpMap.offset.y = y;
+        }
+        if(material.alphaMap != null){
+            material.alphaMap.offset.x = x;
+            material.alphaMap.offset.y = y;
         }
         if(material.map != null){
             material.map.offset.x = x;
@@ -78,6 +83,10 @@ export default class MaterialHelper {
         }
     }
     static setMapRepeat(material, x, y){
+        if(material.alphaMap != null){
+            material.alphaMap.repeat.x = x;
+            material.alphaMap.repeat.y = y;
+        }
         if(material.bumpMap != null){
             material.bumpMap.repeat.x = x;
             material.bumpMap.repeat.y = y;
@@ -138,7 +147,7 @@ export default class MaterialHelper {
         // Get the new pixel data and set it to the canvas context.
         let newData = preserveColor(imageData, ColorPreserve);
         context.putImageData(newData, 0, 0);
-        let textureOut = new CanvasTexture(canvas);
+        let textureOut = new THREE.CanvasTexture(canvas);
             textureOut.needsUpdate = true;
         return textureOut;
     }

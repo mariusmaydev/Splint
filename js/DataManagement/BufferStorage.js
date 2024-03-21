@@ -1,4 +1,5 @@
 
+
 class S_BufferStorage {
     #KEY;
     #Buffer = [];

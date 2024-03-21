@@ -1,12 +1,10 @@
-
-import { SpotLight as T_SpotLight } from "@THREE_ROOT_DIR/src/lights/SpotLight.js";
-import { SpotLightHelper } from "@THREE_ROOT_DIR/src/helpers/SpotLightHelper.js";
+import * as THREE from "@THREE";
 // import {
     // SpotLight as T_SpotLight,
     // SpotLightHelper
 // } from 'three';
 
-export default class SpotLight extends T_SpotLight {
+export default class SpotLight extends THREE.SpotLight {
     constructor(color, intensity, distance = 0, angle = Math.PI / 3, penumbra = 0, decay = 1){
         super(color, intensity, distance, angle, penumbra, decay);
         this.debugg = false;
@@ -20,7 +18,7 @@ export default class SpotLight extends T_SpotLight {
         }
         if(debugg){
             this.target.updateMatrixWorld();
-            this.helper = new SpotLightHelper(this, this.helper.color);
+            this.helper = new THREE.SpotLightHelper(this, this.helper.color);
 
             this.scene.add(this);
             this.scene.add(this.helper)

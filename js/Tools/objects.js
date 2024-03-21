@@ -40,7 +40,7 @@ class S_ObjectTools {
               }
             str.push((v !== null && typeof v === "object") ?
                 
-                serialize(v, k) :
+                S_ObjectTools.serialize(v, k) :
               encodeURIComponent(k) + "=" + encodeURIComponent(v));
           }
         }

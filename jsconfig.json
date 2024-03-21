@@ -8,13 +8,22 @@
     "baseUrl": "./",
     "paths": {
       "SPLINT": [
-        "js/modules/build/ThreeJS_loader.js"
+        "js/modules/ThreeJS/CORE.js"
       ],
       "splint": [
         "js/modules/build/ThreeJS_loader.js"
       ],
+      "@THREE": [
+        "node_modules/three/build/three.module.js"
+      ],
       "three": [
-        "lib/threeJS/build/three.module.js"
+        "node_modules/three/build/three.module.js"
+      ],
+      "@THREE_SRC/*": [
+        "node_modules/three/src/*"
+      ],
+      "@THREE_ADDONS/*": [
+        "node_modules/three/examples/jsm/*"
       ],
       "threeJS": [
         "lib/threeJS/build/three.module.js"
