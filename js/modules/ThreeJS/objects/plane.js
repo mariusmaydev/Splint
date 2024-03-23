@@ -10,10 +10,10 @@ export default class Plane {
 
         this.planeGeo = new THREE.PlaneGeometry(width, height, wS, hS);
         this.plane = new THREE.Mesh(this.planeGeo);
-        this.plane.material.side = THREE.DoubleSide;
+        this.plane.material.side = THREE.FrontSide;
 
         this.plane.receiveShadow = false;
-        this.plane.material.side = THREE.DoubleSide;
+        this.plane.material.side = THREE.FrontSide;
         this.plane.castShadow = false;
     }
     position(x = 0, y = 0, z = 0){
@@ -34,7 +34,7 @@ export default class Plane {
         this.plane.material = mat;
         this._material = mat;
         this.plane.receiveShadow = false;
-        this.plane.material.side = THREE.DoubleSide;
+        this.plane.material.side = THREE.FrontSide;
         this.plane.castShadow = false;
     }
     setMapOffset(x, y){

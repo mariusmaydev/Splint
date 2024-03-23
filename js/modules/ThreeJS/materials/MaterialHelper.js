@@ -56,6 +56,16 @@ export default class MaterialHelper {
 
         return material;
     }
+    static setMapAttributes(material, obj){
+        for(const value of Object.values(material)){
+            if(value != null && value.isTexture){
+                for(const e of Object.entries(obj)){
+                    value[e[0]] = e[1];
+                }
+                value.needsUpdate = true;
+            }
+        }
+    }
     static setMapOffset(material, x, y){
         if(material.bumpMap != null){
             material.bumpMap.offset.x = x;

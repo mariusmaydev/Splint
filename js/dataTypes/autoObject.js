@@ -16,8 +16,8 @@ class S_ObjectFunctions {
         this.instance.SPLINT_pack.name = this.instance.constructor.name
     }
     unpack(){
-        if(window[this.instance.SPLINT_pack.name] != undefined){
-            let instanceC = new window[this.instance.SPLINT_pack.name]();
+        if(self[this.instance.SPLINT_pack.name] != undefined){
+            let instanceC = new self[this.instance.SPLINT_pack.name]();
             Object.setPrototypeOf(this.instance, instanceC.constructor.prototype);   
         }   
         delete this.instance.SPLINT_pack;   

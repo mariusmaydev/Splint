@@ -25,45 +25,28 @@ export class Mixer {
         this.cancle = false;
     }
     stop(){
+        this.isOneActive = false;
         for(const animation of this.animations){
             if(animation.active){
-                animation.stop();
+                // animation.stop();
+                this.isOneActive = true;
             }
         }
-        this.animations = [];
-        this.activeAnimations = [];
-        this.isOneActive = false;
-        cancelAnimationFrame(this.FrameID);
-        this.cancle = true;
+        // this.animations = [];
+        // this.activeAnimations = [];
+        console.log("stop")
+        // cancelAnimationFrame(this.FrameID);
+        // this.cancle = true;
     }
     add(animation){
         this.animations.push(animation);
     }
-    // forward(animation){
-    //     this.animation          = animation;
-    //     this.animation.forward  = true;
-    //     this.animation.active   = true;
-
-    //     this.animation.onStop = function(){
-    //         this.animation = null;
-    //     }.bind(this);
-
-    //     this.tick();
-    // }
-    // backward(animation){
-    //     this.animation          = animation;
-    //     this.animation.forward  = false;
-    //     this.animation.active   = true;
-
-    //     this.animation.onStop = function(){
-    //         this.animation = null;
-    //     }.bind(this);
-
-    //     this.tick();
-    // }
-    tick(){
+    tick(FrameID = null){
         if(this.cancle){
             return;
+        }
+        if(FrameID != null){
+            this.FrameID = FrameID;
         }
             for(const animation of this.animations){
                 if(animation.active){
@@ -71,20 +54,10 @@ export class Mixer {
                     this.isOneActive = true;
                 }
             }
-            // if(this.activeAnimations.length > 0){
-            //     for(const animation of this.activeAnimations){
-            //         animation.tick();
-            //     }
             if(this.isOneActive){
-                    this.FrameID = requestAnimationFrame(this.instance.animate.bind(this.instance));
+                // this.instance.animate();
             }
-            this.isOneActive = false;
-        // if((Date.now() - this.animationTime) > 5){
-        //     this.animationTime = Date.now();
-        //     // if(this.animation != null){
-        //     //     this.animation.tick();
-        //     //     requestAnimationFrame(this.instance.animate.bind(this.instance));
-        //     // }
+            // this.isOneActive = false;
             
         
     }
@@ -122,6 +95,7 @@ export class Animation {
     stop(name = this.name){
         cancelAnimationFrame(this.mixer.FrameID)
         this.active = false;
+        this.mixer.stop();
         this.onStop(this.progress, name, this.groupe, this.args);
         this.clock.stop();
         // let index = this.mixer.activeAnimations.indexOf(this);
