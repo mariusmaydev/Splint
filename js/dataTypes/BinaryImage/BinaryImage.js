@@ -28,8 +28,7 @@ class S_BinaryImage extends S_BinaryImageLoader {
                 // sFetch.method = "POST";
                 // return sFetch.send();
             let bd = this.getAs_Blob();
-
-            console.dir(this)
+            
             let controller = new AbortController()
             let signal = controller.signal
 
