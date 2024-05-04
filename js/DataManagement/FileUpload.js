@@ -50,6 +50,27 @@ class FileUpload_S {
           }.bind(this);
       $.ajax(ajaxData);
     }
+    static async simpleUpload(accessKey, file, args){
+        
+        let controller = new AbortController()
+        let signal = controller.signal
+
+        let headers = new Object();
+            headers["X-SPLINT-ACCESS_KEY"] =  accessKey;
+            headers["X-SPLINT-DATA"] =  JSON.stringify(args);
+            headers["Content-Type"] =  "application/octet-stream";
+        return await fetch(PATH.php.upload, {
+            method: "POST",
+            headers: headers,
+            body:  file,
+            signal: signal
+        }).then(function(res){
+            controller.abort();
+            return res
+        }).catch(function(re){
+            return re;
+        });
+    }
   }
 
 // class FileUpload_S {

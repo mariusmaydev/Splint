@@ -13,7 +13,7 @@ class nS_Location {
         this.href = v.split("?")[0].split("#")[0];
     }
     static get URL(){
-        return this.href;
+        return this.href.split("?")[0].split("#")[0];
     }
     static set hash(v){
         window.location.hash = v;
@@ -134,7 +134,8 @@ class nS_Location {
         return response;
     }
     static call(reload = true){
-        console.log(this.STORAGE.params)
+        // this.href = this.href.split("#")[0];
+        this.href = this.URL;
         for(const e of Object.entries(this.STORAGE.params)){
             if(!this.href.includes("?")){
                 this.href = this.href + "?";
@@ -145,10 +146,38 @@ class nS_Location {
             }
             this.href = this.href + e[0] + "=" + e[1];
         }
-        this.href = this.href.split("#")[0];
         for(const e of this.STORAGE.hashes){
             this.href = this.href + "#" + e;
         }
+        if(reload){
+            window.location.href = this.href;
+        } else {
+            window.history.pushState(null, null, this.href);
+        }
+    }
+    static callO(reload = true){
+        console.dir(this);
+        this.href = this.href.split("#")[0];
+        for(const e of Object.entries(this.STORAGE.params)){
+            console.dir(e)
+            if(!this.href.includes("?")){
+                this.href = this.href + "?";
+            } else {
+                if(!this.href.endsWith("&")){
+                    this.href = this.href + "&";
+                }
+            }
+            console.dir(this.href)
+            debugger
+            this.href = this.href + e[0] + "=" + e[1];
+            console.dir(this.href)
+            debugger
+        }
+        for(const e of this.STORAGE.hashes){
+            this.href = this.href + "#" + e;
+        }
+        console.dir(this)
+        debugger
         if(reload){
             window.location.href = this.href;
         } else {

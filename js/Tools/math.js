@@ -1,4 +1,11 @@
 class S_Math {
+    static trimDecimals(number, digits){
+        let multiplier = Math.pow(10, digits);
+        let adjustedNum = number * multiplier;
+        let truncatedNum = Math[adjustedNum < 0 ? 'ceil' : 'floor'](adjustedNum);
+    
+        return truncatedNum / multiplier;
+    }
     static roundFX(number, digits = 2, up = true){
         let f = number * (Math.pow(10, digits));
         if(up){
@@ -7,14 +14,26 @@ class S_Math {
             return Math.floor(f) / (Math.pow(10, digits));
         }
     }
-    static multiply(v1, v2){
-      return Math.round(v1 * v2 * 100) / 100;
+    static multiply(v1, v2, autoPrecision = false){
+        let expo = 100;
+        if(autoPrecision){
+            expo = this.#getPrecisionScale(v1, v2);
+        }
+      return Math.round(v1 * v2 * expo) / expo;
     }
-    static divide(v1, v2){
-      return ((v1 * 100) / (v2 * 100));
+    static divide(v1, v2, autoPrecision = false){
+        let expo = 100;
+        if(autoPrecision){
+            expo = this.#getPrecisionScale(v1, v2);
+        }
+      return ((v1 * expo) / (v2 * expo));
     }
-    static add(v1, v2){
-      return Math.round(v1 * 100 + v2 * 100) / 100;
+    static add(v1, v2, autoPrecision = false){
+        let expo = 100;
+        if(autoPrecision){
+            expo = this.#getPrecisionScale(v1, v2);
+        }
+      return Math.round(v1 * expo + v2 * expo) / expo;
     }
     static pytagoras(x, y){
       return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
@@ -53,12 +72,32 @@ class S_Math {
       return index;
     }
     static toDegrees(angle) {
-      return this.multiply(angle, (180 / Math.PI));
+        const ratio = (180 / Math.PI);
+        return this.multiply(angle, ratio);
     }  
     static toRadians(angle) {
-      return this.multiply(angle, (Math.PI / 180));
+        const ratio = (Math.PI / 180);
+        return this.multiply(angle, ratio);
     }
-
+    static countDecimals(number) {
+        if(Math.floor(number) === number){
+            return 0;
+        }
+        return number.toString().split(".")[1].length || 0; 
+    }
+    static getMaxDecimals(...numbers){
+        let res = 0;
+        for(const e of numbers){
+            let n = this.countDecimals(e);
+            if(n > res){
+                res = n;
+            }
+        }
+        return res;
+    }
+    static #getPrecisionScale(...numbers){
+        return Math.pow(10, this.getMaxDecimals(...numbers));
+    }
   }
 
   class MATH_convert {

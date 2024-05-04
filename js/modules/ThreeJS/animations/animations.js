@@ -34,7 +34,6 @@ export class Mixer {
         }
         // this.animations = [];
         // this.activeAnimations = [];
-        console.log("stop")
         // cancelAnimationFrame(this.FrameID);
         // this.cancle = true;
     }
