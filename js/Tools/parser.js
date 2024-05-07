@@ -1,10 +1,39 @@
 
 class S_Tparser {
-    static stringToBool(str){
+    static castTypesRecursive(obj){
+        function cast(e){
+            if(!(e instanceof Object)){
+                return e;
+            }
+            for(const [key, val] of Object.entries(e)){
+                if(isNaN(val)){
+                    let a = SPLINT.Tools.parse.stringToBool(val, true);
+                    if(a != null){
+                        e[key] = a;
+                    } else if(typeof val == 'object'){
+                        e[key] = cast(val);
+                    }
+                } else {
+                    if(val == null){
+                        e[key] = val;
+                    } else {
+                        e[key] = Number(val);
+                    }
+                }
+            }
+            return  e;
+        }
+        return cast(obj);
+    }
+    static stringToBool(str, save = false){
         if(str == true || str == "true"){
             return true;
-        } 
-        return false;
+        } else if(str == false || str == "false"){
+            return false;
+        } else if(!save){
+            return false;
+        }
+        return null;
     }
     static blobToBase64(blob) {
         return new Promise((resolve, _) => {

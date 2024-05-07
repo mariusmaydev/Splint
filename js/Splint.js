@@ -7,7 +7,6 @@ class SPLINT {
     static isWorker = false;
     static referrer = "about:client";
     static async start(){
-        console.log("start")
         SPLINT_Loader.start();
     }
     static {

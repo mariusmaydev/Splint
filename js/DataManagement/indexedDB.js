@@ -1,4 +1,4 @@
-console.dir(SPLINT)
+
 class S_IndexedDB {
     static I =  self.indexedDB || self.mozIndexedDB || self.webkitIndexedDB || self.msIndexedDB || self.shimIndexedDB;
     static DB;

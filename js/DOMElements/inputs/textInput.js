@@ -10,6 +10,14 @@ class TextInputDiv {
       this.oninput = function(){};
       this.draw();
     }
+    #onfocus = function(){};
+    set onFocus(v){
+        this.#onfocus = v;
+        this.textarea.onfocus = v;
+    }
+    get onFocus(){
+        return this.#onfocus; 
+    }
     Class(className){
         this.div.Class(className);
     }
@@ -24,6 +32,8 @@ class TextInputDiv {
       this.label.before();
       this.divider = new SPLINT.DOMElement.HorizontalLine(this.div);
       this.divider.style.visibility = "hidden";
+      
+      this.textarea.onfocus = this.onFocus;
       this.textarea.oninput = function(e){
         this.#SwitchPlaceholder();
         this.oninput(e);

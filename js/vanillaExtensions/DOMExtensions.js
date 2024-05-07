@@ -71,7 +71,79 @@
             }
             return this.#state_c;
         }   
+        set dragAndDrop(obj = {onDrop: function(ev, itemList){}, onDragOver: function(ev){}}){
+            this.instance.SPLINT.dragAndDrop.onDrop = Object.values(obj)[0];
+            this.instance.SPLINT.dragAndDrop.onDragOver = Object.values(obj)[1];
+        }
+        #dragAndDrop_c = null;
+        get dragAndDrop(){
+            let c = class S_DragAndDrop {
+                constructor(instance){    
+                    this.instance       = instance;
+                    this.#init();
+                }
+                #onDrop        = function(ev){}; 
+                #onDragOver    = function(ev){}; 
+                #init(){
+                    this.instance.ondrop = function(ev){
+                        ev.preventDefault();
+                        let itemList = [];
+                        if (ev.dataTransfer.items) {
+                            for(const e of ev.dataTransfer.items) {
+                                if(e.kind === "file"){
+                                    const file = e.getAsFile();
+                                    itemList.push(file);
+                                }
+                            }
+                        } else {
+                            for(const e of ev.dataTransfer.files) {
+                                itemList.push(e);
+                            }
+                        }
+                        this.onDrop(ev, itemList);
+                    }.bind(this);
+                    this.instance.ondragover = function(ev) {
+                        ev.preventDefault();
+                        this.onDragOver(ev);
+                    }.bind(this);
+                }
+                
+                set onDrop(f){
+                    this.#onDrop = f;
+                }
+                get onDrop(){
+                    return this.#onDrop;
+                }
+                set onDragOver(f){
+                    this.#onDragOver = f;
+                }
+                get onDragOver(){
+                    return this.#onDragOver;
+                }
+            }
+            if(this.#dragAndDrop_c == null){
+                this.#dragAndDrop_c = new c(this.instance);
+            }
+            return this.#dragAndDrop_c;
+        }
     }
+        // setTimeout(function(){
+        //     let fframe = document.getElementById("square-border");      
+        //     fframe.SPLINT.dragAndDrop = {
+        //         onDrop: function(ev, itemList){
+        //             for(const e of itemList){
+        //                 SPLINT.FileUpload.direct(e, "CONVERTER_IMG", function(data){
+        //                     ConverterHelper.uploadImage(data);
+        //                 });
+        //             }
+        //         }.bind(this), 
+        //         onDragOver: function(ev){
+
+        //         }
+        //     }
+        // }, 2000
+
+        // )
     
     Object.defineProperty(HTMLElement.prototype, "SPLINT", {
         get: function(){
@@ -331,6 +403,7 @@ HTMLElement.prototype.newChild = function(name, tag, oncreate = function(){}){
     }
   } 
   HTMLElement.prototype.state = function(){
+    this.onStateChange = function(state){}
       this.get = function(){
         if(this.hasAttribute("state")){
           return this.getAttribute("state");
@@ -351,10 +424,12 @@ HTMLElement.prototype.newChild = function(name, tag, oncreate = function(){}){
       this.setActive = function(){
         this.dispatchEvent(SPLINT_EVENTS.onStateChange);
         this.setAttribute("state", "active");
+        this.state().onStateChange("active")
       }
       this.unsetActive = function(){
         this.dispatchEvent(SPLINT_EVENTS.onStateChange);
         this.setAttribute("state", "passive");
+        this.state().onStateChange("passive")
       }
       this.toggle = function(){
         if(this.hasAttribute("state") && this.getAttribute("state") == "active"){

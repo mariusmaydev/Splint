@@ -93,12 +93,12 @@ class S_Button {
     //   this.button.ontouchend = function(e){
     //     this.onclick(e);
     //   }.bind(this);
+        this.span = new SPLINT.DOMElement(this.parent.id + "_span_" + this.name, "span", this.button);
+        this.span.innerHTML = this._value;
       this.button.onclick = function(e){ 
         this.onclick(e); 
       }.bind(this);
       
-        this.span = new SPLINT.DOMElement(this.parent.id + "_span_" + this.name, "span", this.button);
-        this.span.innerHTML = this._value;
     }
     bindDropdown(func){
       this.dropdownDiv = new SPLINT.DOMElement(this.parent.id + "_button_" + this.name + "_dropdown", "div", this.button);

@@ -24,6 +24,15 @@ export class Mixer {
         this.tickIndex = 0;
         this.cancle = false;
     }
+    checkActive(){
+        this.isOneActive = false;
+        for(const animation of this.animations){
+            if(animation.active){
+                // animation.stop();
+                this.isOneActive = true;
+            }
+        }
+    }
     stop(){
         this.isOneActive = false;
         for(const animation of this.animations){
@@ -54,6 +63,8 @@ export class Mixer {
                 }
             }
             if(this.isOneActive){
+                // this.checkActive();
+                // console.dir(this.animations)
                 // this.instance.animate();
             }
             // this.isOneActive = false;

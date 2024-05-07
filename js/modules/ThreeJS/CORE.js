@@ -9,10 +9,10 @@ import { utils } from './tools/utils.js';
 import * as ANIMATIONS from './animations/animations.js';
 import RAYCASTER from './tools/raycaster.js';
 import './tools/extensions.js';
-import * as THREE from '@THREE';
+// import * as THREE from '@THREE';
 // import SPLINT as splint from "../../Splint.js"
 import { lightCluster, lightList } from './light/light.js';
-console.dir(self)
+
 var CONFIG = null;
 var RESOURCES = null;
 
@@ -33,6 +33,9 @@ export default class SPLINT extends window.SPLINT {
         }
         if(window.SPLINT.threeJS.materials == undefined){
             window.SPLINT.threeJS.materials = new Object();
+        }
+        if(window.SPLINT.threeJS.scenes == undefined){
+            window.SPLINT.threeJS.scenes = [];
         }
     }
     static R_promise = null;

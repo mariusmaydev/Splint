@@ -202,6 +202,12 @@ class S_rangeSlider {
         this.inputElement.onmousedown = function(){
             this.oninputStart(this.value);
         }.bind(this);
+        this.inputElement.ontouchend = function(){
+            this.oninputFinished(this.value);
+        }.bind(this);
+        this.inputElement.ontouchstart = function(){
+            this.oninputStart(this.value);
+        }.bind(this);
     }
     get(){
       return this.element;

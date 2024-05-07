@@ -45,7 +45,7 @@
       ]
     }
   },
-  "include": ["js/**/*", "C:/xampp/htdocs/Splint/node_modules/chart.js/dist/chart.cjs", "../node_modules/@paypal/paypal-js/dist/**/*", "lib/imageTracerJS/**/*"],
+  "include": ["js/**/*", "C:/xampp/htdocs/Splint/node_modules/chart.js/dist/chart.cjs", "../node_modules/@paypal/paypal-js/dist/**/*", "lib/imageTracerJS/**/*", "C:/xampp/htdocs/Splint/lib/dependencies/**/*"],
     "typeAcquisition": {
         "enable": true,
         "include": [
