@@ -1,16 +1,50 @@
 <?php
 
     
-    $servername             = SPLINT_CONFIG -> dataBase -> hostname;
-    $user                   = SPLINT_CONFIG -> dataBase -> userName;
-    $pw                     = SPLINT_CONFIG -> dataBase -> password;
+    // $servername             = SPLINT_CONFIG -> dataBase -> hostname;
+    // $user                   = SPLINT_CONFIG -> dataBase -> userName;
+    // $pw                     = SPLINT_CONFIG -> dataBase -> password;
 
     class DataBaseHelper {
+        public static function getConfig($DBName = null) : stdClass{
+            $config = null;
+            if(!defined('SPLINT_DATABASE_CONFIG')){
+                $config = json_decode(file_get_contents($_SERVER["DOCUMENT_ROOT"] ."/" . PROJECT_NAME. "/Splint/splint.config/config.dataBase.json"), true);
+                define('SPLINT_DATABASE_CONFIG', $config);
+            } else {
+                $config = SPLINT_DATABASE_CONFIG;
+            }
+            $res = new stdClass();
+            $res -> autoCreateDataBase  = $config["autoCreateDataBase"];
+            $res -> server      = (object) $config["server"];
+            if($DBName == null) {
+                $res -> userName      = $res -> server -> userNameGeneral;
+                $res -> tables        = [];
+            } else {
+                $db = $config["dataBases"][$DBName];
+                if($db["userName"] == null || $db["userName"] == ""){
+                    $res -> userName      = $res -> server -> userNameGeneral;
+                } else {
+                    $res -> userName      = $db["userName"];
+                }
+                if($db["dbName"] == null || $db["dbName"] == ""){
+                    $res -> dataBaseID      = $DBName;
+                } else {
+                    $res -> dataBaseID      = $db["dbName"];
+                }
+                $res -> tables        = $db["tables"];
+            }          
+            return $res;
+        }
       public static function connectToServer($DBName = null){
-          global $servername;
-          global $user;
-          global $pw;
-          $con = new mysqli($servername, $user, $pw, $DBName);
+
+            $cfg = self::getConfig($DBName);
+            $user       = $cfg -> userName;
+            $pw         = $cfg -> server -> password;
+            $servername = $cfg -> server -> hostname;
+            $dataBaseID = $cfg -> dataBaseID;
+
+          $con = new mysqli($servername, $user, $pw, $dataBaseID);
           if($con -> connect_error){
               return false;
           } else {
@@ -18,6 +52,10 @@
           }
       }
       public static function createDBifNotExist($DBName, $con){
+        if(!(DataBase::getConfig() -> autoCreateDataBase)){
+            $res = $con -> select_db($DBName); 
+            return $res; 
+        }
           $sql = "CREATE DATABASE IF NOT EXISTS $DBName";
           if ($con -> query($sql)) {
               $con -> select_db($DBName); 
@@ -50,7 +88,6 @@
             }
         }
       }
-
     }
 
 

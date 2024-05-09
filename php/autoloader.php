@@ -8,19 +8,40 @@ use Splint\File\File_DeepScan;
 spl_autoload_register(function($className) {
 	$file = dirname(__DIR__) . '\\php' ;
 	$file = str_replace('\\', DIRECTORY_SEPARATOR, $file);
-    // Debugger::log($file);
-    $f = S_shmop::read("SplintAutoloaderMap");
-    if($f == null || true){
+
+    $path = $_SERVER["DOCUMENT_ROOT"] . '/Splint/SplintManager/cache/AutoLoaderMap.txt';
+    $f = file_get_contents($path);
+    if($f == false || true){
         $f = File_DeepScan::scanDir($file);
-        S_shmop::write("SplintAutoloaderMap", $f);
+        file_put_contents($path, serialize($f));
+    } else {
+        $f = unserialize($f);
     }
     if(!File_DeepScan::search($f, $className)){
         $f = File_DeepScan::scanDir($file);
-        S_shmop::write("SplintAutoloaderMap", $f);
+        file_put_contents($path, serialize($f));
         File_DeepScan::search($f, $className);
     }
     return;
 });
+
+
+// spl_autoload_register(function($className) {
+// 	$file = dirname(__DIR__) . '\\php' ;
+// 	$file = str_replace('\\', DIRECTORY_SEPARATOR, $file);
+//     // Debugger::log($file);
+//     $f = S_shmop::read("SplintAutoloaderMap");
+//     if($f == null || true){
+//         $f = File_DeepScan::scanDir($file);
+//         S_shmop::write("SplintAutoloaderMap", $f);
+//     }
+//     if(!File_DeepScan::search($f, $className)){
+//         $f = File_DeepScan::scanDir($file);
+//         S_shmop::write("SplintAutoloaderMap", $f);
+//         File_DeepScan::search($f, $className);
+//     }
+//     return;
+// });
 
 // function search(array $fileMap, string $className){
 //     foreach($fileMap as $key => $value){

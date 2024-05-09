@@ -20,22 +20,14 @@
          */
         public static function getAccess() : null|string {
             $headers = getallheaders();
-            if(isset($headers['X-SPLINT-ACCESS_KEY'])){
-                return $headers['X-SPLINT-ACCESS_KEY'];
+            if(isset($headers['Splint-Access-Key'])){
+                return $headers['Splint-Access-Key'];
+
             } else if(isset($_POST['METHOD'])){
                 return $_POST['METHOD'];
+
             } else {
                 return null;
             }
         }
     }
-    // function utf8ize($d) {
-    //     if (is_array($d)) {
-    //         foreach ($d as $k => $v) {
-    //             $d[$k] = utf8ize($v);
-    //         }
-    //     } else if (is_string ($d)) {
-    //         return mb_convert_encoding($d, 'UTF-8', 'UTF-8');
-    //     }
-    //     return $d;
-    // }

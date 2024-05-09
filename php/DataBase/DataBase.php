@@ -9,13 +9,21 @@
         use tDBFunctions;
         const SQL_NEW = "NEW";
         const SQL_EDIT = "EDIT";
-      const FORCE_ORDERED       = "FORCE_ORDERED";
-      const DENY_ORDERED        = "DENY_ORDERED";
+        const FORCE_ORDERED       = "FORCE_ORDERED";
+        const DENY_ORDERED        = "DENY_ORDERED";
 
 
 
       protected static function accessDB($DBName, $sql){
-          $con = self::connectToServer();
+          $con = self::connectToServer($DBName);
+          if(!$con){
+            Debugger::error(mysqli_connect_error());
+            Debugger::log($DBName);
+            Debugger::log($sql);
+            Debugger::log(SPLINT_DATABASE_CONFIG);  
+            Communication::sendBack([$DBName, $sql, SPLINT_DATABASE_CONFIG]);
+            die();
+          }
           self::createDBifNotExist($DBName, $con);
           $con -> query($sql);
           return $con;

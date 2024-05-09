@@ -1,44 +1,57 @@
   
     class SPLINT_DOMextensions {
+        #instance = null;
         constructor(instance){
-            this.instance = instance;
+            this.#instance = instance;
+            console.dir(this)
         } 
         #state_c = null;
+        #onResize = null;
+        get onResize(){
+            return this.#onResize;
+        }
+        set onResize(func = function(){}){
+            this.#onResize = func;
+            let observer = new ResizeObserver(function(entry){
+                this.#onResize(entry);
+            }.bind(this));
+                observer.observe(this.#instance);
+        }
         get state(){
             let c = class {
                 constructor(instance){
-                    this.instance = instance;
+                    this.#instance = instance;
                 }
                 #func_onActive = function(){};
                 #func_onPassive = function(){};
                 #func_onToggle = function(){};
                 get(){
-                    if(this.instance.getAttribute("s-state") == "active"){
+                    if(this.#instance.getAttribute("s-state") == "active"){
                         return "active";
                     } else {
                         return "passive";
                     }
                 }
                 remove(){
-                    if(this.instance.getAttribute("s-state") != null){
-                        this.instance.removeAttribute("s-state");
+                    if(this.#instance.getAttribute("s-state") != null){
+                        this.#instance.removeAttribute("s-state");
                     }
                 }
                 toggle(){
-                    if(this.instance.getAttribute("s-state") == "active"){
+                    if(this.#instance.getAttribute("s-state") == "active"){
                         this.setPassive();
                     } else {
                         this.setActive();
                     }
                 }
                 setActive(){
-                    this.instance.setAttribute("s-state", "active");
-                    this.instance.state = "active";
+                    this.#instance.setAttribute("s-state", "active");
+                    this.#instance.state = "active";
                     this.#onToggle("e", "active")
                 }
                 setPassive(){
-                    this.instance.setAttribute("s-state", "passive");
-                    this.instance.state = "passive";
+                    this.#instance.setAttribute("s-state", "passive");
+                    this.#instance.state = "passive";
                     this.#onToggle("e", "passive")
                 }
                 #onToggle(e, state){
@@ -63,29 +76,30 @@
                 }
                 set onToggle(func){
                     this.#func_onToggle = func;
-                    // this.instance.S_NonStateChange = this.#onToggle.bind(this);
+                    // this.#instance.S_NonStateChange = this.#onToggle.bind(this);
                 }
             }
             if(this.#state_c == null){
-                this.#state_c = new c(this.instance);
+                this.#state_c = new c(this.#instance);
             }
             return this.#state_c;
         }   
         set dragAndDrop(obj = {onDrop: function(ev, itemList){}, onDragOver: function(ev){}}){
-            this.instance.SPLINT.dragAndDrop.onDrop = Object.values(obj)[0];
-            this.instance.SPLINT.dragAndDrop.onDragOver = Object.values(obj)[1];
+            this.#instance.SPLINT.dragAndDrop.onDrop = Object.values(obj)[0];
+            this.#instance.SPLINT.dragAndDrop.onDragOver = Object.values(obj)[1];
         }
         #dragAndDrop_c = null;
         get dragAndDrop(){
             let c = class S_DragAndDrop {
+                #instance;
                 constructor(instance){    
-                    this.instance       = instance;
+                    this.#instance       = instance;
                     this.#init();
                 }
                 #onDrop        = function(ev){}; 
                 #onDragOver    = function(ev){}; 
                 #init(){
-                    this.instance.ondrop = function(ev){
+                    this.#instance.ondrop = function(ev){
                         ev.preventDefault();
                         let itemList = [];
                         if (ev.dataTransfer.items) {
@@ -102,7 +116,7 @@
                         }
                         this.onDrop(ev, itemList);
                     }.bind(this);
-                    this.instance.ondragover = function(ev) {
+                    this.#instance.ondragover = function(ev) {
                         ev.preventDefault();
                         this.onDragOver(ev);
                     }.bind(this);
@@ -122,7 +136,7 @@
                 }
             }
             if(this.#dragAndDrop_c == null){
-                this.#dragAndDrop_c = new c(this.instance);
+                this.#dragAndDrop_c = new c(this.#instance);
             }
             return this.#dragAndDrop_c;
         }

@@ -1,5 +1,6 @@
 <?php
     header('Content-Type: application/json');
+    
     if(!defined('PROJECT_NAME')){
         define('PROJECT_NAME', $_GET['projectName']);
     }
@@ -16,7 +17,7 @@
             return $_SERVER;
         }
         public static function SplintROOT(bool $slashLeft = false){
-            $path = str_replace(self::SlashLeft($_SERVER["CONTEXT_DOCUMENT_ROOT"]), "", SPLINT_MAIN_DIR);
+            $path = str_replace(self::SlashLeft($_SERVER["DOCUMENT_ROOT"]), "", SPLINT_MAIN_DIR);
             if(!$slashLeft){
                 return self::SlashRight(Path_1::cut($path, 1, true));
             }
@@ -90,7 +91,7 @@
                 
                 $ext = pathinfo($path, PATHINFO_EXTENSION);
                 if($ext == "js"){
-                    if(!str_contains($path, "\modules\\")){
+                    if(!str_contains($path, "\modules\\") && !str_contains($path, "/modules/")){
                         array_push($this -> obj -> JS, Path_1::getURL(SPLINT_ROOT, str_replace(SERVER_ROOT . SPLINT_ROOT_ABS, '', $path)));
                     }
                 } else if($ext == "css"){

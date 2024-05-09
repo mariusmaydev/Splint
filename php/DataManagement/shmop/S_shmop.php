@@ -3,6 +3,7 @@
     class S_shmop {
         public static $keys = [];
         public static function write(string $name, mixed $data) : bool {
+            return false;
             $ID = self::getName($name);
             // $id = @shmop_open($ID, "c", 0644, 0);
             // shmop_close($id);
@@ -16,6 +17,7 @@
             return false;
         }
         public static function read(string $name) : mixed {
+            return null;
             $ID = self::getName($name);
                 $id = @shmop_open($ID, "a", 0, 0);
                 if ($id) {

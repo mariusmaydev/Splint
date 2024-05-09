@@ -160,7 +160,7 @@ class S_PaypalButtons {
         await SPLINT.API.Paypal.load();
         let button = new SPLINT.DOMElement("paypal-button-container", "div", parent);
             // let input = new SPLINT.DOMElement("paypal-button-container-input", "input", )
-        let orderObject = await (S_API_Paypal.Object.preparePaypal());
+        // let orderObject = await (S_API_Paypal.Object.preparePaypal());
     
         let funding = null;
         if(paymentType == "PAYPAL"){

@@ -16,10 +16,10 @@ class S_CallPHP {
         this.activeCall     = null;
         this.ACCESS_KEY     = accessKey;
         this.method         = "POST";
-        this.mode           = "no-cors";
+        this.mode           = "cors";
         this.cache          = "force-cache";
         this.processData    = true;
-        this.withCredentials = true;
+        this.withCredentials = false;
         this.credentials    = "same-origin";
         this.redirect       = "follow";
         this.referrerPolicy = "no-referrer";
@@ -32,7 +32,9 @@ class S_CallPHP {
         // this.headers["accept"] = "application/json; charset=utf-8";
         // this.headers["content-encoding"] = "application/json; charset=utf-8";
         this.headers["Content-Type"] = 'application/x-www-form-urlencoded; charset=UTF-8';
-        this.headers["Access-Control-Allow-Origin"] = '*';
+        // this.headers["Access-Control-Allow-Origin"] = '*';
+        // this.headers["Access-Control-Request-Headers"] = '*';
+        // this.headers["Access-Control-Allow-Test"] = 'ABV';
         this.onBeforeSend   = function(){};
         this.onError        = function(){};
         this.onSuccess      = function(){};
@@ -63,7 +65,10 @@ class S_CallPHP {
         }
         return this.callbackPromise;
     }
-    async send(disableProjectIDparam = false){
+    async send(disableProjectIDparam = null){
+        if(disableProjectIDparam != null){
+            debugger;
+        }
         if(this.isPending){
             return this.activeCall;
         }
@@ -76,14 +81,14 @@ class S_CallPHP {
             return;
         }
         if(!disableProjectIDparam){
-            this.url += "?" + SPLINT.PROJECT_NAME;
+            this.url += "?" + this.ACCESS_KEY;
         }
-        this.headers["X-SPLINT-ACCESS_KEY"] =  this.ACCESS_KEY;
+        this.headers["Splint-Access-Key"] =  (this.ACCESS_KEY);
 
         let obj = new SPLINT.Types.autoObject();
             obj.method                  = this.method;
             obj.referrer                = this.referrer;
-            // obj.mode                    = this.mode;
+            obj.mode                    = this.mode;
             obj.cache                   = this.cache;
             obj.credentials             = this.credentials;
             obj.headers                 = this.headers;

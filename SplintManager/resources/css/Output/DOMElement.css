@@ -1013,7 +1013,7 @@
   background-color: rgba(255, 255, 255, 0.8509803922);
 }
 
-.subWindow_MAIN .content {
+.subWindow_MAIN > .content {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 3px, rgba(0, 0, 0, 0.11) 0px 0px 3px;
   border-radius: 5px 5px;
   background-color: white;
@@ -1037,7 +1037,7 @@
   transform: translate(-50%, -50%);
 }
 
-.subWindow_MAIN .content > button.button_close {
+.subWindow_MAIN > .content > button.button_close {
   position: absolute;
   right: 0.5em;
   z-index: 3;
@@ -2907,7 +2907,7 @@ s-input > .response > span {
   background-color: rgba(255, 255, 255, 0.8509803922);
 }
 
-.subWindow_MAIN .content {
+.subWindow_MAIN > .content {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 3px, rgba(0, 0, 0, 0.11) 0px 0px 3px;
   border-radius: 5px 5px;
   background-color: white;
@@ -2931,7 +2931,7 @@ s-input > .response > span {
   transform: translate(-50%, -50%);
 }
 
-.subWindow_MAIN .content > button.button_close {
+.subWindow_MAIN > .content > button.button_close {
   position: absolute;
   right: 0.5em;
   z-index: 3;
@@ -4944,7 +4944,7 @@ body > .ManagerMenuPage > .TableMain > .ListMain > .ListElement > button > span 
   background-color: rgba(255, 255, 255, 0.8509803922);
 }
 
-.subWindow_MAIN .content {
+.subWindow_MAIN > .content {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 3px, rgba(0, 0, 0, 0.11) 0px 0px 3px;
   border-radius: 5px 5px;
   background-color: white;
@@ -4968,7 +4968,7 @@ body > .ManagerMenuPage > .TableMain > .ListMain > .ListElement > button > span 
   transform: translate(-50%, -50%);
 }
 
-.subWindow_MAIN .content > button.button_close {
+.subWindow_MAIN > .content > button.button_close {
   position: absolute;
   right: 0.5em;
   z-index: 3;
@@ -6838,7 +6838,7 @@ s-input > .response > span {
   background-color: rgba(255, 255, 255, 0.8509803922);
 }
 
-.subWindow_MAIN .content {
+.subWindow_MAIN > .content {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 3px, rgba(0, 0, 0, 0.11) 0px 0px 3px;
   border-radius: 5px 5px;
   background-color: white;
@@ -6862,7 +6862,7 @@ s-input > .response > span {
   transform: translate(-50%, -50%);
 }
 
-.subWindow_MAIN .content > button.button_close {
+.subWindow_MAIN > .content > button.button_close {
   position: absolute;
   right: 0.5em;
   z-index: 3;

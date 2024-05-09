@@ -7,15 +7,15 @@ use Splint;
     class File_DeepScan {
         public static $allFiles = [];
         public static function test(){
-            $file = '/fd/data\\3Dmodels\\Lighter' ;
+            $file = '/fd/data//3Dmodels//Lighter' ;
             $file1 = realpath($_SERVER["DOCUMENT_ROOT"] . $file);
             // error_log()
             $k = self::scanDir($file1);
             $g = File_DeepScan::searchFilesWithExtensions($k, "png", "glb");
-            // \Debugger::log($g -> get(PathObjectTypes::FILE_NAME_TO_PATH));
+            // /Debugger::log($g -> get(PathObjectTypes::FILE_NAME_TO_PATH));
             // Debugger::log(pathinfo($k));
-            // $file = str_replace('\\', DIRECTORY_SEPARATOR, $file);
-            // data\3Dmodels\Lighter
+            // $file = str_replace('//', DIRECTORY_SEPARATOR, $file);
+            // data/3Dmodels/Lighter
             return $g;
         }
         public static function scanDir(string $dir = __DIR__) : string|array {
@@ -33,8 +33,8 @@ use Splint;
           
             $directories = array_values(array_diff(scandir($dir), ['.', '..']));
             foreach($directories as $directory){
-                if(is_dir("$dir\\$directory")){
-                    foreach(self::p_scanDir("$dir\\$directory") as $key => $value) self::$allFiles[$key] = $value;
+                if(is_dir("$dir//$directory")){
+                    foreach(self::p_scanDir("$dir//$directory") as $key => $value) self::$allFiles[$key] = $value;
                 } else{
                     self::$allFiles[$dir][] = "$directory";
                 }
@@ -46,9 +46,9 @@ use Splint;
             foreach($fileMap as $key => $value){
                 foreach ($value as $name) {
                     if(in_array(pathinfo($name)["extension"], $ext)){
-                        $path = $key . '\\'. $name;
+                        $path = $key . '//'. $name;
                         $t -> push($path);
-                        // $res = pathinfo(str_replace('\\\\', '\\', $path));
+                        // $res = pathinfo(str_replace('////', '//', $path));
                         // $res["path"] = $path;
 
                         // array_push($t, $res);
@@ -61,9 +61,9 @@ use Splint;
             foreach($fileMap as $key => $value){
                 foreach ($value as $name) {
                     if($name == $fileName){
-                        $path = $key . '\\'. $name;
-                        // include_once str_replace('\\\\', '\\', $path);
-                        return str_replace('\\\\', '\\', $path);
+                        $path = $key . '//'. $name;
+                        // include_once str_replace('////', '//', $path);
+                        return str_replace('////', '//', $path);
                     }
                 }
             }
@@ -73,8 +73,8 @@ use Splint;
             foreach($fileMap as $key => $value){
                 foreach ($value as $fileName) {
                     if($fileName == $className . '.php'){
-                        $path = $key . '\\'. $fileName;
-                        include_once str_replace('\\\\', '\\', $path);
+                        $path = $key . '//'. $fileName;
+                        include_once str_replace('////', '//', $path);
                         return true;
                     }
                 }

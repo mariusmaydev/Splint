@@ -30,6 +30,9 @@ class S_BinaryImageLoader {
     }
     static async fromURL(url){
         let response = await fetch(url);
+        if(!response.ok){
+            return false;
+        } 
         let data = await response.arrayBuffer();
         let b = new Uint16Array(data);
         return await SPLINT.BinaryImage.fromUint16Array(b)

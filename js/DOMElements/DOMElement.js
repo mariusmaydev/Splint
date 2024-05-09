@@ -105,6 +105,10 @@ class DOMElement_manager {
     static get SVG(){
       return S_SVGElement;
     }
+    static get ImageSlideMenu(){
+        SPLINT.getClass("S_ImageSlideMenu", "ImageSlideMenu");
+        return S_ImageSlideMenu;
+    }
     static get Button(){
         SPLINT.getClass("S_Button", "button");
         return S_Button;

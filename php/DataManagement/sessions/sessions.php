@@ -1,4 +1,5 @@
 <?php
+    // header('Access-Control-Allow-Origin: *');
     require_once dirname(__FILE__) . "/../../CORE.php";
     ini_set('display_errors','On');
 
