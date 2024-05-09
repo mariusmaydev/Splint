@@ -46,7 +46,6 @@ class S_CallPHP {
         this.controller.abort();
     }
     sendInSequence(preventMultipleRequests = false){
-        console.dir(this)
         if(preventMultipleRequests){
             if(!this.isPending){
                 this.callbackPromise = new Promise(function(resolve){

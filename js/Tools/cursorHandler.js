@@ -34,7 +34,7 @@ class CursorHandler_S {
     static updateCursor(){
         this.width = this.cursor.clientWidth / 2;
         this.height = this.cursor.clientHeight / 2;
-        this.cursor.style.transform = "translate(" + (this.X - this.width) + "px, " + (this.Y - this.height) + "px) rotate(" + this.rotation + "deg)";
+        this.cursor.style.transform = "translate3d(" + (this.X - this.width) + "px, " + (this.Y - this.height) + "px, 0) rotate(" + this.rotation + "deg)";
     }
     static #getCursor(type){
       switch(type){
