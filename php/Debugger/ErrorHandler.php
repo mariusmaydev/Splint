@@ -7,8 +7,6 @@
     define( 'PATH_error_log_mySQL', SERVER_ROOT . SPLINT_CONFIG -> paths -> error_log . "/PHP_error_log_MySQL.log"  );
     define( 'PATH_error_log_debugg', SERVER_ROOT . SPLINT_CONFIG -> paths -> error_log . "/PHP_debugg_log.log"  );
 
-
-
     class ErrorHandler {
         public $arg = "";
         private function __construct(public int $errorType, public string $errorMessage, string $errorFile, int $errorLine){
@@ -28,7 +26,7 @@
             $message = "<S-error>" . $message . "\r\n";
             $message .= "<S-time>" . date("Y-m-d H:i:s") . "</S-time></S-error>";
             $type = $this -> errorType;
-            if( str_contains($this -> errorMessage, "SQL syntax")){
+            if( str_contains($this -> errorMessage, "SQL syntax") || str_contains($this -> errorMessage, "mysqli")){
                 file_put_contents(PATH_error_log_mySQL, $message.PHP_EOL, FILE_APPEND );
             } else if($type == E_USER_ERROR || $type == E_USER_NOTICE || $type == E_USER_WARNING){
                 file_put_contents(PATH_error_log_debugg, $message.PHP_EOL, FILE_APPEND );

@@ -1,6 +1,7 @@
 <?php namespace paypal;
     use Communication;
     use Exception;
+    use Debugger;
 
     require_once 'Paypal.php';
 
@@ -81,8 +82,11 @@
             if(!empty($order_id) && $order_status == 'COMPLETED'){
                 // DataBase::acc
                 $db = Paypal::connectDB();
+                Debugger::log($db);
                 $sqlQ = "SELECT id FROM transactions WHERE transaction_id = ?";
+                Debugger::log($sqlQ);
                 $stmt = $db -> prepare($sqlQ);
+                Debugger::log($stmt);
                 $stmt -> bind_param("s", $transaction_id);
                 $stmt -> execute();
                 $stmt -> bind_result($row_id);

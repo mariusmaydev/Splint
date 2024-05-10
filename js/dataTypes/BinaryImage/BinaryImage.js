@@ -33,8 +33,8 @@ class S_BinaryImage extends S_BinaryImageLoader {
             let signal = controller.signal
 
             let headers = new Object();
-                headers["X-SPLINT-ACCESS_KEY"] =  "THUMBNAIL";
-                headers["X-SPLINT-DATA"] =  "123";
+                headers["Splint-Access-Key"] =  "THUMBNAIL";
+                headers["Splint-Data"] =  "123";
                 headers["Content-Type"] =  "application/octet-stream";
             return await fetch(PATH.php.upload, {
                 method: "POST",

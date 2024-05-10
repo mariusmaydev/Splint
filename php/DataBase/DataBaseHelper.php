@@ -6,6 +6,9 @@
     // $pw                     = SPLINT_CONFIG -> dataBase -> password;
 
     class DataBaseHelper {
+        public static function autoCreateDB(){
+            return self::getConfig() -> autoCreateDataBase;
+        }
         public static function getConfig($DBName = null) : stdClass{
             $config = null;
             if(!defined('SPLINT_DATABASE_CONFIG')){
@@ -20,6 +23,7 @@
             if($DBName == null) {
                 $res -> userName      = $res -> server -> userNameGeneral;
                 $res -> tables        = [];
+                $res -> dataBaseID    = $DBName;
             } else {
                 $db = $config["dataBases"][$DBName];
                 if($db["userName"] == null || $db["userName"] == ""){
@@ -33,23 +37,42 @@
                     $res -> dataBaseID      = $db["dbName"];
                 }
                 $res -> tables        = $db["tables"];
-            }          
+            }      
             return $res;
         }
       public static function connectToServer($DBName = null){
 
-            $cfg = self::getConfig($DBName);
-            $user       = $cfg -> userName;
-            $pw         = $cfg -> server -> password;
-            $servername = $cfg -> server -> hostname;
-            $dataBaseID = $cfg -> dataBaseID;
+        $cfg = self::getConfig($DBName);
+        $user       = $cfg -> userName;
+        $pw         = $cfg -> server -> password;
+        $servername = $cfg -> server -> hostname;
+        $dataBaseID = $cfg -> dataBaseID;
 
-          $con = new mysqli($servername, $user, $pw, $dataBaseID);
-          if($con -> connect_error){
-              return false;
-          } else {
-              return $con;
-          }
+        if(self::autoCreateDB()){
+            $con = new mysqli($servername, $user, $pw);
+            if($con -> connect_error) {
+                return false;
+            } else {
+                if($dataBaseID != null){
+                    $sql = "CREATE DATABASE IF NOT EXISTS $dataBaseID";
+                    if ($con -> query($sql)) {
+                        $con -> select_db($dataBaseID); 
+                        return $con;
+                    } else {
+                        return $con;
+                    }
+                } else {
+                    return $con;
+                }
+            }
+        } else {
+            $con = new mysqli($servername, $user, $pw, $dataBaseID);
+            if($con -> connect_error){
+                return false;
+            } else {
+                return $con;
+            }
+        }
       }
       public static function createDBifNotExist($DBName, $con){
         if(!(DataBase::getConfig() -> autoCreateDataBase)){

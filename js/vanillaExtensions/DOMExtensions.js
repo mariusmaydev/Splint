@@ -19,6 +19,7 @@
         }
         get state(){
             let c = class {
+                #instance;
                 constructor(instance){
                     this.#instance = instance;
                 }

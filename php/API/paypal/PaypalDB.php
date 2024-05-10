@@ -44,4 +44,20 @@ class PaypalDB extends DataBase {
         $DS2 -> DBName("transactions");
         return $DS2;
     }
+    public static function get(DataSet $DataSet, $param = null){
+        $con = self::accessDB(self::$DBName, self::generateSQL(self::getStruct()));
+        return self::getData($DataSet, $con, $param);
+    }
+    public static function Edit(DataSet $DataSet){
+        $con = self::accessDB(self::$DBName, self::generateSQL(self::getStruct()));
+        self::editData($con, $DataSet);
+    }
+    public static function Add(DataSet $DataSet){
+        $con = self::accessDB(self::$DBName, self::generateSQL(self::getStruct()));
+        self::AddData($DataSet, $con);
+    }
+    public static function remove(DataSet $DataSet){
+        $con = self::accessDB(self::$DBName, self::generateSQL(self::getStruct()));
+        self::removeData($DataSet, $con);
+    }
   }

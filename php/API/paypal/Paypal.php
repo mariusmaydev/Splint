@@ -3,7 +3,8 @@
 
     require_once dirname(__FILE__) . "/../../CORE.php";
     use Communication;
-    use DataBaseHelper;
+use DataBase;
+use DataBaseHelper;
 use Debugger;
 use Exception;
 use stdClass;
@@ -24,9 +25,8 @@ use stdClass;
 
         public static function connectDB(){
             $db = DataBaseHelper::connectToServer("transactions");
-            if($db -> connect_errno) {
-                printf("Connect failed: %s\n", $db -> connect_error);
-                exit();
+            if(!$db) {
+                // exit();
             }
             return $db;
         }
@@ -85,6 +85,9 @@ use stdClass;
                 Communication::sendBack(false);  
                 exit; 
             } 
+            $r = DataBaseHelper::connectToServer("transactions");
+            Debugger::log(var_export($r, true));
+            // PaypalDB::("transaction", PaypalDB::getStruct());
         }
         public static function generateAccessToken() {
             $ch = curl_init();

@@ -17,14 +17,14 @@
       protected static function accessDB($DBName, $sql){
           $con = self::connectToServer($DBName);
           if(!$con){
-            Debugger::error(mysqli_connect_error());
-            Debugger::log($DBName);
-            Debugger::log($sql);
-            Debugger::log(SPLINT_DATABASE_CONFIG);  
+            // Debugger::error(mysqli_connect_error());
+            // Debugger::log($DBName);
+            // Debugger::log($sql);
+            // Debugger::log(SPLINT_DATABASE_CONFIG);  
             Communication::sendBack([$DBName, $sql, SPLINT_DATABASE_CONFIG]);
             die();
           }
-          self::createDBifNotExist($DBName, $con);
+        //   self::createDBifNotExist($DBName, $con);
           $con -> query($sql);
           return $con;
       }
@@ -111,7 +111,7 @@
         $con -> query($sql);
         $con -> close();
       }
-        protected static function execute($con, string $command, $param = null) : mixed {
+        public static function execute($con, string $command, $param = null) : mixed {
             if($con == false){
                 return false;
             }

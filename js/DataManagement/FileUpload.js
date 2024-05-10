@@ -56,8 +56,8 @@ class FileUpload_S {
         let signal = controller.signal
 
         let headers = new Object();
-            headers["X-SPLINT-ACCESS_KEY"] =  accessKey;
-            headers["X-SPLINT-DATA"] =  JSON.stringify(args);
+            headers["Splint-Access-Key"] =  accessKey;
+            headers["Splint-Data"] =  JSON.stringify(args);
             headers["Content-Type"] =  "application/octet-stream";
         return await fetch(PATH.php.upload, {
             method: "POST",
