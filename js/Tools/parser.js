@@ -33,7 +33,7 @@ class S_Tparser {
         } else if(!save){
             return false;
         }
-        return null;
+        return str;
     }
     static blobToBase64(blob) {
         return new Promise((resolve, _) => {

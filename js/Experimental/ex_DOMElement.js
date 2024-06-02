@@ -25,9 +25,11 @@ class S_DOMElement extends HTMLElement {
     adoptedCallback() {}
 
     static get Input(){
+        SPLINT.getClass("S_Input", "ex_input");
         return S_Input;
     }
     static get Button(){
+        SPLINT.getClass("S_exButton", "ex_button");
         return S_exButton;
     }
     static get Chart(){

@@ -13,6 +13,7 @@
         const GUEST         = "GUEST";
         const DATA          = "DATA";
         const ADMIN         = "ADMIN";
+        const TIME          = "TIME";
         
         const ADMIN_USER_ID      = "ADMIN_USER_ID";
         const ADMIN_USER_NAME    = "ADMIN_USER_NAME";
@@ -23,6 +24,7 @@
                 // session_save_path("/tmp");
                 // ini_set('session.save_path',getcwd(). '/');
                 session_start();
+                self::checkTime();
             }
         }
         public static function getSessionID(bool $print = true){
@@ -50,7 +52,7 @@
                 if(isset($_SESSION[$sessionName])){
                     return $_SESSION[$sessionName];
                 }
-                return false;"SESSION not set: " . $sessionName;
+                return false;
             } else {
                 return $_SESSION;
             }
@@ -72,5 +74,18 @@
         public function unsave(){
             self::start();
             $_SESSION = $this -> session;
+        }
+        public static function updateTime(){
+            Sessions::set(Sessions::TIME, time());
+        }
+        public static function checkTime(){
+            if(Sessions::get(Sessions::TIME) != false){
+                if(time() - Sessions::get(Sessions::TIME) > 86400){
+                    session_unset();
+                    session_destroy();
+                }
+            } else {
+                self::updateTime();
+            }
         }
     }

@@ -8,6 +8,11 @@ class S_DateTime {
         SPLINT.getClass("S_TimeHelper", "TimeHelper");
         return S_TimeHelper;
     }
+    static get PromiseTimeout(){
+        SPLINT.getClass("PromiseTimeout", "PromiseTimeout");
+        return PromiseTimeout;
+
+    }
     /**
      * @description get real UNIX-time in seconds
      */

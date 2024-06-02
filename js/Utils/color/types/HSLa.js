@@ -1,4 +1,5 @@
 SPLINT.require_now("@SPLINT_ROOT/Utils/color/color.js");
+
 class S_colorHSLa extends SPLINT.Utils.Colors {
     constructor(h = 0, s = 0, l = 0, a = 1) {
         super();

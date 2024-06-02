@@ -28,6 +28,15 @@ class S_Tools {
     return array;
   }
   
+  
+    static get download(){
+        SPLINT.getClass("download_S", "download");
+        return download_S;
+    }
+    static get CSV(){
+        SPLINT.getClass("CSV_S", "csv");
+        return CSV_S;
+    }
     static get Fonts(){
         SPLINT.getClass("S_fonts", "fonts");
         return S_fonts;
@@ -40,7 +49,12 @@ class S_Tools {
         SPLINT.getClass("nS_Location", "Location");
         return nS_Location;
     }
+    static get Location_old(){
+        SPLINT.getClass("old_Location", "old_Location");
+        return old_Location;
+    }
     static get parse(){
+        SPLINT.getClass("S_Tparser", "parser");
         return S_Tparser;
     }
     static get CursorHandler(){
@@ -48,6 +62,10 @@ class S_Tools {
         return CursorHandler_S;
     }
     static get DateTime(){
+        SPLINT.getClass("S_DateTime", "DateTime");
+        return S_DateTime;
+    }
+    static get Time(){
         SPLINT.getClass("S_DateTime", "DateTime");
         return S_DateTime;
     }

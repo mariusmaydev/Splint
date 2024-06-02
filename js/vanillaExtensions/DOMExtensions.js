@@ -3,7 +3,6 @@
         #instance = null;
         constructor(instance){
             this.#instance = instance;
-            console.dir(this)
         } 
         #state_c = null;
         #onResize = null;
@@ -505,9 +504,27 @@ HTMLElement.prototype.newChild = function(name, tag, oncreate = function(){}){
   HTMLElement.prototype.before = function(elementAfter){
     elementAfter.parentNode.insertBefore(this, elementAfter);
   }
+  const IconList = new Set();
   HTMLElement.prototype.bindIcon = function(IconName, ...ClassName){
     if(this.tagName == "SPAN"){
-      this.innerHTML = IconName;
+    //     console.dir(SPLINT.Utils.Files.read(SPLINT.projectRootPath + "/fonts/GIcons/search.svg", true));
+    //   this.innerHTML = SPLINT.Utils.Files.read(SPLINT.projectRootPath + "/fonts/GIcons/search.svg", true);
+    IconList.add(IconName);
+    //     SPLINT.Utils.Files.read(SPLINT.projectRootPath + "fonts/GIcons/" + IconName + ".svg").then(function(res){
+    //         SPLINT_Loader.loadGoogleIcons();
+    //         if(res == false){
+    //             // SPLINT.debugger.warn("IconNotFound", IconName + " fallback to cdn");
+    //             SPLINT_Loader.loadGoogleIcons();
+    //             this.innerHTML = IconName;
+    //         } else {
+    //             this.innerHTML = res;
+    //             this.firstChild.classList.add("material-symbols-outlined");
+    //             this.firstChild.firstChild.classList.add("material-symbols-outlined");
+    //         }
+    //     }.bind(this))
+    // //   this.innerHTML = SPLINT.Utils.Files.read(SPLINT.projectRootPath + "/fonts/GIcons/" + IconName + ".svg", true);
+
+    this.innerHTML = IconName;
       if(ClassName[0] != undefined){
         this.classList.add(ClassName);
       }

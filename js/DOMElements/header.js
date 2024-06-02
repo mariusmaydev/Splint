@@ -18,7 +18,7 @@ class Header {
         this.logoLinkBox.Class("logoLinkBox");
         this.logoLinkBox.onclick = function(){
             if(this.logoHref != false){
-                S_Location.goto(this.logoHref).call();
+                SPLINT.Tools.Location_old.goto(this.logoHref).call();
             }
         }.bind(this);
 
@@ -45,7 +45,7 @@ class Header {
         let button = new S_Button(this.headerNavigation, this.buttons.length, value);
         if(typeof onclick !== 'function'){
             button.onclick = function(){
-                S_Location.goto(onclick).call();
+                SPLINT.Tools.Location_old.goto(onclick).call();
             }
         } else {
             button.onclick = onclick;

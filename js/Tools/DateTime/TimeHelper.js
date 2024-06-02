@@ -1,93 +1,55 @@
-class timeTools {
-  static sleep (time) {
-    return new Promise((resolve) => setTimeout(function(){resolve(null)}, time));
-  }
-  static sleep2 (time) {
-    return new Promise(async function(resolve){
-        setTimeout(function(){
-            resolve(null);
-        }, time)
-    });
-  }
-}
 
-class PromiseTimeout {
-    static storage = [];
-    constructor(name, delay, pushToStack = true, onresolve = function(){}){
-        if(pushToStack){
-            for(const ele of PromiseTimeout.storage){
-                if(ele.name == name){
-                    return ele;
-                }
-            }
-        }
-        this.name = name;
-        this.delay = delay;
-        this.resolved = false;
-        this.value = undefined;
-        this.onresolve = onresolve;
-        PromiseTimeout.storage.push(this);
-        this.start();
-    }
-    start(){
-        setTimeout(function(){
-            this.resolved = true;
-            this.value = "test";
-            this.onresolve(this.value);
-        }.bind(this), this.delay);
-    }
-    remove(){
-        for(const i in PromiseTimeout.storage){
-            let ele = PromiseTimeout.storage[i];
-            if(ele.name == this.name){
-                PromiseTimeout.storage.splice(i, 1);
-            }
-        }
-    }
-    static get(name){
-        for(const ele of PromiseTimeout.storage){
-            if(ele.name == name){
-                return ele;
-            }
-        }
-    }
-}
 
-class formatUnix_S {
-    constructor(UnixTime){
-      this.UnixTime = UnixTime;
-    }
-    time(){
-        let date    = new Date(parseInt(this.UnixTime));
-        let hours   = date.getHours();
-        let minutes = date.getMinutes();
-        let seconds = date.getSeconds();
-        if(hours <= 9){
-            hours = "0" + hours;
-        }
-        if(minutes <= 9){
-            minutes = "0" + minutes;
-        }
-        if(seconds <= 9){
-            seconds = "0" + seconds;
-        }
-        return hours + ":" + minutes + ":" + seconds; 
-    }
-    date(){
-        let date  = new Date(parseInt(this.UnixTime));
-        let month = date.getMonth() + 1;
-        let day   = date.getDate();
-        if(month <= 9){
-            month = "0" + month;
-        }
-        if(day <= 9){
-            day = "0" + day;
-        }
-        return "" + day + "." + month + "." + date.getFullYear();
-    }
-  }
+
+
 
   class S_TimeHelper {
+    static sleep (time) {
+      return new Promise((resolve) => setTimeout(function(){resolve(null)}, time));
+    }
+    static sleep2 (time) {
+      return new Promise(async function(resolve){
+          setTimeout(function(){
+              resolve(null);
+          }, time)
+      });
+    }
+    static get formatUnix() {
+        return class formatUnix {
+            constructor(UnixTime){
+                this.UnixTime = UnixTime;
+              }
+              time(){
+                  let date    = new Date(parseInt(this.UnixTime));
+                  let hours   = date.getHours();
+                  let minutes = date.getMinutes();
+                  let seconds = date.getSeconds();
+                  if(hours <= 9){
+                      hours = "0" + hours;
+                  }
+                  if(minutes <= 9){
+                      minutes = "0" + minutes;
+                  }
+                  if(seconds <= 9){
+                      seconds = "0" + seconds;
+                  }
+                  return hours + ":" + minutes + ":" + seconds; 
+              }
+              date(){
+                  let date  = new Date(parseInt(this.UnixTime));
+                  let month = date.getMonth() + 1;
+                  let day   = date.getDate();
+                  if(month <= 9){
+                      month = "0" + month;
+                  }
+                  if(day <= 9){
+                      day = "0" + day;
+                  }
+                  return "" + day + "." + month + "." + date.getFullYear();
+              }
+        }
+        
+      }
     static getTimeFromURL(URL){
       return URL.split("?v=")[1];
     }

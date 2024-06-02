@@ -19,10 +19,20 @@ class SPLINT {
             return S_SimpleFetch;
         }
     }
+    static get DOMComponents(){
+        SPLINT.getClass("S_DOMComponents", "DOMComponents");
+        return S_DOMComponents;
+    }
+    static get Math(){
+        SPLINT.getClass("S_Math", "math");
+        return S_Math;
+    }
     static get Events(){
         return S_Events;
     }
     static get CONSTANTS(){
+        SPLINT.require_now("@SPLINT_ROOT/constants.js");
+        // SPLINT.getClass("S_constants", "constants");
         return S_constants;
     }
     static get DataStorage(){
@@ -47,6 +57,7 @@ class SPLINT {
         return DOMElement;
     }
     static get EX(){
+        SPLINT.getClass("SPLINT_Experimental", "Experimental");
         return SPLINT_Experimental;
     }
     static get BinaryImage(){
@@ -66,6 +77,7 @@ class SPLINT {
         return SArray;
     }
     static get debugger(){
+        SPLINT.getClass("SPLINT_debugger", "debugger");
         return SPLINT_debugger;
     }
     static get Error(){
@@ -84,6 +96,7 @@ class SPLINT {
         return FileUpload_S;
     }
     static get ViewPort(){
+        SPLINT.getClass("ViewPort", "windowExtensions");
         return ViewPort;
     }
     static SVG = class {
@@ -490,13 +503,13 @@ class SPLINT_Loader extends SPLINT_loaderHelper{
                 await SPLINT.require("@SPLINT_ROOT/Events/Events.js");
                 await Promise.allSettled([
                     
-                    SPLINT.require("@SPLINT_ROOT/Utils/ANSI.js"),
-                    SPLINT.require("@SPLINT_ROOT/constants.js"),
+                    // SPLINT.require("@SPLINT_ROOT/Utils/ANSI.js"),
+                    // SPLINT.require("@SPLINT_ROOT/constants.js"),
                     SPLINT.require("@SPLINT_ROOT/DOMElements/DOMElementTemplate.js"),
-                    SPLINT.require("@SPLINT_ROOT/DataManagement/callPHP/CallPHP.js"),
-                    SPLINT.require("@SPLINT_ROOT/Utils/debugger/SplintError.js"),
-                    SPLINT.require("@SPLINT_ROOT/Utils/debugger/debugger.js"),
-                    SPLINT.require("@SPLINT_ROOT/Tools/json.js"),
+                    // SPLINT.require("@SPLINT_ROOT/DataManagement/callPHP/CallPHP.js"),
+                    // SPLINT.require("@SPLINT_ROOT/Utils/debugger/SplintError.js"),
+                    // SPLINT.require("@SPLINT_ROOT/Utils/debugger/debugger.js"),
+                    // SPLINT.require("@SPLINT_ROOT/Tools/json.js"),
                     SPLINT.require("@SPLINT_ROOT/dataTypes/SArray.js"),
                     SPLINT.require("@SPLINT_ROOT/dataTypes/autoObject.js")
                     ]);
@@ -618,9 +631,9 @@ class SPLINT_Loader extends SPLINT_loaderHelper{
                 "imports": {
                   "SPLINT"                  : SPLINT.rootPath + "/js/modules/ThreeJS/CORE.js",
                   "splint"                  : SPLINT.rootPath + "/js/modules/ThreeJS/CORE.js",
-                  "three"                   : SPLINT.rootPath + "/node_modules/three/build/three.module.js",
+                  "three"                   : /*"https://cdnjs.cloudflare.com/ajax/libs/three.js/0.165.0/three.module.min.js",*/SPLINT.rootPath + "/node_modules/three/build/three.module.js",
                   "@THREE_ADDONS/"          : SPLINT.rootPath + "/node_modules/three/examples/jsm/",
-                  "@THREE"                  : SPLINT.rootPath + "/node_modules/three/build/three.module.js",
+                  "@THREE"                  : /*"https://cdnjs.cloudflare.com/ajax/libs/three.js/0.165.0/three.module.min.js",*/SPLINT.rootPath + "/node_modules/three/build/three.module.js",
                   "@THREE_SRC/"             : SPLINT.rootPath + "/node_modules/three/src/",
                 //   "@THREE_ROOT_DIR/"        : SPLINT.rootPath + "/lib/threeJS/",
                 //   "@THREE_MODULES_DIR/"     : SPLINT.rootPath + "/lib/threeJS/examples/jsm/",
@@ -800,9 +813,13 @@ class Splint_bindJS {
                 if(SPLINT_loaderHelper.isFileExcluded(file)){
                     continue;
                 }
-                if(!file.includes("DOMElements") && !file.includes("Utils") && !file.includes("dataTypes") && !file.includes("DataManagement") && !file.includes("API")){
+                if(file.includes("vanillaExtensions")){
                     stack.push(SPLINT_loaderHelper.loadScript(file, false));
                 }
+                // console.log(file)
+                // if(!file.includes("DOMElements") && !file.includes("Utils") && !file.includes("dataTypes") && !file.includes("DataManagement") && !file.includes("API")){
+                //     stack.push(SPLINT_loaderHelper.loadScript(file, false));
+                // }
             }
             await Promise.allSettled(stack);
             await this.FIRST();

@@ -6,9 +6,9 @@
                 return;
             }
             if($encode){
+                // $value = FileTools::JSON_encode_save($value);
                 if(!FileTools::isJSON($value)){
-                    $value = json_encode(($value));
-                    // Debugg::log(json_last_error_msg());
+                    $value = json_encode(json_decode(json_encode($value), true));
                 }
             }
             print_r($value);

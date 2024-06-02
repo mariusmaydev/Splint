@@ -35,9 +35,32 @@
         public static function getExtension(string $file_or_path) : string {
             return substr($file_or_path, -3);
         }
+        public static function JSON_decode_save($data, bool|null $flag = null){
+            if(self::isJSON($data)){
+                return json_decode($data, $flag);
+            } else {
+                return $data;
+            }
+        }
+        public static function JSON_encode_save($data){
+            if(!self::isJSON($data)){
+                // if(!is_string($data)){
+                    return trim(json_encode($data));
+                } else {
+                    return $data;
+                }
+            // }
+        }
         public static function isJSON($data) {
+            // if(is_string($data)){
+            //     $res = @json_decode($data, true);
+            //     if($res != null) {
+            //         return true;
+            //     }
+            // }
+            //     return false;
             if (!empty($data)) {
-                if(is_string($data) && is_array(json_decode($data, true))){
+                if(is_string($data) && is_array(json_decode($data, true))) {
                     return true;
                 }
             }

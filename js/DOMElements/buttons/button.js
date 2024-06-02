@@ -47,7 +47,7 @@ class S_Button {
      * @param {SPLINT_constants.BUTTON_STYLES} styleConst
      */
     set basicStyling(styleConst){
-        for(const e of Object.values(S_constants.BUTTON_STYLES)){
+        for(const e of Object.values(SPLINT.CONSTANTS.BUTTON_STYLES)){
             this.button.classList.remove(e);
         }
         if(styleConst != null){

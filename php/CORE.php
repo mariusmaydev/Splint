@@ -1,5 +1,7 @@
 <?php 
-    header("Access-Control-Allow-Origin: " . $_SERVER['HTTP_ORIGIN']);
+    if(isset($_SERVER['HTTP_ORIGIN'])){
+        header("Access-Control-Allow-Origin: " . $_SERVER['HTTP_ORIGIN']);
+    }
     require_once 'DataManagement/shmop/S_shmop.php';
     require_once 'Tools/FileTools.php';
     define('PROJECT_NAME', searchConfig());

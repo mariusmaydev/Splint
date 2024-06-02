@@ -36,11 +36,12 @@ class AmountInput {
       let button_sub = new SPLINT.DOMElement.Button(this.mainElement, "sub");
           button_sub.bindIcon("remove");
           button_sub.onclick = function(){
+            let amountBefore = this.#parseInput(this.amountInput.value);
             if(this.#parseInput(this.amountInput.value) > this.min){
               this.amount = SPLINT.Tools.Math.add(this.#parseInput(this.amountInput.value), -this.step, true);
               this.amountInput.value = this.#parseNumber2String(this.amount);
             }
-            this.oninput(this.amount);
+            this.oninput(this.amount, amountBefore);
           }.bind(this);
   
       this.amountDiv = new SPLINT.DOMElement(this.id + "inputDiv", "div", this.mainElement);
@@ -68,11 +69,12 @@ class AmountInput {
       let button_add = new SPLINT.DOMElement.Button(this.mainElement, "add");
           button_add.bindIcon("add");
           button_add.onclick = function(){
+            let amountBefore = this.#parseInput(this.amountInput.value);
             if(this.max == null || this.#parseInput(this.amountInput.value) < this.max){
                 this.amount = SPLINT.Tools.Math.add(this.#parseInput(this.amountInput.value), parseFloat(this.step), true);
                 this.amountInput.value = this.#parseNumber2String(this.amount);
             }
-            this.oninput(this.amount);
+            this.oninput(this.amount, amountBefore);
           }.bind(this);
     }
     #parseInput(number){

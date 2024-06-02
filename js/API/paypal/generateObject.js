@@ -3,16 +3,14 @@ class S_PaypalObject {
     constructor(){
 
     }
-    // set 
-    
     static async preparePaypal(){
         let CouponObj = null;
-        let Items = (await ShoppingCart.get()).shoppingCart;
+        let Items = (await ShoppingCart.get());
         let FullPrice = 0;
         let productsData = await productHelper.getProducts();
         for(const item of Items){
             item.price = parseFloat(productsData[item.ProductName].price);
-            FullPrice += S_Math.multiply(item.price, item.amount);
+            FullPrice += SPLINT.Math.multiply(item.price, item.amount);
         }
         let orderObject = '{' +
         '"purchase_units": [{' +

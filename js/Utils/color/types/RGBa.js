@@ -38,5 +38,3 @@ class S_colorRGBa extends SPLINT.Utils.Colors {
         return this;
     }
 }
-
-console.dir(window['S_Colors']);

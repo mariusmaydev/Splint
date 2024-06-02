@@ -77,6 +77,8 @@ class S_WebWorker {
         if(SPLINT.isWorker){
             return false
         }
+        SPLINT.getClass("S_WebWorkerManager", "WebWorkerManager");
+        // return S_WebWorker;
         return S_WebWorkerManager;
     }
 }

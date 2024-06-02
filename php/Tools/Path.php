@@ -194,7 +194,9 @@ class Path {
             }
             $directory -> close();
         } else {
-            copy($srcPath, $dstPath);
+            if(file_exists($srcPath)){
+                copy($srcPath, $dstPath);
+            }
         }
     }
     /**

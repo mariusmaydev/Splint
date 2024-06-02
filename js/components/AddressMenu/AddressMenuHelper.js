@@ -26,6 +26,20 @@ class AddressHelper {
           data.AddressID = addressID;
       return CallPHP_S.call(AddressHelper.PATH, data);
     }
+    static getCountryForCode(code){
+      switch(code){
+        case 'AU' : return "Österreich"; break;
+        case 'DE' : return "Deutschland"; break;
+      }
+    }
+    
+    static getSalutationForCode(code){
+      switch(code){
+        case 'Mr' : return "Herr"; break;
+        case 'Mx' : return ""; break;
+        case 'Mrs' : return "Frau"; break;
+      }
+    }
   }
   
   class AddressObject {
@@ -228,20 +242,6 @@ class AddressHelper {
     }
   }
   
-  function getCountryForCode(code){
-    switch(code){
-      case 'AU' : return "Österreich"; break;
-      case 'DE' : return "Deutschland"; break;
-    }
-  }
-  
-  function getSalutationForCode(code){
-    switch(code){
-      case 'Mr' : return "Herr"; break;
-      case 'Mx' : return ""; break;
-      case 'Mrs' : return "Frau"; break;
-    }
-  }
   
   
   function addAddress(AddressObject){

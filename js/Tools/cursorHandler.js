@@ -4,16 +4,23 @@ class CursorHandler_S {
         this.cursor = null;
         this.X = 0;
         this.Y = 0;
-        
-        SPLINT.Events.onInitComplete = function(){
-            CursorHandler_S.cursor = new SPLINT.DOMElement("customCursor", "span", document.body);
-            CursorHandler_S.cursor.Class("customCursor");
-            document.body.addEventListener("mousemove", function(event){
-                CursorHandler_S.X = event.pageX;
-                CursorHandler_S.Y = event.pageY;
-                CursorHandler_S.updateCursor();
-            }, false);
+        if(SPLINT.Events.onInitComplete.dispatched == false) {
+            SPLINT.Events.onInitComplete = function(){
+                this.#initCursor();
+            }.bind(this);
+        } else {
+            this.#initCursor();
         }
+    }
+    static #initCursor(){
+        CursorHandler_S.cursor = new SPLINT.DOMElement("customCursor", "span", document.body);
+        CursorHandler_S.cursor.Class("customCursor");
+        document.body.addEventListener("mousemove", function(event){
+            CursorHandler_S.X = event.pageX;
+            CursorHandler_S.Y = event.pageY;
+            CursorHandler_S.updateCursor();
+        }, false);
+
     }
     static setCursor(type, rotation){
         if(type != this.type){

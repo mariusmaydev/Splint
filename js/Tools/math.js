@@ -98,26 +98,27 @@ class S_Math {
     static #getPrecisionScale(...numbers){
         return Math.pow(10, this.getMaxDecimals(...numbers));
     }
-  }
-
-  class MATH_convert {
-    static pt2px(pt){
-      return S_Math.multiply(pt, 1.333333);
+    static get convert(){
+        return class MATH_convert {
+            static pt2px(pt){
+              return S_Math.multiply(pt, 1.333333);
+            }
+            static px2pt(px){
+              return S_Math.divide(px, 1.333333);
+            }
+            static pt2mm(pt){
+              return S_Math.multiply(pt, 0.352777);
+            }
+            static px2mm(px){
+              return S_Math.multiply(px, 0.264583);
+            }
+            static mm2px(mm){
+              return S_Math.multiply(mm, 3.779527);
+            }
+            static mm2pt(mm){
+              return S_Math.multiply(mm, 2.834645);
+            }
+        
+        }
     }
-    static px2pt(px){
-      return S_Math.divide(px, 1.333333);
-    }
-    static pt2mm(pt){
-      return S_Math.multiply(pt, 0.352777);
-    }
-    static px2mm(px){
-      return S_Math.multiply(px, 0.264583);
-    }
-    static mm2px(mm){
-      return S_Math.multiply(mm, 3.779527);
-    }
-    static mm2pt(mm){
-      return S_Math.multiply(mm, 2.834645);
-    }
-
   }

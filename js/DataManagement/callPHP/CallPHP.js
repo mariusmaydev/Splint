@@ -19,7 +19,7 @@ class S_CallPHP {
         this.mode           = "cors";
         this.cache          = "force-cache";
         this.processData    = true;
-        this.withCredentials = false;
+        this.withCredentials = true;
         this.credentials    = "same-origin";
         this.redirect       = "follow";
         this.referrerPolicy = "no-referrer";
@@ -113,7 +113,7 @@ class S_CallPHP {
             .then(function(r){
                 this.activeCall = null;
                 this.isPending = false;
-                let a =  S_JSON.parseIf(r);
+                let a =  SPLINT.Tools.parse.toJSON(r);
                 this.onFinish(a);
                 this.onSuccess(a);
                 return a;

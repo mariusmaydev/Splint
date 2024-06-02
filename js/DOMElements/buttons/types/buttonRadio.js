@@ -94,6 +94,32 @@ class S_radioButton extends S_Button {
                 displayDiv.setAttribute("value", data.id);
 
       }
+    //   let nodes = document.querySelectorAll(`input[type="radio"][name="${CSS.escape(this.name)}"]`)
+    //   for(const el of nodes) {
+    //     el.onchange = function(e){
+    //         console.dir(document.querySelector(`div[name="${CSS.escape(this.name)}"]`))
+    //         let ele1 = document.querySelectorAll(`div[name="${CSS.escape(this.name)}"]`)//$(`div[name="${CSS.escape(this.name)}"]`);
+    //         console.dir(ele1)
+    //         for( const ele of ele1){
+    //             if(ele.getAttribute("value") == e.currentTarget.value){
+    //                 ele.parentElement.state().setActive();//.
+    //             } else {
+    //                 ele.parentElement.state().unsetActive();//.
+    //             }
+    //         }
+    //         // ele1.attr('state', 'passive');
+    //         // $(`div[name="${CSS.escape(this.name)}"]`).filter("[value='" + e.currentTarget.value + "']").attr('state', 'active');    
+    //         // for(let el of ele1){
+    //         //     el.parentElement.setAttribute('state', 'passive');     
+    //         // }      
+    
+    //         $(`div[name="${CSS.escape(this.name)}"]`).filter("[value='" + e.currentTarget.value + "']")[0].parentElement.setAttribute('state', 'active');
+    //         console.dir($(`div[name="${CSS.escape(this.name)}"]`).filter("[value='" + e.currentTarget.value + "']")[0].parentElement);
+    //         this.onChange(e);
+
+    //     }.bind(this)
+    //   }
+    //   console.dir($(`input[type="radio"][name="${CSS.escape(this.name)}"]`))
       $(`input[type="radio"][name="${CSS.escape(this.name)}"]`).on('change', function(e) {
         let ele1 = $(`div[name="${CSS.escape(this.name)}"]`);
         ele1.attr('state', 'passive');
@@ -103,7 +129,6 @@ class S_radioButton extends S_Button {
         }      
 
         $(`div[name="${CSS.escape(this.name)}"]`).filter("[value='" + e.currentTarget.value + "']")[0].parentElement.setAttribute('state', 'active');
-        // console.log(e);
         this.onChange(e);
       }.bind(this));
     }
