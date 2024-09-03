@@ -1,5 +1,6 @@
 
 class CursorHandler_S {
+    static listeners = null;
     static {
         this.cursor = null;
         this.X = 0;
@@ -13,14 +14,24 @@ class CursorHandler_S {
         }
     }
     static #initCursor(){
+        if(this.listener != null){
+            return;
+        }
         CursorHandler_S.cursor = new SPLINT.DOMElement("customCursor", "span", document.body);
         CursorHandler_S.cursor.Class("customCursor");
-        document.body.addEventListener("mousemove", function(event){
+        let l = function(event){
             CursorHandler_S.X = event.pageX;
             CursorHandler_S.Y = event.pageY;
             CursorHandler_S.updateCursor();
-        }, false);
-
+        }
+        this.listener = document.body.SEvent.addListener("mousemove", l, false)
+    }
+    static remove(){
+        if(this.listener != null) {
+            this.listener.remove();
+            this.listener = null;
+            this.unsetCursor();
+        }
     }
     static setCursor(type, rotation){
         if(type != this.type){
@@ -39,6 +50,7 @@ class CursorHandler_S {
 
     }
     static updateCursor(){
+        this.#initCursor();
         this.width = this.cursor.clientWidth / 2;
         this.height = this.cursor.clientHeight / 2;
         this.cursor.style.transform = "translate3d(" + (this.X - this.width) + "px, " + (this.Y - this.height) + "px, 0) rotate(" + this.rotation + "deg)";

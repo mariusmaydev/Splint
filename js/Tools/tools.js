@@ -27,8 +27,15 @@ class S_Tools {
     }
     return array;
   }
+  static sleep (time) {
+      return new Promise((resolve) => setTimeout(resolve, time));
+    }
   
   
+    static get performance(){
+        SPLINT.getClass("S_performance", "performance");
+        return S_performance;
+    }
     static get download(){
         SPLINT.getClass("download_S", "download");
         return download_S;

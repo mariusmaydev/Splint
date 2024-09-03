@@ -29,6 +29,8 @@ class S_BinaryImageLoader {
         return await S_BinaryImage.fromUint16Array(g);
     }
     static async fromURL(url){
+        // let r = await SPLINT.Utils.Files.doesImageExist(url);
+        // console.dir(r)
         let response = await fetch(url);
         if(!response.ok){
             return false;

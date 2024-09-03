@@ -62,10 +62,18 @@ Object.defineProperty(HTMLElement.prototype, 'onEnter', {
 class S_Events {
     static #onLoadingComplete   = this.#new("S_onLoadingComplete");
     static #onInitComplete      = this.#new("S_onInitComplete");
+    static #onPopStateChange    = this.#new("S_onPopStateChange");
     static {
         this.eventTarget = new EventTarget();
         this.#applyEvent(this.#onInitComplete, {once : true});
         this.#applyEvent(this.#onLoadingComplete, {once : true});
+        this.#applyEvent(this.#onPopStateChange, {once : false});
+    }
+    static set onPopStateChange(func){
+        this.#onPopStateChange.STACK.push(func);
+    }
+    static get onPopStateChange(){
+        return this.#onPopStateChange;
     }
     static set onInitComplete(func){
         this.#onInitComplete.STACK.push(func);

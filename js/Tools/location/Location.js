@@ -4,10 +4,11 @@ class nS_Location {
         this.STORAGE = new Object();
         this.STORAGE.hashes = this.#queryHashes();
         this.STORAGE.params = this.getParams();
-        this.href = location.href.split("?")[0].split("#")[0];
+        this.href = window.location.href.split("?")[0].split("#")[0];
         window.addEventListener("hashchange", function(e){
             this.STORAGE.hashes = this.#queryHashes();
         }.bind(this))
+        
     }
     static set URL(v){
         this.href = v.split("?")[0].split("#")[0];
@@ -36,6 +37,10 @@ class nS_Location {
     static addHash(...hashes){
         this.#queryHashes();
         this.STORAGE.hashes = SPLINT.SArray.combine(this.STORAGE.hashes, hashes);
+        return this;
+    }
+    static setHashes(...hashes){
+        this.STORAGE.hashes = hashes;
         return this;
     }
     static getHashes(){

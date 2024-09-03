@@ -164,7 +164,6 @@ class autoObject extends Object {
         // if(saveStack){
 
         Object.defineProperty(this, "stack", {
-            // value: "AAA",
             writable: false,
             configurable: false,
             enumerable: false  

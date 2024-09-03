@@ -35,6 +35,10 @@ class SPLINT {
         // SPLINT.getClass("S_constants", "constants");
         return S_constants;
     }
+    static get PromiseBuffer(){
+        SPLINT.getClass("S_PromiseBuffer", "PromiseBuffer");
+        return S_PromiseBuffer;
+    }
     static get DataStorage(){
         SPLINT.getClass("S_DataStorage", "DataStorage");
         return S_DataStorage;
@@ -71,6 +75,10 @@ class SPLINT {
     static get autoObject(){
         SPLINT.getClass("autoObject", "autoObject");
         return autoObject;
+    }
+    static get objectMapper(){
+        SPLINT.getClass("S_ObjectMapper", "SObjectMapper");
+        return S_ObjectMapper;
     }
     static get SArray(){
         SPLINT.getClass("SArray", "SArray");
@@ -314,31 +322,34 @@ class SPLINT_loaderHelper {
             } else {
                 function load(){
                     let tag = document.createElement('script');
-                    tag.type = "text/javascript";
+                    // tag.type = "text/javascript";
                     if(cache){
                         tag.src = path;
                     } else {
                         tag.src = path + "?v=" + Math.round(Date.now()/1000);
                     }
-                    tag.defer = true;
+                    tag.defer = false;
                     if(type != null){
                         tag.type = type;
                     }
-                    tag.setAttribute("async", "true");
-                    // S_Loader.loadScriptByAjax(src);
+                    tag.async = true;
                     tag.onload = function(){
                         obj1.resolved = true;
+                        this.onload = null;
                         resolve(true)
+                        return;
                     };
                     tag.onerror = function(){
                         SPLINT.Error.FileNotFound(path);
                         // SPLINT.debugger.error("init - loader", "try reloading is you have changed the file tree")
                         Splint_bindJS.loadPATH();
                         SPLINT_loaderHelper.queryPaths();
-                        // load();
+                        load();
                         obj1.resolved = true;
 
+                        this.onerror = null;
                         reject(false);
+                        return;
                     }
                     document.body.appendChild(tag);
                 }
@@ -504,7 +515,7 @@ class SPLINT_Loader extends SPLINT_loaderHelper{
                 await Promise.allSettled([
                     
                     // SPLINT.require("@SPLINT_ROOT/Utils/ANSI.js"),
-                    // SPLINT.require("@SPLINT_ROOT/constants.js"),
+                    SPLINT.require("@SPLINT_ROOT/vanillaExtensions/OtherExtensions.js"),
                     SPLINT.require("@SPLINT_ROOT/DOMElements/DOMElementTemplate.js"),
                     // SPLINT.require("@SPLINT_ROOT/DataManagement/callPHP/CallPHP.js"),
                     // SPLINT.require("@SPLINT_ROOT/Utils/debugger/SplintError.js"),
@@ -594,29 +605,30 @@ class SPLINT_Loader extends SPLINT_loaderHelper{
     }
     static async loadGoogleFonts(){
         let link = "https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:wght@100;300;400;500;700;900&family=Teko:wght@300..700&display=swap";
-        // let tag1 = document.createElement('link');
-        //     tag1.rel = "preconnect";
-        //     tag1.href = 'https://fonts.googleapis.com';
-        // document.head.appendChild(tag1);
+
         let tag = document.createElement("link");
             tag.href = link;
-            tag.title = "Google Fonts";
-            tag.rel = "stylesheet";
-            tag.async = true;
+            tag.rel = "prefetch";
+            tag.as = "style";
+            tag.onload = function(){
+                this.onload = null;
+                this.rel = "stylesheet";
+            }
             document.head.appendChild(tag);
         return;
     }
     static async loadGoogleIcons(){
         let link = "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,200&display=block";
         let tag1 = document.createElement('link');
-            tag1.rel = "preconnect";
-            tag1.href = 'https://fonts.googleapis.com';
-        document.head.appendChild(tag1);
-        let tag = document.createElement("link");
-            tag.href = link;
-            tag.rel = "stylesheet";
-            tag.async = true;
-            document.head.appendChild(tag);
+            tag1.rel = "prefetch";
+            tag1.as = "style";
+            tag1.href = link;
+            tag1.onload = function(){
+                this.onload = null;
+                this.rel = "stylesheet";
+                this.as = "";
+            }
+            document.head.appendChild(tag1);
         return;
     }
     static generateMetaTags(){

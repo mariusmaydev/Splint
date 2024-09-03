@@ -131,6 +131,8 @@ class S_ImageSlideMenu extends S_DOMElement_TEMPLATE {
                 imgEleBody.Class("imgEleBody");
                 imgEleBody.classList.add("stdImgContainer");
                 let imgEleImage = new SPLINT.DOMElement(this.id + "PrevimgEle_" + obj.name, "canvas", imgEleBody);
+                    imgEleImage.width= window.innerWidth;
+                    imgEleImage.height= window.innerHeight
                     obj.src.then(function(bmp){
                         // imgEleImage.style.height = imgEleBody.clientHeight + "px";
                         // imgEleImage.style.width = imgEleBody.clientWidth + "px";
@@ -144,20 +146,24 @@ class S_ImageSlideMenu extends S_DOMElement_TEMPLATE {
                             ctx.drawImage(bmp, 0, 0);
                             // ctx.restore();
                         imgEleImage.SPLINT.onResize = function(entry){
-                                console.dir(entry)
                                 let target = entry[0].target;
-                                // imgEleImage.style.height = target.clientHeight + "px";
-                                // imgEleImage.style.width = target.clientWidth + "px";
-                                        target.width = bmp.width *2;
-                                        target.height = bmp.height*2;
-                                // ctx.clear
+                                        target.width = bmp.width ;
+                                        target.height = bmp.height;
+                                // imgEleImage.style.height = (target.clientHeight*2) + "px";
+                                // imgEleImage.style.width = (target.clientWidth*2) + "px";
+                                imgEleImage.width = bmp.width
+                                imgEleImage.height = bmp.height
+                                // ctx.canvas.style.width = imgEleImage.width * 0.5 + "px";
+                                // ctx.canvas.style.height = imgEleImage.height * 0.5 + "px";
+                                // ctx.reset();
                                 // ctx.clearRect(0, 0, bmp.width, bmp.height);
-                                // ctx.save();
+                                ctx.save();
                                 // ctx.scale(0.5,0.5)
                                 ctx.imageSmoothingEnabled = true;
                                 ctx.imageSmoothingQuality = "high";
-                                ctx.drawImage(bmp, 0, 0, bmp.width, bmp.height, 0, 0, imgEleImage.width, imgEleImage.height);
-                                // ctx.restore();
+                                ctx.scale(0.5, 0.5);
+                                ctx.drawImage(bmp, 0, 0, bmp.width, bmp.height, 0, 0, imgEleImage.width * 2, imgEleImage.height * 2);
+                                ctx.restore();
                             }
                             // ctx.save();
                             // ctx.imageSommting

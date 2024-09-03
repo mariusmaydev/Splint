@@ -8,7 +8,18 @@ class S_FileUtils {
     // static loadFromProject(uri){
     //     return new parseOutput(this.read(SPLINT.URIs.project + uri));
     // }
-
+    static async doesImageExist(uri){
+        return new Promise(async function(resolve){
+            let img = new Image();
+                img.onload = function(r){
+                    resolve(r);
+                }; 
+                img.onerror = function(){
+                    resolve(false);
+                }; 
+                img.src = uri;
+        });
+    }
     /**
      * desc
      * @date 2023-06-12

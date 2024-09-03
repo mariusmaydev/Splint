@@ -1,4 +1,53 @@
-  
+// placeToReplace.prototype.oldaddEventListener = placeToReplace.prototype.addEventListener;
+// placeToReplace.prototype.addEventListener = function(event, handler, placeholder) {
+//   console.log("calling substitute");
+//   if (arguments.length < 3) {
+    // this.oldaddEventListener(event, handler, false);
+//   } else {
+    // this.oldaddEventListener(event, handler, placeholder);
+//   }
+// }
+// document.querySelector("div").addEventListener("click", function() {
+//   console.log("foo");
+// });
+// EventTarget.prototype
+
+
+
+
+    // Object.defineProperty(EventTarget.prototype, "SEventListener", {
+    //     get: function(){
+    //         new class {
+    //             constructor(){
+
+    //             }
+    //         }
+    //         if(this.SPLINT_STORAGE == undefined || this.SPLINT_STORAGE == null){
+    //             // this.SPLINT_STORAGE = new SPLINT_DOMextensions(this);
+    //         }
+    //         return this.SPLINT_STORAGE;
+    //     },
+    //     enumerable: false,
+    //     configurable: true
+    // })
+    // window.addEventListener()
+  EventTarget.prototype.SEventListener = function (type, listener, options) {
+    console.dir(this)
+    this.addEventListener(type, listener, options);
+    // let styles = window.getComputedStyle(this);
+    // let margin = parseFloat(styles['marginLeft']) +
+    //             parseFloat(styles['marginRight']);
+
+    // return Math.ceil(this.offsetWidth + margin);
+  }
+// const a = addEventListener(type, listener)
+// let addSelfDestructingEventListener = (element, eventType, callback) => {
+//     let handler = () => {
+//         callback();
+//         element.removeEventListener(eventType, handler);
+//     };
+//     element.addEventListener(eventType, handler);
+// };
     class SPLINT_DOMextensions {
         #instance = null;
         constructor(instance){
